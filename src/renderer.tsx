@@ -5,7 +5,7 @@ export const renderer = jsxRenderer(({ children, title, description, schema }) =
   const pageDescription = description || 'Learn business credit, secure funding, and build wealth with Antonio Cook (Mr. Mogul Maker). 10,000+ entrepreneurs funded. Speaker, coach, financial educator.'
   
   // Cache-busting version for static assets
-  const version = '2.0.0'
+  const version = '2.1.1'
   
   return (
     <html lang="en">
@@ -76,6 +76,9 @@ export const renderer = jsxRenderer(({ children, title, description, schema }) =
         
         {/* Simple, safe animations */}
         <script src={`/static/simple-animations.js?v=${version}`}></script>
+        
+        {/* Video carousel */}
+        <script src={`/static/video-carousel.js?v=${version}`}></script>
         
         {/* Scroll Progress Script */}
         <script dangerouslySetInnerHTML={{__html: `

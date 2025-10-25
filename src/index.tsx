@@ -378,51 +378,139 @@ app.get('/', (c) => {
             </div>
           </div>
           
-          {/* Popular Videos */}
+          {/* Popular Videos - Interactive Carousel */}
           <div class="mt-16">
             <h3 class="text-3xl font-bold text-gray-900 mb-8 text-center">Popular Videos</h3>
-            <div class="grid md:grid-cols-3 gap-6">
-              <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition">
-                <div class="bg-gradient-to-br from-black to-gray-800 h-48 flex items-center justify-center">
-                  <i class="fab fa-youtube text-yellow-400 text-6xl"></i>
-                </div>
-                <div class="p-6">
-                  <h4 class="font-bold text-lg mb-2">How to Become a Data Furnisher</h4>
-                  <p class="text-gray-600 text-sm mb-4">Step-by-step guide to reporting to credit bureaus</p>
-                  <div class="flex items-center justify-between text-sm text-gray-500">
-                    <span><i class="fas fa-eye mr-1"></i> 5.1K views</span>
-                    <span>6 months ago</span>
+            
+            {/* Video Carousel Container - Compact Version */}
+            <div class="relative max-w-3xl mx-auto">
+              {/* Carousel Wrapper */}
+              <div id="video-carousel" class="overflow-hidden rounded-2xl">
+                <div id="video-slides" class="flex transition-transform duration-500 ease-in-out">
+                  
+                  {/* Video 1: How to Become a Data Furnisher */}
+                  <div class="min-w-full px-2">
+                    <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-2xl">
+                      {/* YouTube Embed */}
+                      <div class="relative aspect-video bg-black">
+                        <iframe 
+                          class="w-full h-full"
+                          src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1?rel=0&modestbranding=1" 
+                          title="How to Become a Data Furnisher"
+                          frameborder="0" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                          allowfullscreen>
+                        </iframe>
+                      </div>
+                      {/* Video Info - Compact */}
+                      <div class="p-4 bg-white">
+                        <h4 class="font-bold text-lg mb-1 text-gray-900">How to Become a Data Furnisher</h4>
+                        <p class="text-gray-600 text-sm mb-3">Step-by-step guide to reporting to credit bureaus.</p>
+                        <div class="flex items-center justify-between text-xs text-gray-500 mb-2">
+                          <span><i class="fas fa-eye mr-1"></i> 5.1K views</span>
+                          <span><i class="fas fa-clock mr-1"></i> 6 months ago</span>
+                        </div>
+                        <a href="https://www.youtube.com/@mrmogulmaker" target="_blank" class="inline-flex items-center text-yellow-400 hover:text-yellow-500 font-semibold text-sm">
+                          <i class="fab fa-youtube mr-1"></i>
+                          Watch on YouTube
+                          <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                        </a>
+                      </div>
+                    </div>
                   </div>
+                  
+                  {/* Video 2: Structure Your Business Right */}
+                  <div class="min-w-full px-2">
+                    <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-2xl">
+                      {/* YouTube Embed */}
+                      <div class="relative aspect-video bg-black">
+                        <iframe 
+                          class="w-full h-full"
+                          src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2?rel=0&modestbranding=1" 
+                          title="Structure Your Business Right"
+                          frameborder="0" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                          allowfullscreen>
+                        </iframe>
+                      </div>
+                      {/* Video Info - Compact */}
+                      <div class="p-4 bg-white">
+                        <h4 class="font-bold text-lg mb-1 text-gray-900">Structure Your Business Right</h4>
+                        <p class="text-gray-600 text-sm mb-3">LLC, Corp, or Sole Proprietor? Make the right choice.</p>
+                        <div class="flex items-center justify-between text-xs text-gray-500 mb-2">
+                          <span><i class="fas fa-eye mr-1"></i> 409 views</span>
+                          <span><i class="fas fa-clock mr-1"></i> 6 months ago</span>
+                        </div>
+                        <a href="https://www.youtube.com/@mrmogulmaker" target="_blank" class="inline-flex items-center text-yellow-400 hover:text-yellow-500 font-semibold text-sm">
+                          <i class="fab fa-youtube mr-1"></i>
+                          Watch on YouTube
+                          <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Video 3: Think Like a Bank */}
+                  <div class="min-w-full px-2">
+                    <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-2xl">
+                      {/* YouTube Embed */}
+                      <div class="relative aspect-video bg-black">
+                        <iframe 
+                          class="w-full h-full"
+                          src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3?rel=0&modestbranding=1" 
+                          title="Think Like a Bank"
+                          frameborder="0" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                          allowfullscreen>
+                        </iframe>
+                      </div>
+                      {/* Video Info - Compact */}
+                      <div class="p-4 bg-white">
+                        <h4 class="font-bold text-lg mb-1 text-gray-900">Think Like a Bank</h4>
+                        <p class="text-gray-600 text-sm mb-3">Build wealth like a mogul with the right mindset.</p>
+                        <div class="flex items-center justify-between text-xs text-gray-500 mb-2">
+                          <span><i class="fas fa-eye mr-1"></i> 323 views</span>
+                          <span><i class="fas fa-clock mr-1"></i> 5 months ago</span>
+                        </div>
+                        <a href="https://www.youtube.com/@mrmogulmaker" target="_blank" class="inline-flex items-center text-yellow-400 hover:text-yellow-500 font-semibold text-sm">
+                          <i class="fab fa-youtube mr-1"></i>
+                          Watch on YouTube
+                          <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  
                 </div>
               </div>
               
-              <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition">
-                <div class="bg-gradient-to-br from-black to-gray-800 h-48 flex items-center justify-center">
-                  <i class="fab fa-youtube text-yellow-400 text-6xl"></i>
-                </div>
-                <div class="p-6">
-                  <h4 class="font-bold text-lg mb-2">Structure Your Business Right</h4>
-                  <p class="text-gray-600 text-sm mb-4">LLC, Corp, or Sole Proprietor? Make the right choice</p>
-                  <div class="flex items-center justify-between text-sm text-gray-500">
-                    <span><i class="fas fa-eye mr-1"></i> 409 views</span>
-                    <span>6 months ago</span>
-                  </div>
-                </div>
-              </div>
+              {/* Carousel Navigation - Compact */}
+              <button 
+                id="video-prev" 
+                class="absolute left-0 top-1/3 -translate-y-1/2 -translate-x-3 bg-yellow-400 hover:bg-yellow-500 text-black w-10 h-10 rounded-full shadow-lg transition-all transform hover:scale-110 flex items-center justify-center z-10">
+                <i class="fas fa-chevron-left text-sm"></i>
+              </button>
+              <button 
+                id="video-next" 
+                class="absolute right-0 top-1/3 -translate-y-1/2 translate-x-3 bg-yellow-400 hover:bg-yellow-500 text-black w-10 h-10 rounded-full shadow-lg transition-all transform hover:scale-110 flex items-center justify-center z-10">
+                <i class="fas fa-chevron-right text-sm"></i>
+              </button>
               
-              <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition">
-                <div class="bg-gradient-to-br from-black to-gray-800 h-48 flex items-center justify-center">
-                  <i class="fab fa-youtube text-yellow-400 text-6xl"></i>
-                </div>
-                <div class="p-6">
-                  <h4 class="font-bold text-lg mb-2">Think Like a Bank</h4>
-                  <p class="text-gray-600 text-sm mb-4">Build wealth like a mogul with the right mindset</p>
-                  <div class="flex items-center justify-between text-sm text-gray-500">
-                    <span><i class="fas fa-eye mr-1"></i> 323 views</span>
-                    <span>5 months ago</span>
-                  </div>
-                </div>
+              {/* Carousel Indicators - Compact */}
+              <div class="flex justify-center gap-2 mt-4">
+                <button class="video-indicator w-2.5 h-2.5 rounded-full bg-yellow-400 transition-all" data-slide="0"></button>
+                <button class="video-indicator w-2.5 h-2.5 rounded-full bg-gray-300 hover:bg-yellow-200 transition-all" data-slide="1"></button>
+                <button class="video-indicator w-2.5 h-2.5 rounded-full bg-gray-300 hover:bg-yellow-200 transition-all" data-slide="2"></button>
               </div>
+            </div>
+            
+            {/* View All Videos Button - Compact */}
+            <div class="text-center mt-6">
+              <a href="https://www.youtube.com/@mrmogulmaker" target="_blank" class="inline-flex items-center bg-black text-yellow-400 px-6 py-3 rounded-full font-semibold hover:bg-gray-900 transition transform hover:scale-105">
+                <i class="fab fa-youtube mr-2"></i>
+                View All Videos
+                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+              </a>
             </div>
           </div>
         </div>
