@@ -1,6 +1,6 @@
 import { jsxRenderer } from 'hono/jsx-renderer'
 
-export const renderer = jsxRenderer(({ children, title, description }) => {
+export const renderer = jsxRenderer(({ children, title, description, schema }) => {
   const pageTitle = title || 'Mr. Mogul Maker | Antonio Cook - Business Credit Expert & Entrepreneur Coach'
   const pageDescription = description || 'Learn business credit, secure funding, and build wealth with Antonio Cook (Mr. Mogul Maker). 10,000+ entrepreneurs funded. Speaker, coach, financial educator.'
   
@@ -37,6 +37,13 @@ export const renderer = jsxRenderer(({ children, title, description }) => {
         
         {/* Favicon */}
         <link rel="icon" type="image/png" href="/mr-mogul-maker-logo.png" />
+        
+        {/* Schema.org structured data */}
+        {schema && (
+          <script type="application/ld+json" dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schema)
+          }} />
+        )}
         
         <link href="/static/style.css" rel="stylesheet" />
         <script src="https://cdn.tailwindcss.com"></script>

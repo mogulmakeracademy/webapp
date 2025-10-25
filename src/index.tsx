@@ -595,7 +595,83 @@ app.get('/', (c) => {
     </div>,
     {
       title: 'Mr. Mogul Maker | Antonio Cook - Business Credit Expert & Entrepreneur Coach',
-      description: 'Learn business credit, secure funding, and build wealth with Antonio Cook (Mr. Mogul Maker). 10,000+ entrepreneurs funded. Expert speaker on business credit and financial literacy.'
+      description: 'Learn business credit, secure funding, and build wealth with Antonio Cook (Mr. Mogul Maker). 10,000+ entrepreneurs funded. Expert speaker on business credit and financial literacy.',
+      schema: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'Person',
+            '@id': 'https://mrmogulmaker.com/#person',
+            name: 'Antonio Cook',
+            alternateName: 'Mr. Mogul Maker',
+            description: 'Business Credit Expert, Entrepreneur Coach, Speaker, and Financial Literacy Educator',
+            url: 'https://mrmogulmaker.com',
+            image: 'https://mrmogulmaker.com/antonio-cook-professional.jpg',
+            sameAs: [
+              'https://www.instagram.com/mr.mogul.maker',
+              'https://www.youtube.com/@MrMogulMaker'
+            ],
+            jobTitle: 'Business Credit Expert & Entrepreneur Coach',
+            worksFor: {
+              '@id': 'https://mrmogulmaker.com/#organization'
+            },
+            knowsAbout: [
+              'Business Credit',
+              'Business Funding',
+              'Financial Literacy',
+              'Entrepreneurship',
+              'Capital Stacking',
+              'Credit Repair',
+              'Wealth Building'
+            ]
+          },
+          {
+            '@type': 'Organization',
+            '@id': 'https://mrmogulmaker.com/#organization',
+            name: 'Mr. Mogul Maker',
+            founder: {
+              '@id': 'https://mrmogulmaker.com/#person'
+            },
+            url: 'https://mrmogulmaker.com',
+            logo: {
+              '@type': 'ImageObject',
+              url: 'https://mrmogulmaker.com/mr-mogul-maker-logo.png'
+            },
+            description: 'Business credit expertise and entrepreneur coaching to help you secure funding and build wealth',
+            slogan: 'Money Follows Management™',
+            sameAs: [
+              'https://www.instagram.com/mr.mogul.maker',
+              'https://www.youtube.com/@MrMogulMaker'
+            ]
+          },
+          {
+            '@type': 'WebSite',
+            '@id': 'https://mrmogulmaker.com/#website',
+            url: 'https://mrmogulmaker.com',
+            name: 'Mr. Mogul Maker',
+            description: 'Business Credit Expert & Entrepreneur Coach helping entrepreneurs secure funding and build wealth',
+            publisher: {
+              '@id': 'https://mrmogulmaker.com/#organization'
+            }
+          },
+          {
+            '@type': 'ProfessionalService',
+            '@id': 'https://mrmogulmaker.com/#service',
+            name: 'Mr. Mogul Maker Business Credit Coaching',
+            description: 'Professional business credit coaching and entrepreneur mentorship services',
+            provider: {
+              '@id': 'https://mrmogulmaker.com/#organization'
+            },
+            areaServed: 'Worldwide',
+            serviceType: [
+              'Business Credit Coaching',
+              'Funding Strategy Consulting',
+              'Financial Literacy Education',
+              'Keynote Speaking'
+            ]
+          }
+        ]
+      }
     }
   )
 })
@@ -1383,7 +1459,156 @@ app.get('/shop', (c) => {
     </div>,
     {
       title: 'Digital Products - Business Credit Courses & Templates | Mr. Mogul Maker',
-      description: 'Download business credit blueprints, funding templates, and wealth-building courses from Mr. Mogul Maker. Proven systems to build business credit and secure funding.'
+      description: 'Download business credit blueprints, funding templates, and wealth-building courses from Mr. Mogul Maker. Proven systems to build business credit and secure funding.',
+      schema: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'Product',
+            name: 'Business Credit Blueprint',
+            description: 'Complete step-by-step course on building business credit from scratch. Learn the exact strategies used by successful entrepreneurs.',
+            offers: {
+              '@type': 'Offer',
+              price: '297',
+              priceCurrency: 'USD',
+              availability: 'https://schema.org/InStock',
+              url: 'https://mrmogulmaker.com/shop'
+            },
+            brand: {
+              '@type': 'Brand',
+              name: 'Mr. Mogul Maker'
+            }
+          },
+          {
+            '@type': 'Product',
+            name: 'Funding Success System',
+            description: 'Master the art of securing business funding. Get access to funding sources, application strategies, and insider tips.',
+            offers: {
+              '@type': 'Offer',
+              price: '497',
+              priceCurrency: 'USD',
+              availability: 'https://schema.org/InStock',
+              url: 'https://mrmogulmaker.com/shop'
+            },
+            brand: {
+              '@type': 'Brand',
+              name: 'Mr. Mogul Maker'
+            }
+          },
+          {
+            '@type': 'Product',
+            name: 'LLC Formation Guide',
+            description: 'Everything you need to properly form and structure your LLC. Includes state-specific guidance and templates.',
+            offers: {
+              '@type': 'Offer',
+              price: '97',
+              priceCurrency: 'USD',
+              availability: 'https://schema.org/InStock',
+              url: 'https://mrmogulmaker.com/shop'
+            },
+            brand: {
+              '@type': 'Brand',
+              name: 'Mr. Mogul Maker'
+            }
+          },
+          {
+            '@type': 'Product',
+            name: 'Credit Repair Templates',
+            description: 'Professional dispute letters and credit repair templates. Remove negative items and boost your credit score.',
+            offers: {
+              '@type': 'Offer',
+              price: '147',
+              priceCurrency: 'USD',
+              availability: 'https://schema.org/InStock',
+              url: 'https://mrmogulmaker.com/shop'
+            },
+            brand: {
+              '@type': 'Brand',
+              name: 'Mr. Mogul Maker'
+            }
+          },
+          {
+            '@type': 'Product',
+            name: 'Business Plan Template',
+            description: 'Professional business plan template used by funded businesses. Includes financial projections and market analysis.',
+            offers: {
+              '@type': 'Offer',
+              price: '127',
+              priceCurrency: 'USD',
+              availability: 'https://schema.org/InStock',
+              url: 'https://mrmogulmaker.com/shop'
+            },
+            brand: {
+              '@type': 'Brand',
+              name: 'Mr. Mogul Maker'
+            }
+          },
+          {
+            '@type': 'Product',
+            name: 'Wealth Multiplication Masterclass',
+            description: 'Advanced strategies for multiplying wealth through investments, acquisitions, and passive income streams.',
+            offers: {
+              '@type': 'Offer',
+              price: '697',
+              priceCurrency: 'USD',
+              availability: 'https://schema.org/InStock',
+              url: 'https://mrmogulmaker.com/shop'
+            },
+            brand: {
+              '@type': 'Brand',
+              name: 'Mr. Mogul Maker'
+            }
+          },
+          {
+            '@type': 'Product',
+            name: 'Credit Score Optimization',
+            description: 'Learn how to optimize your credit score to 750+. Understand credit algorithms and scoring factors.',
+            offers: {
+              '@type': 'Offer',
+              price: '197',
+              priceCurrency: 'USD',
+              availability: 'https://schema.org/InStock',
+              url: 'https://mrmogulmaker.com/shop'
+            },
+            brand: {
+              '@type': 'Brand',
+              name: 'Mr. Mogul Maker'
+            }
+          },
+          {
+            '@type': 'Product',
+            name: 'Funding Application Bundle',
+            description: 'Complete collection of funding applications, forms, and supporting documents ready to use.',
+            offers: {
+              '@type': 'Offer',
+              price: '247',
+              priceCurrency: 'USD',
+              availability: 'https://schema.org/InStock',
+              url: 'https://mrmogulmaker.com/shop'
+            },
+            brand: {
+              '@type': 'Brand',
+              name: 'Mr. Mogul Maker'
+            }
+          },
+          {
+            '@type': 'Product',
+            name: '3M Framework Guide',
+            description: 'Deep dive into the Make, Manage, Multiply framework. The foundation of wealth building.',
+            offers: {
+              '@type': 'Offer',
+              price: '77',
+              priceCurrency: 'USD',
+              availability: 'https://schema.org/InStock',
+              url: 'https://mrmogulmaker.com/shop'
+            },
+            brand: {
+              '@type': 'Brand',
+              name: 'Mr. Mogul Maker'
+            }
+          }
+        ]
+      }
     }
   )
 })
@@ -1712,7 +1937,58 @@ app.get('/speaking', (c) => {
     </div>,
     {
       title: 'Book Antonio Cook for Speaking Engagements | Business Credit Keynote Speaker',
-      description: 'Hire Antonio Cook (Mr. Mogul Maker) for corporate events, conferences, and workshops. Expert keynote speaker on business credit, funding, financial literacy, and wealth building.'
+      description: 'Hire Antonio Cook (Mr. Mogul Maker) for corporate events, conferences, and workshops. Expert keynote speaker on business credit, funding, financial literacy, and wealth building.',
+      schema: {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        serviceType: 'Professional Speaking & Keynote Services',
+        name: 'Antonio Cook Speaking Engagements',
+        description: 'Professional keynote speaking services for corporate events, conferences, and workshops on business credit, funding, and financial literacy',
+        provider: {
+          '@type': 'Person',
+          name: 'Antonio Cook',
+          alternateName: 'Mr. Mogul Maker',
+          image: 'https://mrmogulmaker.com/antonio-cook-professional.jpg',
+          url: 'https://mrmogulmaker.com',
+          jobTitle: 'Business Credit Expert & Keynote Speaker'
+        },
+        areaServed: 'Worldwide',
+        availableChannel: {
+          '@type': 'ServiceChannel',
+          serviceUrl: 'https://calendly.com/coachcook',
+          name: 'Calendly Booking'
+        },
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: 'Speaking Topics',
+          itemListElement: [
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Business Credit Mastery',
+                description: 'Learn the secrets of building powerful business credit and accessing capital'
+              }
+            },
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'The 3M Framework',
+                description: 'Make, Manage, Multiply - The complete wealth-building system'
+              }
+            },
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Entrepreneurial Mindset',
+                description: 'Developing the mental framework for success in business and life'
+              }
+            }
+          ]
+        }
+      }
     }
   )
 })
@@ -2105,7 +2381,64 @@ app.get('/blog', (c) => {
     </div>,
     {
       title: 'Business Credit & Funding Blog | Expert Insights by Mr. Mogul Maker',
-      description: 'Free business credit tips, funding strategies, and wealth-building advice from entrepreneur coach Antonio Cook. Learn how to build business credit and secure funding.'
+      description: 'Free business credit tips, funding strategies, and wealth-building advice from entrepreneur coach Antonio Cook. Learn how to build business credit and secure funding.',
+      schema: {
+        '@context': 'https://schema.org',
+        '@type': 'Blog',
+        name: 'Mr. Mogul Maker Blog',
+        description: 'Business credit tips, funding strategies, and wealth-building insights from entrepreneur coach Antonio Cook',
+        url: 'https://mrmogulmaker.com/blog',
+        author: {
+          '@type': 'Person',
+          name: 'Antonio Cook',
+          alternateName: 'Mr. Mogul Maker',
+          url: 'https://mrmogulmaker.com',
+          image: 'https://mrmogulmaker.com/antonio-cook-professional.jpg'
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'Mr. Mogul Maker',
+          logo: {
+            '@type': 'ImageObject',
+            url: 'https://mrmogulmaker.com/mr-mogul-maker-logo.png'
+          }
+        },
+        blogPost: [
+          {
+            '@type': 'BlogPosting',
+            headline: '10 Steps to Building Business Credit Fast',
+            description: 'Learn the fastest and most effective way to build business credit from scratch.',
+            author: {
+              '@type': 'Person',
+              name: 'Antonio Cook'
+            },
+            datePublished: '2025-01-15',
+            url: 'https://mrmogulmaker.com/blog#building-business-credit'
+          },
+          {
+            '@type': 'BlogPosting',
+            headline: 'How to Get $250K in Business Funding Without Personal Credit',
+            description: 'Discover funding strategies that don\'t require personal credit checks.',
+            author: {
+              '@type': 'Person',
+              name: 'Antonio Cook'
+            },
+            datePublished: '2025-01-10',
+            url: 'https://mrmogulmaker.com/blog#business-funding'
+          },
+          {
+            '@type': 'BlogPosting',
+            headline: 'The 3M Framework Explained: Make, Manage, Multiply',
+            description: 'A deep dive into the wealth-building framework that transforms entrepreneurs.',
+            author: {
+              '@type': 'Person',
+              name: 'Antonio Cook'
+            },
+            datePublished: '2025-01-05',
+            url: 'https://mrmogulmaker.com/blog#3m-framework'
+          }
+        ]
+      }
     }
   )
 })
