@@ -12,12 +12,15 @@ A professional personal brand website for Antonio Cook (Mr. Mogul Maker), Entrep
 **Key Features:**
 - Modern, responsive design with smooth animations
 - Hero section with 3M Framework (Make, Manage, Multiply)
+- **Speaking/Booking Page** with Calendly integration ⭐ NEW
+- **Lead Magnet Popup** with email opt-in form ⭐ NEW
+- **Blog Page** with article layout and categories ⭐ NEW
 - **E-commerce Shop Page** for selling digital products
 - **Shopping Cart** with persistent storage (localStorage)
 - **Product Catalog** with 9 digital products (courses, templates, guides)
 - **Product Detail Modals** with full descriptions and features
 - **Category Filtering** (All, Courses, Templates, Guides)
-- **Stripe Payment Integration** ready
+- **GoHighLevel Integration** ready for checkout
 - About section highlighting Antonio Cook's expertise
 - Programs showcase featuring 8 Mogul Maker Academy courses
 - Podcasts section (Mind Your Money & 3M Podcast)
@@ -29,7 +32,9 @@ A professional personal brand website for Antonio Cook (Mr. Mogul Maker), Entrep
 
 - **Production:** https://mrmogulmaker.pages.dev
 - **Shop Page:** https://mrmogulmaker.pages.dev/shop
-- **Latest Deployment:** https://863dd833.mrmogulmaker.pages.dev
+- **Latest Deployment:** https://702e7184.mrmogulmaker.pages.dev
+- **Speaking Page:** https://mrmogulmaker.pages.dev/speaking
+- **Blog Page:** https://mrmogulmaker.pages.dev/blog
 - **Development Server:** https://3000-itqkd7r87dbcew1poox4l-dfc00ec5.sandbox.novita.ai
 
 ## 📊 Social Media Links
