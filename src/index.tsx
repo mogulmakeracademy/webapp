@@ -816,7 +816,7 @@ app.get('/shop', (c) => {
             Digital Products Store
           </div>
           <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
-            Transform Your <span class="text-yellow-400">Financial Future</span>
+            Business Credit <span class="text-yellow-400">Courses & Templates</span>
           </h1>
           <p class="text-xl text-gray-300 max-w-3xl mx-auto">
             Premium digital products designed to help you build business credit, secure funding, and multiply your wealth.
@@ -1665,7 +1665,7 @@ app.get('/speaking', (c) => {
             Professional Speaker & Entrepreneur Coach
           </div>
           <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
-            Book Antonio Cook for Your Next <span class="text-yellow-400">Event</span>
+            <span class="text-yellow-400">Business Credit Speaker</span> for Corporate Events
           </h1>
           <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
             Inspire your audience with proven strategies on business credit, funding, and wealth building. 
@@ -2044,7 +2044,7 @@ app.get('/blog', (c) => {
             Financial Literacy & Business Education
           </div>
           <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
-            The Mogul Maker <span class="text-yellow-400">Blog</span>
+            <span class="text-yellow-400">Business Credit</span> & Funding Insights
           </h1>
           <p class="text-xl text-gray-300 max-w-3xl mx-auto">
             Insights, strategies, and proven tactics for building business credit, securing funding, and multiplying your wealth.
