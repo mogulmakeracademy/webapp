@@ -127,7 +127,7 @@ app.get('/', (c) => {
       </div>
 
       {/* Hero Section */}
-      <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      <section class="relative min-h-screen flex items-center pt-20 md:pt-24 pb-12 md:pb-0 overflow-hidden">
         {/* Background Image with Overlay */}
         <div class="absolute inset-0">
           <img 
@@ -135,38 +135,39 @@ app.get('/', (c) => {
             alt="Antonio Cook - Mr. Mogul Maker" 
             class="w-full h-full object-cover"
             style="object-position: center top;"
+            loading="eager"
           />
-          {/* Dark gradient overlay for text readability - lighter on right to show your photo */}
-          <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
+          {/* Dark gradient overlay - stronger on mobile for better readability */}
+          <div class="absolute inset-0 bg-gradient-to-r from-black via-black/90 md:via-black/70 to-black/50 md:to-transparent"></div>
         </div>
         
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div class="max-w-3xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div class="max-w-3xl hero-content">
             <div class="text-white">
-              <div class="inline-block bg-yellow-400/20 text-yellow-400 px-4 py-2 rounded-full mb-6">
+              <div class="inline-block bg-yellow-400/20 text-yellow-400 px-3 py-2 md:px-4 md:py-2 rounded-full mb-4 md:mb-6 text-sm md:text-base">
                 <i class="fas fa-crown mr-2"></i>
                 Entrepreneur Coach & Financial Educator
               </div>
-              <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+              <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight">
                 Build <span class="text-yellow-400">Business Credit</span> & Multiply Wealth
               </h1>
-              <p class="text-xl text-gray-300 mb-8">
+              <p class="text-base sm:text-lg md:text-xl text-gray-300 mb-6 md:mb-8">
                 I'm Antonio Cook, aka Mr. Mogul Maker — CEO of Mogul Maker Academy. 
                 Learn how to secure funding, build business credit, and create generational wealth.
               </p>
-              <div class="flex flex-wrap gap-4">
-                <a href="#programs" class="bg-yellow-400 text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition transform hover:scale-105">
+              <div class="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 mb-8 md:mb-0">
+                <a href="#programs" class="bg-yellow-400 text-black px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-yellow-300 transition transform hover:scale-105 text-center">
                   <i class="fas fa-rocket mr-2"></i>
                   Explore Programs
                 </a>
-                <a href="#contact" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-black transition transform hover:scale-105">
+                <a href="#contact" class="border-2 border-white text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-white hover:text-black transition transform hover:scale-105 text-center">
                   <i class="fas fa-phone mr-2"></i>
                   Get In Touch
                 </a>
               </div>
               
               {/* Social Links */}
-              <div class="flex gap-6 mt-12">
+              <div class="flex gap-4 md:gap-6 mt-8 md:mt-12 justify-center sm:justify-start">
                 <a href="https://www.youtube.com/@mrmogulmaker" target="_blank" class="text-white hover:text-yellow-400 transition text-2xl">
                   <i class="fab fa-youtube"></i>
                 </a>
@@ -186,96 +187,96 @@ app.get('/', (c) => {
       </section>
 
       {/* Stats Section */}
-      <section class="bg-yellow-400 py-16">
+      <section class="bg-yellow-400 py-12 md:py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div class="text-4xl font-bold text-black mb-2">737+</div>
-              <div class="text-black/70 font-semibold">YouTube Subscribers</div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center stats-grid">
+            <div class="bg-black/5 rounded-2xl p-4 md:p-6">
+              <div class="text-3xl md:text-4xl font-bold text-black mb-2">737+</div>
+              <div class="text-black/70 font-semibold text-sm md:text-base">YouTube Subscribers</div>
             </div>
-            <div>
-              <div class="text-4xl font-bold text-black mb-2">325+</div>
-              <div class="text-black/70 font-semibold">TikTok Followers</div>
+            <div class="bg-black/5 rounded-2xl p-4 md:p-6">
+              <div class="text-3xl md:text-4xl font-bold text-black mb-2">325+</div>
+              <div class="text-black/70 font-semibold text-sm md:text-base">TikTok Followers</div>
             </div>
-            <div>
-              <div class="text-4xl font-bold text-black mb-2">80+</div>
-              <div class="text-black/70 font-semibold">Educational Videos</div>
+            <div class="bg-black/5 rounded-2xl p-4 md:p-6">
+              <div class="text-3xl md:text-4xl font-bold text-black mb-2">80+</div>
+              <div class="text-black/70 font-semibold text-sm md:text-base">Educational Videos</div>
             </div>
-            <div>
-              <div class="text-4xl font-bold text-black mb-2">8</div>
-              <div class="text-black/70 font-semibold">Academy Programs</div>
+            <div class="bg-black/5 rounded-2xl p-4 md:p-6">
+              <div class="text-3xl md:text-4xl font-bold text-black mb-2">8</div>
+              <div class="text-black/70 font-semibold text-sm md:text-base">Academy Programs</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" class="bg-white py-24">
+      <section id="about" class="bg-white py-12 md:py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <div class="text-center mb-12 md:mb-16">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               About <span class="text-yellow-400">Mr. Mogul Maker</span>
             </h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p class="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">
               Transforming entrepreneurs from consumers to creditors through financial literacy and strategic business education.
             </p>
           </div>
           
-          <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
-              <div class="bg-gradient-to-br from-black to-gray-900 rounded-3xl p-12 text-white shadow-2xl">
-                <i class="fas fa-quote-left text-yellow-400 text-4xl mb-6"></i>
-                <p class="text-xl leading-relaxed mb-6">
+              <div class="bg-gradient-to-br from-black to-gray-900 rounded-3xl p-6 md:p-12 text-white shadow-2xl">
+                <i class="fas fa-quote-left text-yellow-400 text-3xl md:text-4xl mb-4 md:mb-6"></i>
+                <p class="text-base md:text-lg lg:text-xl leading-relaxed mb-6">
                   "This channel is where entrepreneurs, investors, and everyday moguls-in-the-making learn how to build real financial power. 
                   We break money down into three stages: how to <strong>make it</strong> through business and income strategies, 
                   how to <strong>manage it</strong> with credit, compliance, and protection systems, and how to <strong>multiply it</strong> 
                   through funding, acquisitions, and wealth-building frameworks."
                 </p>
-                <div class="flex items-center gap-4">
-                  <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center">
-                    <i class="fas fa-crown text-black text-2xl"></i>
+                <div class="flex items-center gap-3 md:gap-4">
+                  <div class="w-12 h-12 md:w-16 md:h-16 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-crown text-black text-xl md:text-2xl"></i>
                   </div>
                   <div>
-                    <div class="font-bold text-lg">Antonio Cook</div>
-                    <div class="text-yellow-400">Mr. Mogul Maker</div>
+                    <div class="font-bold text-base md:text-lg">Antonio Cook</div>
+                    <div class="text-yellow-400 text-sm md:text-base">Mr. Mogul Maker</div>
                   </div>
                 </div>
               </div>
             </div>
             
-            <div class="space-y-6">
-              <div class="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition">
-                <div class="flex items-start gap-4">
-                  <div class="bg-yellow-400 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
-                    <i class="fas fa-graduation-cap text-black text-xl"></i>
+            <div class="space-y-4 md:space-y-6">
+              <div class="bg-gray-50 rounded-2xl p-4 md:p-6 hover:shadow-lg transition">
+                <div class="flex items-start gap-3 md:gap-4">
+                  <div class="bg-yellow-400 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-graduation-cap text-black text-lg md:text-xl"></i>
                   </div>
                   <div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Financial Literacy Educator</h3>
-                    <p class="text-gray-600">Empowering individuals with the knowledge to build business credit, secure funding, and create lasting wealth.</p>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-1 md:mb-2">Financial Literacy Educator</h3>
+                    <p class="text-sm md:text-base text-gray-600">Empowering individuals with the knowledge to build business credit, secure funding, and create lasting wealth.</p>
                   </div>
                 </div>
               </div>
               
-              <div class="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition">
-                <div class="flex items-start gap-4">
-                  <div class="bg-yellow-400 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
-                    <i class="fas fa-building text-black text-xl"></i>
+              <div class="bg-gray-50 rounded-2xl p-4 md:p-6 hover:shadow-lg transition">
+                <div class="flex items-start gap-3 md:gap-4">
+                  <div class="bg-yellow-400 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-building text-black text-lg md:text-xl"></i>
                   </div>
                   <div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">CEO of Mogul Maker Academy</h3>
-                    <p class="text-gray-600">Leading a comprehensive educational platform with 8 specialized programs designed to transform entrepreneurs into successful business owners.</p>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-1 md:mb-2">CEO of Mogul Maker Academy</h3>
+                    <p class="text-sm md:text-base text-gray-600">Leading a comprehensive educational platform with 8 specialized programs designed to transform entrepreneurs into successful business owners.</p>
                   </div>
                 </div>
               </div>
               
-              <div class="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition">
-                <div class="flex items-start gap-4">
-                  <div class="bg-yellow-400 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
-                    <i class="fas fa-podcast text-black text-xl"></i>
+              <div class="bg-gray-50 rounded-2xl p-4 md:p-6 hover:shadow-lg transition">
+                <div class="flex items-start gap-3 md:gap-4">
+                  <div class="bg-yellow-400 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-podcast text-black text-lg md:text-xl"></i>
                   </div>
                   <div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Podcast Host</h3>
-                    <p class="text-gray-600">Host of "Mind Your Money Podcast" and "3M Podcast: Make, Manage, Multiply" - sharing practical financial wisdom and success strategies.</p>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-1 md:mb-2">Podcast Host</h3>
+                    <p class="text-sm md:text-base text-gray-600">Host of "Mind Your Money Podcast" and "3M Podcast: Make, Manage, Multiply" - sharing practical financial wisdom and success strategies.</p>
                   </div>
                 </div>
               </div>
@@ -285,18 +286,18 @@ app.get('/', (c) => {
       </section>
 
       {/* Programs Section */}
-      <section id="programs" class="bg-gray-900 py-24">
+      <section id="programs" class="bg-gray-900 py-12 md:py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          <div class="text-center mb-12 md:mb-16">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
               Mogul Maker Academy <span class="text-yellow-400">Programs</span>
             </h2>
-            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p class="text-base md:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto px-4">
               Comprehensive programs designed to take you from startup to funded, structured, and protected business owner.
             </p>
           </div>
           
-          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 programs-grid">
             {[
               { name: 'BUILD', icon: 'fa-hammer', desc: 'Foundation & Structure' },
               { name: 'LAUNCH', icon: 'fa-rocket', desc: 'Market Entry Strategy' },
@@ -307,20 +308,20 @@ app.get('/', (c) => {
               { name: 'SHIELD', icon: 'fa-shield-alt', desc: 'Asset Protection' },
               { name: 'ACQUIRE', icon: 'fa-handshake', desc: 'Business Acquisition' }
             ].map((program, idx) => (
-              <div class="bg-gradient-to-br from-black to-gray-800 rounded-2xl p-6 border-2 border-yellow-400/20 hover:border-yellow-400 transition transform hover:scale-105 cursor-pointer">
+              <div class="bg-gradient-to-br from-black to-gray-800 rounded-2xl p-4 md:p-6 border-2 border-yellow-400/20 hover:border-yellow-400 transition transform hover:scale-105 cursor-pointer">
                 <div class="text-center">
-                  <div class="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class={`fas ${program.icon} text-black text-2xl`}></i>
+                  <div class="bg-yellow-400 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
+                    <i class={`fas ${program.icon} text-black text-xl md:text-2xl`}></i>
                   </div>
-                  <h3 class="text-2xl font-bold text-white mb-2">{program.name}</h3>
-                  <p class="text-gray-400">{program.desc}</p>
+                  <h3 class="text-xl md:text-2xl font-bold text-white mb-2">{program.name}</h3>
+                  <p class="text-sm md:text-base text-gray-400">{program.desc}</p>
                 </div>
               </div>
             ))}
           </div>
           
-          <div class="text-center mt-12">
-            <a href="https://skool.com/mogul-maker-academy/about" target="_blank" class="inline-block bg-yellow-400 text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition transform hover:scale-105">
+          <div class="text-center mt-8 md:mt-12">
+            <a href="https://skool.com/mogul-maker-academy/about" target="_blank" class="inline-block bg-yellow-400 text-black px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-yellow-300 transition transform hover:scale-105">
               <i class="fas fa-graduation-cap mr-2"></i>
               Visit Mogul Maker Academy
             </a>
@@ -329,48 +330,48 @@ app.get('/', (c) => {
       </section>
 
       {/* Podcasts Section */}
-      <section id="podcasts" class="bg-white py-24">
+      <section id="podcasts" class="bg-white py-12 md:py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <div class="text-center mb-12 md:mb-16">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Featured <span class="text-yellow-400">Podcasts</span>
             </h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p class="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">
               Tune in to learn practical strategies for building wealth and mastering money management.
             </p>
           </div>
           
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-gradient-to-br from-black to-gray-900 rounded-3xl p-8 text-white shadow-2xl">
-              <div class="flex items-center gap-4 mb-6">
-                <div class="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0">
-                  <i class="fas fa-brain text-black text-2xl"></i>
+          <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+            <div class="bg-gradient-to-br from-black to-gray-900 rounded-3xl p-6 md:p-8 text-white shadow-2xl">
+              <div class="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+                <div class="bg-yellow-400 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-brain text-black text-xl md:text-2xl"></i>
                 </div>
-                <h3 class="text-3xl font-bold">Mind Your Money Podcast</h3>
+                <h3 class="text-xl md:text-2xl lg:text-3xl font-bold">Mind Your Money Podcast</h3>
               </div>
-              <p class="text-gray-300 mb-6 text-lg">
+              <p class="text-gray-300 mb-4 md:mb-6 text-sm md:text-base lg:text-lg">
                 Deep dive into financial literacy, credit strategies, and wealth-building principles. Learn how to think like a bank and build wealth like a mogul.
               </p>
               <div class="flex gap-4">
-                <a href="https://www.youtube.com/@mrmogulmaker" target="_blank" class="bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-300 transition">
+                <a href="https://www.youtube.com/@mrmogulmaker" target="_blank" class="bg-yellow-400 text-black px-5 py-2.5 md:px-6 md:py-3 rounded-full font-semibold text-sm md:text-base hover:bg-yellow-300 transition">
                   <i class="fab fa-youtube mr-2"></i>
                   Watch Now
                 </a>
               </div>
             </div>
             
-            <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl p-8 text-black shadow-2xl">
-              <div class="flex items-center gap-4 mb-6">
-                <div class="bg-black w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0">
-                  <i class="fas fa-coins text-yellow-400 text-2xl"></i>
+            <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl p-6 md:p-8 text-black shadow-2xl">
+              <div class="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+                <div class="bg-black w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-coins text-yellow-400 text-xl md:text-2xl"></i>
                 </div>
-                <h3 class="text-3xl font-bold">3M Podcast</h3>
+                <h3 class="text-xl md:text-2xl lg:text-3xl font-bold">3M Podcast</h3>
               </div>
-              <p class="text-gray-900 mb-6 text-lg font-semibold">
+              <p class="text-gray-900 mb-4 md:mb-6 text-sm md:text-base lg:text-lg font-semibold">
                 <strong>Make, Manage, Multiply</strong> - The complete framework for entrepreneurs. Learn the three essential stages of building lasting wealth and financial freedom.
               </p>
               <div class="flex gap-4">
-                <a href="https://www.youtube.com/@mrmogulmaker" target="_blank" class="bg-black text-yellow-400 px-6 py-3 rounded-full font-semibold hover:bg-gray-900 transition">
+                <a href="https://www.youtube.com/@mrmogulmaker" target="_blank" class="bg-black text-yellow-400 px-5 py-2.5 md:px-6 md:py-3 rounded-full font-semibold text-sm md:text-base hover:bg-gray-900 transition">
                   <i class="fab fa-youtube mr-2"></i>
                   Listen Now
                 </a>
@@ -379,11 +380,11 @@ app.get('/', (c) => {
           </div>
           
           {/* Popular Videos - Interactive Carousel */}
-          <div class="mt-16">
-            <h3 class="text-3xl font-bold text-gray-900 mb-8 text-center">Popular Videos</h3>
+          <div class="mt-12 md:mt-16">
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 md:mb-8 text-center">Popular Videos</h3>
             
             {/* Video Carousel Container - Compact Version */}
-            <div class="relative max-w-3xl mx-auto">
+            <div class="relative max-w-3xl mx-auto px-8 md:px-0">
               {/* Carousel Wrapper */}
               <div id="video-carousel" class="overflow-hidden rounded-2xl">
                 <div id="video-slides" class="flex transition-transform duration-500 ease-in-out">
@@ -484,29 +485,29 @@ app.get('/', (c) => {
                 </div>
               </div>
               
-              {/* Carousel Navigation - Compact */}
+              {/* Carousel Navigation - Mobile Optimized */}
               <button 
                 id="video-prev" 
-                class="absolute left-0 top-1/3 -translate-y-1/2 -translate-x-3 bg-yellow-400 hover:bg-yellow-500 text-black w-10 h-10 rounded-full shadow-lg transition-all transform hover:scale-110 flex items-center justify-center z-10">
-                <i class="fas fa-chevron-left text-sm"></i>
+                class="absolute left-0 md:left-[-2rem] top-1/3 -translate-y-1/2 bg-yellow-400 active:bg-yellow-500 hover:bg-yellow-500 text-black w-12 h-12 md:w-10 md:h-10 rounded-full shadow-lg transition-all transform active:scale-95 hover:scale-110 flex items-center justify-center z-10 touch-manipulation">
+                <i class="fas fa-chevron-left text-base md:text-sm"></i>
               </button>
               <button 
                 id="video-next" 
-                class="absolute right-0 top-1/3 -translate-y-1/2 translate-x-3 bg-yellow-400 hover:bg-yellow-500 text-black w-10 h-10 rounded-full shadow-lg transition-all transform hover:scale-110 flex items-center justify-center z-10">
-                <i class="fas fa-chevron-right text-sm"></i>
+                class="absolute right-0 md:right-[-2rem] top-1/3 -translate-y-1/2 bg-yellow-400 active:bg-yellow-500 hover:bg-yellow-500 text-black w-12 h-12 md:w-10 md:h-10 rounded-full shadow-lg transition-all transform active:scale-95 hover:scale-110 flex items-center justify-center z-10 touch-manipulation">
+                <i class="fas fa-chevron-right text-base md:text-sm"></i>
               </button>
               
-              {/* Carousel Indicators - Compact */}
-              <div class="flex justify-center gap-2 mt-4">
-                <button class="video-indicator w-2.5 h-2.5 rounded-full bg-yellow-400 transition-all" data-slide="0"></button>
-                <button class="video-indicator w-2.5 h-2.5 rounded-full bg-gray-300 hover:bg-yellow-200 transition-all" data-slide="1"></button>
-                <button class="video-indicator w-2.5 h-2.5 rounded-full bg-gray-300 hover:bg-yellow-200 transition-all" data-slide="2"></button>
+              {/* Carousel Indicators - Mobile Optimized */}
+              <div class="flex justify-center gap-3 mt-6">
+                <button class="video-indicator w-3 h-3 md:w-2.5 md:h-2.5 rounded-full bg-yellow-400 transition-all touch-manipulation" data-slide="0"></button>
+                <button class="video-indicator w-3 h-3 md:w-2.5 md:h-2.5 rounded-full bg-gray-300 active:bg-yellow-300 hover:bg-yellow-200 transition-all touch-manipulation" data-slide="1"></button>
+                <button class="video-indicator w-3 h-3 md:w-2.5 md:h-2.5 rounded-full bg-gray-300 active:bg-yellow-300 hover:bg-yellow-200 transition-all touch-manipulation" data-slide="2"></button>
               </div>
             </div>
             
-            {/* View All Videos Button - Compact */}
-            <div class="text-center mt-6">
-              <a href="https://www.youtube.com/@mrmogulmaker" target="_blank" class="inline-flex items-center bg-black text-yellow-400 px-6 py-3 rounded-full font-semibold hover:bg-gray-900 transition transform hover:scale-105">
+            {/* View All Videos Button - Mobile Optimized */}
+            <div class="text-center mt-8 md:mt-6">
+              <a href="https://www.youtube.com/@mrmogulmaker" target="_blank" class="inline-flex items-center bg-black text-yellow-400 px-5 py-2.5 md:px-6 md:py-3 rounded-full font-semibold text-sm md:text-base hover:bg-gray-900 active:bg-gray-800 transition transform hover:scale-105 active:scale-95">
                 <i class="fab fa-youtube mr-2"></i>
                 View All Videos
                 <i class="fas fa-arrow-right ml-2 text-sm"></i>
@@ -517,14 +518,14 @@ app.get('/', (c) => {
       </section>
 
       {/* CTA Section */}
-      <section id="contact" class="bg-gradient-to-br from-black via-gray-900 to-black py-24">
+      <section id="contact" class="bg-gradient-to-br from-black via-gray-900 to-black py-12 md:py-24">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl p-12 shadow-2xl">
-            <i class="fas fa-crown text-black text-6xl mb-6"></i>
-            <h2 class="text-4xl md:text-5xl font-bold text-black mb-6">
+          <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl p-6 md:p-12 shadow-2xl">
+            <i class="fas fa-crown text-black text-4xl md:text-6xl mb-4 md:mb-6"></i>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4 md:mb-6">
               Ready to Become a Mogul?
             </h2>
-            <p class="text-xl text-black/80 mb-8 max-w-2xl mx-auto">
+            <p class="text-base md:text-lg lg:text-xl text-black/80 mb-6 md:mb-8 max-w-2xl mx-auto">
               Join Mogul Maker Academy and learn the proven strategies to build business credit, secure funding, and multiply your wealth.
             </p>
             <div class="flex flex-wrap gap-4 justify-center">
@@ -659,14 +660,57 @@ app.get('/', (c) => {
           // Example: Send data to your email marketing platform
         });
         
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-          document.getElementById('mobile-menu').classList.toggle('hidden');
+        // Enhanced mobile menu with smooth animations
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIcon = mobileMenuBtn.querySelector('i');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+          const isHidden = mobileMenu.classList.contains('hidden');
+          
+          if (isHidden) {
+            // Open menu
+            mobileMenu.classList.remove('hidden');
+            mobileMenuIcon.classList.remove('fa-bars');
+            mobileMenuIcon.classList.add('fa-times');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+          } else {
+            // Close menu
+            mobileMenu.classList.add('hidden');
+            mobileMenuIcon.classList.remove('fa-times');
+            mobileMenuIcon.classList.add('fa-bars');
+            document.body.style.overflow = '';
+          }
         });
         
+        // Close mobile menu when clicking links
         document.querySelectorAll('#mobile-menu a').forEach(link => {
           link.addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.add('hidden');
+            mobileMenu.classList.add('hidden');
+            mobileMenuIcon.classList.remove('fa-times');
+            mobileMenuIcon.classList.add('fa-bars');
+            document.body.style.overflow = '';
           });
+        });
+        
+        // Close mobile menu when clicking outside
+        mobileMenu.addEventListener('click', function(e) {
+          if (e.target.id === 'mobile-menu') {
+            mobileMenu.classList.add('hidden');
+            mobileMenuIcon.classList.remove('fa-times');
+            mobileMenuIcon.classList.add('fa-bars');
+            document.body.style.overflow = '';
+          }
+        });
+        
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            mobileMenuIcon.classList.remove('fa-times');
+            mobileMenuIcon.classList.add('fa-bars');
+            document.body.style.overflow = '';
+          }
         });
         
         // Smooth scroll
