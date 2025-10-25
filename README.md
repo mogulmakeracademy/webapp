@@ -12,9 +12,8 @@ A professional personal brand website for Antonio Cook (Mr. Mogul Maker), Entrep
 **Key Features:**
 - Modern, responsive design with smooth animations
 - Hero section with 3M Framework (Make, Manage, Multiply)
-- **Speaking/Booking Page** with Calendly integration ⭐ NEW
-- **Lead Magnet Popup** with email opt-in form ⭐ NEW
-- **Blog Page** with article layout and categories ⭐ NEW
+- **Speaking/Booking Page** with Calendly integration
+- **Blog Page** with article layout and categories
 - **E-commerce Shop Page** for selling digital products
 - **Shopping Cart** with persistent storage (localStorage)
 - **Product Catalog** with 9 digital products (courses, templates, guides)
@@ -32,7 +31,7 @@ A professional personal brand website for Antonio Cook (Mr. Mogul Maker), Entrep
 
 - **Production:** https://mrmogulmaker.pages.dev
 - **Shop Page:** https://mrmogulmaker.pages.dev/shop
-- **Latest Deployment:** https://99f79caf.mrmogulmaker.pages.dev
+- **Latest Deployment:** https://1b79e619.mrmogulmaker.pages.dev
 - **Speaking Page:** https://mrmogulmaker.pages.dev/speaking
 - **Blog Page:** https://mrmogulmaker.pages.dev/blog
 - **Development Server:** https://3000-itqkd7r87dbcew1poox4l-dfc00ec5.sandbox.novita.ai
@@ -136,11 +135,13 @@ npx wrangler pages deploy dist --project-name mrmogulmaker
 ```
 
 **Deployment Status:** ✅ Active  
-**Last Deployed:** 2025-01-25 (v2.4.0 - Metadata fixes)  
+**Last Deployed:** 2025-01-25 (v2.5.0 - Removed popup)  
 **Project Name:** mrmogulmaker  
 **Account:** mrmogulmaker@gmail.com
 
 **Recent Deployments:**
+- v2.5.0: Removed lead magnet popup (ready for GHL form integration)
+- v2.4.1: Replaced logo with professional photo in metadata
 - v2.4.0: Open Graph metadata and PWA enhancements
 - v2.3.0: Swipe gestures for mobile navigation
 - v2.2.0: Comprehensive mobile improvements
@@ -189,9 +190,19 @@ npx wrangler pages deploy dist --project-name mrmogulmaker
 
 ## ✨ Features Completed
 
-### Version 2.4.0 (Latest) - Open Graph Metadata
+### Version 2.5.0 (Latest) - Cleanup
+- ✅ **Removed lead magnet popup** (ready for GHL form integration when available)
+- ✅ **Cleaner user experience** without popup interruptions
+- ✅ **Prepared for future GoHighLevel form** embed
+
+### Version 2.4.1 - Professional Photo in Metadata
+- ✅ **Professional photo in Open Graph** tags for social sharing
+- ✅ **Updated Twitter Card** to large image format
+- ✅ **Enhanced brand presence** in link previews
+
+### Version 2.4.0 - Open Graph Metadata
 - ✅ **Enhanced Open Graph metadata** for social media sharing
-- ✅ **Twitter Card optimization** with logo display
+- ✅ **Twitter Card optimization** with image display
 - ✅ **PWA support** with manifest.json
 - ✅ **Multiple favicon sizes** for all devices
 - ✅ **Rich link previews** on Facebook, Twitter, LinkedIn
@@ -231,6 +242,7 @@ npx wrangler pages deploy dist --project-name mrmogulmaker
 
 ## 🎯 Future Enhancements
 
+- [ ] **Add GoHighLevel (GHL) embedded form** for lead capture when ready
 - [ ] **Complete Stripe integration** for live payment processing
 - [ ] **Add digital product delivery system** (download links after purchase)
 - [ ] **Order confirmation emails** using SendGrid or similar
