@@ -49,83 +49,6 @@ app.get('/', (c) => {
         </div>
       </div>
 
-      {/* Lead Magnet Popup */}
-      <div id="lead-magnet-popup" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
-        <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl max-w-2xl w-full p-8 md:p-12 relative">
-          <button id="close-popup" class="absolute top-4 right-4 text-black hover:text-gray-700 text-3xl">
-            <i class="fas fa-times"></i>
-          </button>
-          
-          <div class="text-center">
-            <div class="bg-black w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-              <i class="fas fa-gift text-yellow-400 text-4xl"></i>
-            </div>
-            <h2 class="text-4xl md:text-5xl font-bold text-black mb-4">
-              FREE Business Credit Blueprint
-            </h2>
-            <p class="text-xl text-gray-900 font-semibold mb-8">
-              Download your FREE guide: "How to Build Business Credit in 90 Days" 
-              - The exact blueprint used by thousands of entrepreneurs!
-            </p>
-            
-            <div class="bg-white rounded-2xl p-8 mb-6">
-              <h3 class="text-2xl font-bold text-gray-900 mb-4">What You'll Get:</h3>
-              <ul class="text-left space-y-3 mb-6">
-                <li class="flex items-start gap-3">
-                  <i class="fas fa-check-circle text-yellow-400 text-xl mt-1"></i>
-                  <span class="text-gray-700 font-semibold">Step-by-step guide to establishing business credit</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <i class="fas fa-check-circle text-yellow-400 text-xl mt-1"></i>
-                  <span class="text-gray-700 font-semibold">List of 20+ Net-30 vendor accounts</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <i class="fas fa-check-circle text-yellow-400 text-xl mt-1"></i>
-                  <span class="text-gray-700 font-semibold">Credit monitoring tools and resources</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <i class="fas fa-check-circle text-yellow-400 text-xl mt-1"></i>
-                  <span class="text-gray-700 font-semibold">Funding application strategies</span>
-                </li>
-              </ul>
-              
-              <form id="lead-form" class="space-y-4">
-                <input
-                  type="text"
-                  id="name-input"
-                  placeholder="Your Name"
-                  class="w-full px-6 py-4 rounded-full border-2 border-gray-300 focus:border-yellow-400 focus:outline-none font-semibold"
-                  required
-                />
-                <input
-                  type="email"
-                  id="email-input"
-                  placeholder="Your Email"
-                  class="w-full px-6 py-4 rounded-full border-2 border-gray-300 focus:border-yellow-400 focus:outline-none font-semibold"
-                  required
-                />
-                <button
-                  type="submit"
-                  class="w-full bg-black text-yellow-400 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-900 transition transform hover:scale-105"
-                >
-                  <i class="fas fa-download mr-2"></i>
-                  Get My FREE Blueprint
-                </button>
-              </form>
-              
-              <p class="text-sm text-gray-600 mt-4">
-                <i class="fas fa-lock mr-1"></i>
-                Your information is 100% secure. No spam, ever.
-              </p>
-            </div>
-            
-            <p class="text-black text-sm">
-              Join 5,000+ entrepreneurs who have downloaded this guide!
-            </p>
-          </div>
-        </div>
-      </div>
-
       {/* Hero Section */}
       <section class="relative min-h-screen flex items-center pt-20 md:pt-24 pb-12 md:pb-0 overflow-hidden">
         {/* Background Image with Overlay */}
@@ -611,54 +534,6 @@ app.get('/', (c) => {
           }
         }
         updateHomeCartBadge();
-        
-        // Lead Magnet Popup Logic
-        const leadPopup = document.getElementById('lead-magnet-popup');
-        const closePopupBtn = document.getElementById('close-popup');
-        const leadForm = document.getElementById('lead-form');
-        
-        // Check if user has already seen popup
-        const hasSeenPopup = localStorage.getItem('has_seen_lead_popup');
-        
-        // Show popup after 15 seconds if not seen before
-        if (!hasSeenPopup) {
-          setTimeout(() => {
-            leadPopup.classList.remove('hidden');
-          }, 15000);
-        }
-        
-        // Close popup
-        closePopupBtn.addEventListener('click', () => {
-          leadPopup.classList.add('hidden');
-          localStorage.setItem('has_seen_lead_popup', 'true');
-        });
-        
-        // Close on outside click
-        leadPopup.addEventListener('click', (e) => {
-          if (e.target.id === 'lead-magnet-popup') {
-            leadPopup.classList.add('hidden');
-            localStorage.setItem('has_seen_lead_popup', 'true');
-          }
-        });
-        
-        // Handle form submission
-        leadForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          const name = document.getElementById('name-input').value;
-          const email = document.getElementById('email-input').value;
-          
-          // Store in localStorage (in production, send to your email service)
-          localStorage.setItem('lead_name', name);
-          localStorage.setItem('lead_email', email);
-          localStorage.setItem('has_seen_lead_popup', 'true');
-          
-          // Show success message
-          alert('🎉 Success! Check your email for the Business Credit Blueprint.\\n\\nWe\\'ll send you weekly tips on building credit and securing funding!');
-          leadPopup.classList.add('hidden');
-          
-          // TODO: Integrate with email service (Mailchimp, ConvertKit, or GHL)
-          // Example: Send data to your email marketing platform
-        });
         
         // Enhanced mobile menu with smooth animations and swipe gestures
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
