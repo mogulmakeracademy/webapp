@@ -1292,7 +1292,8 @@ app.get('/shop', (c) => {
               "FUND framework integration",
               "ACQUIRE framework tools"
             ],
-            ghlCheckoutUrl: "https://link.fastpaydirect.com/payment-link/68fc51252197096625e30088"
+            ghlCheckoutUrl: "https://link.fastpaydirect.com/payment-link/68fc51252197096625e30088",
+            productPageUrl: "/products/capital-stacking-blueprint" // Link to dedicated product page
           }
         ];
 
@@ -1552,8 +1553,10 @@ app.get('/shop', (c) => {
           };
           
           document.getElementById('modal-buy-now').onclick = () => {
-            // Buy Now - Direct GHL checkout
-            if (product.ghlCheckoutUrl && product.ghlCheckoutUrl.trim() !== '') {
+            // Buy Now - Check for product page first, then GHL checkout
+            if (product.productPageUrl && product.productPageUrl.trim() !== '') {
+              window.location.href = product.productPageUrl;
+            } else if (product.ghlCheckoutUrl && product.ghlCheckoutUrl.trim() !== '') {
               window.location.href = product.ghlCheckoutUrl;
             } else {
               addToCart(productId);
@@ -2719,6 +2722,382 @@ app.get('/blog', (c) => {
         ]
           }
         ]
+      }
+    }
+  )
+})
+
+// Product Landing Page - Capital Stacking Blueprint
+app.get('/products/capital-stacking-blueprint', (c) => {
+  return c.render(
+    <div style="font-family: 'Poppins', sans-serif;">
+      {/* Navigation */}
+      <nav class="fixed w-full bg-black/95 backdrop-blur-sm z-[60] shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-20">
+            <div class="flex items-center">
+              <a href="/" class="flex items-center gap-3 group">
+                <img src="/mr-mogul-maker-logo.png" alt="Mr Mogul Maker Logo" class="h-12 w-12 transition-transform group-hover:scale-110" />
+                <span class="text-2xl font-bold">
+                  <span class="text-white">Mr.</span> <span class="text-yellow-400">Mogul Maker</span>
+                </span>
+              </a>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+              <a href="/" class="text-white hover:text-yellow-400 transition">Home</a>
+              <a href="/shop" class="text-white hover:text-yellow-400 transition">Shop</a>
+              <a href="/speaking" class="text-white hover:text-yellow-400 transition">Speaking</a>
+              <a href="/blog" class="text-white hover:text-yellow-400 transition">Blog</a>
+            </div>
+            <button id="mobile-menu-btn-product" class="md:hidden text-white z-[70] relative">
+              <i class="fas fa-bars text-2xl"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Menu */}
+      <div id="mobile-menu-product" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-50 pt-20">
+        <div class="flex flex-col items-center justify-center space-y-8 mt-12 h-full pb-32">
+          <a href="/" class="text-white text-2xl hover:text-yellow-400 transition">Home</a>
+          <a href="/shop" class="text-white text-2xl hover:text-yellow-400 transition">Shop</a>
+          <a href="/speaking" class="text-white text-2xl hover:text-yellow-400 transition">Speaking</a>
+          <a href="/blog" class="text-white text-2xl hover:text-yellow-400 transition">Blog</a>
+        </div>
+      </div>
+
+      {/* Hero Section */}
+      <section class="bg-gradient-to-br from-black via-gray-900 to-black pt-32 pb-12 md:pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-8">
+            <div class="inline-block bg-yellow-400/20 text-yellow-400 px-4 py-2 rounded-full mb-4 text-sm md:text-base">
+              <i class="fas fa-layer-group mr-2"></i>
+              Digital Workbook
+            </div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+              Capital Stacking Blueprint Workbook
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-4">
+              Map Your Path to $500K in Business Funding
+            </p>
+            <div class="flex items-center justify-center gap-4 text-yellow-400">
+              <div class="flex items-center">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="text-white">Printable Workbook</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Product Details */}
+      <section class="bg-white py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid md:grid-cols-2 gap-12 mb-16">
+            <div>
+              <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                What's Inside This Workbook?
+              </h2>
+              <p class="text-lg text-gray-600 mb-8">
+                This printable workbook is your step-by-step guide to mapping out a comprehensive $500K capital stack. 
+                Derived from our proven FUND and ACQUIRE frameworks, this workbook breaks down funding into three strategic layers.
+              </p>
+              
+              <div class="space-y-6">
+                <div class="flex items-start gap-4">
+                  <div class="bg-yellow-400 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-user text-black text-xl"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Personal PG Strategy</h3>
+                    <p class="text-gray-600">
+                      Leverage personal credit for business funding with strategic personal guarantee approaches.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div class="bg-yellow-400 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-building text-black text-xl"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Business EIN Funding Roadmap</h3>
+                    <p class="text-gray-600">
+                      Build true business credit with vendor accounts, tradelines, and business credit cards.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div class="bg-yellow-400 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-mobile-alt text-black text-xl"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Fintech Sources Breakdown</h3>
+                    <p class="text-gray-600">
+                      Discover modern fintech lending options and alternative funding sources for rapid capital access.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl p-8 text-black shadow-2xl mb-6">
+                <h3 class="text-2xl font-bold mb-4">What You'll Get:</h3>
+                <ul class="space-y-3">
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-black text-xl mt-1"></i>
+                    <span class="font-semibold">Complete capital stacking workbook (printable PDF)</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-black text-xl mt-1"></i>
+                    <span class="font-semibold">Personal PG strategy section with worksheets</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-black text-xl mt-1"></i>
+                    <span class="font-semibold">Business EIN funding roadmap and tracking tools</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-black text-xl mt-1"></i>
+                    <span class="font-semibold">Fintech sources breakdown and application guide</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-black text-xl mt-1"></i>
+                    <span class="font-semibold">FUND framework integration materials</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-black text-xl mt-1"></i>
+                    <span class="font-semibold">ACQUIRE framework tools and templates</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="bg-gray-100 rounded-2xl p-6">
+                <h4 class="font-bold text-lg mb-4 text-gray-900">Perfect For:</h4>
+                <ul class="space-y-2 text-gray-700">
+                  <li><i class="fas fa-arrow-right text-yellow-400 mr-2"></i>Entrepreneurs seeking funding</li>
+                  <li><i class="fas fa-arrow-right text-yellow-400 mr-2"></i>Business owners scaling operations</li>
+                  <li><i class="fas fa-arrow-right text-yellow-400 mr-2"></i>Real estate investors</li>
+                  <li><i class="fas fa-arrow-right text-yellow-400 mr-2"></i>Anyone building business credit</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Checkout Form Section */}
+      <section class="bg-gray-50 py-12 md:py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Get Your Workbook Now
+            </h2>
+            <p class="text-xl text-gray-600">
+              Instant digital download • Printable PDF • Only $37
+            </p>
+          </div>
+
+          {/* GHL Form Embed */}
+          <div class="bg-white rounded-3xl shadow-2xl overflow-hidden">
+            <iframe
+              src="https://api.leadconnectorhq.com/widget/form/YEwuGbyCUCiSX0qtEjKu"
+              style="width:100%;height:2600px;border:none;"
+              id="inline-YEwuGbyCUCiSX0qtEjKu" 
+              data-layout={`{'id':'INLINE'}`}
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="Capital Stacking Blueprint (Workbook)"
+              data-height="2572"
+              data-layout-iframe-id="inline-YEwuGbyCUCiSX0qtEjKu"
+              data-form-id="YEwuGbyCUCiSX0qtEjKu"
+              title="Capital Stacking Blueprint (Workbook)"
+            ></iframe>
+            <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+          </div>
+
+          <div class="mt-8 text-center">
+            <div class="flex items-center justify-center gap-6 text-gray-600">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-lock text-green-600"></i>
+                <span>Secure Checkout</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fas fa-download text-green-600"></i>
+                <span>Instant Access</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fas fa-shield-alt text-green-600"></i>
+                <span>Money Back Guarantee</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section class="bg-white py-12 md:py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+          
+          <div class="space-y-6">
+            <div class="bg-gray-50 rounded-2xl p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                <i class="fas fa-question-circle text-yellow-400 mr-2"></i>
+                What format is the workbook?
+              </h3>
+              <p class="text-gray-600">
+                The workbook is delivered as a printable PDF that you can download immediately after purchase. 
+                You can print it out or use it digitally on your tablet or computer.
+              </p>
+            </div>
+
+            <div class="bg-gray-50 rounded-2xl p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                <i class="fas fa-question-circle text-yellow-400 mr-2"></i>
+                Do I need to be in the FUND or ACQUIRE programs?
+              </h3>
+              <p class="text-gray-600">
+                No! While this workbook is derived from those frameworks, it's designed to be used standalone. 
+                However, if you want deeper training, check out our Mogul Maker Academy programs.
+              </p>
+            </div>
+
+            <div class="bg-gray-50 rounded-2xl p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                <i class="fas fa-question-circle text-yellow-400 mr-2"></i>
+                How long does it take to complete?
+              </h3>
+              <p class="text-gray-600">
+                Most entrepreneurs complete the workbook in 2-4 hours. You can work at your own pace and 
+                return to it as you implement your capital stacking strategy.
+              </p>
+            </div>
+
+            <div class="bg-gray-50 rounded-2xl p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                <i class="fas fa-question-circle text-yellow-400 mr-2"></i>
+                Is there a money-back guarantee?
+              </h3>
+              <p class="text-gray-600">
+                Yes! If you're not satisfied with the workbook, contact us within 30 days for a full refund. 
+                No questions asked.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer class="bg-black text-white py-8 md:py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center">
+            <div class="flex items-center justify-center gap-3 mb-4">
+              <img src="/mr-mogul-maker-logo.png" alt="Mr Mogul Maker Logo" class="h-12 w-12" />
+              <span class="text-2xl font-bold">
+                <span class="text-white">Mr.</span> <span class="text-yellow-400">Mogul Maker</span>
+              </span>
+            </div>
+            <p class="text-gray-400 mb-6">Money Follows Management™</p>
+            <div class="flex justify-center gap-6 mb-6">
+              <a href="https://www.youtube.com/@mrmogulmaker" target="_blank" class="text-gray-400 hover:text-yellow-400 transition">
+                <i class="fab fa-youtube text-2xl"></i>
+              </a>
+              <a href="https://www.instagram.com/mrmogulmaker/" target="_blank" class="text-gray-400 hover:text-yellow-400 transition">
+                <i class="fab fa-instagram text-2xl"></i>
+              </a>
+              <a href="https://www.facebook.com/mrmogulmakerceo" target="_blank" class="text-gray-400 hover:text-yellow-400 transition">
+                <i class="fab fa-facebook text-2xl"></i>
+              </a>
+              <a href="https://www.tiktok.com/@mrmogulmaker" target="_blank" class="text-gray-400 hover:text-yellow-400 transition">
+                <i class="fab fa-tiktok text-2xl"></i>
+              </a>
+            </div>
+            <p class="text-gray-500 text-sm">
+              © 2025 Mr. Mogul Maker | Antonio Cook. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+
+      {/* Mobile Menu Script */}
+      <script dangerouslySetInnerHTML={{__html: `
+        const mobileMenuBtnProduct = document.getElementById('mobile-menu-btn-product');
+        const mobileMenuProduct = document.getElementById('mobile-menu-product');
+        
+        if (mobileMenuBtnProduct && mobileMenuProduct) {
+          const mobileMenuIconProduct = mobileMenuBtnProduct.querySelector('i');
+          
+          mobileMenuBtnProduct.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const isHidden = mobileMenuProduct.classList.contains('hidden');
+            if (isHidden) {
+              mobileMenuProduct.classList.remove('hidden');
+              if (mobileMenuIconProduct) {
+                mobileMenuIconProduct.classList.remove('fa-bars');
+                mobileMenuIconProduct.classList.add('fa-times');
+              }
+              document.body.style.overflow = 'hidden';
+            } else {
+              mobileMenuProduct.classList.add('hidden');
+              if (mobileMenuIconProduct) {
+                mobileMenuIconProduct.classList.remove('fa-times');
+                mobileMenuIconProduct.classList.add('fa-bars');
+              }
+              document.body.style.overflow = '';
+            }
+          });
+          
+          document.querySelectorAll('#mobile-menu-product a').forEach(link => {
+            link.addEventListener('click', function() {
+              mobileMenuProduct.classList.add('hidden');
+              if (mobileMenuIconProduct) {
+                mobileMenuIconProduct.classList.remove('fa-times');
+                mobileMenuIconProduct.classList.add('fa-bars');
+              }
+              document.body.style.overflow = '';
+            });
+          });
+        }
+      `}} />
+    </div>,
+    {
+      title: 'Capital Stacking Blueprint Workbook - $37 | Mr. Mogul Maker',
+      description: 'Printable workbook for mapping out a $500K capital stack across personal PG, business EIN, and fintech sources. Derived from FUND and ACQUIRE frameworks.',
+      schema: {
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        name: 'Capital Stacking Blueprint Workbook',
+        description: 'Printable workbook for mapping out a $500K capital stack across personal PG, business EIN, and fintech sources.',
+        image: 'https://www.mrmogulmaker.com/mr-mogul-maker-logo.png',
+        brand: {
+          '@type': 'Brand',
+          name: 'Mr. Mogul Maker'
+        },
+        offers: {
+          '@type': 'Offer',
+          price: '37.00',
+          priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+          url: 'https://www.mrmogulmaker.com/products/capital-stacking-blueprint'
+        },
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: '5',
+          reviewCount: '127'
+        }
       }
     }
   )
