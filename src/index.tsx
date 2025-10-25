@@ -124,11 +124,20 @@ app.get('/', (c) => {
       </div>
 
       {/* Hero Section */}
-      <section class="relative bg-gradient-to-br from-black via-gray-900 to-black min-h-screen flex items-center pt-20">
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmRiNGQiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLjktMiAyLTJoNGMxLjEgMCAyIC45IDIgMnY0YzAgMS4xLS45IDItMiAyaC00Yy0xLjEgMC0yLS45LTItMnYtNHptMCAxOGMwLTEuMS45LTIgMi0yaDRjMS4xIDAgMiAuOSAyIDJ2NGMwIDEuMS0uOSAyLTIgMmgtNGMtMS4xIDAtMi0uOS0yLTJ2LTR6bTE4IDBjMC0xLjEuOS0yIDItMmg0YzEuMSAwIDIgLjkgMiAydjRjMCAxLjEtLjkgMi0yIDJoLTRjLTEuMSAwLTItLjktMi0ydi00eiIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
+      <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div class="absolute inset-0">
+          <img 
+            src="/antonio-cook-professional.jpg" 
+            alt="Antonio Cook - Mr. Mogul Maker" 
+            class="w-full h-full object-cover object-center"
+          />
+          {/* Dark gradient overlay for text readability */}
+          <div class="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/60"></div>
+        </div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="max-w-3xl">
             <div class="text-white">
               <div class="inline-block bg-yellow-400/20 text-yellow-400 px-4 py-2 rounded-full mb-6">
                 <i class="fas fa-crown mr-2"></i>
@@ -166,51 +175,6 @@ app.get('/', (c) => {
                 <a href="https://www.tiktok.com/@mrmogulmaker" target="_blank" class="text-white hover:text-yellow-400 transition text-2xl">
                   <i class="fab fa-tiktok"></i>
                 </a>
-              </div>
-            </div>
-            
-            <div class="relative">
-              <div class="absolute inset-0 bg-yellow-400/20 blur-3xl rounded-full"></div>
-              <div class="relative">
-                <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-yellow-400">
-                  <img 
-                    src="/antonio-cook-professional.jpg" 
-                    alt="Antonio Cook - Mr. Mogul Maker, Entrepreneur Coach and Business Credit Expert" 
-                    class="w-full h-auto object-cover"
-                  />
-                  <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-6">
-                    <h3 class="text-2xl font-bold text-white mb-2">Antonio Cook</h3>
-                    <p class="text-yellow-400 font-semibold mb-3">CEO, Mogul Maker Academy</p>
-                    <div class="flex items-center gap-2 text-white text-sm">
-                      <i class="fas fa-check-circle text-yellow-400"></i>
-                      <span>10,000+ Entrepreneurs Funded</span>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* 3M Framework Card Below Photo */}
-                <div class="mt-6 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl p-6 shadow-xl">
-                  <div class="bg-black/80 backdrop-blur rounded-xl p-6 text-white">
-                    <h4 class="text-xl font-bold mb-4 text-yellow-400">📊 The 3M Framework</h4>
-                    <div class="space-y-3">
-                      <div class="flex items-center gap-3">
-                        <i class="fas fa-check-circle text-yellow-400"></i>
-                        <span class="text-sm">Make: Business & Income</span>
-                      </div>
-                      <div class="flex items-center gap-3">
-                        <i class="fas fa-check-circle text-yellow-400"></i>
-                        <span class="text-sm">Manage: Credit & Protection</span>
-                      </div>
-                      <div class="flex items-center gap-3">
-                        <i class="fas fa-check-circle text-yellow-400"></i>
-                        <span class="text-sm">Multiply: Funding & Wealth</span>
-                      </div>
-                    </div>
-                    <div class="mt-4 pt-4 border-t border-white/20">
-                      <p class="text-yellow-400 font-semibold text-center text-sm">Money Follows Management™</p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
