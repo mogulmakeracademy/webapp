@@ -1,0 +1,15 @@
+# robots.txt for Mr. Mogul Maker (mrmogulmaker.com)
+
+# Allow all search engines to crawl all content
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://mrmogulmaker.com/sitemap.xml
+
+# Crawl-delay (optional, helps prevent server overload)
+Crawl-delay: 1
+
+# Block access to admin/private areas (if any exist in future)
+# Disallow: /admin/
+# Disallow: /private/
