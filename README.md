@@ -29,7 +29,7 @@ A professional personal brand website for Antonio Cook (Mr. Mogul Maker), Entrep
 
 - **Production:** https://mrmogulmaker.pages.dev
 - **Shop Page:** https://mrmogulmaker.pages.dev/shop
-- **Latest Deployment:** https://7086a0a3.mrmogulmaker.pages.dev
+- **Latest Deployment:** https://863dd833.mrmogulmaker.pages.dev
 - **Development Server:** https://3000-itqkd7r87dbcew1poox4l-dfc00ec5.sandbox.novita.ai
 
 ## 📊 Social Media Links
@@ -240,6 +240,30 @@ npx wrangler pages deploy dist --project-name mrmogulmaker
 - "Think Like a Bank & Build Wealth"
 - "Credit Repair & Financial Literacy"
 
+## 🔗 GoHighLevel (GHL) Integration
+
+**Your shop now supports GoHighLevel integration!** Connect your existing GHL products for seamless checkout.
+
+### Quick Setup:
+
+1. **Get your GHL order form URLs** from your GoHighLevel account
+2. **Add URLs to products** in `/src/index.tsx`:
+   ```javascript
+   ghlCheckoutUrl: "https://your-ghl-domain.com/order-form/your-product"
+   ```
+3. **Build and deploy** - customers will be redirected to GHL for checkout
+4. **GHL handles payment and product delivery** automatically
+
+📖 **Full Guide:** See `GHL_INTEGRATION_GUIDE.md` for detailed instructions
+
+### How It Works:
+- **Display Products:** Beautiful product cards on your custom shop page
+- **Buy Now Button:** Redirects directly to your GHL order form  
+- **GHL Checkout:** Customer completes payment in GoHighLevel
+- **Auto Delivery:** GHL automatically delivers products to customers
+
+---
+
 ## 🛠️ Customizing Shop Products
 
 **To add/edit products, modify the `products` array in `/src/index.tsx` (Shop route):**
@@ -254,7 +278,8 @@ const products = [
     description: "Short desc...",   // Brief description
     image: "file-pdf",              // Font Awesome icon name
     features: ["Feature 1", "..."], // List of key features
-    includes: ["Item 1", "..."]     // What's included in purchase
+    includes: ["Item 1", "..."],    // What's included in purchase
+    ghlCheckoutUrl: ""              // GoHighLevel order form URL (optional)
   },
   // Add more products...
 ];
