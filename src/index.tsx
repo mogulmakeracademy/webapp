@@ -13,8 +13,11 @@ app.get('/', (c) => {
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between items-center h-20">
             <div class="flex items-center">
-              <a href="/" class="text-2xl font-bold text-yellow-400">
-                <span class="text-white">Mr.</span> Mogul Maker
+              <a href="/" class="flex items-center gap-3 group">
+                <img src="/mr-mogul-maker-logo.png" alt="Mr Mogul Maker Logo" class="h-12 w-12 transition-transform group-hover:scale-110" />
+                <span class="text-2xl font-bold">
+                  <span class="text-white">Mr.</span> <span class="text-yellow-400">Mogul Maker</span>
+                </span>
               </a>
             </div>
             <div class="hidden md:flex items-center space-x-8">
@@ -132,8 +135,8 @@ app.get('/', (c) => {
             alt="Antonio Cook - Mr. Mogul Maker" 
             class="w-full h-full object-cover object-center"
           />
-          {/* Dark gradient overlay for text readability */}
-          <div class="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/60"></div>
+          {/* Dark gradient overlay for text readability - lighter on right to show your photo */}
+          <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
         </div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -454,7 +457,10 @@ app.get('/', (c) => {
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid md:grid-cols-4 gap-8 mb-8">
             <div class="md:col-span-2">
-              <h3 class="text-2xl font-bold text-yellow-400 mb-4">Mr. Mogul Maker</h3>
+              <div class="flex items-center gap-3 mb-4">
+                <img src="/mr-mogul-maker-logo.png" alt="Mr Mogul Maker Logo" class="h-16 w-16" />
+                <h3 class="text-2xl font-bold text-yellow-400">Mr. Mogul Maker</h3>
+              </div>
               <p class="text-gray-400 mb-4">
                 Empowering entrepreneurs with financial literacy, business credit strategies, and wealth-building education.
               </p>
@@ -598,8 +604,11 @@ app.get('/shop', (c) => {
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between items-center h-20">
             <div class="flex items-center">
-              <a href="/" class="text-2xl font-bold text-yellow-400">
-                <span class="text-white">Mr.</span> Mogul Maker
+              <a href="/" class="flex items-center gap-3 group">
+                <img src="/mr-mogul-maker-logo.png" alt="Mr Mogul Maker Logo" class="h-12 w-12 transition-transform group-hover:scale-110" />
+                <span class="text-2xl font-bold">
+                  <span class="text-white">Mr.</span> <span class="text-yellow-400">Mogul Maker</span>
+                </span>
               </a>
             </div>
             <div class="hidden md:flex items-center space-x-8">
@@ -791,7 +800,10 @@ app.get('/shop', (c) => {
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid md:grid-cols-4 gap-8 mb-8">
             <div class="md:col-span-2">
-              <h3 class="text-2xl font-bold text-yellow-400 mb-4">Mr. Mogul Maker</h3>
+              <div class="flex items-center gap-3 mb-4">
+                <img src="/mr-mogul-maker-logo.png" alt="Mr Mogul Maker Logo" class="h-16 w-16" />
+                <h3 class="text-2xl font-bold text-yellow-400">Mr. Mogul Maker</h3>
+              </div>
               <p class="text-gray-400 mb-4">
                 Empowering entrepreneurs with financial literacy, business credit strategies, and wealth-building education.
               </p>
@@ -1376,8 +1388,11 @@ app.get('/speaking', (c) => {
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between items-center h-20">
             <div class="flex items-center">
-              <a href="/" class="text-2xl font-bold text-yellow-400">
-                <span class="text-white">Mr.</span> Mogul Maker
+              <a href="/" class="flex items-center gap-3 group">
+                <img src="/mr-mogul-maker-logo.png" alt="Mr Mogul Maker Logo" class="h-12 w-12 transition-transform group-hover:scale-110" />
+                <span class="text-2xl font-bold">
+                  <span class="text-white">Mr.</span> <span class="text-yellow-400">Mogul Maker</span>
+                </span>
               </a>
             </div>
             <div class="hidden md:flex items-center space-x-8">
@@ -1623,7 +1638,10 @@ app.get('/speaking', (c) => {
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid md:grid-cols-4 gap-8 mb-8">
             <div class="md:col-span-2">
-              <h3 class="text-2xl font-bold text-yellow-400 mb-4">Mr. Mogul Maker</h3>
+              <div class="flex items-center gap-3 mb-4">
+                <img src="/mr-mogul-maker-logo.png" alt="Mr Mogul Maker Logo" class="h-16 w-16" />
+                <h3 class="text-2xl font-bold text-yellow-400">Mr. Mogul Maker</h3>
+              </div>
               <p class="text-gray-400 mb-4">
                 Empowering entrepreneurs with financial literacy, business credit strategies, and wealth-building education.
               </p>
@@ -1695,8 +1713,11 @@ app.get('/blog', (c) => {
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between items-center h-20">
             <div class="flex items-center">
-              <a href="/" class="text-2xl font-bold text-yellow-400">
-                <span class="text-white">Mr.</span> Mogul Maker
+              <a href="/" class="flex items-center gap-3 group">
+                <img src="/mr-mogul-maker-logo.png" alt="Mr Mogul Maker Logo" class="h-12 w-12 transition-transform group-hover:scale-110" />
+                <span class="text-2xl font-bold">
+                  <span class="text-white">Mr.</span> <span class="text-yellow-400">Mogul Maker</span>
+                </span>
               </a>
             </div>
             <div class="hidden md:flex items-center space-x-8">
@@ -1993,7 +2014,10 @@ app.get('/blog', (c) => {
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid md:grid-cols-4 gap-8 mb-8">
             <div class="md:col-span-2">
-              <h3 class="text-2xl font-bold text-yellow-400 mb-4">Mr. Mogul Maker</h3>
+              <div class="flex items-center gap-3 mb-4">
+                <img src="/mr-mogul-maker-logo.png" alt="Mr Mogul Maker Logo" class="h-16 w-16" />
+                <h3 class="text-2xl font-bold text-yellow-400">Mr. Mogul Maker</h3>
+              </div>
               <p class="text-gray-400 mb-4">
                 Empowering entrepreneurs with financial literacy, business credit strategies, and wealth-building education.
               </p>
