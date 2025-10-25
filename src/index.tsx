@@ -9,7 +9,7 @@ app.get('/', (c) => {
   return c.render(
     <div style="font-family: 'Poppins', sans-serif;">
       {/* Navigation */}
-      <nav class="fixed w-full bg-black/95 backdrop-blur-sm z-50 shadow-lg">
+      <nav class="fixed w-full bg-black/95 backdrop-blur-sm z-[60] shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between items-center h-20">
             <div class="flex items-center">
@@ -31,7 +31,7 @@ app.get('/', (c) => {
                 <span id="cart-badge-home" class="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
               </a>
             </div>
-            <button id="mobile-menu-btn" class="md:hidden text-white">
+            <button id="mobile-menu-btn" class="md:hidden text-white z-[70] relative">
               <i class="fas fa-bars text-2xl"></i>
             </button>
           </div>
@@ -39,8 +39,8 @@ app.get('/', (c) => {
       </nav>
 
       {/* Mobile Menu */}
-      <div id="mobile-menu" class="hidden fixed inset-0 bg-black/95 z-40 pt-20">
-        <div class="flex flex-col items-center space-y-8 mt-12">
+      <div id="mobile-menu" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-50 pt-20">
+        <div class="flex flex-col items-center justify-center space-y-8 mt-12 h-full pb-32">
           <a href="/" class="text-white text-2xl hover:text-yellow-400 transition">Home</a>
           <a href="/shop" class="text-white text-2xl hover:text-yellow-400 transition">Shop</a>
           <a href="/speaking" class="text-white text-2xl hover:text-yellow-400 transition">Speaking</a>
@@ -538,6 +538,13 @@ app.get('/', (c) => {
         // Enhanced mobile menu with smooth animations and swipe gestures
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        
+        // Check if elements exist
+        if (!mobileMenuBtn || !mobileMenu) {
+          console.error('Mobile menu elements not found');
+          return;
+        }
+        
         const mobileMenuIcon = mobileMenuBtn.querySelector('i');
         
         // Swipe variables for mobile menu
@@ -549,20 +556,26 @@ app.get('/', (c) => {
         
         function openMobileMenu() {
           mobileMenu.classList.remove('hidden');
-          mobileMenuIcon.classList.remove('fa-bars');
-          mobileMenuIcon.classList.add('fa-times');
+          if (mobileMenuIcon) {
+            mobileMenuIcon.classList.remove('fa-bars');
+            mobileMenuIcon.classList.add('fa-times');
+          }
           document.body.style.overflow = 'hidden';
         }
         
         function closeMobileMenu() {
           mobileMenu.classList.add('hidden');
-          mobileMenuIcon.classList.remove('fa-times');
-          mobileMenuIcon.classList.add('fa-bars');
+          if (mobileMenuIcon) {
+            mobileMenuIcon.classList.remove('fa-times');
+            mobileMenuIcon.classList.add('fa-bars');
+          }
           document.body.style.overflow = '';
         }
         
         // Button click handler
-        mobileMenuBtn.addEventListener('click', function() {
+        mobileMenuBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
           const isHidden = mobileMenu.classList.contains('hidden');
           if (isHidden) {
             openMobileMenu();
