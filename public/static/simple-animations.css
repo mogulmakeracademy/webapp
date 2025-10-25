@@ -1,7 +1,7 @@
 /**
- * Simple, Safe Animations
- * Lightweight animations that won't cause white screen issues
- * Version: 1.0.0
+ * Enhanced Animations
+ * Premium animations that are safe and reliable
+ * Version: 2.0.0
  */
 
 /* ==========================================
@@ -252,4 +252,333 @@ a, button {
   to {
     will-change: auto;
   }
+}
+
+/* ==========================================
+   16. SCROLL-TRIGGERED ANIMATIONS (Safe)
+   ========================================== */
+
+/* Elements start visible but slightly offset */
+.scroll-reveal {
+  opacity: 1;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Different reveal directions */
+.scroll-reveal-left {
+  opacity: 1;
+  transform: translateX(-30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-reveal-right {
+  opacity: 1;
+  transform: translateX(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-reveal-scale {
+  opacity: 1;
+  transform: scale(0.95);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ==========================================
+   17. STAGGERED ANIMATIONS
+   ========================================== */
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+
+/* ==========================================
+   18. NAVIGATION ENHANCEMENTS
+   ========================================== */
+
+nav a {
+  position: relative;
+  overflow: hidden;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #fbbf24;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+nav a:hover::after {
+  transform: translateX(0);
+}
+
+/* ==========================================
+   19. BUTTON RIPPLE EFFECT
+   ========================================== */
+
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-ripple:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* ==========================================
+   20. ICON ANIMATIONS
+   ========================================== */
+
+.icon-spin-hover:hover i {
+  animation: iconSpin 0.6s ease;
+}
+
+@keyframes iconSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.icon-bounce-hover:hover i {
+  animation: iconBounce 0.6s ease;
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-10px); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(-5px); }
+}
+
+.icon-shake-hover:hover i {
+  animation: iconShake 0.6s ease;
+}
+
+@keyframes iconShake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* ==========================================
+   21. TEXT GRADIENT ANIMATION
+   ========================================== */
+
+.text-gradient-animate {
+  background: linear-gradient(90deg, #fbbf24, #f59e0b, #fbbf24);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ==========================================
+   22. CARD HOVER GLOW
+   ========================================== */
+
+.card-glow {
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+
+.card-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(45deg, #fbbf24, #f59e0b);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-glow:hover::before {
+  opacity: 0.3;
+}
+
+.card-glow:hover {
+  box-shadow: 0 0 30px rgba(251, 191, 36, 0.3);
+}
+
+/* ==========================================
+   23. FLOATING ANIMATION
+   ========================================== */
+
+.float-gentle {
+  animation: floatGentle 3s ease-in-out infinite;
+}
+
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ==========================================
+   24. TYPEWRITER EFFECT (Optional)
+   ========================================== */
+
+.typewriter {
+  overflow: hidden;
+  border-right: 2px solid #fbbf24;
+  white-space: nowrap;
+  animation: typing 3s steps(40) 1s 1 normal both,
+             blinkCursor 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blinkCursor {
+  50% { border-color: transparent; }
+}
+
+/* ==========================================
+   25. SMOOTH BACKDROP BLUR
+   ========================================== */
+
+.backdrop-blur-smooth {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: backdrop-filter 0.3s ease;
+}
+
+.backdrop-blur-smooth:hover {
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+/* ==========================================
+   26. PARALLAX LITE (Safe)
+   ========================================== */
+
+.parallax-lite {
+  transform: translateZ(0);
+  transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ==========================================
+   27. SHINE EFFECT
+   ========================================== */
+
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s;
+}
+
+.shine-effect:hover::after {
+  left: 100%;
+}
+
+/* ==========================================
+   28. BORDER DRAW ANIMATION
+   ========================================== */
+
+.border-draw {
+  position: relative;
+}
+
+.border-draw::before,
+.border-draw::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #fbbf24;
+  transition: width 0.4s ease;
+}
+
+.border-draw::before {
+  top: 0;
+  left: 0;
+}
+
+.border-draw::after {
+  bottom: 0;
+  right: 0;
+}
+
+.border-draw:hover::before,
+.border-draw:hover::after {
+  width: 100%;
+}
+
+/* ==========================================
+   29. COUNT UP ANIMATION
+   ========================================== */
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.count-animate {
+  animation: countUp 1s ease-out;
+}
+
+/* ==========================================
+   30. ENHANCED SCROLL PROGRESS
+   ========================================== */
+
+.scroll-progress.glow {
+  box-shadow: 0 0 10px #fbbf24, 0 0 20px #fbbf24;
 }

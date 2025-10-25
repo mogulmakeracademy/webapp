@@ -1,7 +1,7 @@
 /**
- * Simple, Safe Animations JavaScript
- * Adds animation classes AFTER page content is visible
- * Version: 1.0.0
+ * Enhanced Animations JavaScript
+ * Premium animations that are safe and reliable
+ * Version: 2.0.0
  */
 
 (function() {
@@ -18,15 +18,21 @@
   }
 
   function init() {
-    console.log('✨ Initializing simple animations...');
+    console.log('✨ Initializing enhanced animations...');
     
     try {
       // Only add animations AFTER everything is loaded
       addScrollProgress();
       addMobileMenuToggle();
       addFadeInElements();
+      addScrollReveal();
+      addNavAnimations();
+      addButtonEnhancements();
+      addIconAnimations();
+      addCardGlow();
+      addParallaxLite();
       
-      console.log('✅ Simple animations activated!');
+      console.log('✅ Enhanced animations activated!');
     } catch (error) {
       console.error('Animation error (non-critical):', error);
       // Do nothing - page still works without animations
@@ -151,5 +157,187 @@
       }
     });
   }
+
+  // ==========================================
+  // 4. SCROLL-TRIGGERED REVEAL ANIMATIONS
+  // ==========================================
+  
+  function addScrollReveal() {
+    const revealElements = document.querySelectorAll('section, .bg-gray-50, .bg-gradient-to-br');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('scroll-reveal', 'revealed');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach((el, index) => {
+      // Don't animate hero section
+      if (index > 0) {
+        el.classList.add('scroll-reveal');
+        observer.observe(el);
+      }
+    });
+  }
+
+  // ==========================================
+  // 5. NAVIGATION ENHANCEMENTS
+  // ==========================================
+  
+  function addNavAnimations() {
+    const navLinks = document.querySelectorAll('nav a');
+    
+    navLinks.forEach(link => {
+      // Add shine effect to logo
+      if (link.querySelector('img')) {
+        link.classList.add('shine-effect');
+      }
+    });
+
+    // Add glow to scroll progress
+    const progressBar = document.getElementById('scroll-progress');
+    if (progressBar) {
+      progressBar.classList.add('glow');
+    }
+  }
+
+  // ==========================================
+  // 6. BUTTON ENHANCEMENTS
+  // ==========================================
+  
+  function addButtonEnhancements() {
+    // Add ripple effect to primary buttons
+    const primaryButtons = document.querySelectorAll('.bg-yellow-400, .bg-black');
+    primaryButtons.forEach(btn => {
+      if (btn.tagName === 'A' || btn.tagName === 'BUTTON') {
+        btn.classList.add('btn-ripple');
+      }
+    });
+
+    // Add pulse to main CTA buttons
+    const ctaButtons = document.querySelectorAll('a[href*="skool"]');
+    ctaButtons.forEach(btn => {
+      btn.classList.add('btn-pulse');
+    });
+  }
+
+  // ==========================================
+  // 7. ICON ANIMATIONS
+  // ==========================================
+  
+  function addIconAnimations() {
+    // Shopping cart icon - bounce on hover
+    const cartIcons = document.querySelectorAll('.fa-shopping-cart');
+    cartIcons.forEach(icon => {
+      if (icon.closest('a') || icon.closest('button')) {
+        icon.closest('a, button').classList.add('icon-bounce-hover');
+      }
+    });
+
+    // Social media icons - spin on hover
+    const socialIcons = document.querySelectorAll('.fab');
+    socialIcons.forEach(icon => {
+      if (icon.closest('a')) {
+        icon.closest('a').classList.add('icon-spin-hover');
+      }
+    });
+
+    // Crown icons - shake on hover
+    const crownIcons = document.querySelectorAll('.fa-crown');
+    crownIcons.forEach(icon => {
+      if (icon.closest('div')) {
+        icon.closest('div').classList.add('icon-shake-hover');
+      }
+    });
+  }
+
+  // ==========================================
+  // 8. CARD GLOW EFFECT
+  // ==========================================
+  
+  function addCardGlow() {
+    // Add glow to program cards
+    const programCards = document.querySelectorAll('#programs .bg-gradient-to-br');
+    programCards.forEach(card => {
+      card.classList.add('card-glow');
+    });
+
+    // Add glow to podcast cards
+    const podcastCards = document.querySelectorAll('#podcasts .bg-gradient-to-br');
+    podcastCards.forEach(card => {
+      card.classList.add('card-glow');
+    });
+  }
+
+  // ==========================================
+  // 9. PARALLAX LITE (Safe)
+  // ==========================================
+  
+  function addParallaxLite() {
+    const hero = document.querySelector('section:first-of-type');
+    if (!hero) return;
+
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const parallaxElements = hero.querySelectorAll('.text-white, h1, p');
+      
+      parallaxElements.forEach((el, index) => {
+        const speed = (index + 1) * 0.05;
+        el.style.transform = `translateY(${scrolled * speed}px)`;
+      });
+    }, { passive: true });
+  }
+
+  // ==========================================
+  // 10. FLOATING ELEMENTS
+  // ==========================================
+  
+  function addFloatingAnimation() {
+    // Add floating to icons in hero section
+    const heroIcons = document.querySelectorAll('section:first-of-type i.fa-crown');
+    heroIcons.forEach(icon => {
+      icon.classList.add('float-gentle');
+    });
+  }
+
+  // ==========================================
+  // 11. TEXT GRADIENT ANIMATION
+  // ==========================================
+  
+  function addTextGradient() {
+    // Add gradient animation to headings with yellow text
+    const yellowHeadings = document.querySelectorAll('.text-yellow-400');
+    yellowHeadings.forEach(heading => {
+      if (heading.tagName === 'H1' || heading.tagName === 'H2' || heading.tagName === 'SPAN') {
+        heading.classList.add('text-gradient-animate');
+      }
+    });
+  }
+
+  // ==========================================
+  // 12. SMOOTH SCROLL TO ANCHORS
+  // ==========================================
+  
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      
+      e.preventDefault();
+      const target = document.querySelector(href);
+      
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
 
 })();

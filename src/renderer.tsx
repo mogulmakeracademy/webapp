@@ -5,7 +5,7 @@ export const renderer = jsxRenderer(({ children, title, description, schema }) =
   const pageDescription = description || 'Learn business credit, secure funding, and build wealth with Antonio Cook (Mr. Mogul Maker). 10,000+ entrepreneurs funded. Speaker, coach, financial educator.'
   
   // Cache-busting version for static assets
-  const version = '1.0.4'
+  const version = '2.0.0'
   
   return (
     <html lang="en">
