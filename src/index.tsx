@@ -134,7 +134,7 @@ app.get('/', (c) => {
             src="/antonio-cook-professional.jpg" 
             alt="Antonio Cook - Mr. Mogul Maker" 
             class="w-full h-full object-cover"
-            style="object-position: center 60%;"
+            style="object-position: center top;"
           />
           {/* Dark gradient overlay for text readability - lighter on right to show your photo */}
           <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
