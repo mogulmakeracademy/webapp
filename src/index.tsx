@@ -660,58 +660,87 @@ app.get('/', (c) => {
           // Example: Send data to your email marketing platform
         });
         
-        // Enhanced mobile menu with smooth animations
+        // Enhanced mobile menu with smooth animations and swipe gestures
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileMenuIcon = mobileMenuBtn.querySelector('i');
         
+        // Swipe variables for mobile menu
+        let menuTouchStartX = 0;
+        let menuTouchStartY = 0;
+        let menuTouchEndX = 0;
+        let menuTouchEndY = 0;
+        const menuSwipeThreshold = 100;
+        
+        function openMobileMenu() {
+          mobileMenu.classList.remove('hidden');
+          mobileMenuIcon.classList.remove('fa-bars');
+          mobileMenuIcon.classList.add('fa-times');
+          document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMobileMenu() {
+          mobileMenu.classList.add('hidden');
+          mobileMenuIcon.classList.remove('fa-times');
+          mobileMenuIcon.classList.add('fa-bars');
+          document.body.style.overflow = '';
+        }
+        
+        // Button click handler
         mobileMenuBtn.addEventListener('click', function() {
           const isHidden = mobileMenu.classList.contains('hidden');
-          
           if (isHidden) {
-            // Open menu
-            mobileMenu.classList.remove('hidden');
-            mobileMenuIcon.classList.remove('fa-bars');
-            mobileMenuIcon.classList.add('fa-times');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            openMobileMenu();
           } else {
-            // Close menu
-            mobileMenu.classList.add('hidden');
-            mobileMenuIcon.classList.remove('fa-times');
-            mobileMenuIcon.classList.add('fa-bars');
-            document.body.style.overflow = '';
+            closeMobileMenu();
           }
         });
         
         // Close mobile menu when clicking links
         document.querySelectorAll('#mobile-menu a').forEach(link => {
-          link.addEventListener('click', function() {
-            mobileMenu.classList.add('hidden');
-            mobileMenuIcon.classList.remove('fa-times');
-            mobileMenuIcon.classList.add('fa-bars');
-            document.body.style.overflow = '';
-          });
+          link.addEventListener('click', closeMobileMenu);
         });
         
         // Close mobile menu when clicking outside
         mobileMenu.addEventListener('click', function(e) {
           if (e.target.id === 'mobile-menu') {
-            mobileMenu.classList.add('hidden');
-            mobileMenuIcon.classList.remove('fa-times');
-            mobileMenuIcon.classList.add('fa-bars');
-            document.body.style.overflow = '';
+            closeMobileMenu();
           }
         });
         
         // Close mobile menu on escape key
         document.addEventListener('keydown', function(e) {
           if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
-            mobileMenu.classList.add('hidden');
-            mobileMenuIcon.classList.remove('fa-times');
-            mobileMenuIcon.classList.add('fa-bars');
-            document.body.style.overflow = '';
+            closeMobileMenu();
           }
         });
+        
+        // Swipe gestures for mobile menu
+        // Swipe right from left edge to open menu
+        document.addEventListener('touchstart', (e) => {
+          menuTouchStartX = e.changedTouches[0].screenX;
+          menuTouchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+        
+        document.addEventListener('touchend', (e) => {
+          menuTouchEndX = e.changedTouches[0].screenX;
+          menuTouchEndY = e.changedTouches[0].screenY;
+          
+          const deltaX = menuTouchEndX - menuTouchStartX;
+          const deltaY = menuTouchEndY - menuTouchStartY;
+          const isHorizontalSwipe = Math.abs(deltaX) > Math.abs(deltaY);
+          
+          if (isHorizontalSwipe && Math.abs(deltaX) > menuSwipeThreshold) {
+            // Swipe right from left edge (first 50px) to open menu
+            if (menuTouchStartX < 50 && deltaX > 0 && mobileMenu.classList.contains('hidden')) {
+              openMobileMenu();
+            }
+            // Swipe left to close menu
+            else if (deltaX < 0 && !mobileMenu.classList.contains('hidden')) {
+              closeMobileMenu();
+            }
+          }
+        }, { passive: true });
         
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -723,6 +752,117 @@ app.get('/', (c) => {
             }
           });
         });
+        
+        // Video Carousel with Swipe Gestures
+        const videoCarousel = document.getElementById('video-carousel');
+        const videoSlides = document.getElementById('video-slides');
+        const videoPrevBtn = document.getElementById('video-prev');
+        const videoNextBtn = document.getElementById('video-next');
+        const videoIndicators = document.querySelectorAll('.video-indicator');
+        
+        if (videoCarousel && videoSlides) {
+          let currentVideoSlide = 0;
+          const totalVideoSlides = videoIndicators.length;
+          
+          // Swipe gesture variables
+          let touchStartX = 0;
+          let touchEndX = 0;
+          let touchStartY = 0;
+          let touchEndY = 0;
+          const minSwipeDistance = 50; // minimum distance for swipe
+          
+          function updateVideoCarousel() {
+            const slideWidth = videoSlides.querySelector('.min-w-full').offsetWidth;
+            videoSlides.style.transform = \`translateX(-\${currentVideoSlide * slideWidth}px)\`;
+            
+            // Update indicators
+            videoIndicators.forEach((indicator, index) => {
+              if (index === currentVideoSlide) {
+                indicator.classList.remove('bg-gray-300');
+                indicator.classList.add('bg-yellow-400');
+              } else {
+                indicator.classList.remove('bg-yellow-400');
+                indicator.classList.add('bg-gray-300');
+              }
+            });
+          }
+          
+          function goToVideoSlide(index) {
+            if (index >= 0 && index < totalVideoSlides) {
+              currentVideoSlide = index;
+              updateVideoCarousel();
+            }
+          }
+          
+          function nextVideoSlide() {
+            currentVideoSlide = (currentVideoSlide + 1) % totalVideoSlides;
+            updateVideoCarousel();
+          }
+          
+          function prevVideoSlide() {
+            currentVideoSlide = (currentVideoSlide - 1 + totalVideoSlides) % totalVideoSlides;
+            updateVideoCarousel();
+          }
+          
+          // Button click handlers
+          if (videoPrevBtn) {
+            videoPrevBtn.addEventListener('click', prevVideoSlide);
+          }
+          
+          if (videoNextBtn) {
+            videoNextBtn.addEventListener('click', nextVideoSlide);
+          }
+          
+          // Indicator click handlers
+          videoIndicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => goToVideoSlide(index));
+          });
+          
+          // Touch/Swipe event handlers
+          videoCarousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+          }, { passive: true });
+          
+          videoCarousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+          }, { passive: true });
+          
+          function handleSwipe() {
+            const deltaX = touchEndX - touchStartX;
+            const deltaY = touchEndY - touchStartY;
+            
+            // Check if horizontal swipe is dominant (not vertical scroll)
+            if (Math.abs(deltaX) > Math.abs(deltaY)) {
+              if (Math.abs(deltaX) > minSwipeDistance) {
+                if (deltaX < 0) {
+                  // Swiped left - next slide
+                  nextVideoSlide();
+                } else {
+                  // Swiped right - previous slide
+                  prevVideoSlide();
+                }
+              }
+            }
+          }
+          
+          // Keyboard navigation
+          document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+              prevVideoSlide();
+            } else if (e.key === 'ArrowRight') {
+              nextVideoSlide();
+            }
+          });
+          
+          // Initialize carousel
+          updateVideoCarousel();
+          
+          // Update on window resize
+          window.addEventListener('resize', updateVideoCarousel);
+        }
       `}} />
     </div>,
     {

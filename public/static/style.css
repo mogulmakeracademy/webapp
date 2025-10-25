@@ -568,3 +568,133 @@ button:focus {
     backface-visibility: hidden;
   }
 }
+
+/* ============================================
+   SWIPE GESTURE ENHANCEMENTS
+   ============================================ */
+
+/* Video Carousel Swipe Support */
+#video-carousel {
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+#video-carousel:active {
+  cursor: grabbing;
+}
+
+#video-slides {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* Prevent text selection during swipe */
+#video-carousel * {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Re-enable text selection for video info */
+#video-carousel .p-4 h4,
+#video-carousel .p-4 p {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* Swipe indicator visual feedback */
+@keyframes swipeHint {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-10px);
+    opacity: 0.7;
+  }
+}
+
+/* Show swipe hint on first load (optional) */
+.swipe-hint {
+  animation: swipeHint 1.5s ease-in-out 2;
+}
+
+/* Improved carousel navigation buttons for touch */
+#video-prev,
+#video-next {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Better touch feedback for carousel indicators */
+.video-indicator {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+.video-indicator:active {
+  transform: scale(1.3);
+}
+
+/* Mobile-specific swipe optimizations */
+@media (max-width: 768px) {
+  #video-carousel {
+    touch-action: pan-y pinch-zoom;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Slightly faster transition on mobile */
+  #video-slides {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* Mobile Menu Swipe Support */
+#mobile-menu {
+  touch-action: pan-x;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+#mobile-menu.hidden {
+  transform: translateX(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+#mobile-menu:not(.hidden) {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Left edge swipe indicator (subtle visual cue) */
+@media (max-width: 768px) {
+  body::before {
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 60px;
+    background: linear-gradient(to right, rgba(251, 191, 36, 0.5), transparent);
+    border-radius: 0 3px 3px 0;
+    z-index: 45;
+    opacity: 0.3;
+    transition: opacity 0.3s;
+  }
+  
+  body:active::before {
+    opacity: 0.7;
+  }
+}
+
+/* Prevent text selection during menu swipe */
+body.menu-swiping {
+  user-select: none;
+  -webkit-user-select: none;
+}
