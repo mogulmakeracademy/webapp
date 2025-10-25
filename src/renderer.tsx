@@ -30,21 +30,21 @@ export const renderer = jsxRenderer(({ children, title, description, schema }) =
         <meta property="og:url" content="https://mrmogulmaker.pages.dev/" />
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
-        <meta property="og:image" content="https://page.gensparksite.com/v1/base64_upload/c78225a6f83a28b996f6dea2823f5852" />
-        <meta property="og:image:secure_url" content="https://page.gensparksite.com/v1/base64_upload/c78225a6f83a28b996f6dea2823f5852" />
-        <meta property="og:image:width" content="512" />
-        <meta property="og:image:height" content="512" />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:alt" content="Mr. Mogul Maker Logo - Business Credit Expert" />
+        <meta property="og:image" content="https://page.gensparksite.com/v1/base64_upload/43709174c94bba6436f918bc2ab31311" />
+        <meta property="og:image:secure_url" content="https://page.gensparksite.com/v1/base64_upload/43709174c94bba6436f918bc2ab31311" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:alt" content="Antonio Cook (Mr. Mogul Maker) - Business Credit Expert & Entrepreneur Coach" />
         <meta property="og:site_name" content="Mr. Mogul Maker" />
         
         {/* Twitter */}
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://mrmogulmaker.pages.dev/" />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={pageDescription} />
-        <meta name="twitter:image" content="https://page.gensparksite.com/v1/base64_upload/c78225a6f83a28b996f6dea2823f5852" />
-        <meta name="twitter:image:alt" content="Mr. Mogul Maker Logo" />
+        <meta name="twitter:image" content="https://page.gensparksite.com/v1/base64_upload/43709174c94bba6436f918bc2ab31311" />
+        <meta name="twitter:image:alt" content="Antonio Cook (Mr. Mogul Maker) - Business Credit Expert" />
         
         {/* Canonical URL */}
         <link rel="canonical" href="https://mrmogulmaker.pages.dev/" />
