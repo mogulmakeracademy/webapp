@@ -29,6 +29,12 @@
     },
     
     createLoadingOverlay() {
+      // Safety check: don't create if body doesn't exist
+      if (!document.body) {
+        console.error('Cannot create overlay: document.body not found');
+        return;
+      }
+      
       const overlay = document.createElement('div');
       overlay.id = 'page-transition-overlay';
       overlay.innerHTML = `
@@ -38,6 +44,14 @@
         </div>
       `;
       document.body.appendChild(overlay);
+      
+      // Safety timeout: force remove overlay after 5 seconds
+      setTimeout(() => {
+        if (overlay && overlay.classList.contains('active')) {
+          console.warn('Overlay stuck, force removing');
+          overlay.classList.remove('active');
+        }
+      }, 5000);
     },
     
     setupLinkInterception() {
@@ -78,13 +92,23 @@
     fadeInPage() {
       const overlay = document.getElementById('page-transition-overlay');
       
+      // Ensure overlay exists before trying to manipulate it
+      if (!overlay) {
+        console.warn('Page transition overlay not found');
+        return;
+      }
+      
       // Wait for page to be ready
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
-          setTimeout(() => overlay.classList.remove('active'), 100);
+          setTimeout(() => {
+            if (overlay) overlay.classList.remove('active');
+          }, 100);
         });
       } else {
-        setTimeout(() => overlay.classList.remove('active'), 100);
+        setTimeout(() => {
+          if (overlay) overlay.classList.remove('active');
+        }, 100);
       }
     }
   };
@@ -531,6 +555,19 @@
       document.body.classList.add('premium-loaded');
     } catch (error) {
       console.error('❌ Error initializing premium features:', error);
+      
+      // CRITICAL: Ensure page is visible even if init fails
+      const overlay = document.getElementById('page-transition-overlay');
+      if (overlay) {
+        overlay.classList.remove('active');
+        overlay.style.display = 'none';
+      }
+      
+      // Ensure body is visible
+      if (document.body) {
+        document.body.style.opacity = '1';
+        document.body.style.visibility = 'visible';
+      }
     }
   }
   
