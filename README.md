@@ -32,7 +32,7 @@ A professional personal brand website for Antonio Cook (Mr. Mogul Maker), Entrep
 
 - **Production:** https://mrmogulmaker.pages.dev
 - **Shop Page:** https://mrmogulmaker.pages.dev/shop
-- **Latest Deployment:** https://702e7184.mrmogulmaker.pages.dev
+- **Latest Deployment:** https://99f79caf.mrmogulmaker.pages.dev
 - **Speaking Page:** https://mrmogulmaker.pages.dev/speaking
 - **Blog Page:** https://mrmogulmaker.pages.dev/blog
 - **Development Server:** https://3000-itqkd7r87dbcew1poox4l-dfc00ec5.sandbox.novita.ai
@@ -136,9 +136,14 @@ npx wrangler pages deploy dist --project-name mrmogulmaker
 ```
 
 **Deployment Status:** ✅ Active  
-**Last Deployed:** 2025-01-25  
+**Last Deployed:** 2025-01-25 (v2.4.0 - Metadata fixes)  
 **Project Name:** mrmogulmaker  
 **Account:** mrmogulmaker@gmail.com
+
+**Recent Deployments:**
+- v2.4.0: Open Graph metadata and PWA enhancements
+- v2.3.0: Swipe gestures for mobile navigation
+- v2.2.0: Comprehensive mobile improvements
 
 ## 📝 Available Scripts
 
@@ -184,6 +189,27 @@ npx wrangler pages deploy dist --project-name mrmogulmaker
 
 ## ✨ Features Completed
 
+### Version 2.4.0 (Latest) - Open Graph Metadata
+- ✅ **Enhanced Open Graph metadata** for social media sharing
+- ✅ **Twitter Card optimization** with logo display
+- ✅ **PWA support** with manifest.json
+- ✅ **Multiple favicon sizes** for all devices
+- ✅ **Rich link previews** on Facebook, Twitter, LinkedIn
+
+### Version 2.3.0 - Swipe Gestures
+- ✅ **Swipe navigation** for video carousel (left/right)
+- ✅ **Edge swipe** to open mobile menu (right edge)
+- ✅ **Touch feedback** with visual indicators
+- ✅ **Smooth animations** for swipe actions
+
+### Version 2.2.0 - Mobile Improvements
+- ✅ **Mobile-first CSS** with responsive breakpoints
+- ✅ **Enhanced touch targets** (48px minimum)
+- ✅ **iOS-specific fixes** for Safari
+- ✅ **Hamburger menu improvements**
+- ✅ **Product card mobile optimization**
+
+### Core Features
 - ✅ Modern, professional landing page design
 - ✅ **Complete e-commerce shop page**
 - ✅ **Shopping cart with localStorage**
