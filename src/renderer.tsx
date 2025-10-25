@@ -5,7 +5,7 @@ export const renderer = jsxRenderer(({ children, title, description, schema }) =
   const pageDescription = description || 'Learn business credit, secure funding, and build wealth with Antonio Cook (Mr. Mogul Maker). 10,000+ entrepreneurs funded. Speaker, coach, financial educator.'
   
   // Cache-busting version for static assets
-  const version = '1.0.2'
+  const version = '1.0.3'
   
   return (
     <html lang="en">
@@ -54,8 +54,9 @@ export const renderer = jsxRenderer(({ children, title, description, schema }) =
         )}
         
         <link href={`/static/style.css?v=${version}`} rel="stylesheet" />
-        <link href={`/static/premium-animations.css?v=${version}`} rel="stylesheet" />
-        <link href={`/static/mobile-enhancements.css?v=${version}`} rel="stylesheet" />
+        {/* TEMPORARILY DISABLED FOR DEBUGGING */}
+        {/* <link href={`/static/premium-animations.css?v=${version}`} rel="stylesheet" /> */}
+        {/* <link href={`/static/mobile-enhancements.css?v=${version}`} rel="stylesheet" /> */}
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
@@ -74,9 +75,9 @@ export const renderer = jsxRenderer(({ children, title, description, schema }) =
         
         {children}
         
-        {/* Premium Animations & Interactions */}
-        <script src={`/static/premium-animations.js?v=${version}`}></script>
-        <script src={`/static/mobile-enhancements.js?v=${version}`}></script>
+        {/* Premium Animations & Interactions - TEMPORARILY DISABLED FOR DEBUGGING */}
+        {/* <script src={`/static/premium-animations.js?v=${version}`}></script> */}
+        {/* <script src={`/static/mobile-enhancements.js?v=${version}`}></script> */}
         
         {/* Scroll Progress Script */}
         <script dangerouslySetInnerHTML={{__html: `
