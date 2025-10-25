@@ -734,6 +734,8 @@ app.get('/shop', (c) => {
       {/* JavaScript for Shop Functionality */}
       <script dangerouslySetInnerHTML={{__html: `
         // Product Data
+        // GHL INTEGRATION: Add your GoHighLevel order form URLs to the 'ghlCheckoutUrl' field
+        // Example: ghlCheckoutUrl: "https://your-ghl-domain.com/order-form/your-product-id"
         const products = [
           {
             id: 1,
@@ -749,7 +751,8 @@ app.get('/shop', (c) => {
               "Vendor list (Net-30 accounts)",
               "Credit monitoring tools",
               "Email support"
-            ]
+            ],
+            ghlCheckoutUrl: "" // Add your GHL order form URL here
           },
           {
             id: 2,
@@ -765,7 +768,8 @@ app.get('/shop', (c) => {
               "List of 50+ funding sources",
               "Pitch deck template",
               "1-on-1 consultation call"
-            ]
+            ],
+            ghlCheckoutUrl: "" // Add your GHL order form URL here
           },
           {
             id: 3,
@@ -781,7 +785,8 @@ app.get('/shop', (c) => {
               "EIN application walkthrough",
               "State filing checklists",
               "Business structure comparison"
-            ]
+            ],
+            ghlCheckoutUrl: "" // Add your GHL order form URL here
           },
           {
             id: 4,
@@ -797,7 +802,8 @@ app.get('/shop', (c) => {
               "Verification request forms",
               "Credit bureau contact info",
               "Usage instructions"
-            ]
+            ],
+            ghlCheckoutUrl: "" // Add your GHL order form URL here
           },
           {
             id: 5,
@@ -813,7 +819,8 @@ app.get('/shop', (c) => {
               "Market analysis template",
               "Sample business plans",
               "Video tutorial"
-            ]
+            ],
+            ghlCheckoutUrl: "" // Add your GHL order form URL here
           },
           {
             id: 6,
@@ -830,7 +837,8 @@ app.get('/shop', (c) => {
               "Acquisition checklist",
               "Monthly group coaching",
               "Lifetime updates"
-            ]
+            ],
+            ghlCheckoutUrl: "" // Add your GHL order form URL here
           },
           {
             id: 7,
@@ -846,7 +854,8 @@ app.get('/shop', (c) => {
               "Credit utilization calculator",
               "Payment history tracker",
               "Monthly credit tips newsletter"
-            ]
+            ],
+            ghlCheckoutUrl: "" // Add your GHL order form URL here
           },
           {
             id: 8,
@@ -863,7 +872,8 @@ app.get('/shop', (c) => {
               "Personal financial statement",
               "Supporting documents checklist",
               "Application tips guide"
-            ]
+            ],
+            ghlCheckoutUrl: "" // Add your GHL order form URL here
           },
           {
             id: 9,
@@ -880,7 +890,8 @@ app.get('/shop', (c) => {
               "Progress tracker",
               "Audio version (MP3)",
               "Bonus case studies"
-            ]
+            ],
+            ghlCheckoutUrl: "" // Add your GHL order form URL here
           }
         ];
 
@@ -1030,9 +1041,14 @@ app.get('/shop', (c) => {
           };
           
           document.getElementById('modal-buy-now').onclick = () => {
-            addToCart(productId);
-            modal.classList.add('hidden');
-            document.getElementById('cart-modal').classList.remove('hidden');
+            // Buy Now - Direct GHL checkout
+            if (product.ghlCheckoutUrl && product.ghlCheckoutUrl.trim() !== '') {
+              window.location.href = product.ghlCheckoutUrl;
+            } else {
+              addToCart(productId);
+              modal.classList.add('hidden');
+              document.getElementById('cart-modal').classList.remove('hidden');
+            }
           };
           
           modal.classList.remove('hidden');
@@ -1065,10 +1081,22 @@ app.get('/shop', (c) => {
           document.getElementById('product-modal').classList.add('hidden');
         });
         
-        // Checkout
+        // Checkout - GHL Integration
         document.getElementById('checkout-btn').addEventListener('click', () => {
-          alert('🚀 Checkout functionality coming soon! This will integrate with Stripe for secure payment processing.');
-          // TODO: Integrate Stripe Checkout
+          // Check if all products have GHL checkout URLs
+          const hasGhlUrls = cart.every(item => item.ghlCheckoutUrl && item.ghlCheckoutUrl.trim() !== '');
+          
+          if (hasGhlUrls && cart.length === 1) {
+            // Single product - redirect directly to GHL order form
+            window.location.href = cart[0].ghlCheckoutUrl;
+          } else if (hasGhlUrls && cart.length > 1) {
+            // Multiple products - show options
+            alert('You have multiple products. You will be redirected to complete each purchase separately.\\n\\nProduct 1: ' + cart[0].name);
+            window.location.href = cart[0].ghlCheckoutUrl;
+          } else {
+            // No GHL URLs configured - show coming soon message
+            alert('🚀 To enable checkout:\\n\\n1. Add your GoHighLevel order form URLs to each product\\n2. Or integrate Stripe payment processing\\n\\nContact support for help setting this up.');
+          }
         });
         
         // Mobile Menu
