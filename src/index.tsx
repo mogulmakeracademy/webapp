@@ -1017,6 +1017,24 @@ app.get('/shop', (c) => {
               "Bonus case studies"
             ],
             ghlCheckoutUrl: "" // Add your GHL order form URL here
+          },
+          {
+            id: 10,
+            name: "Capital Stacking Blueprint",
+            price: 37,
+            category: "templates",
+            description: "Printable workbook for mapping out a $500K capital stack across personal PG, business EIN, and fintech sources. Derived from FUND and ACQUIRE frameworks.",
+            image: "layer-group",
+            features: ["Printable Workbook", "Capital Mapping Tools", "Framework Integration"],
+            includes: [
+              "Complete capital stacking workbook",
+              "Personal PG strategy section",
+              "Business EIN funding roadmap",
+              "Fintech sources breakdown",
+              "FUND framework integration",
+              "ACQUIRE framework tools"
+            ],
+            ghlCheckoutUrl: "https://link.fastpaydirect.com/payment-link/68fc51252197096625e30088"
           }
         ];
 
