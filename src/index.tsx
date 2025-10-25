@@ -824,6 +824,26 @@ app.get('/shop', (c) => {
         </div>
       </section>
 
+      {/* Breadcrumb Navigation */}
+      <nav class="bg-white py-4 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ol class="flex items-center space-x-2 text-sm">
+            <li>
+              <a href="/" class="text-gray-600 hover:text-yellow-400 transition">
+                <i class="fas fa-home mr-1"></i>
+                Home
+              </a>
+            </li>
+            <li class="text-gray-400">
+              <i class="fas fa-chevron-right text-xs"></i>
+            </li>
+            <li class="text-gray-900 font-semibold">
+              Shop
+            </li>
+          </ol>
+        </div>
+      </nav>
+
       {/* Filter Section */}
       <section class="bg-gray-100 py-8 border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1464,6 +1484,23 @@ app.get('/shop', (c) => {
         '@context': 'https://schema.org',
         '@graph': [
           {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://mrmogulmaker.com/'
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Shop',
+                item: 'https://mrmogulmaker.com/shop'
+              }
+            ]
+          },
+          {
             '@type': 'Product',
             name: 'Business Credit Blueprint',
             description: 'Complete step-by-step course on building business credit from scratch. Learn the exact strategies used by successful entrepreneurs.',
@@ -1683,6 +1720,26 @@ app.get('/speaking', (c) => {
           </div>
         </div>
       </section>
+
+      {/* Breadcrumb Navigation */}
+      <nav class="bg-white py-4 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ol class="flex items-center space-x-2 text-sm">
+            <li>
+              <a href="/" class="text-gray-600 hover:text-yellow-400 transition">
+                <i class="fas fa-home mr-1"></i>
+                Home
+              </a>
+            </li>
+            <li class="text-gray-400">
+              <i class="fas fa-chevron-right text-xs"></i>
+            </li>
+            <li class="text-gray-900 font-semibold">
+              Speaking
+            </li>
+          </ol>
+        </div>
+      </nav>
 
       {/* Speaking Topics */}
       <section id="topics" class="bg-white py-24">
@@ -1940,8 +1997,27 @@ app.get('/speaking', (c) => {
       description: 'Hire Antonio Cook (Mr. Mogul Maker) for corporate events, conferences, and workshops. Expert keynote speaker on business credit, funding, financial literacy, and wealth building.',
       schema: {
         '@context': 'https://schema.org',
-        '@type': 'Service',
-        serviceType: 'Professional Speaking & Keynote Services',
+        '@graph': [
+          {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://mrmogulmaker.com/'
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Speaking',
+                item: 'https://mrmogulmaker.com/speaking'
+              }
+            ]
+          },
+          {
+            '@type': 'Service',
+            serviceType: 'Professional Speaking & Keynote Services',
         name: 'Antonio Cook Speaking Engagements',
         description: 'Professional keynote speaking services for corporate events, conferences, and workshops on business credit, funding, and financial literacy',
         provider: {
@@ -1988,6 +2064,8 @@ app.get('/speaking', (c) => {
             }
           ]
         }
+          }
+        ]
       }
     }
   )
@@ -2089,6 +2167,26 @@ app.get('/blog', (c) => {
           </div>
         </div>
       </section>
+
+      {/* Breadcrumb Navigation */}
+      <nav class="bg-white py-4 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ol class="flex items-center space-x-2 text-sm">
+            <li>
+              <a href="/" class="text-gray-600 hover:text-yellow-400 transition">
+                <i class="fas fa-home mr-1"></i>
+                Home
+              </a>
+            </li>
+            <li class="text-gray-400">
+              <i class="fas fa-chevron-right text-xs"></i>
+            </li>
+            <li class="text-gray-900 font-semibold">
+              Blog
+            </li>
+          </ol>
+        </div>
+      </nav>
 
       {/* Blog Articles Grid */}
       <section class="bg-gray-50 py-24">
@@ -2384,8 +2482,27 @@ app.get('/blog', (c) => {
       description: 'Free business credit tips, funding strategies, and wealth-building advice from entrepreneur coach Antonio Cook. Learn how to build business credit and secure funding.',
       schema: {
         '@context': 'https://schema.org',
-        '@type': 'Blog',
-        name: 'Mr. Mogul Maker Blog',
+        '@graph': [
+          {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://mrmogulmaker.com/'
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Blog',
+                item: 'https://mrmogulmaker.com/blog'
+              }
+            ]
+          },
+          {
+            '@type': 'Blog',
+            name: 'Mr. Mogul Maker Blog',
         description: 'Business credit tips, funding strategies, and wealth-building insights from entrepreneur coach Antonio Cook',
         url: 'https://mrmogulmaker.com/blog',
         author: {
@@ -2436,6 +2553,8 @@ app.get('/blog', (c) => {
             },
             datePublished: '2025-01-05',
             url: 'https://mrmogulmaker.com/blog#3m-framework'
+          }
+        ]
           }
         ]
       }
