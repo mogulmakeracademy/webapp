@@ -46,11 +46,32 @@ export const renderer = jsxRenderer(({ children, title, description, schema }) =
         )}
         
         <link href="/static/style.css" rel="stylesheet" />
+        <link href="/static/premium-animations.css" rel="stylesheet" />
+        <link href="/static/mobile-enhancements.css" rel="stylesheet" />
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
       </head>
-      <body>{children}</body>
+      <body>
+        {/* Scroll Progress Bar */}
+        <div class="scroll-progress" id="scroll-progress"></div>
+        
+        {children}
+        
+        {/* Premium Animations & Interactions */}
+        <script src="/static/premium-animations.js"></script>
+        <script src="/static/mobile-enhancements.js"></script>
+        
+        {/* Scroll Progress Script */}
+        <script dangerouslySetInnerHTML={{__html: `
+          window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scroll-progress').style.width = scrolled + '%';
+          }, { passive: true });
+        `}} />
+      </body>
     </html>
   )
 })

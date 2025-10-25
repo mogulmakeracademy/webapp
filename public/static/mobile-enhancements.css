@@ -1,0 +1,529 @@
+/**
+ * Mobile-Specific Enhancements CSS
+ * Advanced mobile interactions and optimizations
+ * Version: 1.0.0
+ */
+
+/* ==========================================
+   1. PULL-TO-REFRESH INDICATOR
+   ========================================== */
+
+#pull-to-refresh-indicator {
+  position: fixed;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9997;
+  opacity: 0;
+  transition: opacity 0.3s ease, background 0.3s ease;
+}
+
+#pull-to-refresh-indicator .refresh-icon {
+  font-size: 24px;
+  color: #ffdb4d;
+  transition: transform 0.3s ease;
+}
+
+#pull-to-refresh-indicator.ready .refresh-icon {
+  transform: rotate(180deg);
+}
+
+#pull-to-refresh-indicator.refreshing .refresh-icon i {
+  animation: spin 0.8s linear infinite;
+}
+
+#pull-to-refresh-indicator .refresh-text {
+  font-size: 10px;
+  color: #fff;
+  margin-top: 4px;
+  display: none;
+}
+
+/* ==========================================
+   2. BOTTOM NAVIGATION (Mobile Only)
+   ========================================== */
+
+#mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 1rem;
+  z-index: 9996;
+  border-top: 1px solid rgba(255, 219, 77, 0.1);
+  transition: transform 0.3s ease;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+}
+
+#mobile-bottom-nav .nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #888;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 8px;
+  min-width: 60px;
+}
+
+#mobile-bottom-nav .nav-item i {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+#mobile-bottom-nav .nav-item span {
+  font-size: 10px;
+  font-weight: 500;
+}
+
+#mobile-bottom-nav .nav-item.active {
+  color: #ffdb4d;
+  background: rgba(255, 219, 77, 0.1);
+}
+
+#mobile-bottom-nav .nav-item:active {
+  transform: scale(0.9);
+}
+
+@media (min-width: 769px) {
+  #mobile-bottom-nav {
+    display: none;
+  }
+}
+
+/* ==========================================
+   3. FLOATING ACTION BUTTON (FAB)
+   ========================================== */
+
+#scroll-to-top-fab {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #ffdb4d 0%, #ffa500 100%);
+  border: none;
+  border-radius: 50%;
+  color: #000;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 9995;
+  box-shadow: 0 4px 20px rgba(255, 219, 77, 0.4);
+  transition: all 0.3s ease;
+  display: none;
+}
+
+#scroll-to-top-fab:active {
+  transform: scale(0.9);
+}
+
+@media (max-width: 768px) {
+  #scroll-to-top-fab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* ==========================================
+   4. SMART APP BANNER
+   ========================================== */
+
+#smart-app-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+  padding: 0.75rem 1rem;
+  z-index: 9994;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+  border-bottom: 1px solid rgba(255, 219, 77, 0.2);
+}
+
+#smart-app-banner .banner-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+#smart-app-banner .banner-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+}
+
+#smart-app-banner .banner-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#smart-app-banner .banner-text strong {
+  color: #fff;
+  font-size: 14px;
+}
+
+#smart-app-banner .banner-text span {
+  color: #888;
+  font-size: 12px;
+}
+
+#smart-app-banner .banner-btn {
+  background: #ffdb4d;
+  color: #000;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+#smart-app-banner .dismiss-banner {
+  background: transparent;
+  border: none;
+  color: #888;
+  font-size: 20px;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 769px) {
+  #smart-app-banner {
+    display: none;
+  }
+}
+
+/* ==========================================
+   5. MOBILE CART ENHANCEMENTS
+   ========================================== */
+
+@media (max-width: 768px) {
+  #cart-modal .max-w-4xl {
+    animation: slideUpFromBottom 0.3s ease !important;
+  }
+  
+  @keyframes slideUpFromBottom {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+/* ==========================================
+   6. GESTURE INDICATORS
+   ========================================== */
+
+#gesture-hint {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  z-index: 9993;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  max-width: 80%;
+  text-align: center;
+}
+
+#gesture-hint .hint-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#gesture-hint .hint-content i {
+  font-size: 32px;
+  color: #ffdb4d;
+  animation: pulse 1.5s ease infinite;
+}
+
+#gesture-hint .hint-content p {
+  color: #fff;
+  font-size: 12px;
+  margin: 0;
+}
+
+/* ==========================================
+   7. MOBILE TOUCH IMPROVEMENTS
+   ========================================== */
+
+@media (max-width: 768px) {
+  /* Larger touch targets */
+  button,
+  a,
+  input[type="button"],
+  input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better input spacing */
+  input,
+  textarea,
+  select {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  /* Improved card spacing */
+  .card,
+  .product-card,
+  article {
+    margin-bottom: 1rem;
+  }
+  
+  /* Padding for bottom nav */
+  body {
+    padding-bottom: 80px;
+  }
+}
+
+/* ==========================================
+   8. SWIPE INDICATORS
+   ========================================== */
+
+.swipe-indicator {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 219, 77, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.swipe-indicator.left {
+  left: 10px;
+}
+
+.swipe-indicator.right {
+  right: 10px;
+}
+
+.swipe-indicator i {
+  color: #ffdb4d;
+  font-size: 20px;
+}
+
+.swipe-active .swipe-indicator {
+  opacity: 1;
+  animation: pulse 0.5s ease;
+}
+
+/* ==========================================
+   9. MOBILE MODAL IMPROVEMENTS
+   ========================================== */
+
+@media (max-width: 768px) {
+  [id$="-modal"] > div {
+    margin: 0 !important;
+    max-width: 100% !important;
+    height: 85vh !important;
+    border-radius: 20px 20px 0 0 !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+  }
+  
+  /* Swipe handle */
+  [id$="-modal"] > div::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+  }
+}
+
+/* ==========================================
+   10. VIEWPORT HEIGHT FIX
+   ========================================== */
+
+:root {
+  --vh: 1vh;
+}
+
+.full-height-mobile {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+}
+
+/* ==========================================
+   11. SAFE AREA INSETS (Notched Devices)
+   ========================================== */
+
+@supports (padding: env(safe-area-inset-bottom)) {
+  #mobile-bottom-nav {
+    padding-bottom: env(safe-area-inset-bottom);
+    height: calc(60px + env(safe-area-inset-bottom));
+  }
+  
+  body {
+    padding-bottom: calc(80px + env(safe-area-inset-bottom));
+  }
+}
+
+/* ==========================================
+   12. MOBILE MENU ENHANCEMENTS
+   ========================================== */
+
+@media (max-width: 768px) {
+  [id*="mobile-menu"] {
+    animation: slideInLeft 0.3s ease !important;
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  [id*="mobile-menu"] a {
+    padding: 1rem 1.5rem;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* ==========================================
+   13. MOBILE TYPOGRAPHY
+   ========================================== */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  h2 {
+    font-size: 1.75rem !important;
+  }
+  
+  h3 {
+    font-size: 1.5rem !important;
+  }
+  
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+/* ==========================================
+   14. MOBILE PERFORMANCE
+   ========================================== */
+
+@media (max-width: 768px) {
+  /* Reduce motion for better performance */
+  * {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.3s !important;
+  }
+  
+  /* GPU acceleration for smooth scrolling */
+  body {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+  }
+}
+
+/* ==========================================
+   15. DARK MODE TOGGLE (Mobile)
+   ========================================== */
+
+@media (prefers-color-scheme: dark) {
+  #mobile-bottom-nav {
+    background: rgba(0, 0, 0, 0.98);
+  }
+  
+  #smart-app-banner {
+    background: rgba(0, 0, 0, 0.95);
+  }
+}
+
+/* ==========================================
+   16. LANDSCAPE ORIENTATION
+   ========================================== */
+
+@media (max-width: 768px) and (orientation: landscape) {
+  #mobile-bottom-nav {
+    height: 50px;
+  }
+  
+  #mobile-bottom-nav .nav-item span {
+    display: none;
+  }
+  
+  #smart-app-banner {
+    padding: 0.5rem 1rem;
+  }
+  
+  body {
+    padding-bottom: 60px;
+  }
+}
+
+/* ==========================================
+   17. ACCESSIBILITY (Mobile)
+   ========================================== */
+
+@media (max-width: 768px) {
+  .sr-only-mobile {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  /* Focus states for keyboard navigation */
+  *:focus {
+    outline: 2px solid #ffdb4d;
+    outline-offset: 2px;
+  }
+}
