@@ -592,7 +592,11 @@ app.get('/', (c) => {
           });
         });
       `}} />
-    </div>
+    </div>,
+    {
+      title: 'Mr. Mogul Maker | Antonio Cook - Business Credit Expert & Entrepreneur Coach',
+      description: 'Learn business credit, secure funding, and build wealth with Antonio Cook (Mr. Mogul Maker). 10,000+ entrepreneurs funded. Expert speaker on business credit and financial literacy.'
+    }
   )
 })
 
@@ -1376,7 +1380,11 @@ app.get('/shop', (c) => {
         renderProducts();
         updateCartUI();
       `}} />
-    </div>
+    </div>,
+    {
+      title: 'Digital Products - Business Credit Courses & Templates | Mr. Mogul Maker',
+      description: 'Download business credit blueprints, funding templates, and wealth-building courses from Mr. Mogul Maker. Proven systems to build business credit and secure funding.'
+    }
   )
 })
 
@@ -1701,7 +1709,11 @@ app.get('/speaking', (c) => {
           });
         });
       `}} />
-    </div>
+    </div>,
+    {
+      title: 'Book Antonio Cook for Speaking Engagements | Business Credit Keynote Speaker',
+      description: 'Hire Antonio Cook (Mr. Mogul Maker) for corporate events, conferences, and workshops. Expert keynote speaker on business credit, funding, financial literacy, and wealth building.'
+    }
   )
 })
 
@@ -2090,7 +2102,11 @@ app.get('/blog', (c) => {
           });
         });
       `}} />
-    </div>
+    </div>,
+    {
+      title: 'Business Credit & Funding Blog | Expert Insights by Mr. Mogul Maker',
+      description: 'Free business credit tips, funding strategies, and wealth-building advice from entrepreneur coach Antonio Cook. Learn how to build business credit and secure funding.'
+    }
   )
 })
 
