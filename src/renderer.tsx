@@ -27,7 +27,7 @@ export const renderer = jsxRenderer(({ children, title, description, schema }) =
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://mrmogulmaker.pages.dev/" />
+        <meta property="og:url" content="https://www.mrmogulmaker.com/" />
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
         <meta property="og:image" content="https://page.gensparksite.com/v1/base64_upload/43709174c94bba6436f918bc2ab31311" />
@@ -40,14 +40,14 @@ export const renderer = jsxRenderer(({ children, title, description, schema }) =
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content="https://mrmogulmaker.pages.dev/" />
+        <meta name="twitter:url" content="https://www.mrmogulmaker.com/" />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={pageDescription} />
         <meta name="twitter:image" content="https://page.gensparksite.com/v1/base64_upload/43709174c94bba6436f918bc2ab31311" />
         <meta name="twitter:image:alt" content="Antonio Cook (Mr. Mogul Maker) - Business Credit Expert" />
         
         {/* Canonical URL */}
-        <link rel="canonical" href="https://mrmogulmaker.pages.dev/" />
+        <link rel="canonical" href="https://www.mrmogulmaker.com/" />
         
         {/* Favicon - Multiple Sizes */}
         <link rel="icon" type="image/png" sizes="32x32" href="/mr-mogul-maker-logo.png" />

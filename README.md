@@ -29,11 +29,12 @@ A professional personal brand website for Antonio Cook (Mr. Mogul Maker), Entrep
 
 ## 🔗 Live URLs
 
+- **🌐 Custom Domain:** https://www.mrmogulmaker.com (LIVE)
 - **Production:** https://mrmogulmaker.pages.dev
-- **Shop Page:** https://mrmogulmaker.pages.dev/shop
-- **Latest Deployment:** https://1b79e619.mrmogulmaker.pages.dev
-- **Speaking Page:** https://mrmogulmaker.pages.dev/speaking
-- **Blog Page:** https://mrmogulmaker.pages.dev/blog
+- **Shop Page:** https://www.mrmogulmaker.com/shop
+- **Speaking Page:** https://www.mrmogulmaker.com/speaking
+- **Blog Page:** https://www.mrmogulmaker.com/blog
+- **Latest Deployment:** https://af6e4c19.mrmogulmaker.pages.dev
 - **Development Server:** https://3000-itqkd7r87dbcew1poox4l-dfc00ec5.sandbox.novita.ai
 
 ## 📊 Social Media Links
