@@ -171,25 +171,44 @@ app.get('/', (c) => {
             
             <div class="relative">
               <div class="absolute inset-0 bg-yellow-400/20 blur-3xl rounded-full"></div>
-              <div class="relative bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl p-8 shadow-2xl">
-                <div class="bg-black/50 backdrop-blur rounded-2xl p-8 text-white">
-                  <h3 class="text-2xl font-bold mb-4">📊 Our Success Framework</h3>
-                  <div class="space-y-4">
-                    <div class="flex items-center gap-3">
-                      <i class="fas fa-check-circle text-yellow-400 text-xl"></i>
-                      <span>Make: Business & Income Strategies</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                      <i class="fas fa-check-circle text-yellow-400 text-xl"></i>
-                      <span>Manage: Credit & Protection Systems</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                      <i class="fas fa-check-circle text-yellow-400 text-xl"></i>
-                      <span>Multiply: Funding & Wealth Building</span>
+              <div class="relative">
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-yellow-400">
+                  <img 
+                    src="/antonio-cook-professional.jpg" 
+                    alt="Antonio Cook - Mr. Mogul Maker, Entrepreneur Coach and Business Credit Expert" 
+                    class="w-full h-auto object-cover"
+                  />
+                  <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-6">
+                    <h3 class="text-2xl font-bold text-white mb-2">Antonio Cook</h3>
+                    <p class="text-yellow-400 font-semibold mb-3">CEO, Mogul Maker Academy</p>
+                    <div class="flex items-center gap-2 text-white text-sm">
+                      <i class="fas fa-check-circle text-yellow-400"></i>
+                      <span>10,000+ Entrepreneurs Funded</span>
                     </div>
                   </div>
-                  <div class="mt-6 pt-6 border-t border-white/20">
-                    <p class="text-yellow-400 font-semibold text-center">Money Follows Management™</p>
+                </div>
+                
+                {/* 3M Framework Card Below Photo */}
+                <div class="mt-6 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl p-6 shadow-xl">
+                  <div class="bg-black/80 backdrop-blur rounded-xl p-6 text-white">
+                    <h4 class="text-xl font-bold mb-4 text-yellow-400">📊 The 3M Framework</h4>
+                    <div class="space-y-3">
+                      <div class="flex items-center gap-3">
+                        <i class="fas fa-check-circle text-yellow-400"></i>
+                        <span class="text-sm">Make: Business & Income</span>
+                      </div>
+                      <div class="flex items-center gap-3">
+                        <i class="fas fa-check-circle text-yellow-400"></i>
+                        <span class="text-sm">Manage: Credit & Protection</span>
+                      </div>
+                      <div class="flex items-center gap-3">
+                        <i class="fas fa-check-circle text-yellow-400"></i>
+                        <span class="text-sm">Multiply: Funding & Wealth</span>
+                      </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-white/20">
+                      <p class="text-yellow-400 font-semibold text-center text-sm">Money Follows Management™</p>
+                    </div>
                   </div>
                 </div>
               </div>
