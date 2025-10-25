@@ -1,0 +1,56 @@
+{
+  "name": "Mr. Mogul Maker",
+  "short_name": "Mogul Maker",
+  "description": "Business Credit Expert & Entrepreneur Coach - Antonio Cook",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#FBBF24",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/mr-mogul-maker-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/mr-mogul-maker-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/mr-mogul-maker-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "finance", "education"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Shop",
+      "short_name": "Shop",
+      "description": "Browse digital products",
+      "url": "/shop",
+      "icons": [
+        {
+          "src": "/mr-mogul-maker-logo.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Speaking",
+      "short_name": "Speaking",
+      "description": "Book Antonio Cook for speaking",
+      "url": "/speaking",
+      "icons": [
+        {
+          "src": "/mr-mogul-maker-logo.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}

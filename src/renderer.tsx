@@ -27,24 +27,40 @@ export const renderer = jsxRenderer(({ children, title, description, schema }) =
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://mrmogulmaker.com/" />
+        <meta property="og:url" content="https://mrmogulmaker.pages.dev/" />
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
-        <meta property="og:image" content="https://mrmogulmaker.com/antonio-cook-professional.jpg" />
+        <meta property="og:image" content="https://page.gensparksite.com/v1/base64_upload/c78225a6f83a28b996f6dea2823f5852" />
+        <meta property="og:image:secure_url" content="https://page.gensparksite.com/v1/base64_upload/c78225a6f83a28b996f6dea2823f5852" />
+        <meta property="og:image:width" content="512" />
+        <meta property="og:image:height" content="512" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:alt" content="Mr. Mogul Maker Logo - Business Credit Expert" />
         <meta property="og:site_name" content="Mr. Mogul Maker" />
         
         {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content="https://mrmogulmaker.com/" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:url" content="https://mrmogulmaker.pages.dev/" />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={pageDescription} />
-        <meta name="twitter:image" content="https://mrmogulmaker.com/antonio-cook-professional.jpg" />
+        <meta name="twitter:image" content="https://page.gensparksite.com/v1/base64_upload/c78225a6f83a28b996f6dea2823f5852" />
+        <meta name="twitter:image:alt" content="Mr. Mogul Maker Logo" />
         
         {/* Canonical URL */}
-        <link rel="canonical" href="https://mrmogulmaker.com/" />
+        <link rel="canonical" href="https://mrmogulmaker.pages.dev/" />
         
-        {/* Favicon */}
-        <link rel="icon" type="image/png" href="/mr-mogul-maker-logo.png" />
+        {/* Favicon - Multiple Sizes */}
+        <link rel="icon" type="image/png" sizes="32x32" href="/mr-mogul-maker-logo.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/mr-mogul-maker-logo.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/mr-mogul-maker-logo.png" />
+        <link rel="shortcut icon" href="/mr-mogul-maker-logo.png" />
+        
+        {/* Web App Manifest */}
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#FBBF24" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="Mogul Maker" />
         
         {/* Schema.org structured data */}
         {schema && (
