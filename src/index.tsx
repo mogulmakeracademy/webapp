@@ -1083,19 +1083,129 @@ app.get('/shop', (c) => {
           cartTotal.textContent = '$' + total.toFixed(2);
         }
         
-        window.addToCart = function(productId) {
+        window.addToCart = function(productId, event) {
           const product = products.find(p => p.id === productId);
-          if (!cart.find(item => item.id === productId)) {
-            cart.push(product);
-            localStorage.setItem('mogulmaker_cart', JSON.stringify(cart));
-            updateCartUI();
-            
-            // Show success message
-            alert('✅ Product added to cart!');
-          } else {
-            alert('ℹ️ This product is already in your cart.');
+          
+          // Check if product already in cart
+          if (cart.find(item => item.id === productId)) {
+            showToast('This product is already in your cart.', 'info', product.name);
+            return;
           }
+          
+          // Add to cart
+          cart.push(product);
+          localStorage.setItem('mogulmaker_cart', JSON.stringify(cart));
+          updateCartUI();
+          
+          // Get button position for animation
+          const button = event?.target.closest('button');
+          if (button) {
+            createFlyingProductAnimation(button, product);
+          }
+          
+          // Animate cart icon
+          animateCartIcon();
+          
+          // Show success toast
+          showToast('Added to cart!', 'success', product.name);
         };
+        
+        // Create flying product animation
+        function createFlyingProductAnimation(button, product) {
+          const buttonRect = button.getBoundingClientRect();
+          const cartIcon = document.getElementById('cart-count') || document.querySelector('.fa-shopping-cart');
+          if (!cartIcon) return;
+          
+          const cartRect = cartIcon.getBoundingClientRect();
+          
+          // Create flying element
+          const flyingProduct = document.createElement('div');
+          flyingProduct.className = 'flying-product bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg p-4 flex items-center justify-center';
+          flyingProduct.innerHTML = \`<i class="fas fa-\${product.image} text-white text-2xl"></i>\`;
+          flyingProduct.style.left = buttonRect.left + 'px';
+          flyingProduct.style.top = buttonRect.top + 'px';
+          flyingProduct.style.width = '60px';
+          flyingProduct.style.height = '60px';
+          
+          // Calculate translation distance
+          const tx = cartRect.left - buttonRect.left;
+          const ty = cartRect.top - buttonRect.top;
+          flyingProduct.style.setProperty('--tx', tx + 'px');
+          flyingProduct.style.setProperty('--ty', ty + 'px');
+          
+          document.body.appendChild(flyingProduct);
+          
+          // Remove after animation
+          setTimeout(() => {
+            flyingProduct.remove();
+          }, 800);
+        }
+        
+        // Animate cart icon
+        function animateCartIcon() {
+          const cartIcon = document.querySelector('.fa-shopping-cart')?.closest('a');
+          const cartBadge = document.getElementById('cart-count');
+          
+          if (cartIcon) {
+            cartIcon.classList.add('cart-icon-shake', 'cart-glow');
+            setTimeout(() => {
+              cartIcon.classList.remove('cart-icon-shake', 'cart-glow');
+            }, 1000);
+          }
+          
+          if (cartBadge) {
+            cartBadge.classList.add('cart-badge-bounce');
+            setTimeout(() => {
+              cartBadge.classList.remove('cart-badge-bounce');
+            }, 600);
+          }
+        }
+        
+        // Show toast notification
+        function showToast(message, type = 'success', productName = '') {
+          // Remove any existing toasts
+          const existingToast = document.querySelector('.toast-notification');
+          if (existingToast) {
+            existingToast.remove();
+          }
+          
+          const toast = document.createElement('div');
+          toast.className = \`toast-notification \${type}\`;
+          
+          const icon = type === 'success' ? 'check-circle' : 'info-circle';
+          const iconColor = type === 'success' ? 'text-green-500' : 'text-blue-500';
+          
+          toast.innerHTML = \`
+            <div class="flex items-start gap-3">
+              <i class="fas fa-\${icon} \${iconColor} text-2xl"></i>
+              <div class="flex-1">
+                <h4 class="font-bold text-gray-900 mb-1">\${message}</h4>
+                \${productName ? \`<p class="text-sm text-gray-600">\${productName}</p>\` : ''}
+                <div class="flex gap-2 mt-3">
+                  <button onclick="document.getElementById('cart-btn').click(); this.closest('.toast-notification').remove();" class="bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-semibold hover:bg-yellow-300 transition">
+                    View Cart
+                  </button>
+                  <button onclick="this.closest('.toast-notification').remove();" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-300 transition">
+                    Continue Shopping
+                  </button>
+                </div>
+              </div>
+              <button onclick="this.closest('.toast-notification').remove();" class="text-gray-400 hover:text-gray-600">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          \`;
+          
+          document.body.appendChild(toast);
+          
+          // Auto-hide after 5 seconds
+          setTimeout(() => {
+            toast.classList.add('hiding');
+            setTimeout(() => {
+              toast.remove();
+            }, 400);
+          }, 5000);
+        }
         
         window.removeFromCart = function(productId) {
           cart = cart.filter(item => item.id !== productId);
@@ -1129,7 +1239,7 @@ app.get('/shop', (c) => {
                   \`).join('')}
                 </div>
                 <div class="flex gap-3">
-                  <button onclick="event.stopPropagation(); addToCart(\${product.id})" class="flex-1 bg-yellow-400 text-black py-3 rounded-full font-semibold hover:bg-yellow-300 transition">
+                  <button onclick="event.stopPropagation(); addToCart(\${product.id}, event)" class="flex-1 bg-yellow-400 text-black py-3 rounded-full font-semibold hover:bg-yellow-300 transition transform hover:scale-105">
                     <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
                   </button>
                   <button onclick="event.stopPropagation(); showProductDetails(\${product.id})" class="bg-gray-200 text-gray-700 px-4 py-3 rounded-full font-semibold hover:bg-gray-300 transition">
@@ -1178,8 +1288,8 @@ app.get('/shop', (c) => {
             </li>
           \`).join('');
           
-          document.getElementById('modal-add-to-cart').onclick = () => {
-            addToCart(productId);
+          document.getElementById('modal-add-to-cart').onclick = (e) => {
+            addToCart(productId, e);
             modal.classList.add('hidden');
           };
           
