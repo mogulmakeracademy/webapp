@@ -1,0 +1,255 @@
+/**
+ * Simple, Safe Animations
+ * Lightweight animations that won't cause white screen issues
+ * Version: 1.0.0
+ */
+
+/* ==========================================
+   CORE PRINCIPLE: Everything visible by default
+   Animations are ENHANCEMENTS ONLY
+   ========================================== */
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ==========================================
+   1. FADE IN ON LOAD (Safe)
+   ========================================== */
+
+/* Elements fade in gently when page loads */
+.fade-in-element {
+  animation: gentleFadeIn 0.6s ease-out;
+}
+
+@keyframes gentleFadeIn {
+  from {
+    opacity: 0.3;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================
+   2. HOVER EFFECTS (Always safe)
+   ========================================== */
+
+/* Smooth scale on hover */
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Smooth lift on hover */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================
+   3. BUTTON ANIMATIONS
+   ========================================== */
+
+.btn-pulse {
+  animation: gentlePulse 2s ease-in-out infinite;
+}
+
+@keyframes gentlePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* ==========================================
+   4. SCROLL PROGRESS BAR
+   ========================================== */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(to right, #fbbf24, #f59e0b);
+  z-index: 9999;
+  transition: width 0.1s ease;
+}
+
+/* ==========================================
+   5. CARD ENTRANCE (Subtle)
+   ========================================== */
+
+.card-entrance {
+  animation: slideUpGentle 0.5s ease-out;
+}
+
+@keyframes slideUpGentle {
+  from {
+    opacity: 0.5;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================
+   6. IMAGE LOADING (Safe)
+   ========================================== */
+
+img {
+  /* Images visible immediately, no opacity tricks */
+  opacity: 1;
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.02);
+}
+
+/* ==========================================
+   7. SMOOTH TRANSITIONS (Safe)
+   ========================================== */
+
+a, button {
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* ==========================================
+   8. MOBILE MENU FADE
+   ========================================== */
+
+#mobile-menu:not(.hidden),
+#mobile-menu-shop:not(.hidden),
+#mobile-menu-speaking:not(.hidden),
+#mobile-menu-blog:not(.hidden) {
+  animation: fadeInQuick 0.2s ease-out;
+}
+
+@keyframes fadeInQuick {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ==========================================
+   9. MODAL ANIMATIONS
+   ========================================== */
+
+.modal-enter {
+  animation: modalSlideUp 0.3s ease-out;
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ==========================================
+   10. LOADING STATES
+   ========================================== */
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ==========================================
+   11. ATTENTION GRABBERS (Subtle)
+   ========================================== */
+
+.gentle-bounce {
+  animation: gentleBounce 2s ease-in-out infinite;
+}
+
+@keyframes gentleBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* ==========================================
+   12. CART BADGE ANIMATION
+   ========================================== */
+
+.badge-pop {
+  animation: badgePop 0.3s ease-out;
+}
+
+@keyframes badgePop {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ==========================================
+   13. FOCUS STATES (Accessibility)
+   ========================================== */
+
+*:focus-visible {
+  outline: 2px solid #fbbf24;
+  outline-offset: 2px;
+}
+
+/* ==========================================
+   14. REDUCE MOTION (Accessibility)
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================
+   15. PERFORMANCE OPTIMIZATION
+   ========================================== */
+
+.will-animate {
+  will-change: transform, opacity;
+}
+
+/* Remove will-change after animation */
+@keyframes removeWillChange {
+  to {
+    will-change: auto;
+  }
+}

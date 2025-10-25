@@ -695,8 +695,9 @@ app.get('/shop', (c) => {
             <div class="hidden md:flex items-center space-x-8">
               <a href="/" class="text-white hover:text-yellow-400 transition">Home</a>
               <a href="/shop" class="text-yellow-400 font-semibold">Shop</a>
+              <a href="/speaking" class="text-white hover:text-yellow-400 transition">Speaking</a>
+              <a href="/blog" class="text-white hover:text-yellow-400 transition">Blog</a>
               <a href="/#programs" class="text-white hover:text-yellow-400 transition">Programs</a>
-              <a href="/#podcasts" class="text-white hover:text-yellow-400 transition">Podcasts</a>
               <button id="cart-btn" class="relative text-white hover:text-yellow-400 transition">
                 <i class="fas fa-shopping-cart text-2xl"></i>
                 <span id="cart-count" class="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
@@ -714,8 +715,9 @@ app.get('/shop', (c) => {
         <div class="flex flex-col items-center space-y-8 mt-12">
           <a href="/" class="text-white text-2xl hover:text-yellow-400 transition">Home</a>
           <a href="/shop" class="text-yellow-400 text-2xl font-semibold">Shop</a>
+          <a href="/speaking" class="text-white text-2xl hover:text-yellow-400 transition">Speaking</a>
+          <a href="/blog" class="text-white text-2xl hover:text-yellow-400 transition">Blog</a>
           <a href="/#programs" class="text-white text-2xl hover:text-yellow-400 transition">Programs</a>
-          <a href="/#podcasts" class="text-white text-2xl hover:text-yellow-400 transition">Podcasts</a>
         </div>
       </div>
 
