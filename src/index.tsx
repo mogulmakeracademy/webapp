@@ -23,7 +23,6 @@ app.get('/', (c) => {
               <a href="/speaking" class="text-white hover:text-yellow-400 transition">Speaking</a>
               <a href="/blog" class="text-white hover:text-yellow-400 transition">Blog</a>
               <a href="/#programs" class="text-white hover:text-yellow-400 transition">Programs</a>
-              <a href="/#contact" class="bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition">Get Started</a>
               <a href="/shop" class="relative text-white hover:text-yellow-400 transition">
                 <i class="fas fa-shopping-cart text-2xl"></i>
                 <span id="cart-badge-home" class="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
@@ -44,7 +43,6 @@ app.get('/', (c) => {
           <a href="/speaking" class="text-white text-2xl hover:text-yellow-400 transition">Speaking</a>
           <a href="/blog" class="text-white text-2xl hover:text-yellow-400 transition">Blog</a>
           <a href="/#programs" class="text-white text-2xl hover:text-yellow-400 transition">Programs</a>
-          <a href="/#contact" class="bg-yellow-400 text-black px-8 py-3 rounded-full font-semibold text-xl">Get Started</a>
         </div>
       </div>
 
@@ -1596,7 +1594,6 @@ app.get('/blog', (c) => {
               <a href="/speaking" class="text-white hover:text-yellow-400 transition">Speaking</a>
               <a href="/blog" class="text-yellow-400 font-semibold">Blog</a>
               <a href="/#programs" class="text-white hover:text-yellow-400 transition">Programs</a>
-              <a href="/#contact" class="bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition">Get Started</a>
             </div>
             <button id="mobile-menu-btn-blog" class="md:hidden text-white">
               <i class="fas fa-bars text-2xl"></i>
