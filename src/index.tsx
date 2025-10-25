@@ -20,8 +20,9 @@ app.get('/', (c) => {
             <div class="hidden md:flex items-center space-x-8">
               <a href="/" class="text-white hover:text-yellow-400 transition">Home</a>
               <a href="/shop" class="text-white hover:text-yellow-400 transition">Shop</a>
+              <a href="/speaking" class="text-white hover:text-yellow-400 transition">Speaking</a>
+              <a href="/blog" class="text-white hover:text-yellow-400 transition">Blog</a>
               <a href="/#programs" class="text-white hover:text-yellow-400 transition">Programs</a>
-              <a href="/#podcasts" class="text-white hover:text-yellow-400 transition">Podcasts</a>
               <a href="/#contact" class="bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition">Get Started</a>
               <a href="/shop" class="relative text-white hover:text-yellow-400 transition">
                 <i class="fas fa-shopping-cart text-2xl"></i>
@@ -40,9 +41,87 @@ app.get('/', (c) => {
         <div class="flex flex-col items-center space-y-8 mt-12">
           <a href="/" class="text-white text-2xl hover:text-yellow-400 transition">Home</a>
           <a href="/shop" class="text-white text-2xl hover:text-yellow-400 transition">Shop</a>
+          <a href="/speaking" class="text-white text-2xl hover:text-yellow-400 transition">Speaking</a>
+          <a href="/blog" class="text-white text-2xl hover:text-yellow-400 transition">Blog</a>
           <a href="/#programs" class="text-white text-2xl hover:text-yellow-400 transition">Programs</a>
-          <a href="/#podcasts" class="text-white text-2xl hover:text-yellow-400 transition">Podcasts</a>
           <a href="/#contact" class="bg-yellow-400 text-black px-8 py-3 rounded-full font-semibold text-xl">Get Started</a>
+        </div>
+      </div>
+
+      {/* Lead Magnet Popup */}
+      <div id="lead-magnet-popup" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+        <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl max-w-2xl w-full p-8 md:p-12 relative">
+          <button id="close-popup" class="absolute top-4 right-4 text-black hover:text-gray-700 text-3xl">
+            <i class="fas fa-times"></i>
+          </button>
+          
+          <div class="text-center">
+            <div class="bg-black w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <i class="fas fa-gift text-yellow-400 text-4xl"></i>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold text-black mb-4">
+              FREE Business Credit Blueprint
+            </h2>
+            <p class="text-xl text-gray-900 font-semibold mb-8">
+              Download your FREE guide: "How to Build Business Credit in 90 Days" 
+              - The exact blueprint used by thousands of entrepreneurs!
+            </p>
+            
+            <div class="bg-white rounded-2xl p-8 mb-6">
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">What You'll Get:</h3>
+              <ul class="text-left space-y-3 mb-6">
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-yellow-400 text-xl mt-1"></i>
+                  <span class="text-gray-700 font-semibold">Step-by-step guide to establishing business credit</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-yellow-400 text-xl mt-1"></i>
+                  <span class="text-gray-700 font-semibold">List of 20+ Net-30 vendor accounts</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-yellow-400 text-xl mt-1"></i>
+                  <span class="text-gray-700 font-semibold">Credit monitoring tools and resources</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-yellow-400 text-xl mt-1"></i>
+                  <span class="text-gray-700 font-semibold">Funding application strategies</span>
+                </li>
+              </ul>
+              
+              <form id="lead-form" class="space-y-4">
+                <input
+                  type="text"
+                  id="name-input"
+                  placeholder="Your Name"
+                  class="w-full px-6 py-4 rounded-full border-2 border-gray-300 focus:border-yellow-400 focus:outline-none font-semibold"
+                  required
+                />
+                <input
+                  type="email"
+                  id="email-input"
+                  placeholder="Your Email"
+                  class="w-full px-6 py-4 rounded-full border-2 border-gray-300 focus:border-yellow-400 focus:outline-none font-semibold"
+                  required
+                />
+                <button
+                  type="submit"
+                  class="w-full bg-black text-yellow-400 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-900 transition transform hover:scale-105"
+                >
+                  <i class="fas fa-download mr-2"></i>
+                  Get My FREE Blueprint
+                </button>
+              </form>
+              
+              <p class="text-sm text-gray-600 mt-4">
+                <i class="fas fa-lock mr-1"></i>
+                Your information is 100% secure. No spam, ever.
+              </p>
+            </div>
+            
+            <p class="text-black text-sm">
+              Join 5,000+ entrepreneurs who have downloaded this guide!
+            </p>
+          </div>
         </div>
       </div>
 
@@ -455,6 +534,54 @@ app.get('/', (c) => {
           }
         }
         updateHomeCartBadge();
+        
+        // Lead Magnet Popup Logic
+        const leadPopup = document.getElementById('lead-magnet-popup');
+        const closePopupBtn = document.getElementById('close-popup');
+        const leadForm = document.getElementById('lead-form');
+        
+        // Check if user has already seen popup
+        const hasSeenPopup = localStorage.getItem('has_seen_lead_popup');
+        
+        // Show popup after 15 seconds if not seen before
+        if (!hasSeenPopup) {
+          setTimeout(() => {
+            leadPopup.classList.remove('hidden');
+          }, 15000);
+        }
+        
+        // Close popup
+        closePopupBtn.addEventListener('click', () => {
+          leadPopup.classList.add('hidden');
+          localStorage.setItem('has_seen_lead_popup', 'true');
+        });
+        
+        // Close on outside click
+        leadPopup.addEventListener('click', (e) => {
+          if (e.target.id === 'lead-magnet-popup') {
+            leadPopup.classList.add('hidden');
+            localStorage.setItem('has_seen_lead_popup', 'true');
+          }
+        });
+        
+        // Handle form submission
+        leadForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('name-input').value;
+          const email = document.getElementById('email-input').value;
+          
+          // Store in localStorage (in production, send to your email service)
+          localStorage.setItem('lead_name', name);
+          localStorage.setItem('lead_email', email);
+          localStorage.setItem('has_seen_lead_popup', 'true');
+          
+          // Show success message
+          alert('🎉 Success! Check your email for the Business Credit Blueprint.\\n\\nWe\\'ll send you weekly tips on building credit and securing funding!');
+          leadPopup.classList.add('hidden');
+          
+          // TODO: Integrate with email service (Mailchimp, ConvertKit, or GHL)
+          // Example: Send data to your email marketing platform
+        });
         
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
           document.getElementById('mobile-menu').classList.toggle('hidden');
@@ -1126,6 +1253,709 @@ app.get('/shop', (c) => {
         // Initialize
         renderProducts();
         updateCartUI();
+      `}} />
+    </div>
+  )
+})
+
+// Speaking/Booking Page Route
+app.get('/speaking', (c) => {
+  return c.render(
+    <div style="font-family: 'Poppins', sans-serif;">
+      {/* Navigation */}
+      <nav class="fixed w-full bg-black/95 backdrop-blur-sm z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-20">
+            <div class="flex items-center">
+              <a href="/" class="text-2xl font-bold text-yellow-400">
+                <span class="text-white">Mr.</span> Mogul Maker
+              </a>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+              <a href="/" class="text-white hover:text-yellow-400 transition">Home</a>
+              <a href="/shop" class="text-white hover:text-yellow-400 transition">Shop</a>
+              <a href="/speaking" class="text-yellow-400 font-semibold">Speaking</a>
+              <a href="/blog" class="text-white hover:text-yellow-400 transition">Blog</a>
+              <a href="/#programs" class="text-white hover:text-yellow-400 transition">Programs</a>
+              <a href="/#contact" class="bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition">Book Me</a>
+            </div>
+            <button id="mobile-menu-btn-speaking" class="md:hidden text-white">
+              <i class="fas fa-bars text-2xl"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Menu */}
+      <div id="mobile-menu-speaking" class="hidden fixed inset-0 bg-black/95 z-40 pt-20">
+        <div class="flex flex-col items-center space-y-8 mt-12">
+          <a href="/" class="text-white text-2xl hover:text-yellow-400 transition">Home</a>
+          <a href="/shop" class="text-white text-2xl hover:text-yellow-400 transition">Shop</a>
+          <a href="/speaking" class="text-yellow-400 text-2xl font-semibold">Speaking</a>
+          <a href="/blog" class="text-white text-2xl hover:text-yellow-400 transition">Blog</a>
+          <a href="/#programs" class="text-white text-2xl hover:text-yellow-400 transition">Programs</a>
+        </div>
+      </div>
+
+      {/* Hero Section */}
+      <section class="relative bg-gradient-to-br from-black via-gray-900 to-black pt-32 pb-16">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmRiNGQiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLjktMiAyLTJoNGMxLjEgMCAyIC45IDIgMnY0YzAgMS4xLS45IDItMiAyaC00Yy0xLjEgMC0yLS45LTItMnYtNHptMCAxOGMwLTEuMS45LTIgMi0yaDRjMS4xIDAgMiAuOSAyIDJ2NGMwIDEuMS0uOSAyLTIgMmgtNGMtMS4xIDAtMi0uOS0yLTJ2LTR6bTE4IDBjMC0xLjEuOS0yIDItMmg0YzEuMSAwIDIgLjkgMiAydjRjMCAxLjEtLjkgMi0yIDJoLTRjLTEuMSAwLTItLjktMi0ydi00eiIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <div class="inline-block bg-yellow-400/20 text-yellow-400 px-6 py-3 rounded-full mb-6">
+            <i class="fas fa-microphone-alt mr-2"></i>
+            Professional Speaker & Entrepreneur Coach
+          </div>
+          <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+            Book Antonio Cook for Your Next <span class="text-yellow-400">Event</span>
+          </h1>
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+            Inspire your audience with proven strategies on business credit, funding, and wealth building. 
+            Dynamic keynotes that transform entrepreneurs from consumers to creditors.
+          </p>
+          <div class="flex flex-wrap gap-4 justify-center">
+            <a href="#booking" class="bg-yellow-400 text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition transform hover:scale-105">
+              <i class="fas fa-calendar-check mr-2"></i>
+              Book a Call
+            </a>
+            <a href="#topics" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-black transition">
+              <i class="fas fa-list mr-2"></i>
+              Speaking Topics
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Speaking Topics */}
+      <section id="topics" class="bg-white py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Speaking <span class="text-yellow-400">Topics</span>
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+              Engaging, actionable presentations that drive real results for your audience.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-gradient-to-br from-black to-gray-900 rounded-2xl p-8 text-white hover:shadow-2xl transition transform hover:scale-105">
+              <div class="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                <i class="fas fa-chart-line text-black text-2xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-4">Building Business Credit from Scratch</h3>
+              <p class="text-gray-300 mb-4">Learn the exact steps to establish strong business credit, separate personal and business finances, and access funding without personal guarantees.</p>
+              <ul class="space-y-2 text-sm">
+                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Establishing business credit profiles</li>
+                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Net-30 vendor accounts strategy</li>
+                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Credit monitoring and optimization</li>
+              </ul>
+            </div>
+
+            <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl p-8 text-black hover:shadow-2xl transition transform hover:scale-105">
+              <div class="bg-black w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                <i class="fas fa-dollar-sign text-yellow-400 text-2xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-4">The 3M Framework: Make, Manage, Multiply</h3>
+              <p class="text-gray-800 mb-4 font-semibold">Master the three stages of wealth building: how to make money through business strategies, manage it with systems, and multiply it through investments.</p>
+              <ul class="space-y-2 text-sm">
+                <li><i class="fas fa-check text-black mr-2"></i>Income generation strategies</li>
+                <li><i class="fas fa-check text-black mr-2"></i>Financial management systems</li>
+                <li><i class="fas fa-check text-black mr-2"></i>Wealth multiplication tactics</li>
+              </ul>
+            </div>
+
+            <div class="bg-gradient-to-br from-black to-gray-900 rounded-2xl p-8 text-white hover:shadow-2xl transition transform hover:scale-105">
+              <div class="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                <i class="fas fa-money-bill-wave text-black text-2xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-4">Securing Business Funding Without Perfect Credit</h3>
+              <p class="text-gray-300 mb-4">Discover proven funding sources and application strategies that work even with challenged credit. Learn what banks and lenders really look for.</p>
+              <ul class="space-y-2 text-sm">
+                <li><i class="fas fa-check text-yellow-400 mr-2"></i>50+ funding source strategies</li>
+                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Application optimization tips</li>
+                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Alternative financing options</li>
+              </ul>
+            </div>
+
+            <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl p-8 text-black hover:shadow-2xl transition transform hover:scale-105">
+              <div class="bg-black w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                <i class="fas fa-user-tie text-yellow-400 text-2xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-4">From Consumer to Creditor: The Mindset Shift</h3>
+              <p class="text-gray-800 mb-4 font-semibold">Transform how you think about money and credit. Learn to think like banks and creditors, not like consumers who chase quick fixes.</p>
+              <ul class="space-y-2 text-sm">
+                <li><i class="fas fa-check text-black mr-2"></i>Financial literacy fundamentals</li>
+                <li><i class="fas fa-check text-black mr-2"></i>Credit score optimization</li>
+                <li><i class="fas fa-check text-black mr-2"></i>Wealth-building psychology</li>
+              </ul>
+            </div>
+
+            <div class="bg-gradient-to-br from-black to-gray-900 rounded-2xl p-8 text-white hover:shadow-2xl transition transform hover:scale-105">
+              <div class="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                <i class="fas fa-building text-black text-2xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-4">Business Structure & Legal Protection</h3>
+              <p class="text-gray-300 mb-4">Set up your business correctly from day one. LLC vs. Corporation, tax strategies, asset protection, and compliance that prevents costly mistakes.</p>
+              <ul class="space-y-2 text-sm">
+                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Entity selection and formation</li>
+                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Asset protection strategies</li>
+                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Tax optimization basics</li>
+              </ul>
+            </div>
+
+            <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl p-8 text-black hover:shadow-2xl transition transform hover:scale-105">
+              <div class="bg-black w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                <i class="fas fa-rocket text-yellow-400 text-2xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-4">Money Follows Management™</h3>
+              <p class="text-gray-800 mb-4 font-semibold">The signature framework that shows entrepreneurs how proper financial management attracts wealth, funding, and opportunities automatically.</p>
+              <ul class="space-y-2 text-sm">
+                <li><i class="fas fa-check text-black mr-2"></i>Financial systems setup</li>
+                <li><i class="fas fa-check text-black mr-2"></i>Cash flow management</li>
+                <li><i class="fas fa-check text-black mr-2"></i>Scaling strategies</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Event Types */}
+      <section class="bg-gray-100 py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Perfect For Your <span class="text-yellow-400">Event</span>
+            </h2>
+          </div>
+
+          <div class="grid md:grid-cols-4 gap-6">
+            <div class="bg-white rounded-xl p-6 text-center hover:shadow-lg transition">
+              <i class="fas fa-users text-yellow-400 text-4xl mb-4"></i>
+              <h3 class="text-xl font-bold mb-2">Corporate Events</h3>
+              <p class="text-gray-600">Keynotes, training sessions, and workshops for businesses</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 text-center hover:shadow-lg transition">
+              <i class="fas fa-handshake text-yellow-400 text-4xl mb-4"></i>
+              <h3 class="text-xl font-bold mb-2">Conferences</h3>
+              <p class="text-gray-600">Engaging presentations for industry conferences and summits</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 text-center hover:shadow-lg transition">
+              <i class="fas fa-graduation-cap text-yellow-400 text-4xl mb-4"></i>
+              <h3 class="text-xl font-bold mb-2">Educational</h3>
+              <p class="text-gray-600">College campuses, business schools, and training programs</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 text-center hover:shadow-lg transition">
+              <i class="fas fa-bullhorn text-yellow-400 text-4xl mb-4"></i>
+              <h3 class="text-xl font-bold mb-2">Associations</h3>
+              <p class="text-gray-600">Trade groups, chambers of commerce, and professional organizations</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Calendly Booking Section */}
+      <section id="booking" class="bg-white py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Book Antonio for Your <span class="text-yellow-400">Event</span>
+            </h2>
+            <p class="text-xl text-gray-600">
+              Schedule a call to discuss your event, audience, and how we can create maximum impact together.
+            </p>
+          </div>
+
+          {/* Calendly Embed */}
+          <div class="bg-gray-50 rounded-3xl p-8 shadow-xl">
+            <div class="calendly-inline-widget" data-url="https://calendly.com/mrmogulmaker-44?hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Book Antonio */}
+      <section class="bg-gradient-to-br from-black to-gray-900 py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+              Why Book <span class="text-yellow-400">Antonio Cook?</span>
+            </h2>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center text-white">
+              <div class="bg-yellow-400 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-trophy text-black text-3xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-4">Proven Results</h3>
+              <p class="text-gray-300">Helped 500+ entrepreneurs build business credit and secure over $10M in funding</p>
+            </div>
+            <div class="text-center text-white">
+              <div class="bg-yellow-400 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-fire text-black text-3xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-4">Engaging Style</h3>
+              <p class="text-gray-300">Dynamic presentations that combine real-world experience with actionable strategies</p>
+            </div>
+            <div class="text-center text-white">
+              <div class="bg-yellow-400 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-lightbulb text-black text-3xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-4">Actionable Content</h3>
+              <p class="text-gray-300">Audiences leave with specific steps they can implement immediately</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer class="bg-black text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid md:grid-cols-4 gap-8 mb-8">
+            <div class="md:col-span-2">
+              <h3 class="text-2xl font-bold text-yellow-400 mb-4">Mr. Mogul Maker</h3>
+              <p class="text-gray-400 mb-4">
+                Empowering entrepreneurs with financial literacy, business credit strategies, and wealth-building education.
+              </p>
+              <div class="flex gap-4">
+                <a href="https://www.youtube.com/@mrmogulmaker" target="_blank" class="text-white hover:text-yellow-400 transition text-xl">
+                  <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.instagram.com/mrmogulmaker/" target="_blank" class="text-white hover:text-yellow-400 transition text-xl">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/mrmogulmakerceo" target="_blank" class="text-white hover:text-yellow-400 transition text-xl">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.tiktok.com/@mrmogulmaker" target="_blank" class="text-white hover:text-yellow-400 transition text-xl">
+                  <i class="fab fa-tiktok"></i>
+                </a>
+              </div>
+            </div>
+            
+            <div>
+              <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+              <ul class="space-y-2 text-gray-400">
+                <li><a href="/" class="hover:text-yellow-400 transition">Home</a></li>
+                <li><a href="/shop" class="hover:text-yellow-400 transition">Shop</a></li>
+                <li><a href="/speaking" class="hover:text-yellow-400 transition">Speaking</a></li>
+                <li><a href="/blog" class="hover:text-yellow-400 transition">Blog</a></li>
+                <li><a href="/#programs" class="hover:text-yellow-400 transition">Programs</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 class="font-bold text-lg mb-4">Contact</h4>
+              <ul class="space-y-2 text-gray-400">
+                <li><a href="/speaking" class="hover:text-yellow-400 transition">Book Me to Speak</a></li>
+                <li><a href="mailto:mrmogulmaker@gmail.com" class="hover:text-yellow-400 transition">Email Us</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+            <p>&copy; 2025 Mr. Mogul Maker | Antonio Cook. All rights reserved.</p>
+            <p class="mt-2 text-yellow-400 font-semibold">Money Follows Management™</p>
+          </div>
+        </div>
+      </footer>
+
+      {/* JavaScript for mobile menu */}
+      <script dangerouslySetInnerHTML={{__html: `
+        document.getElementById('mobile-menu-btn-speaking').addEventListener('click', function() {
+          document.getElementById('mobile-menu-speaking').classList.toggle('hidden');
+        });
+        
+        document.querySelectorAll('#mobile-menu-speaking a').forEach(link => {
+          link.addEventListener('click', function() {
+            document.getElementById('mobile-menu-speaking').classList.add('hidden');
+          });
+        });
+      `}} />
+    </div>
+  )
+})
+
+// Blog Page Route
+app.get('/blog', (c) => {
+  return c.render(
+    <div style="font-family: 'Poppins', sans-serif;">
+      {/* Navigation */}
+      <nav class="fixed w-full bg-black/95 backdrop-blur-sm z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-20">
+            <div class="flex items-center">
+              <a href="/" class="text-2xl font-bold text-yellow-400">
+                <span class="text-white">Mr.</span> Mogul Maker
+              </a>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+              <a href="/" class="text-white hover:text-yellow-400 transition">Home</a>
+              <a href="/shop" class="text-white hover:text-yellow-400 transition">Shop</a>
+              <a href="/speaking" class="text-white hover:text-yellow-400 transition">Speaking</a>
+              <a href="/blog" class="text-yellow-400 font-semibold">Blog</a>
+              <a href="/#programs" class="text-white hover:text-yellow-400 transition">Programs</a>
+              <a href="/#contact" class="bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition">Get Started</a>
+            </div>
+            <button id="mobile-menu-btn-blog" class="md:hidden text-white">
+              <i class="fas fa-bars text-2xl"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Menu */}
+      <div id="mobile-menu-blog" class="hidden fixed inset-0 bg-black/95 z-40 pt-20">
+        <div class="flex flex-col items-center space-y-8 mt-12">
+          <a href="/" class="text-white text-2xl hover:text-yellow-400 transition">Home</a>
+          <a href="/shop" class="text-white text-2xl hover:text-yellow-400 transition">Shop</a>
+          <a href="/speaking" class="text-white text-2xl hover:text-yellow-400 transition">Speaking</a>
+          <a href="/blog" class="text-yellow-400 text-2xl font-semibold">Blog</a>
+          <a href="/#programs" class="text-white text-2xl hover:text-yellow-400 transition">Programs</a>
+        </div>
+      </div>
+
+      {/* Hero Section */}
+      <section class="relative bg-gradient-to-br from-black via-gray-900 to-black pt-32 pb-16">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmRiNGQiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLjktMiAyLTJoNGMxLjEgMCAyIC45IDIgMnY0YzAgMS4xLS45IDItMiAyaC00Yy0xLjEgMC0yLS45LTItMnYtNHptMCAxOGMwLTEuMS45LTIgMi0yaDRjMS4xIDAgMiAuOSAyIDJ2NGMwIDEuMS0uOSAyLTIgMmgtNGMtMS4xIDAtMi0uOS0yLTJ2LTR6bTE4IDBjMC0xLjEuOS0yIDItMmg0YzEuMSAwIDIgLjkgMiAydjRjMCAxLjEtLjkgMi0yIDJoLTRjLTEuMSAwLTItLjktMi0ydi00eiIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <div class="inline-block bg-yellow-400/20 text-yellow-400 px-6 py-3 rounded-full mb-6">
+            <i class="fas fa-book-open mr-2"></i>
+            Financial Literacy & Business Education
+          </div>
+          <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+            The Mogul Maker <span class="text-yellow-400">Blog</span>
+          </h1>
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+            Insights, strategies, and proven tactics for building business credit, securing funding, and multiplying your wealth.
+          </p>
+        </div>
+      </section>
+
+      {/* Featured Article */}
+      <section class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl overflow-hidden shadow-2xl">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+              <div class="p-12">
+                <div class="inline-block bg-black/20 text-black px-4 py-2 rounded-full mb-4 font-semibold">
+                  <i class="fas fa-star mr-2"></i>
+                  Featured Article
+                </div>
+                <h2 class="text-4xl font-bold text-black mb-4">
+                  How to Build Business Credit in 90 Days (Complete Guide)
+                </h2>
+                <p class="text-gray-900 mb-6 text-lg font-semibold">
+                  The step-by-step blueprint that thousands of entrepreneurs have used to establish strong business credit profiles - even starting from scratch.
+                </p>
+                <div class="flex items-center gap-4 mb-6">
+                  <div class="flex items-center gap-2 text-black">
+                    <i class="fas fa-user-circle"></i>
+                    <span class="font-semibold">Antonio Cook</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-black">
+                    <i class="fas fa-clock"></i>
+                    <span>8 min read</span>
+                  </div>
+                </div>
+                <a href="#" class="inline-block bg-black text-yellow-400 px-8 py-4 rounded-full font-bold hover:bg-gray-900 transition">
+                  Read Full Article <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+              </div>
+              <div class="h-full bg-gradient-to-br from-black to-gray-900 p-12 flex items-center justify-center">
+                <i class="fas fa-chart-line text-yellow-400 text-9xl"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Blog Articles Grid */}
+      <section class="bg-gray-50 py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900">Latest Articles</h2>
+            <div class="flex gap-3">
+              <button class="category-filter active bg-yellow-400 text-black px-4 py-2 rounded-full font-semibold hover:bg-yellow-300 transition" data-category="all">All</button>
+              <button class="category-filter bg-white text-gray-700 px-4 py-2 rounded-full font-semibold hover:bg-gray-100 transition border-2 border-gray-200" data-category="credit">Credit</button>
+              <button class="category-filter bg-white text-gray-700 px-4 py-2 rounded-full font-semibold hover:bg-gray-100 transition border-2 border-gray-200" data-category="funding">Funding</button>
+              <button class="category-filter bg-white text-gray-700 px-4 py-2 rounded-full font-semibold hover:bg-gray-100 transition border-2 border-gray-200" data-category="business">Business</button>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Sample Blog Articles */}
+            <article class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:scale-105">
+              <div class="bg-gradient-to-br from-black to-gray-900 h-48 flex items-center justify-center">
+                <i class="fas fa-credit-card text-yellow-400 text-6xl"></i>
+              </div>
+              <div class="p-6">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="bg-yellow-400/20 text-yellow-600 px-3 py-1 rounded-full text-sm font-semibold">Credit</span>
+                  <span class="text-gray-500 text-sm">5 min read</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3 hover:text-yellow-400 transition cursor-pointer">
+                  Top 10 Net-30 Vendors to Build Business Credit Fast
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Discover the best vendor accounts that report to business credit bureaus and can help you establish trade lines quickly.
+                </p>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2 text-sm text-gray-500">
+                    <i class="fas fa-calendar"></i>
+                    <span>Jan 20, 2025</span>
+                  </div>
+                  <a href="#" class="text-yellow-400 font-semibold hover:underline">Read More →</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:scale-105">
+              <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 h-48 flex items-center justify-center">
+                <i class="fas fa-money-bill-wave text-white text-6xl"></i>
+              </div>
+              <div class="p-6">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-semibold">Funding</span>
+                  <span class="text-gray-500 text-sm">7 min read</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3 hover:text-yellow-400 transition cursor-pointer">
+                  SBA Loans Explained: How to Qualify in 2025
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Everything you need to know about Small Business Administration loans, requirements, and the application process.
+                </p>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2 text-sm text-gray-500">
+                    <i class="fas fa-calendar"></i>
+                    <span>Jan 18, 2025</span>
+                  </div>
+                  <a href="#" class="text-yellow-400 font-semibold hover:underline">Read More →</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:scale-105">
+              <div class="bg-gradient-to-br from-black to-gray-900 h-48 flex items-center justify-center">
+                <i class="fas fa-building text-yellow-400 text-6xl"></i>
+              </div>
+              <div class="p-6">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-semibold">Business</span>
+                  <span class="text-gray-500 text-sm">6 min read</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3 hover:text-yellow-400 transition cursor-pointer">
+                  LLC vs S-Corp: Which Structure is Right for You?
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Compare the pros and cons of different business structures and learn which one fits your goals and situation.
+                </p>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2 text-sm text-gray-500">
+                    <i class="fas fa-calendar"></i>
+                    <span>Jan 15, 2025</span>
+                  </div>
+                  <a href="#" class="text-yellow-400 font-semibold hover:underline">Read More →</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:scale-105">
+              <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 h-48 flex items-center justify-center">
+                <i class="fas fa-shield-alt text-white text-6xl"></i>
+              </div>
+              <div class="p-6">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="bg-yellow-400/20 text-yellow-600 px-3 py-1 rounded-full text-sm font-semibold">Credit</span>
+                  <span class="text-gray-500 text-sm">10 min read</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3 hover:text-yellow-400 transition cursor-pointer">
+                  Credit Repair Mistakes That Cost You Thousands
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Avoid these common credit repair mistakes that waste time and money. Learn what actually works from a pro.
+                </p>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2 text-sm text-gray-500">
+                    <i class="fas fa-calendar"></i>
+                    <span>Jan 12, 2025</span>
+                  </div>
+                  <a href="#" class="text-yellow-400 font-semibold hover:underline">Read More →</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:scale-105">
+              <div class="bg-gradient-to-br from-black to-gray-900 h-48 flex items-center justify-center">
+                <i class="fas fa-university text-yellow-400 text-6xl"></i>
+              </div>
+              <div class="p-6">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-semibold">Funding</span>
+                  <span class="text-gray-500 text-sm">8 min read</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3 hover:text-yellow-400 transition cursor-pointer">
+                  Alternative Funding: Beyond Traditional Bank Loans
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Explore creative funding options including revenue-based financing, merchant cash advances, and crowdfunding.
+                </p>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2 text-sm text-gray-500">
+                    <i class="fas fa-calendar"></i>
+                    <span>Jan 10, 2025</span>
+                  </div>
+                  <a href="#" class="text-yellow-400 font-semibold hover:underline">Read More →</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:scale-105">
+              <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 h-48 flex items-center justify-center">
+                <i class="fas fa-chart-pie text-white text-6xl"></i>
+              </div>
+              <div class="p-6">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-semibold">Business</span>
+                  <span class="text-gray-500 text-sm">12 min read</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3 hover:text-yellow-400 transition cursor-pointer">
+                  The 3M Framework: Make, Manage, Multiply Explained
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Deep dive into the signature wealth-building framework. Learn how to systematically grow your financial empire.
+                </p>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2 text-sm text-gray-500">
+                    <i class="fas fa-calendar"></i>
+                    <span>Jan 8, 2025</span>
+                  </div>
+                  <a href="#" class="text-yellow-400 font-semibold hover:underline">Read More →</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          {/* Load More Button */}
+          <div class="text-center mt-12">
+            <button class="bg-yellow-400 text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition transform hover:scale-105">
+              Load More Articles
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Signup */}
+      <section class="bg-gradient-to-br from-black to-gray-900 py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl p-12">
+            <i class="fas fa-envelope text-black text-6xl mb-6"></i>
+            <h2 class="text-4xl font-bold text-black mb-4">
+              Never Miss an Update
+            </h2>
+            <p class="text-lg text-gray-900 font-semibold mb-8">
+              Get weekly insights on business credit, funding strategies, and wealth building delivered to your inbox.
+            </p>
+            <form class="flex flex-col md:flex-row gap-4 max-w-xl mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                class="flex-1 px-6 py-4 rounded-full text-gray-900 font-semibold placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-black"
+                required
+              />
+              <button
+                type="submit"
+                class="bg-black text-yellow-400 px-8 py-4 rounded-full font-bold hover:bg-gray-900 transition whitespace-nowrap"
+              >
+                Subscribe Now
+              </button>
+            </form>
+            <p class="text-sm text-gray-800 mt-4">
+              <i class="fas fa-lock mr-1"></i>
+              Your email is safe with us. No spam, ever.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer class="bg-black text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid md:grid-cols-4 gap-8 mb-8">
+            <div class="md:col-span-2">
+              <h3 class="text-2xl font-bold text-yellow-400 mb-4">Mr. Mogul Maker</h3>
+              <p class="text-gray-400 mb-4">
+                Empowering entrepreneurs with financial literacy, business credit strategies, and wealth-building education.
+              </p>
+              <div class="flex gap-4">
+                <a href="https://www.youtube.com/@mrmogulmaker" target="_blank" class="text-white hover:text-yellow-400 transition text-xl">
+                  <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.instagram.com/mrmogulmaker/" target="_blank" class="text-white hover:text-yellow-400 transition text-xl">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/mrmogulmakerceo" target="_blank" class="text-white hover:text-yellow-400 transition text-xl">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.tiktok.com/@mrmogulmaker" target="_blank" class="text-white hover:text-yellow-400 transition text-xl">
+                  <i class="fab fa-tiktok"></i>
+                </a>
+              </div>
+            </div>
+            
+            <div>
+              <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+              <ul class="space-y-2 text-gray-400">
+                <li><a href="/" class="hover:text-yellow-400 transition">Home</a></li>
+                <li><a href="/shop" class="hover:text-yellow-400 transition">Shop</a></li>
+                <li><a href="/speaking" class="hover:text-yellow-400 transition">Speaking</a></li>
+                <li><a href="/blog" class="hover:text-yellow-400 transition">Blog</a></li>
+                <li><a href="/#programs" class="hover:text-yellow-400 transition">Programs</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 class="font-bold text-lg mb-4">Categories</h4>
+              <ul class="space-y-2 text-gray-400">
+                <li><a href="/blog?category=credit" class="hover:text-yellow-400 transition">Business Credit</a></li>
+                <li><a href="/blog?category=funding" class="hover:text-yellow-400 transition">Funding Strategies</a></li>
+                <li><a href="/blog?category=business" class="hover:text-yellow-400 transition">Business Tips</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+            <p>&copy; 2025 Mr. Mogul Maker | Antonio Cook. All rights reserved.</p>
+            <p class="mt-2 text-yellow-400 font-semibold">Money Follows Management™</p>
+          </div>
+        </div>
+      </footer>
+
+      {/* JavaScript for mobile menu and filtering */}
+      <script dangerouslySetInnerHTML={{__html: `
+        document.getElementById('mobile-menu-btn-blog').addEventListener('click', function() {
+          document.getElementById('mobile-menu-blog').classList.toggle('hidden');
+        });
+        
+        document.querySelectorAll('#mobile-menu-blog a').forEach(link => {
+          link.addEventListener('click', function() {
+            document.getElementById('mobile-menu-blog').classList.add('hidden');
+          });
+        });
+
+        // Category filtering (placeholder - would filter actual articles)
+        document.querySelectorAll('.category-filter').forEach(btn => {
+          btn.addEventListener('click', function() {
+            document.querySelectorAll('.category-filter').forEach(b => {
+              b.classList.remove('active', 'bg-yellow-400', 'text-black');
+              b.classList.add('bg-white', 'text-gray-700');
+            });
+            this.classList.add('active', 'bg-yellow-400', 'text-black');
+            this.classList.remove('bg-white', 'text-gray-700');
+          });
+        });
       `}} />
     </div>
   )
