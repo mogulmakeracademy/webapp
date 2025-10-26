@@ -25,6 +25,7 @@ app.get('/', (c) => {
               <a href="/speaking" class="text-white hover:text-yellow-400 transition">Speaking</a>
               <a href="/blog" class="text-white hover:text-yellow-400 transition">Blog</a>
               <a href="/programs" class="text-white hover:text-yellow-400 transition">Programs</a>
+              <a href="/events" class="text-white hover:text-yellow-400 transition">Events</a>
               <a href="/shop" class="text-white hover:text-yellow-400 transition">
                 <i class="fas fa-shopping-bag mr-2"></i>Shop
               </a>
@@ -43,9 +44,8 @@ app.get('/', (c) => {
           <a href="/speaking" class="text-white text-2xl hover:text-yellow-400 transition">Speaking</a>
           <a href="/blog" class="text-white text-2xl hover:text-yellow-400 transition">Blog</a>
           <a href="/programs" class="text-white text-2xl hover:text-yellow-400 transition">Programs</a>
-          <a href="/shop" class="text-white text-2xl hover:text-yellow-400 transition">
-            <i class="fas fa-shopping-bag mr-2"></i>Shop
-          </a>
+          <a href="/events" class="text-white text-2xl hover:text-yellow-400 transition">Events</a>
+          <a href="/shop" class="text-white text-2xl hover:text-yellow-400 transition">Shop</a>
         </div>
       </div>
 
@@ -997,7 +997,8 @@ app.get('/shop', (c) => {
               <a href="/" class="text-white hover:text-yellow-400 transition">Home</a>
               <a href="/speaking" class="text-white hover:text-yellow-400 transition">Speaking</a>
               <a href="/blog" class="text-white hover:text-yellow-400 transition">Blog</a>
-              <a href="/#programs" class="text-white hover:text-yellow-400 transition">Programs</a>
+              <a href="/programs" class="text-white hover:text-yellow-400 transition">Programs</a>
+              <a href="/events" class="text-white hover:text-yellow-400 transition">Events</a>
               <a href="/shop" class="text-yellow-400 font-semibold">
                 <i class="fas fa-shopping-bag mr-2"></i>Shop
               </a>
@@ -1015,10 +1016,9 @@ app.get('/shop', (c) => {
           <a href="/" class="text-white text-2xl hover:text-yellow-400 transition">Home</a>
           <a href="/speaking" class="text-white text-2xl hover:text-yellow-400 transition">Speaking</a>
           <a href="/blog" class="text-white text-2xl hover:text-yellow-400 transition">Blog</a>
-          <a href="/#programs" class="text-white text-2xl hover:text-yellow-400 transition">Programs</a>
-          <a href="/shop" class="text-yellow-400 text-2xl font-semibold">
-            <i class="fas fa-shopping-bag mr-2"></i>Shop
-          </a>
+          <a href="/programs" class="text-white text-2xl hover:text-yellow-400 transition">Programs</a>
+          <a href="/events" class="text-white text-2xl hover:text-yellow-400 transition">Events</a>
+          <a href="/shop" class="text-yellow-400 text-2xl font-semibold">Shop</a>
         </div>
       </div>
 
@@ -1157,7 +1157,8 @@ app.get('/speaking', (c) => {
               <a href="/" class="text-white hover:text-yellow-400 transition">Home</a>
               <a href="/speaking" class="text-yellow-400 font-semibold">Speaking</a>
               <a href="/blog" class="text-white hover:text-yellow-400 transition">Blog</a>
-              <a href="/#programs" class="text-white hover:text-yellow-400 transition">Programs</a>
+              <a href="/programs" class="text-white hover:text-yellow-400 transition">Programs</a>
+              <a href="/events" class="text-white hover:text-yellow-400 transition">Events</a>
               <a href="/shop" class="text-white hover:text-yellow-400 transition">
                 <i class="fas fa-shopping-bag mr-2"></i>Shop
               </a>
@@ -1176,10 +1177,9 @@ app.get('/speaking', (c) => {
           <a href="/" class="text-white text-2xl hover:text-yellow-400 transition">Home</a>
           <a href="/speaking" class="text-yellow-400 text-2xl font-semibold">Speaking</a>
           <a href="/blog" class="text-white text-2xl hover:text-yellow-400 transition">Blog</a>
-          <a href="/#programs" class="text-white text-2xl hover:text-yellow-400 transition">Programs</a>
-          <a href="/shop" class="text-white text-2xl hover:text-yellow-400 transition">
-            <i class="fas fa-shopping-bag mr-2"></i>Shop
-          </a>
+          <a href="/programs" class="text-white text-2xl hover:text-yellow-400 transition">Programs</a>
+          <a href="/events" class="text-white text-2xl hover:text-yellow-400 transition">Events</a>
+          <a href="/shop" class="text-white text-2xl hover:text-yellow-400 transition">Shop</a>
         </div>
       </div>
 
@@ -2068,7 +2068,8 @@ app.get('/blog', (c) => {
               <a href="/" class="text-white hover:text-yellow-400 transition">Home</a>
               <a href="/speaking" class="text-white hover:text-yellow-400 transition">Speaking</a>
               <a href="/blog" class="text-yellow-400 font-semibold">Blog</a>
-              <a href="/#programs" class="text-white hover:text-yellow-400 transition">Programs</a>
+              <a href="/programs" class="text-white hover:text-yellow-400 transition">Programs</a>
+              <a href="/events" class="text-white hover:text-yellow-400 transition">Events</a>
               <a href="/shop" class="text-white hover:text-yellow-400 transition">
                 <i class="fas fa-shopping-bag mr-2"></i>Shop
               </a>
@@ -2086,10 +2087,9 @@ app.get('/blog', (c) => {
           <a href="/" class="text-white text-2xl hover:text-yellow-400 transition">Home</a>
           <a href="/speaking" class="text-white text-2xl hover:text-yellow-400 transition">Speaking</a>
           <a href="/blog" class="text-yellow-400 text-2xl font-semibold">Blog</a>
-          <a href="/#programs" class="text-white text-2xl hover:text-yellow-400 transition">Programs</a>
-          <a href="/shop" class="text-white text-2xl hover:text-yellow-400 transition">
-            <i class="fas fa-shopping-bag mr-2"></i>Shop
-          </a>
+          <a href="/programs" class="text-white text-2xl hover:text-yellow-400 transition">Programs</a>
+          <a href="/events" class="text-white text-2xl hover:text-yellow-400 transition">Events</a>
+          <a href="/shop" class="text-white text-2xl hover:text-yellow-400 transition">Shop</a>
         </div>
       </div>
 
@@ -4440,15 +4440,15 @@ app.get('/events', (c) => {
       {/* Coming Soon Section */}
       <section class="bg-white py-24">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-12 md:p-16 shadow-xl">
-            <div class="inline-block bg-yellow-400/20 text-yellow-600 px-6 py-3 rounded-full mb-6">
+          <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-6 md:p-12 lg:p-16 shadow-xl">
+            <div class="inline-block bg-yellow-400/20 text-yellow-600 px-4 py-2 md:px-6 md:py-3 rounded-full mb-4 md:mb-6 text-sm md:text-base">
               <i class="fas fa-rocket mr-2"></i>
               LAUNCHING SOON
             </div>
-            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
               Events Coming Soon!
             </h2>
-            <p class="text-xl text-gray-600 mb-8">
+            <p class="text-base md:text-xl text-gray-600 mb-6 md:mb-8">
               We're planning exciting seminars, workshops, and live events where you can learn directly from Antonio Cook 
               and network with fellow entrepreneurs, investors, and industry leaders.
             </p>
@@ -4485,12 +4485,12 @@ app.get('/events', (c) => {
               </div>
             </div>
 
-            <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl p-8 mb-8">
-              <h3 class="text-2xl font-bold text-black mb-4">Get Notified First</h3>
-              <p class="text-black/80 mb-6">
+            <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl p-6 md:p-8 mb-6 md:mb-8">
+              <h3 class="text-xl md:text-2xl font-bold text-black mb-3 md:mb-4">Get Notified First</h3>
+              <p class="text-sm md:text-base text-black/80 mb-4 md:mb-6">
                 Be the first to know when we announce our upcoming events. Join the waitlist to receive exclusive early-bird pricing!
               </p>
-              <a href="/programs#waitlist" class="inline-block bg-black text-yellow-400 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-900 transition transform hover:scale-105">
+              <a href="/programs#waitlist" class="inline-block bg-black text-yellow-400 px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-gray-900 transition transform hover:scale-105">
                 <i class="fas fa-bell mr-2"></i>
                 Join Event Waitlist
               </a>
