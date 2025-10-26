@@ -861,7 +861,7 @@ app.get('/shop', (c) => {
                 <i class="fas fa-shopping-bag mr-2"></i>Shop
               </a>
             </div>
-            <button id="mobile-menu-btn-shop" class="md:hidden text-white z-[70] relative cursor-pointer touch-manipulation" style="-webkit-tap-highlight-color: transparent;">
+            <button id="mobile-menu-btn-shop" class="md:hidden text-white z-[70] relative">
               <i class="fas fa-bars text-2xl"></i>
             </button>
           </div>
@@ -898,34 +898,60 @@ app.get('/shop', (c) => {
           const mobileMenuBtn = document.getElementById('mobile-menu-btn-shop');
           const mobileMenu = document.getElementById('mobile-menu-shop');
           
-          if (mobileMenuBtn && mobileMenu) {
-            // Function to toggle menu
-            function toggleMenu(e) {
-              if (e) {
-                e.preventDefault();
-                e.stopPropagation();
-              }
-              mobileMenu.classList.toggle('hidden');
-            }
-            
-            // Add both click and touchstart for iOS
-            mobileMenuBtn.addEventListener('click', toggleMenu);
-            mobileMenuBtn.addEventListener('touchstart', toggleMenu, { passive: false });
-            
-            // Close mobile menu when clicking on links
-            mobileMenu.querySelectorAll('a').forEach(link => {
-              link.addEventListener('click', function() {
-                mobileMenu.classList.add('hidden');
-              });
-            });
-            
-            // Close mobile menu when clicking outside
-            mobileMenu.addEventListener('click', function(e) {
-              if (e.target === mobileMenu) {
-                mobileMenu.classList.add('hidden');
-              }
-            });
+          if (!mobileMenuBtn || !mobileMenu) {
+            return;
           }
+          
+          const mobileMenuIcon = mobileMenuBtn.querySelector('i');
+          
+          function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            if (mobileMenuIcon) {
+              mobileMenuIcon.classList.remove('fa-bars');
+              mobileMenuIcon.classList.add('fa-times');
+            }
+            document.body.style.overflow = 'hidden';
+          }
+          
+          function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+            if (mobileMenuIcon) {
+              mobileMenuIcon.classList.remove('fa-times');
+              mobileMenuIcon.classList.add('fa-bars');
+            }
+            document.body.style.overflow = '';
+          }
+          
+          // Button click handler
+          mobileMenuBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+              openMobileMenu();
+            } else {
+              closeMobileMenu();
+            }
+          });
+          
+          // Close mobile menu when clicking links
+          mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+          });
+          
+          // Close mobile menu when clicking outside
+          mobileMenu.addEventListener('click', function(e) {
+            if (e.target === mobileMenu) {
+              closeMobileMenu();
+            }
+          });
+          
+          // Close mobile menu on escape key
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+              closeMobileMenu();
+            }
+          });
         });
       `}} />
     </div>,
@@ -996,7 +1022,7 @@ app.get('/speaking', (c) => {
               </a>
               <a href="/#contact" class="bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition">Book Me</a>
             </div>
-            <button id="mobile-menu-btn-speaking" class="md:hidden text-white z-[70] relative cursor-pointer touch-manipulation" style="-webkit-tap-highlight-color: transparent;">
+            <button id="mobile-menu-btn-speaking" class="md:hidden text-white z-[70] relative">
               <i class="fas fa-bars text-2xl"></i>
             </button>
           </div>
@@ -1306,37 +1332,63 @@ app.get('/speaking', (c) => {
       {/* JavaScript for mobile menu */}
       <script dangerouslySetInnerHTML={{__html: `
         document.addEventListener('DOMContentLoaded', function() {
-          const mobileMenuBtnSpeaking = document.getElementById('mobile-menu-btn-speaking');
-          const mobileMenuSpeaking = document.getElementById('mobile-menu-speaking');
+          const mobileMenuBtn = document.getElementById('mobile-menu-btn-speaking');
+          const mobileMenu = document.getElementById('mobile-menu-speaking');
           
-          if (mobileMenuBtnSpeaking && mobileMenuSpeaking) {
-            // Function to toggle menu
-            function toggleMenu(e) {
-              if (e) {
-                e.preventDefault();
-                e.stopPropagation();
-              }
-              mobileMenuSpeaking.classList.toggle('hidden');
-            }
-            
-            // Add both click and touchstart for iOS
-            mobileMenuBtnSpeaking.addEventListener('click', toggleMenu);
-            mobileMenuBtnSpeaking.addEventListener('touchstart', toggleMenu, { passive: false });
-            
-            // Close menu when clicking links
-            mobileMenuSpeaking.querySelectorAll('a').forEach(link => {
-              link.addEventListener('click', function() {
-                mobileMenuSpeaking.classList.add('hidden');
-              });
-            });
-            
-            // Close menu when clicking outside
-            mobileMenuSpeaking.addEventListener('click', function(e) {
-              if (e.target === mobileMenuSpeaking) {
-                mobileMenuSpeaking.classList.add('hidden');
-              }
-            });
+          if (!mobileMenuBtn || !mobileMenu) {
+            return;
           }
+          
+          const mobileMenuIcon = mobileMenuBtn.querySelector('i');
+          
+          function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            if (mobileMenuIcon) {
+              mobileMenuIcon.classList.remove('fa-bars');
+              mobileMenuIcon.classList.add('fa-times');
+            }
+            document.body.style.overflow = 'hidden';
+          }
+          
+          function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+            if (mobileMenuIcon) {
+              mobileMenuIcon.classList.remove('fa-times');
+              mobileMenuIcon.classList.add('fa-bars');
+            }
+            document.body.style.overflow = '';
+          }
+          
+          // Button click handler
+          mobileMenuBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+              openMobileMenu();
+            } else {
+              closeMobileMenu();
+            }
+          });
+          
+          // Close mobile menu when clicking links
+          mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+          });
+          
+          // Close mobile menu when clicking outside
+          mobileMenu.addEventListener('click', function(e) {
+            if (e.target === mobileMenu) {
+              closeMobileMenu();
+            }
+          });
+          
+          // Close mobile menu on escape key
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+              closeMobileMenu();
+            }
+          });
         });
       `}} />
     </div>,
@@ -1444,7 +1496,7 @@ app.get('/blog', (c) => {
                 <i class="fas fa-shopping-bag mr-2"></i>Shop
               </a>
             </div>
-            <button id="mobile-menu-btn-blog" class="md:hidden text-white z-[70] relative cursor-pointer touch-manipulation" style="-webkit-tap-highlight-color: transparent;">
+            <button id="mobile-menu-btn-blog" class="md:hidden text-white z-[70] relative">
               <i class="fas fa-bars text-2xl"></i>
             </button>
           </div>
@@ -1807,37 +1859,63 @@ app.get('/blog', (c) => {
       {/* JavaScript for mobile menu and filtering */}
       <script dangerouslySetInnerHTML={{__html: `
         document.addEventListener('DOMContentLoaded', function() {
-          const mobileMenuBtnBlog = document.getElementById('mobile-menu-btn-blog');
-          const mobileMenuBlog = document.getElementById('mobile-menu-blog');
+          const mobileMenuBtn = document.getElementById('mobile-menu-btn-blog');
+          const mobileMenu = document.getElementById('mobile-menu-blog');
           
-          if (mobileMenuBtnBlog && mobileMenuBlog) {
-            // Function to toggle menu
-            function toggleMenu(e) {
-              if (e) {
-                e.preventDefault();
-                e.stopPropagation();
-              }
-              mobileMenuBlog.classList.toggle('hidden');
-            }
-            
-            // Add both click and touchstart for iOS
-            mobileMenuBtnBlog.addEventListener('click', toggleMenu);
-            mobileMenuBtnBlog.addEventListener('touchstart', toggleMenu, { passive: false });
-            
-            // Close menu when clicking links
-            mobileMenuBlog.querySelectorAll('a').forEach(link => {
-              link.addEventListener('click', function() {
-                mobileMenuBlog.classList.add('hidden');
-              });
-            });
-            
-            // Close menu when clicking outside
-            mobileMenuBlog.addEventListener('click', function(e) {
-              if (e.target === mobileMenuBlog) {
-                mobileMenuBlog.classList.add('hidden');
-              }
-            });
+          if (!mobileMenuBtn || !mobileMenu) {
+            return;
           }
+          
+          const mobileMenuIcon = mobileMenuBtn.querySelector('i');
+          
+          function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            if (mobileMenuIcon) {
+              mobileMenuIcon.classList.remove('fa-bars');
+              mobileMenuIcon.classList.add('fa-times');
+            }
+            document.body.style.overflow = 'hidden';
+          }
+          
+          function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+            if (mobileMenuIcon) {
+              mobileMenuIcon.classList.remove('fa-times');
+              mobileMenuIcon.classList.add('fa-bars');
+            }
+            document.body.style.overflow = '';
+          }
+          
+          // Button click handler
+          mobileMenuBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+              openMobileMenu();
+            } else {
+              closeMobileMenu();
+            }
+          });
+          
+          // Close mobile menu when clicking links
+          mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+          });
+          
+          // Close mobile menu when clicking outside
+          mobileMenu.addEventListener('click', function(e) {
+            if (e.target === mobileMenu) {
+              closeMobileMenu();
+            }
+          });
+          
+          // Close mobile menu on escape key
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+              closeMobileMenu();
+            }
+          });
         });
 
         // Category filtering (placeholder - would filter actual articles)
