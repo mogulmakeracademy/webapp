@@ -1,0 +1,381 @@
+/* ============================================
+   Mr. Mogul Maker - GHL Store Custom CSS v4
+   FIXED VERSION - Cleaner, more targeted
+   Brand Colors: Black (#000000), Yellow (#FBBF24)
+   ============================================ */
+
+/* Import Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
+/* ============================================
+   GLOBAL RESET & FONT
+   ============================================ */
+
+* {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* ============================================
+   HIDE GHL HEADER & UNWANTED ELEMENTS
+   ============================================ */
+
+header,
+.header,
+.site-header,
+nav,
+.nav,
+.elNavWrapper,
+.navigation {
+  display: none !important;
+}
+
+/* Hide that white logo container */
+.logo-container,
+.site-logo,
+.brand-logo,
+[class*="logo-wrapper"] {
+  display: none !important;
+}
+
+/* ============================================
+   CUSTOM HEADER BAR
+   ============================================ */
+
+body::before {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+}
+
+body::after {
+  content: "Mr. Mogul Maker";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 80px;
+  line-height: 80px;
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+  z-index: 10000;
+  text-align: center;
+}
+
+/* ============================================
+   BODY & MAIN CONTENT
+   ============================================ */
+
+body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  padding-top: 100px !important;
+}
+
+main,
+.main-content,
+.content-wrapper,
+section {
+  background-color: #000000 !important;
+}
+
+/* Remove all unnecessary containers */
+.container,
+.page-wrapper,
+.site-wrapper {
+  background-color: transparent !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+}
+
+/* ============================================
+   CUSTOM HEADLINE
+   ============================================ */
+
+main::before,
+.products-wrapper::before,
+.product-grid-wrapper::before {
+  content: "BUILD Buying power with Mogul tools.";
+  display: block;
+  text-align: center;
+  font-size: 48px;
+  font-weight: 800;
+  padding: 60px 20px 40px;
+  margin-bottom: 60px;
+  background: #000000;
+  border-bottom: 2px solid rgba(251, 191, 36, 0.3);
+  line-height: 1.2;
+  background: linear-gradient(90deg, #FBBF24 0%, #FBBF24 13%, #ffffff 13%, #ffffff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ============================================
+   PRODUCT GRID CONTAINER
+   ============================================ */
+
+.products-grid,
+.product-list,
+.elProducts,
+[class*="products-"],
+[class*="product-grid"] {
+  background-color: #000000 !important;
+  padding: 0 20px !important;
+}
+
+/* Remove nested borders/containers */
+.products-grid > div,
+.product-list > div {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* ============================================
+   PRODUCT CARDS - CLEAN VERSION
+   ============================================ */
+
+.product-card,
+.product-item,
+.product,
+.elProduct,
+[class*="product-card"],
+[class*="productCard"] {
+  background: linear-gradient(145deg, #1F2937 0%, #111827 100%) !important;
+  border: 2px solid rgba(251, 191, 36, 0.2) !important;
+  border-radius: 24px !important;
+  padding: 24px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5) !important;
+  margin: 16px !important;
+}
+
+.product-card:hover,
+.product-item:hover,
+.product:hover {
+  border-color: #FBBF24 !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 24px rgba(251, 191, 36, 0.3) !important;
+}
+
+/* Remove any nested borders inside product cards */
+.product-card > div,
+.product-item > div,
+.product > div {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* ============================================
+   PRODUCT CARD ELEMENTS
+   ============================================ */
+
+/* Product Images */
+.product-card img,
+.product-item img,
+.product img {
+  border-radius: 16px !important;
+  border: none !important;
+}
+
+/* Product Titles */
+.product-card h1,
+.product-card h2,
+.product-card h3,
+.product-title,
+.product-name {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 20px !important;
+  margin-bottom: 12px !important;
+}
+
+/* Product Descriptions */
+.product-card p,
+.product-description {
+  color: #D1D5DB !important;
+  line-height: 1.6 !important;
+  font-size: 14px !important;
+}
+
+/* ============================================
+   PRICES - BRIGHT YELLOW
+   ============================================ */
+
+.product-card .price,
+.product-price,
+.elPrice,
+.amount,
+[class*="price"],
+span[class*="Price"] {
+  color: #FBBF24 !important;
+  font-size: 28px !important;
+  font-weight: 800 !important;
+  background: none !important;
+  background-color: transparent !important;
+  text-shadow: none !important;
+  -webkit-text-fill-color: #FBBF24 !important;
+}
+
+/* Price children (currency symbols, etc) */
+.price *,
+.product-price *,
+.amount * {
+  color: #FBBF24 !important;
+  -webkit-text-fill-color: #FBBF24 !important;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.product-card button,
+.product-card .btn,
+.product-card a.btn,
+.add-to-cart,
+button[class*="add"],
+button[class*="Add"],
+button[class*="buy"] {
+  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%) !important;
+  color: #000000 !important;
+  border: none !important;
+  border-radius: 9999px !important;
+  padding: 12px 32px !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 6px rgba(251, 191, 36, 0.3) !important;
+}
+
+.product-card button:hover,
+.add-to-cart:hover {
+  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 12px rgba(251, 191, 36, 0.5) !important;
+}
+
+/* ============================================
+   REMOVE ALL NESTED BORDERS/BACKGROUNDS
+   ============================================ */
+
+/* Target all divs that might be creating those nested borders */
+.product-card > div > div,
+.product-item > div > div,
+.elProduct > div > div,
+[class*="inner-wrapper"],
+[class*="card-wrapper"],
+[class*="product-wrapper"] {
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* ============================================
+   CART ICON (Top Right)
+   ============================================ */
+
+.cart-icon,
+.cart-button,
+.shopping-cart-icon {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  z-index: 10001 !important;
+  background-color: transparent !important;
+  color: #FBBF24 !important;
+}
+
+.cart-count,
+.cart-badge {
+  background-color: #FBBF24 !important;
+  color: #000000 !important;
+  font-weight: 700 !important;
+  border-radius: 9999px !important;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  body::after {
+    font-size: 18px;
+    left: 20px;
+    transform: none;
+    text-align: left;
+  }
+  
+  main::before,
+  .products-wrapper::before {
+    font-size: 28px !important;
+    padding: 40px 20px 30px !important;
+    margin-bottom: 40px !important;
+  }
+  
+  .product-card {
+    padding: 16px !important;
+    margin: 12px !important;
+  }
+  
+  .product-card button {
+    padding: 10px 24px !important;
+    font-size: 14px !important;
+  }
+  
+  .product-price {
+    font-size: 24px !important;
+  }
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1F2937;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FBBF24 0%, #F59E0B 100%);
+  border-radius: 10px;
+  border: 2px solid #1F2937;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #F59E0B 0%, #FBBF24 100%);
+}
+
+/* ============================================
+   FORCE VISIBILITY
+   ============================================ */
+
+.product-card *:not(button) {
+  text-shadow: none !important;
+}
+
+/* ============================================
+   END OF STYLES
+   ============================================ */

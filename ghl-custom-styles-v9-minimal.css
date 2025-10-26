@@ -1,0 +1,103 @@
+/* ============================================
+   Mr. Mogul Maker - GHL Store CSS v9
+   ABSOLUTE MINIMAL - Only essentials
+   ============================================ */
+
+/* Import Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
+/* ============================================
+   FONT ONLY
+   ============================================ */
+
+body,
+* {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* ============================================
+   BLACK BACKGROUND
+   ============================================ */
+
+body {
+  background-color: #000000 !important;
+}
+
+/* ============================================
+   HEADER - Two-tone: "Mr." white + "Mogul Maker" yellow
+   ============================================ */
+
+/* Add fixed header bar */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: rgba(0, 0, 0, 0.95);
+  border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+  z-index: 9998;
+}
+
+/* Add header text */
+body::after {
+  content: "Mr. Mogul Maker";
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 80px;
+  line-height: 80px;
+  font-size: 24px;
+  font-weight: 800;
+  z-index: 9999;
+  
+  /* Two colors: "Mr." white, "Mogul Maker" yellow */
+  background: linear-gradient(to right, 
+    #ffffff 0%, #ffffff 16%,
+    #FBBF24 16%, #FBBF24 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Add top padding for fixed header */
+body {
+  padding-top: 80px !important;
+}
+
+/* ============================================
+   PRICES - Yellow
+   ============================================ */
+
+.elPrice {
+  color: #FBBF24 !important;
+}
+
+/* ============================================
+   BUTTONS - Yellow
+   ============================================ */
+
+button {
+  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%) !important;
+  color: #000000 !important;
+  border-radius: 9999px !important;
+}
+
+/* ============================================
+   MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+  body::after {
+    font-size: 18px;
+    left: 20px;
+    transform: none;
+  }
+}
+
+/* ============================================
+   END
+   ============================================ */

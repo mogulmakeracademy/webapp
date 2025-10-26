@@ -1,0 +1,194 @@
+/* ============================================
+   Mr. Mogul Maker - GHL Store Custom CSS v6
+   ULTRA MINIMAL - Let GHL handle layout
+   Only add: Colors, fonts, header, headline
+   ============================================ */
+
+/* Import Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
+/* ============================================
+   FONT ONLY
+   ============================================ */
+
+* {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* ============================================
+   BODY - BLACK BACKGROUND ONLY
+   ============================================ */
+
+body {
+  background-color: #000000 !important;
+}
+
+/* ============================================
+   CUSTOM HEADER BAR
+   ============================================ */
+
+/* Hide GHL header */
+header.site-header,
+.elNavWrapper {
+  display: none !important;
+}
+
+/* Add our header */
+body::before {
+  content: "Mr. Mogul Maker";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+  z-index: 9999;
+}
+
+body {
+  padding-top: 80px !important;
+}
+
+/* ============================================
+   HEADLINE - Add at top of page
+   ============================================ */
+
+.elProducts::before,
+.products-container::before,
+[class*="product-list"]::before {
+  content: "BUILD Buying power with Mogul tools.";
+  display: block;
+  text-align: center;
+  font-size: 48px;
+  font-weight: 800;
+  padding: 60px 20px 40px;
+  margin-bottom: 40px;
+  background: linear-gradient(90deg, #FBBF24 0%, #FBBF24 13%, #ffffff 13%, #ffffff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom: 2px solid rgba(251, 191, 36, 0.3);
+}
+
+/* ============================================
+   PRODUCT CARDS - Minimal styling
+   ============================================ */
+
+.elProduct,
+.product-card {
+  background: rgba(31, 41, 55, 0.5) !important;
+  border: 1px solid rgba(251, 191, 36, 0.2) !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+}
+
+.elProduct:hover,
+.product-card:hover {
+  border-color: #FBBF24 !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ============================================
+   PRODUCT TITLES - White text
+   ============================================ */
+
+.elProduct h2,
+.elProduct h3,
+.product-title {
+  color: #ffffff !important;
+}
+
+/* ============================================
+   PRICES - Yellow
+   ============================================ */
+
+.elPrice,
+.price,
+.product-price {
+  color: #FBBF24 !important;
+  font-weight: 800 !important;
+}
+
+/* ============================================
+   BUTTONS - Yellow gradient
+   ============================================ */
+
+.elProduct button,
+button[class*="add"],
+button[class*="buy"] {
+  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%) !important;
+  color: #000000 !important;
+  border: none !important;
+  border-radius: 9999px !important;
+  font-weight: 700 !important;
+}
+
+.elProduct button:hover {
+  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%) !important;
+}
+
+/* ============================================
+   PAGINATION - Make visible with yellow accents
+   ============================================ */
+
+.elPagination,
+.pagination {
+  background-color: transparent !important;
+}
+
+.elPagination button,
+.pagination button,
+.elPagination a,
+.pagination a {
+  color: #ffffff !important;
+  background-color: rgba(31, 41, 55, 0.8) !important;
+  border: 1px solid rgba(251, 191, 36, 0.3) !important;
+  border-radius: 6px !important;
+}
+
+.elPagination button:hover,
+.pagination button:hover {
+  background-color: #FBBF24 !important;
+  color: #000000 !important;
+}
+
+.elPagination .active,
+.pagination .active {
+  background-color: #FBBF24 !important;
+  color: #000000 !important;
+}
+
+/* ============================================
+   TEXT COLORS - General
+   ============================================ */
+
+p,
+span,
+div {
+  color: #ffffff;
+}
+
+/* ============================================
+   MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .elProducts::before,
+  .products-container::before {
+    font-size: 28px !important;
+    padding: 40px 20px 30px !important;
+  }
+}
+
+/* ============================================
+   END
+   ============================================ */

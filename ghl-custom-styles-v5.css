@@ -1,0 +1,274 @@
+/* ============================================
+   Mr. Mogul Maker - GHL Store Custom CSS v5
+   MINIMAL VERSION - Only style essentials
+   Brand Colors: Black (#000000), Yellow (#FBBF24)
+   ============================================ */
+
+/* Import Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
+/* ============================================
+   GLOBAL FONT
+   ============================================ */
+
+* {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* ============================================
+   BODY BACKGROUND
+   ============================================ */
+
+body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* ============================================
+   CUSTOM HEADER - Simple version
+   ============================================ */
+
+/* Only hide GHL's main header if it exists */
+header.site-header,
+.elNavWrapper {
+  display: none !important;
+}
+
+/* Add our header */
+body::before {
+  content: "Mr. Mogul Maker";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+  z-index: 9999;
+}
+
+body {
+  padding-top: 80px !important;
+}
+
+/* ============================================
+   CUSTOM HEADLINE
+   ============================================ */
+
+/* Add headline at the top of content */
+body > div:first-of-type::before,
+main::before,
+.page-content::before {
+  content: "BUILD Buying power with Mogul tools.";
+  display: block;
+  text-align: center;
+  font-size: 48px;
+  font-weight: 800;
+  padding: 60px 20px 40px;
+  margin-bottom: 40px;
+  background: linear-gradient(90deg, #FBBF24 0%, #FBBF24 13%, #ffffff 13%, #ffffff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom: 2px solid rgba(251, 191, 36, 0.3);
+}
+
+/* ============================================
+   PRODUCT CARDS ONLY
+   ============================================ */
+
+.product-card,
+.elProduct {
+  background: linear-gradient(145deg, #1F2937 0%, #111827 100%) !important;
+  border: 2px solid rgba(251, 191, 36, 0.2) !important;
+  border-radius: 16px !important;
+  padding: 20px !important;
+  transition: all 0.3s ease !important;
+}
+
+.product-card:hover,
+.elProduct:hover {
+  border-color: #FBBF24 !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 16px rgba(251, 191, 36, 0.3) !important;
+}
+
+/* ============================================
+   PRODUCT IMAGES - MUST BE VISIBLE
+   ============================================ */
+
+.product-card img,
+.elProduct img,
+img {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  border-radius: 12px !important;
+}
+
+/* ============================================
+   PRODUCT TITLES
+   ============================================ */
+
+.product-card h2,
+.product-card h3,
+.product-title {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+}
+
+/* ============================================
+   PRICES - YELLOW
+   ============================================ */
+
+.price,
+.product-price,
+.elPrice {
+  color: #FBBF24 !important;
+  font-size: 24px !important;
+  font-weight: 800 !important;
+  -webkit-text-fill-color: #FBBF24 !important;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.product-card button,
+.elProduct button,
+button[class*="add"],
+button[class*="buy"] {
+  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%) !important;
+  color: #000000 !important;
+  border: none !important;
+  border-radius: 9999px !important;
+  padding: 10px 24px !important;
+  font-weight: 700 !important;
+  transition: all 0.3s ease !important;
+}
+
+.product-card button:hover,
+.elProduct button:hover {
+  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ============================================
+   PAGINATION - MUST BE VISIBLE
+   ============================================ */
+
+.pagination,
+.page-numbers,
+.elPagination,
+[class*="pagination"],
+nav[aria-label="pagination"] {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  background-color: transparent !important;
+  padding: 20px 0 !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+.pagination a,
+.pagination button,
+.pagination span,
+.page-numbers a,
+.page-numbers button,
+.page-numbers span {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #ffffff !important;
+  background-color: #1F2937 !important;
+  border: 2px solid rgba(251, 191, 36, 0.3) !important;
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+  font-weight: 600 !important;
+  min-width: 40px !important;
+  text-align: center !important;
+}
+
+.pagination a:hover,
+.pagination button:hover,
+.page-numbers a:hover,
+.page-numbers button:hover {
+  background-color: #FBBF24 !important;
+  color: #000000 !important;
+  border-color: #FBBF24 !important;
+}
+
+.pagination .active,
+.pagination .current,
+.page-numbers .active,
+.page-numbers .current {
+  background-color: #FBBF24 !important;
+  color: #000000 !important;
+  border-color: #FBBF24 !important;
+}
+
+/* ============================================
+   NAVIGATION ARROWS
+   ============================================ */
+
+button[aria-label*="previous"],
+button[aria-label*="next"],
+.prev,
+.next {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #FBBF24 !important;
+  background-color: #1F2937 !important;
+  border: 2px solid rgba(251, 191, 36, 0.3) !important;
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  body > div:first-of-type::before,
+  main::before,
+  .page-content::before {
+    font-size: 28px !important;
+    padding: 40px 20px 30px !important;
+  }
+  
+  body::before {
+    font-size: 18px;
+  }
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1F2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FBBF24 0%, #F59E0B 100%);
+  border-radius: 10px;
+}
+
+/* ============================================
+   END OF STYLES
+   ============================================ */

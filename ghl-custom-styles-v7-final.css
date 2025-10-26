@@ -1,0 +1,294 @@
+/* ============================================
+   Mr. Mogul Maker - GHL Store Custom CSS v7
+   FINAL VERSION - Complement GHL design
+   Brand Colors: Black (#000000), Yellow (#FBBF24)
+   ============================================ */
+
+/* Import Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
+/* ============================================
+   GLOBAL FONT
+   ============================================ */
+
+* {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* ============================================
+   BODY BACKGROUND
+   ============================================ */
+
+body {
+  background-color: #000000 !important;
+}
+
+/* ============================================
+   CUSTOM HEADER - Matching Homepage Style
+   ============================================ */
+
+/* Hide GHL's default header */
+header.site-header,
+.elNavWrapper,
+nav.main-nav {
+  display: none !important;
+}
+
+/* Create fixed header bar */
+body::before {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+  z-index: 9998;
+}
+
+/* Add "Mr. Mogul Maker" text - styled like homepage */
+body::after {
+  content: "Mr. Mogul Maker";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 800;
+  z-index: 9999;
+  
+  /* Gradient to match homepage: "Mr." white, "Mogul Maker" yellow */
+  background: linear-gradient(90deg, 
+    #ffffff 0%, 
+    #ffffff 15%, 
+    #FBBF24 15%, 
+    #FBBF24 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body {
+  padding-top: 100px !important;
+}
+
+/* ============================================
+   SINGLE HEADLINE - Only Show Once
+   ============================================ */
+
+/* Target the main products container ONLY */
+section.elProducts::before {
+  content: "BUILD Buying power with Mogul tools.";
+  display: block;
+  text-align: center;
+  font-size: 48px;
+  font-weight: 800;
+  padding: 40px 20px;
+  margin-bottom: 40px;
+  
+  /* "BUILD" in yellow, rest in white */
+  background: linear-gradient(90deg, 
+    #FBBF24 0%, 
+    #FBBF24 13%, 
+    #ffffff 13%, 
+    #ffffff 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  border-bottom: 2px solid rgba(251, 191, 36, 0.3);
+}
+
+/* Prevent duplicate headlines */
+.elProducts > div::before,
+.products-grid::before,
+.product-list::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* ============================================
+   PRODUCT CARDS - Subtle Enhancement
+   ============================================ */
+
+.elProduct {
+  background: rgba(31, 41, 55, 0.3) !important;
+  border: 1px solid rgba(251, 191, 36, 0.15) !important;
+  border-radius: 16px !important;
+  transition: all 0.3s ease !important;
+}
+
+.elProduct:hover {
+  border-color: rgba(251, 191, 36, 0.5) !important;
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.2) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ============================================
+   PRODUCT TITLES
+   ============================================ */
+
+.elProduct h2,
+.elProduct h3 {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+/* ============================================
+   PRICES - Yellow
+   ============================================ */
+
+.elPrice {
+  color: #FBBF24 !important;
+  font-weight: 800 !important;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.elProduct button {
+  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%) !important;
+  color: #000000 !important;
+  border: none !important;
+  border-radius: 9999px !important;
+  padding: 12px 32px !important;
+  font-weight: 700 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 6px rgba(251, 191, 36, 0.3) !important;
+}
+
+.elProduct button:hover {
+  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 12px rgba(251, 191, 36, 0.5) !important;
+}
+
+/* ============================================
+   PAGINATION
+   ============================================ */
+
+.elPagination {
+  margin-top: 40px !important;
+  padding: 20px 0 !important;
+}
+
+.elPagination button {
+  color: #ffffff !important;
+  background-color: rgba(31, 41, 55, 0.6) !important;
+  border: 1px solid rgba(251, 191, 36, 0.3) !important;
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+.elPagination button:hover {
+  background-color: #FBBF24 !important;
+  color: #000000 !important;
+  border-color: #FBBF24 !important;
+}
+
+.elPagination button[disabled] {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+
+/* Current page indicator */
+.elPagination .active,
+.elPagination button.active {
+  background-color: #FBBF24 !important;
+  color: #000000 !important;
+  border-color: #FBBF24 !important;
+}
+
+/* ============================================
+   TEXT COLORS
+   ============================================ */
+
+p {
+  color: #D1D5DB;
+}
+
+span {
+  color: #ffffff;
+}
+
+/* ============================================
+   CART ICON/WIDGET
+   ============================================ */
+
+.cart-widget,
+.shopping-cart {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  z-index: 10000 !important;
+}
+
+.cart-count {
+  background-color: #FBBF24 !important;
+  color: #000000 !important;
+  font-weight: 700 !important;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* Smaller header text on mobile */
+  body::after {
+    font-size: 18px;
+    left: 20px;
+    transform: none;
+    text-align: left;
+  }
+  
+  /* Smaller headline on mobile */
+  section.elProducts::before {
+    font-size: 28px !important;
+    padding: 30px 20px !important;
+  }
+  
+  /* Adjust button sizes */
+  .elProduct button {
+    padding: 10px 24px !important;
+    font-size: 14px !important;
+  }
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1F2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FBBF24 0%, #F59E0B 100%);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #F59E0B 0%, #FBBF24 100%);
+}
+
+/* ============================================
+   END OF STYLES
+   ============================================ */
