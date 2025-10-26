@@ -25,7 +25,7 @@ app.get('/', (c) => {
               <a href="/speaking" class="text-white hover:text-yellow-400 transition">Speaking</a>
               <a href="/blog" class="text-white hover:text-yellow-400 transition">Blog</a>
               <a href="/#programs" class="text-white hover:text-yellow-400 transition">Programs</a>
-              <a href="https://shop.mrmogulmaker.com" class="text-white hover:text-yellow-400 transition">
+              <a href="https://shop.mrmogulmaker.com/shop" class="text-white hover:text-yellow-400 transition">
                 <i class="fas fa-shopping-bag mr-2"></i>Shop
               </a>
             </div>
@@ -43,7 +43,7 @@ app.get('/', (c) => {
           <a href="/speaking" class="text-white text-2xl hover:text-yellow-400 transition">Speaking</a>
           <a href="/blog" class="text-white text-2xl hover:text-yellow-400 transition">Blog</a>
           <a href="/#programs" class="text-white text-2xl hover:text-yellow-400 transition">Programs</a>
-          <a href="https://shop.mrmogulmaker.com" class="text-white text-2xl hover:text-yellow-400 transition">
+          <a href="https://shop.mrmogulmaker.com/shop" class="text-white text-2xl hover:text-yellow-400 transition">
             <i class="fas fa-shopping-bag mr-2"></i>Shop
           </a>
         </div>
