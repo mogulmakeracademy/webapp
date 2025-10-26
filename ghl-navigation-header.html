@@ -1,0 +1,113 @@
+<!-- ============================================
+     Mr. Mogul Maker - GHL Navigation Header
+     PASTE THIS IN: GHL > Settings > Custom Code > Header Code
+     ============================================ -->
+
+<style>
+/* Navigation Header Styles */
+#mmm-nav-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: rgba(0, 0, 0, 0.95);
+  border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+  backdrop-filter: blur(10px);
+  z-index: 99999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  font-family: 'Poppins', sans-serif;
+}
+
+#mmm-nav-brand {
+  font-size: 24px;
+  font-weight: 800;
+  text-decoration: none;
+  background: linear-gradient(to right, 
+    #ffffff 0%, #ffffff 16%,
+    #FBBF24 16%, #FBBF24 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#mmm-nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+#mmm-nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  letter-spacing: 0.05em;
+}
+
+#mmm-nav-links a:hover {
+  color: #FBBF24;
+}
+
+/* Add body padding to prevent content overlap */
+body {
+  padding-top: 100px !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  #mmm-nav-header {
+    padding: 0 20px;
+  }
+  
+  #mmm-nav-brand {
+    font-size: 18px;
+  }
+  
+  #mmm-nav-links {
+    display: none; /* Hide nav on mobile, or create hamburger menu */
+  }
+  
+  body {
+    padding-top: 90px !important;
+  }
+}
+
+/* Mobile Menu Icon (optional) */
+@media (max-width: 768px) {
+  #mmm-mobile-menu {
+    display: block;
+    color: #FBBF24;
+    font-size: 24px;
+    cursor: pointer;
+  }
+}
+
+#mmm-mobile-menu {
+  display: none;
+}
+</style>
+
+<!-- Navigation Header HTML -->
+<div id="mmm-nav-header">
+  <!-- Brand/Logo -->
+  <a href="https://www.mrmogulmaker.com" id="mmm-nav-brand">Mr. Mogul Maker</a>
+  
+  <!-- Navigation Links (Desktop) -->
+  <div id="mmm-nav-links">
+    <a href="https://www.mrmogulmaker.com">Home</a>
+    <a href="https://www.mrmogulmaker.com/speaking">Speaking</a>
+    <a href="https://www.mrmogulmaker.com/blog">Blog</a>
+    <a href="https://www.mrmogulmaker.com/#programs">Programs</a>
+  </div>
+  
+  <!-- Mobile Menu Icon -->
+  <div id="mmm-mobile-menu">
+    <i class="fas fa-bars"></i>
+  </div>
+</div>
