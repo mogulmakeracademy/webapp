@@ -1,0 +1,480 @@
+/* ============================================
+   Mr. Mogul Maker - GHL Store Custom CSS
+   Brand Colors: Black (#000000), Yellow (#FBBF24)
+   Font: Poppins (load via Google Fonts)
+   ============================================ */
+
+/* Import Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+
+* {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* ============================================
+   HEADER / NAVIGATION
+   ============================================ */
+
+header,
+.header,
+nav,
+.nav {
+  background-color: rgba(0, 0, 0, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  border-bottom: 1px solid rgba(251, 191, 36, 0.2) !important;
+}
+
+/* Logo */
+.logo {
+  color: #ffffff !important;
+}
+
+.logo span:last-child {
+  color: #FBBF24 !important;
+}
+
+/* Navigation Links */
+nav a,
+.nav-link,
+.menu-item a {
+  color: #ffffff !important;
+  transition: color 0.3s ease !important;
+}
+
+nav a:hover,
+.nav-link:hover,
+.menu-item a:hover {
+  color: #FBBF24 !important;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+/* Primary Buttons (Yellow) */
+.btn,
+.button,
+button[type="submit"],
+.add-to-cart,
+.checkout-btn,
+.primary-btn {
+  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%) !important;
+  color: #000000 !important;
+  border: none !important;
+  border-radius: 9999px !important; /* Full rounded */
+  padding: 12px 32px !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 6px rgba(251, 191, 36, 0.3) !important;
+}
+
+.btn:hover,
+.button:hover,
+button[type="submit"]:hover,
+.add-to-cart:hover,
+.checkout-btn:hover {
+  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 12px rgba(251, 191, 36, 0.5) !important;
+}
+
+/* Secondary Buttons (Outlined) */
+.btn-secondary,
+.btn-outline {
+  background: transparent !important;
+  color: #FBBF24 !important;
+  border: 2px solid #FBBF24 !important;
+  border-radius: 9999px !important;
+  padding: 12px 32px !important;
+  font-weight: 700 !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-secondary:hover,
+.btn-outline:hover {
+  background: #FBBF24 !important;
+  color: #000000 !important;
+}
+
+/* ============================================
+   PRODUCT CARDS
+   ============================================ */
+
+.product-card,
+.product-item,
+.item-card {
+  background: linear-gradient(145deg, #1F2937 0%, #111827 100%) !important;
+  border: 2px solid rgba(251, 191, 36, 0.2) !important;
+  border-radius: 24px !important;
+  padding: 24px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5) !important;
+}
+
+.product-card:hover,
+.product-item:hover,
+.item-card:hover {
+  border-color: #FBBF24 !important;
+  transform: translateY(-8px) !important;
+  box-shadow: 0 12px 24px rgba(251, 191, 36, 0.3) !important;
+}
+
+/* Product Title */
+.product-title,
+.product-name,
+h3,
+h2 {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  margin-bottom: 12px !important;
+}
+
+/* Product Price */
+.product-price,
+.price {
+  color: #FBBF24 !important;
+  font-size: 28px !important;
+  font-weight: 800 !important;
+}
+
+/* Product Description */
+.product-description,
+.description,
+p {
+  color: #9CA3AF !important;
+  line-height: 1.6 !important;
+}
+
+/* ============================================
+   SHOPPING CART
+   ============================================ */
+
+.cart,
+.cart-container,
+.shopping-cart {
+  background-color: #111827 !important;
+  border: 2px solid rgba(251, 191, 36, 0.3) !important;
+  border-radius: 24px !important;
+  padding: 24px !important;
+}
+
+.cart-item {
+  background-color: #1F2937 !important;
+  border-radius: 16px !important;
+  padding: 16px !important;
+  margin-bottom: 12px !important;
+  border: 1px solid rgba(251, 191, 36, 0.1) !important;
+}
+
+.cart-total,
+.total-price {
+  color: #FBBF24 !important;
+  font-size: 32px !important;
+  font-weight: 800 !important;
+  border-top: 2px solid rgba(251, 191, 36, 0.3) !important;
+  padding-top: 16px !important;
+  margin-top: 16px !important;
+}
+
+/* Cart Badge */
+.cart-badge,
+.cart-count {
+  background-color: #FBBF24 !important;
+  color: #000000 !important;
+  font-weight: 700 !important;
+  border-radius: 9999px !important;
+}
+
+/* ============================================
+   FORMS & INPUTS
+   ============================================ */
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+textarea,
+select {
+  background-color: #1F2937 !important;
+  border: 2px solid rgba(251, 191, 36, 0.2) !important;
+  border-radius: 12px !important;
+  color: #ffffff !important;
+  padding: 12px 16px !important;
+  transition: all 0.3s ease !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #FBBF24 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.1) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #6B7280 !important;
+}
+
+/* Labels */
+label {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  margin-bottom: 8px !important;
+}
+
+/* ============================================
+   CHECKOUT PAGE
+   ============================================ */
+
+.checkout-container,
+.checkout-form {
+  background: linear-gradient(145deg, #1F2937 0%, #111827 100%) !important;
+  border: 2px solid rgba(251, 191, 36, 0.3) !important;
+  border-radius: 24px !important;
+  padding: 32px !important;
+}
+
+.checkout-summary {
+  background-color: #000000 !important;
+  border: 2px solid #FBBF24 !important;
+  border-radius: 16px !important;
+  padding: 24px !important;
+}
+
+/* ============================================
+   CATEGORY FILTERS / TABS
+   ============================================ */
+
+.category-filter,
+.filter-btn,
+.tab {
+  background-color: transparent !important;
+  color: #9CA3AF !important;
+  border: 2px solid rgba(251, 191, 36, 0.3) !important;
+  border-radius: 9999px !important;
+  padding: 8px 24px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+.category-filter:hover,
+.filter-btn:hover,
+.tab:hover,
+.category-filter.active,
+.filter-btn.active,
+.tab.active {
+  background-color: #FBBF24 !important;
+  color: #000000 !important;
+  border-color: #FBBF24 !important;
+}
+
+/* ============================================
+   BADGES & TAGS
+   ============================================ */
+
+.badge,
+.tag,
+.label {
+  background-color: rgba(251, 191, 36, 0.2) !important;
+  color: #FBBF24 !important;
+  border-radius: 9999px !important;
+  padding: 4px 12px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+}
+
+/* ============================================
+   MODALS & POPUPS
+   ============================================ */
+
+.modal,
+.popup,
+.dialog {
+  background-color: #111827 !important;
+  border: 2px solid #FBBF24 !important;
+  border-radius: 24px !important;
+  box-shadow: 0 20px 40px rgba(251, 191, 36, 0.3) !important;
+}
+
+.modal-header,
+.popup-header {
+  border-bottom: 2px solid rgba(251, 191, 36, 0.3) !important;
+  padding-bottom: 16px !important;
+  margin-bottom: 16px !important;
+}
+
+.modal-close,
+.close-btn {
+  color: #9CA3AF !important;
+  transition: color 0.3s ease !important;
+}
+
+.modal-close:hover,
+.close-btn:hover {
+  color: #FBBF24 !important;
+}
+
+/* ============================================
+   ALERTS & MESSAGES
+   ============================================ */
+
+.alert,
+.message,
+.notification {
+  border-radius: 16px !important;
+  padding: 16px 24px !important;
+  font-weight: 600 !important;
+}
+
+.alert-success,
+.success {
+  background-color: rgba(34, 197, 94, 0.2) !important;
+  border: 2px solid #22C55E !important;
+  color: #22C55E !important;
+}
+
+.alert-error,
+.error {
+  background-color: rgba(239, 68, 68, 0.2) !important;
+  border: 2px solid #EF4444 !important;
+  color: #EF4444 !important;
+}
+
+.alert-warning,
+.warning {
+  background-color: rgba(251, 191, 36, 0.2) !important;
+  border: 2px solid #FBBF24 !important;
+  color: #FBBF24 !important;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+footer,
+.footer {
+  background-color: #000000 !important;
+  border-top: 2px solid rgba(251, 191, 36, 0.2) !important;
+  padding: 48px 0 !important;
+}
+
+footer a,
+.footer a {
+  color: #9CA3AF !important;
+  transition: color 0.3s ease !important;
+}
+
+footer a:hover,
+.footer a:hover {
+  color: #FBBF24 !important;
+}
+
+/* ============================================
+   ICONS
+   ============================================ */
+
+i,
+.icon {
+  color: #FBBF24 !important;
+}
+
+/* ============================================
+   LOADING STATES
+   ============================================ */
+
+.loading,
+.spinner {
+  border-color: rgba(251, 191, 36, 0.3) !important;
+  border-top-color: #FBBF24 !important;
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1F2937;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FBBF24 0%, #F59E0B 100%);
+  border-radius: 10px;
+  border: 2px solid #1F2937;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #F59E0B 0%, #FBBF24 100%);
+}
+
+/* ============================================
+   MOBILE RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .btn,
+  .button {
+    padding: 10px 24px !important;
+    font-size: 14px !important;
+  }
+  
+  .product-card,
+  .product-item {
+    padding: 16px !important;
+  }
+  
+  .product-price {
+    font-size: 24px !important;
+  }
+}
+
+/* ============================================
+   TRUST BADGES & SECURITY ICONS
+   ============================================ */
+
+.trust-badge,
+.security-icon {
+  color: #22C55E !important;
+}
+
+/* ============================================
+   QUANTITY SELECTOR
+   ============================================ */
+
+.quantity-btn,
+.qty-btn {
+  background-color: #1F2937 !important;
+  border: 2px solid rgba(251, 191, 36, 0.3) !important;
+  color: #FBBF24 !important;
+  border-radius: 8px !important;
+  width: 36px !important;
+  height: 36px !important;
+  font-weight: 700 !important;
+  transition: all 0.3s ease !important;
+}
+
+.quantity-btn:hover,
+.qty-btn:hover {
+  background-color: #FBBF24 !important;
+  color: #000000 !important;
+}
+
+/* ============================================
+   END OF CUSTOM STYLES
+   ============================================ */
