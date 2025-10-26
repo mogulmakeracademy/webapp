@@ -34,7 +34,7 @@ A professional personal brand website for Antonio Cook (Mr. Mogul Maker), Entrep
 - **Shop Page:** https://www.mrmogulmaker.com/shop
 - **Speaking Page:** https://www.mrmogulmaker.com/speaking
 - **Blog Page:** https://www.mrmogulmaker.com/blog
-- **Latest Deployment:** https://af6e4c19.mrmogulmaker.pages.dev
+- **Latest Deployment:** https://5d70f5ee.mrmogulmaker.pages.dev
 - **Development Server:** https://3000-itqkd7r87dbcew1poox4l-dfc00ec5.sandbox.novita.ai
 
 ## 📊 Social Media Links
@@ -136,17 +136,18 @@ npx wrangler pages deploy dist --project-name mrmogulmaker
 ```
 
 **Deployment Status:** ✅ Active  
-**Last Deployed:** 2025-01-26 (v2.8.0 - GHL Store CSS Complete)  
+**Last Deployed:** 2025-01-26 (v2.9.5 - iOS Mobile Menu Fix)  
 **Project Name:** mrmogulmaker  
 **Account:** mrmogulmaker@gmail.com
 
 **Recent Deployments:**
-- v2.8.0: ✅ **GHL Store Custom CSS Complete** - Minimal branding with header and yellow accents
+- v2.9.5: ✅ **iOS Mobile Menu Fix** - Copied working homepage pattern to all pages (Speaking, Blog, Shop)
+- v2.9.4: iOS touchstart events added (didn't fully resolve issue)
+- v2.9.3: DOMContentLoaded wrapper and preventDefault added
+- v2.9.2: Z-index and menu styling improvements
+- v2.8.0: GHL Store Custom CSS Complete - Minimal branding with header and yellow accents
 - v2.7.1: Moved Shop button after Programs in navigation
 - v2.7.0: Added GHL e-commerce store integration
-- v2.5.2: Updated custom domain URLs in metadata
-- v2.5.1: Fixed mobile menu functionality
-- v2.5.0: Removed lead magnet popup (ready for GHL form integration)
 
 ## 📝 Available Scripts
 
@@ -242,8 +243,28 @@ npx wrangler pages deploy dist --project-name mrmogulmaker
 - ✅ Git repository initialized
 - ✅ Deployed to Cloudflare Pages
 
+## 🐛 Recent Bug Fixes
+
+### v2.9.5 - iOS Mobile Menu Fix (Jan 26, 2025)
+**Problem:** Mobile menu not opening on iPhone (iOS Safari) for Speaking, Blog, and Shop pages, while Homepage worked fine.
+
+**Root Cause:** Different JavaScript patterns between Homepage (working) and other pages (not working).
+
+**Solution:** Copied the exact Homepage mobile menu implementation to all pages:
+- ✅ Removed `touchstart` events (were causing conflicts)
+- ✅ Removed iOS-specific CSS (`touch-manipulation`, `-webkit-tap-highlight-color`)
+- ✅ Added icon toggling (hamburger ↔ X when menu opens/closes)
+- ✅ Added `body overflow: hidden` when menu is open (prevents background scroll)
+- ✅ Used separate `openMobileMenu()` and `closeMobileMenu()` functions instead of toggle
+- ✅ Added escape key handler to close menu
+- ✅ Simplified button HTML to match Homepage exactly
+
+**Key Learning:** The Homepage used a cleaner, more standard approach (click events only, no touchstart) that worked better on iOS. Adding iOS-specific "fixes" actually made it worse!
+
 ## 🎯 Future Enhancements
 
+- [ ] **Verify iOS mobile menu fix works** on actual iPhone devices
+- [ ] **Test Programs page navigation** (/#programs hash link)
 - [ ] **Add GoHighLevel (GHL) embedded form** for lead capture when ready
 - [ ] **Complete Stripe integration** for live payment processing
 - [ ] **Add digital product delivery system** (download links after purchase)
