@@ -548,23 +548,24 @@ app.get('/', (c) => {
       <section id="contact" class="bg-gradient-to-br from-black via-gray-900 to-black py-12 md:py-24">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl p-6 md:p-12 shadow-2xl">
-            <i class="fas fa-crown text-black text-4xl md:text-6xl mb-4 md:mb-6"></i>
+            <i class="fas fa-users text-black text-4xl md:text-6xl mb-4 md:mb-6"></i>
             <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4 md:mb-6">
-              Ready to Become a Mogul?
+              Join Our Elite Community
             </h2>
             <p class="text-base md:text-lg lg:text-xl text-black/80 mb-6 md:mb-8 max-w-2xl mx-auto">
-              Join Mogul Maker Academy and learn the proven strategies to build business credit, secure funding, and multiply your wealth.
+              Connect with thousands of successful entrepreneurs, investors, banking professionals, and industry leaders inside the Mogul Maker Academy community. 
+              Get live coaching, weekly Q&A calls, and exclusive access to our Skool network where real connections turn into real opportunities.
             </p>
-            <div class="flex flex-wrap gap-4 justify-center">
-              <a href="https://mogulmakeracademy.com" target="_blank" class="bg-black text-yellow-400 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-900 transition transform hover:scale-105">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="https://mogulmakeracademy.com" target="_blank" class="bg-black text-yellow-400 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-900 transition transform hover:scale-105 inline-flex items-center justify-center">
                 <i class="fas fa-graduation-cap mr-2"></i>
-                Join Academy
-              </a>
-              <a href="https://www.youtube.com/@mrmogulmaker" target="_blank" class="border-2 border-black text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-black hover:text-yellow-400 transition transform hover:scale-105">
-                <i class="fab fa-youtube mr-2"></i>
-                Subscribe on YouTube
+                Join the Community
               </a>
             </div>
+            <p class="text-black/60 text-sm mt-6">
+              <i class="fas fa-check-circle mr-2"></i>
+              Live coaching • Weekly calls • Elite networking • Banking connections • Investor access
+            </p>
           </div>
         </div>
       </section>
