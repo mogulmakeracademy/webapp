@@ -1581,14 +1581,9 @@ app.get('/speaking', (c) => {
             <p class="text-gray-500 text-sm mb-4">TRUSTED BY ENTREPRENEURS WORLDWIDE</p>
             <div class="flex flex-wrap justify-center items-center gap-8">
               <div class="text-gray-400">
-                <i class="fas fa-users text-3xl mb-2"></i>
-                <p class="text-sm font-semibold text-gray-900">10,000+</p>
-                <p class="text-xs">Entrepreneurs Helped</p>
-              </div>
-              <div class="text-gray-400">
-                <i class="fas fa-dollar-sign text-3xl mb-2"></i>
-                <p class="text-sm font-semibold text-gray-900">$10M+</p>
-                <p class="text-xs">Funding Secured</p>
+                <i class="fas fa-star text-3xl mb-2"></i>
+                <p class="text-sm font-semibold text-gray-900">4.9</p>
+                <p class="text-xs">Google Rating</p>
               </div>
               <div class="text-gray-400">
                 <i class="fas fa-chart-line text-3xl mb-2"></i>
@@ -1596,9 +1591,14 @@ app.get('/speaking', (c) => {
                 <p class="text-xs">Success Stories</p>
               </div>
               <div class="text-gray-400">
-                <i class="fas fa-star text-3xl mb-2"></i>
-                <p class="text-sm font-semibold text-gray-900">4.9/5</p>
-                <p class="text-xs">Client Rating</p>
+                <i class="fas fa-dollar-sign text-3xl mb-2"></i>
+                <p class="text-sm font-semibold text-gray-900">$10M+</p>
+                <p class="text-xs">Funding Secured</p>
+              </div>
+              <div class="text-gray-400">
+                <i class="fas fa-users text-3xl mb-2"></i>
+                <p class="text-sm font-semibold text-gray-900">1K+</p>
+                <p class="text-xs">Entrepreneurs Helped</p>
               </div>
             </div>
           </div>
