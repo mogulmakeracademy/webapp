@@ -21,6 +21,103 @@ body {
 }
 
 /* ============================================
+   CUSTOM HEADLINE
+   ============================================ */
+
+/* Add custom headline before store content */
+body::before {
+  content: "BUILD Buying power with Mogul tools.";
+  display: block;
+  text-align: center;
+  font-size: 48px;
+  font-weight: 800;
+  color: #ffffff;
+  padding: 60px 20px 40px;
+  background: linear-gradient(135deg, #000000 0%, #1F2937 100%);
+  border-bottom: 2px solid rgba(251, 191, 36, 0.3);
+  line-height: 1.2;
+}
+
+/* Highlight "BUILD" in yellow */
+body::before {
+  background: linear-gradient(135deg, #000000 0%, #1F2937 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+/* Alternative: Add headline to page title area */
+.page-title,
+.store-title,
+h1.title {
+  display: none !important;
+}
+
+/* Create custom headline container */
+.page-header::before,
+.store-header::before,
+.main-content::before {
+  content: "BUILD Buying power with Mogul tools.";
+  display: block;
+  text-align: center;
+  font-size: 48px;
+  font-weight: 800;
+  color: #ffffff;
+  padding: 60px 20px 40px;
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, #000000 0%, #1F2937 100%);
+  border-bottom: 2px solid rgba(251, 191, 36, 0.3);
+  line-height: 1.2;
+}
+
+/* Make "BUILD" yellow by styling first word */
+.page-header::before,
+.store-header::before,
+.main-content::before {
+  background: linear-gradient(90deg, #FBBF24 0%, #FBBF24 13%, #ffffff 13%, #ffffff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Mobile responsive headline */
+@media (max-width: 768px) {
+  body::before,
+  .page-header::before,
+  .store-header::before,
+  .main-content::before {
+    font-size: 32px !important;
+    padding: 40px 20px 30px !important;
+  }
+}
+
+/* ============================================
+   MAIN HEADLINE - Alternative Methods
+   ============================================ */
+
+/* If GHL has a main heading, replace its text */
+.main-heading,
+.hero-title,
+.page-heading,
+.store-heading {
+  font-size: 48px !important;
+  font-weight: 800 !important;
+  text-align: center !important;
+  padding: 60px 20px 40px !important;
+  margin-bottom: 40px !important;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #000000 0%, #1F2937 100%) !important;
+  border-bottom: 2px solid rgba(251, 191, 36, 0.3) !important;
+  line-height: 1.2 !important;
+}
+
+/* Style the first word (BUILD) in yellow */
+.main-heading strong:first-child,
+.hero-title strong:first-child,
+.page-heading strong:first-child {
+  color: #FBBF24 !important;
+}
+
+/* ============================================
    HEADER / NAVIGATION
    ============================================ */
 
