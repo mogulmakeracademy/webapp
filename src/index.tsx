@@ -1052,11 +1052,11 @@ app.get('/speaking', (c) => {
             Professional Speaker & Entrepreneur Coach
           </div>
           <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
-            <span class="text-yellow-400">Business Credit Speaker</span> for Corporate Events
+            <span class="text-yellow-400">Empowering Entrepreneurs</span> Through Capital Raising Education
           </h1>
           <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            Inspire your audience with proven strategies on business credit, funding, and wealth building. 
-            Dynamic keynotes that transform entrepreneurs from consumers to creditors.
+            Inspire your audience with proven strategies on capital raising, investor education, and wealth building. 
+            Dynamic keynotes that transform entrepreneurs into informed investors and capital market experts.
           </p>
           <div class="flex flex-wrap gap-4 justify-center">
             <a href="#booking" class="bg-yellow-400 text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition transform hover:scale-105">
@@ -1393,8 +1393,8 @@ app.get('/speaking', (c) => {
       `}} />
     </div>,
     {
-      title: 'Book Antonio Cook for Speaking Engagements | Business Credit Keynote Speaker',
-      description: 'Hire Antonio Cook (Mr. Mogul Maker) for corporate events, conferences, and workshops. Expert keynote speaker on business credit, funding, financial literacy, and wealth building.',
+      title: 'Book Antonio Cook for Speaking Engagements | Capital Raising & Investor Education Speaker',
+      description: 'Hire Antonio Cook (Mr. Mogul Maker) for corporate events, conferences, and workshops. Expert keynote speaker on capital raising, investor education, funding strategies, and wealth building.',
       schema: {
         '@context': 'https://schema.org',
         '@graph': [
@@ -1419,7 +1419,7 @@ app.get('/speaking', (c) => {
             '@type': 'Service',
             serviceType: 'Professional Speaking & Keynote Services',
         name: 'Antonio Cook Speaking Engagements',
-        description: 'Professional keynote speaking services for corporate events, conferences, and workshops on business credit, funding, and financial literacy',
+        description: 'Professional keynote speaking services for corporate events, conferences, and workshops on capital raising, investor education, and funding strategies',
         provider: {
           '@type': 'Person',
           name: 'Antonio Cook',
