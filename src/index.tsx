@@ -894,29 +894,32 @@ app.get('/shop', (c) => {
 
       {/* Mobile Menu JavaScript */}
       <script dangerouslySetInnerHTML={{__html: `
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn-shop');
-        const mobileMenu = document.getElementById('mobile-menu-shop');
-        
-        if (mobileMenuBtn && mobileMenu) {
-          mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-          });
+        document.addEventListener('DOMContentLoaded', function() {
+          const mobileMenuBtn = document.getElementById('mobile-menu-btn-shop');
+          const mobileMenu = document.getElementById('mobile-menu-shop');
           
-          // Close mobile menu when clicking on links
-          mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-              mobileMenu.classList.add('hidden');
+          if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              mobileMenu.classList.toggle('hidden');
             });
-          });
-          
-          // Close mobile menu when clicking outside
-          mobileMenu.addEventListener('click', (e) => {
-            if (e.target === mobileMenu) {
-              mobileMenu.classList.add('hidden');
-            }
-          });
-        }
+            
+            // Close mobile menu when clicking on links
+            mobileMenu.querySelectorAll('a').forEach(link => {
+              link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+              });
+            });
+            
+            // Close mobile menu when clicking outside
+            mobileMenu.addEventListener('click', function(e) {
+              if (e.target === mobileMenu) {
+                mobileMenu.classList.add('hidden');
+              }
+            });
+          }
+        });
       `}} />
     </div>,
     {
@@ -1295,28 +1298,32 @@ app.get('/speaking', (c) => {
 
       {/* JavaScript for mobile menu */}
       <script dangerouslySetInnerHTML={{__html: `
-        const mobileMenuBtnSpeaking = document.getElementById('mobile-menu-btn-speaking');
-        const mobileMenuSpeaking = document.getElementById('mobile-menu-speaking');
-        
-        if (mobileMenuBtnSpeaking && mobileMenuSpeaking) {
-          mobileMenuBtnSpeaking.addEventListener('click', function() {
-            mobileMenuSpeaking.classList.toggle('hidden');
-          });
+        document.addEventListener('DOMContentLoaded', function() {
+          const mobileMenuBtnSpeaking = document.getElementById('mobile-menu-btn-speaking');
+          const mobileMenuSpeaking = document.getElementById('mobile-menu-speaking');
           
-          // Close menu when clicking links
-          mobileMenuSpeaking.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function() {
-              mobileMenuSpeaking.classList.add('hidden');
+          if (mobileMenuBtnSpeaking && mobileMenuSpeaking) {
+            mobileMenuBtnSpeaking.addEventListener('click', function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              mobileMenuSpeaking.classList.toggle('hidden');
             });
-          });
-          
-          // Close menu when clicking outside
-          mobileMenuSpeaking.addEventListener('click', function(e) {
-            if (e.target === mobileMenuSpeaking) {
-              mobileMenuSpeaking.classList.add('hidden');
-            }
-          });
-        }
+            
+            // Close menu when clicking links
+            mobileMenuSpeaking.querySelectorAll('a').forEach(link => {
+              link.addEventListener('click', function() {
+                mobileMenuSpeaking.classList.add('hidden');
+              });
+            });
+            
+            // Close menu when clicking outside
+            mobileMenuSpeaking.addEventListener('click', function(e) {
+              if (e.target === mobileMenuSpeaking) {
+                mobileMenuSpeaking.classList.add('hidden');
+              }
+            });
+          }
+        });
       `}} />
     </div>,
     {
@@ -1785,28 +1792,32 @@ app.get('/blog', (c) => {
 
       {/* JavaScript for mobile menu and filtering */}
       <script dangerouslySetInnerHTML={{__html: `
-        const mobileMenuBtnBlog = document.getElementById('mobile-menu-btn-blog');
-        const mobileMenuBlog = document.getElementById('mobile-menu-blog');
-        
-        if (mobileMenuBtnBlog && mobileMenuBlog) {
-          mobileMenuBtnBlog.addEventListener('click', function() {
-            mobileMenuBlog.classList.toggle('hidden');
-          });
+        document.addEventListener('DOMContentLoaded', function() {
+          const mobileMenuBtnBlog = document.getElementById('mobile-menu-btn-blog');
+          const mobileMenuBlog = document.getElementById('mobile-menu-blog');
           
-          // Close menu when clicking links
-          mobileMenuBlog.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function() {
-              mobileMenuBlog.classList.add('hidden');
+          if (mobileMenuBtnBlog && mobileMenuBlog) {
+            mobileMenuBtnBlog.addEventListener('click', function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              mobileMenuBlog.classList.toggle('hidden');
             });
-          });
-          
-          // Close menu when clicking outside
-          mobileMenuBlog.addEventListener('click', function(e) {
-            if (e.target === mobileMenuBlog) {
-              mobileMenuBlog.classList.add('hidden');
-            }
-          });
-        }
+            
+            // Close menu when clicking links
+            mobileMenuBlog.querySelectorAll('a').forEach(link => {
+              link.addEventListener('click', function() {
+                mobileMenuBlog.classList.add('hidden');
+              });
+            });
+            
+            // Close menu when clicking outside
+            mobileMenuBlog.addEventListener('click', function(e) {
+              if (e.target === mobileMenuBlog) {
+                mobileMenuBlog.classList.add('hidden');
+              }
+            });
+          }
+        });
 
         // Category filtering (placeholder - would filter actual articles)
         document.querySelectorAll('.category-filter').forEach(btn => {
