@@ -1,0 +1,345 @@
+/* ============================================
+   Mr. Mogul Maker - GHL Store Custom CSS v3
+   TARGETED STYLING - Products page only
+   Brand Colors: Black (#000000), Yellow (#FBBF24)
+   Font: Poppins (load via Google Fonts)
+   
+   STRATEGY:
+   - Only style product listing area
+   - Leave checkout/cart pages untouched
+   - Add custom header matching main site
+   ============================================ */
+
+/* Import Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
+/* ============================================
+   HIDE ORIGINAL GHL HEADER
+   ============================================ */
+
+header,
+.header,
+.site-header,
+nav.main-nav,
+.elNavWrapper {
+  display: none !important;
+}
+
+/* ============================================
+   ADD CUSTOM HEADER (Matching www.mrmogulmaker.com)
+   ============================================ */
+
+body::before {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+}
+
+body::after {
+  content: "Mr. Mogul Maker";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 80px;
+  line-height: 80px;
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+  z-index: 10000;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Add spacing for fixed header */
+body {
+  padding-top: 100px !important;
+}
+
+/* ============================================
+   GLOBAL STYLES - PRODUCT PAGE ONLY
+   ============================================ */
+
+/* Apply font globally */
+* {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* Black background for product listing page */
+body.products-page,
+body[class*="product"],
+body[class*="store"],
+.products-container,
+.store-container {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Fallback: Apply to main/body if no specific class */
+body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Main content area */
+main,
+.main-content,
+.content-wrapper,
+.products-grid,
+.store-products {
+  background-color: #000000 !important;
+}
+
+/* ============================================
+   CUSTOM HEADLINE - Product Page Only
+   ============================================ */
+
+/* Target specific product listing container */
+.products-container::before,
+.store-container::before,
+main::before,
+.product-list-container::before {
+  content: "BUILD Buying power with Mogul tools.";
+  display: block;
+  text-align: center;
+  font-size: 48px;
+  font-weight: 800;
+  padding: 60px 20px 40px;
+  margin-bottom: 40px;
+  background: #000000;
+  border-bottom: 2px solid rgba(251, 191, 36, 0.3);
+  line-height: 1.2;
+  background: linear-gradient(90deg, #FBBF24 0%, #FBBF24 13%, #ffffff 13%, #ffffff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Mobile responsive headline */
+@media (max-width: 768px) {
+  .products-container::before,
+  .store-container::before,
+  main::before {
+    font-size: 28px !important;
+    padding: 40px 20px 30px !important;
+  }
+}
+
+/* ============================================
+   PRODUCT CARDS - ONLY
+   ============================================ */
+
+/* Target product cards specifically */
+.product-card,
+.product-item,
+.item-card,
+.product,
+.elProduct,
+[class*="product-"],
+[class*="Product"] {
+  background: linear-gradient(145deg, #1F2937 0%, #111827 100%) !important;
+  border: 2px solid rgba(251, 191, 36, 0.2) !important;
+  border-radius: 24px !important;
+  padding: 24px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5) !important;
+}
+
+.product-card:hover,
+.product-item:hover,
+.product:hover {
+  border-color: #FBBF24 !important;
+  transform: translateY(-8px) !important;
+  box-shadow: 0 12px 24px rgba(251, 191, 36, 0.3) !important;
+}
+
+/* Product Images */
+.product-card img,
+.product-item img,
+.product img {
+  border-radius: 16px !important;
+}
+
+/* Product Titles */
+.product-card h3,
+.product-card h2,
+.product-item h3,
+.product-title,
+.product-name {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  margin-bottom: 12px !important;
+  font-size: 20px !important;
+}
+
+/* Product Prices - CRITICAL */
+.product-card .price,
+.product-card .product-price,
+.product-item .price,
+.price,
+.product-price,
+.elPrice,
+[class*="price"],
+[class*="Price"] {
+  color: #FBBF24 !important;
+  font-size: 28px !important;
+  font-weight: 800 !important;
+  text-shadow: none !important;
+  background: none !important;
+  background-color: transparent !important;
+  -webkit-text-fill-color: #FBBF24 !important;
+}
+
+/* Ensure price children are visible */
+.price *,
+.product-price * {
+  color: #FBBF24 !important;
+  -webkit-text-fill-color: #FBBF24 !important;
+}
+
+/* Product Description */
+.product-card p,
+.product-description,
+.description {
+  color: #D1D5DB !important;
+  line-height: 1.6 !important;
+}
+
+/* ============================================
+   BUTTONS - PRODUCT PAGE ONLY
+   ============================================ */
+
+/* Add to Cart buttons */
+.product-card button,
+.product-card .btn,
+.add-to-cart,
+button[class*="add"],
+button[class*="Add"] {
+  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%) !important;
+  color: #000000 !important;
+  border: none !important;
+  border-radius: 9999px !important;
+  padding: 12px 32px !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 6px rgba(251, 191, 36, 0.3) !important;
+}
+
+.product-card button:hover,
+.add-to-cart:hover {
+  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 12px rgba(251, 191, 36, 0.5) !important;
+}
+
+/* ============================================
+   SHOPPING CART ICON/BADGE - Top Right
+   ============================================ */
+
+.cart-icon,
+.cart-badge,
+.cart-widget,
+[class*="cart"] {
+  background-color: transparent !important;
+  color: #FBBF24 !important;
+}
+
+.cart-count,
+.cart-badge span {
+  background-color: #FBBF24 !important;
+  color: #000000 !important;
+  font-weight: 700 !important;
+  border-radius: 9999px !important;
+}
+
+/* ============================================
+   LEAVE OTHER PAGES UNSTYLED
+   Don't apply these to checkout/cart pages
+   ============================================ */
+
+/* Only apply if NOT on checkout page */
+body:not([class*="checkout"]) .form-group input,
+body:not([class*="checkout"]) input[type="email"],
+body:not([class*="checkout"]) input[type="text"] {
+  /* Don't override input styles on checkout */
+}
+
+/* ============================================
+   MOBILE RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  body::after {
+    font-size: 18px;
+    left: 20px;
+    transform: none;
+    text-align: left;
+  }
+  
+  .product-card button {
+    padding: 10px 24px !important;
+    font-size: 14px !important;
+  }
+  
+  .product-card {
+    padding: 16px !important;
+  }
+  
+  .product-price {
+    font-size: 24px !important;
+  }
+}
+
+/* ============================================
+   TEXT VISIBILITY - Product page only
+   ============================================ */
+
+.product-card span,
+.product-card div,
+.product-card p {
+  color: #ffffff !important;
+}
+
+/* No text shadows */
+.product-card * {
+  text-shadow: none !important;
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1F2937;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FBBF24 0%, #F59E0B 100%);
+  border-radius: 10px;
+  border: 2px solid #1F2937;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #F59E0B 0%, #FBBF24 100%);
+}
+
+/* ============================================
+   END OF CUSTOM STYLES
+   ============================================ */
