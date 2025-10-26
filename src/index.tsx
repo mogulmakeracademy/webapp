@@ -24,7 +24,7 @@ app.get('/', (c) => {
               <a href="/" class="text-white hover:text-yellow-400 transition">Home</a>
               <a href="/speaking" class="text-white hover:text-yellow-400 transition">Speaking</a>
               <a href="/blog" class="text-white hover:text-yellow-400 transition">Blog</a>
-              <a href="/#programs" class="text-white hover:text-yellow-400 transition">Programs</a>
+              <a href="/programs" class="text-white hover:text-yellow-400 transition">Programs</a>
               <a href="/shop" class="text-white hover:text-yellow-400 transition">
                 <i class="fas fa-shopping-bag mr-2"></i>Shop
               </a>
@@ -42,7 +42,7 @@ app.get('/', (c) => {
           <a href="/" class="text-white text-2xl hover:text-yellow-400 transition">Home</a>
           <a href="/speaking" class="text-white text-2xl hover:text-yellow-400 transition">Speaking</a>
           <a href="/blog" class="text-white text-2xl hover:text-yellow-400 transition">Blog</a>
-          <a href="/#programs" class="text-white text-2xl hover:text-yellow-400 transition">Programs</a>
+          <a href="/programs" class="text-white text-2xl hover:text-yellow-400 transition">Programs</a>
           <a href="/shop" class="text-white text-2xl hover:text-yellow-400 transition">
             <i class="fas fa-shopping-bag mr-2"></i>Shop
           </a>
@@ -75,13 +75,13 @@ app.get('/', (c) => {
                 Build <span class="text-yellow-400">Buying Power</span> & Multiply Wealth
               </h1>
               <p class="text-base sm:text-lg md:text-xl text-gray-300 mb-6 md:mb-8">
-                I'm Antonio Cook, aka Mr. Mogul Maker — CEO of <a href="https://mogulmakeracademy.com" target="_blank" class="text-yellow-400 hover:underline font-semibold">Mogul Maker Academy</a>. 
+                I'm Antonio Cook, aka Mr. Mogul Maker — CEO & Co-Founder (with <span class="text-yellow-400 font-semibold">Tashia Anderson</span>) of <a href="https://mogulmakeracademy.com" target="_blank" class="text-yellow-400 hover:underline font-semibold">Mogul Maker Academy</a>. 
                 Learn how to secure funding, build business credit, and create generational wealth.
               </p>
               <div class="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 mb-8 md:mb-0">
-                <a href="#programs" class="bg-yellow-400 text-black px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-yellow-300 transition transform hover:scale-105 text-center">
-                  <i class="fas fa-rocket mr-2"></i>
-                  Explore Programs
+                <a href="/programs" class="bg-yellow-400 text-black px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-yellow-300 transition transform hover:scale-105 text-center">
+                  <i class="fas fa-robot mr-2"></i>
+                  Explore AI Coaches
                 </a>
                 <a href="#contact" class="border-2 border-white text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-white hover:text-black transition transform hover:scale-105 text-center">
                   <i class="fas fa-phone mr-2"></i>
@@ -186,8 +186,8 @@ app.get('/', (c) => {
                     <i class="fas fa-building text-black text-lg md:text-xl"></i>
                   </div>
                   <div>
-                    <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-1 md:mb-2">CEO of Mogul Maker Academy</h3>
-                    <p class="text-sm md:text-base text-gray-600">Leading a comprehensive educational platform with 8 specialized programs designed to transform entrepreneurs into successful business owners.</p>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-1 md:mb-2">CEO & Co-Founder of Mogul Maker Academy</h3>
+                    <p class="text-sm md:text-base text-gray-600">Leading a comprehensive educational platform with partner Tashia Anderson, featuring 8 specialized programs and AI-powered coaching to transform entrepreneurs into successful business owners.</p>
                   </div>
                 </div>
               </div>
@@ -208,49 +208,7 @@ app.get('/', (c) => {
         </div>
       </section>
 
-      {/* Programs Section */}
-      <section id="programs" class="bg-gray-900 py-12 md:py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center mb-12 md:mb-16">
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-              <a href="https://mogulmakeracademy.com" target="_blank" class="hover:text-yellow-400 transition">Mogul Maker Academy</a> <span class="text-yellow-400">Programs</span>
-            </h2>
-            <p class="text-base md:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto px-4">
-              Comprehensive programs designed to take you from startup to funded, structured, and protected business owner.
-            </p>
-          </div>
-          
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 programs-grid">
-            {[
-              { name: 'BUILD', icon: 'fa-hammer', desc: 'Foundation & Structure' },
-              { name: 'LAUNCH', icon: 'fa-rocket', desc: 'Market Entry Strategy' },
-              { name: 'FUND', icon: 'fa-dollar-sign', desc: 'Capital & Financing' },
-              { name: 'DRIVE', icon: 'fa-car', desc: 'Growth & Momentum' },
-              { name: 'ACCEL', icon: 'fa-chart-line', desc: 'Scale & Expansion' },
-              { name: 'REPORT', icon: 'fa-file-alt', desc: 'Credit Reporting' },
-              { name: 'SHIELD', icon: 'fa-shield-alt', desc: 'Asset Protection' },
-              { name: 'ACQUIRE', icon: 'fa-handshake', desc: 'Business Acquisition' }
-            ].map((program, idx) => (
-              <div class="bg-gradient-to-br from-black to-gray-800 rounded-2xl p-4 md:p-6 border-2 border-yellow-400/20 hover:border-yellow-400 transition transform hover:scale-105 cursor-pointer">
-                <div class="text-center">
-                  <div class="bg-yellow-400 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
-                    <i class={`fas ${program.icon} text-black text-xl md:text-2xl`}></i>
-                  </div>
-                  <h3 class="text-xl md:text-2xl font-bold text-white mb-2">{program.name}</h3>
-                  <p class="text-sm md:text-base text-gray-400">{program.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          <div class="text-center mt-8 md:mt-12">
-            <a href="https://mogulmakeracademy.com" target="_blank" class="inline-block bg-yellow-400 text-black px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-yellow-300 transition transform hover:scale-105">
-              <i class="fas fa-graduation-cap mr-2"></i>
-              Visit Mogul Maker Academy
-            </a>
-          </div>
-        </div>
-      </section>
+
 
       {/* Podcasts Section */}
       <section id="podcasts" class="bg-white py-12 md:py-24">
@@ -3628,6 +3586,649 @@ app.get('/products/capital-stacking-blueprint', (c) => {
           reviewCount: '127'
         }
       }
+    }
+  )
+})
+
+// Programs Page - AI Coaches Focus
+app.get('/programs', (c) => {
+  return c.render(
+    <div style="font-family: 'Poppins', sans-serif;">
+      {/* Navigation */}
+      <nav class="fixed w-full bg-black/95 backdrop-blur-sm z-[60] shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-20">
+            <div class="flex items-center">
+              <a href="/" class="flex items-center gap-3 group">
+                <img src="/mr-mogul-maker-logo.png" alt="Mr Mogul Maker Logo" class="h-12 w-12 transition-transform group-hover:scale-110" />
+                <span class="text-2xl font-bold">
+                  <span class="text-white">Mr.</span> <span class="text-yellow-400">Mogul Maker</span>
+                </span>
+              </a>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+              <a href="/" class="text-white hover:text-yellow-400 transition">Home</a>
+              <a href="/speaking" class="text-white hover:text-yellow-400 transition">Speaking</a>
+              <a href="/blog" class="text-white hover:text-yellow-400 transition">Blog</a>
+              <a href="/programs" class="text-yellow-400 font-semibold">Programs</a>
+              <a href="/shop" class="text-white hover:text-yellow-400 transition">
+                <i class="fas fa-shopping-bag mr-2"></i>Shop
+              </a>
+            </div>
+            <button id="mobile-menu-btn-programs" class="md:hidden text-white z-[70] relative">
+              <i class="fas fa-bars text-2xl"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Menu */}
+      <div id="mobile-menu-programs" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-50 pt-20">
+        <div class="flex flex-col items-center justify-center space-y-8 mt-12 h-full pb-32">
+          <a href="/" class="text-white text-2xl hover:text-yellow-400 transition">Home</a>
+          <a href="/speaking" class="text-white text-2xl hover:text-yellow-400 transition">Speaking</a>
+          <a href="/blog" class="text-white text-2xl hover:text-yellow-400 transition">Blog</a>
+          <a href="/programs" class="text-yellow-400 text-2xl font-semibold">Programs</a>
+          <a href="/shop" class="text-white text-2xl hover:text-yellow-400 transition">
+            <i class="fas fa-shopping-bag mr-2"></i>Shop
+          </a>
+        </div>
+      </div>
+
+      {/* Hero Section */}
+      <section class="relative bg-gradient-to-br from-black via-gray-900 to-black pt-32 pb-20">
+        <div class="absolute inset-0 opacity-10">
+          <div class="absolute top-20 left-10 w-72 h-72 bg-yellow-400 rounded-full filter blur-3xl"></div>
+          <div class="absolute bottom-20 right-10 w-96 h-96 bg-yellow-400 rounded-full filter blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="text-center">
+            <div class="inline-block bg-yellow-400/20 text-yellow-400 px-6 py-3 rounded-full mb-6 animate-pulse">
+              <i class="fas fa-robot mr-2"></i>
+              POWERED BY PAIGE AI
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">
+              Your Personal <span class="text-yellow-400">AI Business Coaches</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto">
+              Get instant, expert guidance from 8 specialized AI coaches trained on proven business frameworks by <span class="text-yellow-400 font-semibold">Antonio Cook (Mr. Mogul Maker)</span>
+            </p>
+            
+            {/* Key Stats */}
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto mb-12">
+              <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-yellow-400/20">
+                <div class="text-4xl font-bold text-yellow-400 mb-2">8</div>
+                <div class="text-gray-400 text-sm">AI Coaches</div>
+              </div>
+              <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-yellow-400/20">
+                <div class="text-4xl font-bold text-yellow-400 mb-2">24/7</div>
+                <div class="text-gray-400 text-sm">Availability</div>
+              </div>
+              <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-yellow-400/20">
+                <div class="text-4xl font-bold text-yellow-400 mb-2">∞</div>
+                <div class="text-gray-400 text-sm">Questions</div>
+              </div>
+              <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-yellow-400/20">
+                <div class="text-4xl font-bold text-yellow-400 mb-2">$47</div>
+                <div class="text-gray-400 text-sm">Per Month</div>
+              </div>
+            </div>
+
+            <a href="#coaches" class="inline-block bg-yellow-400 text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition transform hover:scale-105">
+              <i class="fas fa-arrow-down mr-2"></i>
+              Explore AI Coaches
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 8 AI Coaches Section */}
+      <section id="coaches" class="bg-white py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Meet Your <span class="text-yellow-400">AI Coach Team</span>
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+              Each coach specializes in a critical aspect of business success, trained on real-world strategies that have helped thousands of entrepreneurs
+            </p>
+          </div>
+
+          <div class="space-y-6">
+            {/* BUILD Coach */}
+            <div class="bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 md:p-12 text-white shadow-2xl hover:shadow-yellow-400/20 transition-all">
+              <div class="flex flex-col md:flex-row gap-6 items-start">
+                <div class="bg-yellow-400 w-20 h-20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-hammer text-black text-3xl"></i>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 mb-3">
+                    <h3 class="text-3xl font-bold">BUILD Coach</h3>
+                    <span class="bg-yellow-400/20 text-yellow-400 px-4 py-1 rounded-full text-sm font-semibold">COMING SOON</span>
+                  </div>
+                  <p class="text-gray-400 text-lg mb-4">Foundation & Structure Expert</p>
+                  <p class="text-gray-300 mb-6">
+                    Master the fundamentals of business formation, entity structure, EIN setup, and foundational compliance. 
+                    Get step-by-step guidance on choosing the right business structure and building a solid legal foundation.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="bg-white/10 text-yellow-400 px-3 py-1 rounded-full text-sm">LLC Formation</span>
+                    <span class="bg-white/10 text-yellow-400 px-3 py-1 rounded-full text-sm">Entity Setup</span>
+                    <span class="bg-white/10 text-yellow-400 px-3 py-1 rounded-full text-sm">Compliance</span>
+                    <span class="bg-white/10 text-yellow-400 px-3 py-1 rounded-full text-sm">Business Banking</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* LAUNCH Coach */}
+            <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl p-8 md:p-12 text-black shadow-2xl hover:shadow-yellow-400/50 transition-all">
+              <div class="flex flex-col md:flex-row gap-6 items-start">
+                <div class="bg-black w-20 h-20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-rocket text-yellow-400 text-3xl"></i>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 mb-3">
+                    <h3 class="text-3xl font-bold">LAUNCH Coach</h3>
+                    <span class="bg-black/20 text-black px-4 py-1 rounded-full text-sm font-semibold">COMING SOON</span>
+                  </div>
+                  <p class="text-gray-900 text-lg mb-4 font-semibold">Market Entry Strategy Specialist</p>
+                  <p class="text-gray-900 mb-6">
+                    Navigate your market entry with precision. Get help with business planning, go-to-market strategies, 
+                    competitive analysis, and positioning your brand for maximum impact from day one.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="bg-black/10 text-black px-3 py-1 rounded-full text-sm font-semibold">Business Plans</span>
+                    <span class="bg-black/10 text-black px-3 py-1 rounded-full text-sm font-semibold">Market Research</span>
+                    <span class="bg-black/10 text-black px-3 py-1 rounded-full text-sm font-semibold">Brand Strategy</span>
+                    <span class="bg-black/10 text-black px-3 py-1 rounded-full text-sm font-semibold">Product Launch</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* FUND Coach */}
+            <div class="bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 md:p-12 text-white shadow-2xl hover:shadow-yellow-400/20 transition-all">
+              <div class="flex flex-col md:flex-row gap-6 items-start">
+                <div class="bg-yellow-400 w-20 h-20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-dollar-sign text-black text-3xl"></i>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 mb-3">
+                    <h3 class="text-3xl font-bold">FUND Coach</h3>
+                    <span class="bg-yellow-400/20 text-yellow-400 px-4 py-1 rounded-full text-sm font-semibold">COMING SOON</span>
+                  </div>
+                  <p class="text-gray-400 text-lg mb-4">Capital & Financing Authority</p>
+                  <p class="text-gray-300 mb-6">
+                    Unlock funding opportunities from business credit cards to lines of credit. Learn proven strategies 
+                    to secure capital without personal credit checks and build fundable business profiles.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="bg-white/10 text-yellow-400 px-3 py-1 rounded-full text-sm">Business Credit</span>
+                    <span class="bg-white/10 text-yellow-400 px-3 py-1 rounded-full text-sm">Funding Sources</span>
+                    <span class="bg-white/10 text-yellow-400 px-3 py-1 rounded-full text-sm">Credit Lines</span>
+                    <span class="bg-white/10 text-yellow-400 px-3 py-1 rounded-full text-sm">Investor Pitch</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* DRIVE Coach */}
+            <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl p-8 md:p-12 text-black shadow-2xl hover:shadow-yellow-400/50 transition-all">
+              <div class="flex flex-col md:flex-row gap-6 items-start">
+                <div class="bg-black w-20 h-20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-car text-yellow-400 text-3xl"></i>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 mb-3">
+                    <h3 class="text-3xl font-bold">DRIVE Coach</h3>
+                    <span class="bg-black/20 text-black px-4 py-1 rounded-full text-sm font-semibold">COMING SOON</span>
+                  </div>
+                  <p class="text-gray-900 text-lg mb-4 font-semibold">Growth & Momentum Catalyst</p>
+                  <p class="text-gray-900 mb-6">
+                    Accelerate your growth with marketing strategies, sales systems, customer acquisition tactics, 
+                    and operational efficiency frameworks designed to create unstoppable business momentum.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="bg-black/10 text-black px-3 py-1 rounded-full text-sm font-semibold">Marketing</span>
+                    <span class="bg-black/10 text-black px-3 py-1 rounded-full text-sm font-semibold">Sales Systems</span>
+                    <span class="bg-black/10 text-black px-3 py-1 rounded-full text-sm font-semibold">Customer Growth</span>
+                    <span class="bg-black/10 text-black px-3 py-1 rounded-full text-sm font-semibold">Operations</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* ACCEL Coach */}
+            <div class="bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 md:p-12 text-white shadow-2xl hover:shadow-yellow-400/20 transition-all">
+              <div class="flex flex-col md:flex-row gap-6 items-start">
+                <div class="bg-yellow-400 w-20 h-20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-chart-line text-black text-3xl"></i>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 mb-3">
+                    <h3 class="text-3xl font-bold">ACCEL Coach</h3>
+                    <span class="bg-yellow-400/20 text-yellow-400 px-4 py-1 rounded-full text-sm font-semibold">COMING SOON</span>
+                  </div>
+                  <p class="text-gray-400 text-lg mb-4">Scale & Expansion Strategist</p>
+                  <p class="text-gray-300 mb-6">
+                    Scale to new heights with expansion strategies, team building frameworks, systems automation, 
+                    and multi-location growth tactics that turn small businesses into industry leaders.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="bg-white/10 text-yellow-400 px-3 py-1 rounded-full text-sm">Scaling Systems</span>
+                    <span class="bg-white/10 text-yellow-400 px-3 py-1 rounded-full text-sm">Team Building</span>
+                    <span class="bg-white/10 text-yellow-400 px-3 py-1 rounded-full text-sm">Automation</span>
+                    <span class="bg-white/10 text-yellow-400 px-3 py-1 rounded-full text-sm">Expansion</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* REPORT Coach */}
+            <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl p-8 md:p-12 text-black shadow-2xl hover:shadow-yellow-400/50 transition-all">
+              <div class="flex flex-col md:flex-row gap-6 items-start">
+                <div class="bg-black w-20 h-20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-file-alt text-yellow-400 text-3xl"></i>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 mb-3">
+                    <h3 class="text-3xl font-bold">REPORT Coach</h3>
+                    <span class="bg-black/20 text-black px-4 py-1 rounded-full text-sm font-semibold">COMING SOON</span>
+                  </div>
+                  <p class="text-gray-900 text-lg mb-4 font-semibold">Credit Reporting & Building Pro</p>
+                  <p class="text-gray-900 mb-6">
+                    Become a data furnisher and control your credit destiny. Learn how to report to bureaus, 
+                    build business credit scores, and establish fundable credit profiles that unlock capital.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="bg-black/10 text-black px-3 py-1 rounded-full text-sm font-semibold">Data Furnisher</span>
+                    <span class="bg-black/10 text-black px-3 py-1 rounded-full text-sm font-semibold">Credit Bureaus</span>
+                    <span class="bg-black/10 text-black px-3 py-1 rounded-full text-sm font-semibold">Score Building</span>
+                    <span class="bg-black/10 text-black px-3 py-1 rounded-full text-sm font-semibold">Credit Monitoring</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* SHIELD Coach */}
+            <div class="bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 md:p-12 text-white shadow-2xl hover:shadow-yellow-400/20 transition-all">
+              <div class="flex flex-col md:flex-row gap-6 items-start">
+                <div class="bg-yellow-400 w-20 h-20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-shield-alt text-black text-3xl"></i>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 mb-3">
+                    <h3 class="text-3xl font-bold">SHIELD Coach</h3>
+                    <span class="bg-yellow-400/20 text-yellow-400 px-4 py-1 rounded-full text-sm font-semibold">COMING SOON</span>
+                  </div>
+                  <p class="text-gray-400 text-lg mb-4">Asset Protection & Legal Shield</p>
+                  <p class="text-gray-300 mb-6">
+                    Protect what you build with trusts, holding companies, insurance strategies, and legal structures 
+                    that separate personal assets from business liabilities and create generational wealth protection.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="bg-white/10 text-yellow-400 px-3 py-1 rounded-full text-sm">Asset Protection</span>
+                    <span class="bg-white/10 text-yellow-400 px-3 py-1 rounded-full text-sm">Trusts</span>
+                    <span class="bg-white/10 text-yellow-400 px-3 py-1 rounded-full text-sm">Legal Structures</span>
+                    <span class="bg-white/10 text-yellow-400 px-3 py-1 rounded-full text-sm">Risk Management</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* ACQUIRE Coach */}
+            <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl p-8 md:p-12 text-black shadow-2xl hover:shadow-yellow-400/50 transition-all">
+              <div class="flex flex-col md:flex-row gap-6 items-start">
+                <div class="bg-black w-20 h-20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-handshake text-yellow-400 text-3xl"></i>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 mb-3">
+                    <h3 class="text-3xl font-bold">ACQUIRE Coach</h3>
+                    <span class="bg-black/20 text-black px-4 py-1 rounded-full text-sm font-semibold">COMING SOON</span>
+                  </div>
+                  <p class="text-gray-900 text-lg mb-4 font-semibold">Business Acquisition & M&A Expert</p>
+                  <p class="text-gray-900 mb-6">
+                    Master the art of acquiring existing businesses. Learn valuation, due diligence, negotiation tactics, 
+                    and creative financing structures to build wealth through strategic acquisitions.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="bg-black/10 text-black px-3 py-1 rounded-full text-sm font-semibold">Business Valuation</span>
+                    <span class="bg-black/10 text-black px-3 py-1 rounded-full text-sm font-semibold">Due Diligence</span>
+                    <span class="bg-black/10 text-black px-3 py-1 rounded-full text-sm font-semibold">Negotiations</span>
+                    <span class="bg-black/10 text-black px-3 py-1 rounded-full text-sm font-semibold">M&A Strategy</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section class="bg-gradient-to-br from-gray-50 to-gray-100 py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Simple, <span class="text-yellow-400">Transparent Pricing</span>
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+              Unlimited access to all 8 AI coaches for less than one hour of traditional consulting
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Monthly Plan */}
+            <div class="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all border-2 border-gray-200">
+              <div class="text-center">
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Monthly</h3>
+                <div class="mb-6">
+                  <span class="text-5xl font-bold text-gray-900">$47</span>
+                  <span class="text-gray-600">/month</span>
+                </div>
+                <ul class="text-left space-y-4 mb-8">
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check text-yellow-400 mt-1"></i>
+                    <span class="text-gray-700">Access to all 8 AI coaches</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check text-yellow-400 mt-1"></i>
+                    <span class="text-gray-700">24/7 availability</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check text-yellow-400 mt-1"></i>
+                    <span class="text-gray-700">Unlimited questions</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check text-yellow-400 mt-1"></i>
+                    <span class="text-gray-700">Cancel anytime</span>
+                  </li>
+                </ul>
+                <a href="#waitlist" class="block w-full bg-yellow-400 text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition transform hover:scale-105">
+                  Join Waitlist
+                </a>
+              </div>
+            </div>
+
+            {/* Annual Plan - Best Value */}
+            <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl p-8 shadow-2xl hover:shadow-yellow-400/50 transition-all border-4 border-yellow-500 relative">
+              <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <span class="bg-black text-yellow-400 px-6 py-2 rounded-full font-bold text-sm">BEST VALUE</span>
+              </div>
+              <div class="text-center">
+                <h3 class="text-2xl font-bold text-black mb-2">Annual</h3>
+                <div class="mb-6">
+                  <span class="text-5xl font-bold text-black">$470</span>
+                  <span class="text-gray-900">/year</span>
+                  <div class="text-sm text-black/70 mt-2">Save $94 per year</div>
+                </div>
+                <ul class="text-left space-y-4 mb-8">
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check text-black mt-1"></i>
+                    <span class="text-black font-semibold">Everything in Monthly, plus:</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check text-black mt-1"></i>
+                    <span class="text-black">2 months free ($94 savings)</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check text-black mt-1"></i>
+                    <span class="text-black">Priority support</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check text-black mt-1"></i>
+                    <span class="text-black">Early access to new coaches</span>
+                  </li>
+                </ul>
+                <a href="#waitlist" class="block w-full bg-black text-yellow-400 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-900 transition transform hover:scale-105">
+                  Join Waitlist
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Waitlist Form Section */}
+      <section id="waitlist" class="bg-white py-24">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <div class="inline-block bg-yellow-400/20 text-yellow-600 px-6 py-3 rounded-full mb-6">
+              <i class="fas fa-clock mr-2"></i>
+              LAUNCHING SOON
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Join the <span class="text-yellow-400">Waitlist</span>
+            </h2>
+            <p class="text-xl text-gray-600">
+              Be the first to get access when our AI coaches launch. Early members get exclusive benefits!
+            </p>
+          </div>
+
+          {/* GHL Waitlist Form Embed */}
+          <div class="bg-white rounded-3xl p-8 md:p-12 shadow-2xl">
+            <div style="min-height: 738px;">
+              <iframe
+                src="https://api.leadconnectorhq.com/widget/form/xIZi4NsdZtwX8YAPfp6Z"
+                style="width:100%;height:738px;border:none;border-radius:12px"
+                id="inline-xIZi4NsdZtwX8YAPfp6Z" 
+                data-form-name="Mogul Maker AI Coaching Waiting List Form"
+                data-height="738"
+                title="Mogul Maker AI Coaching Waiting List Form"
+              ></iframe>
+              <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+            </div>
+            <p class="text-gray-500 text-sm mt-6 text-center">
+              🎉 <strong>Early Bird Bonus:</strong> First 100 members get 50% off first month ($23.50 instead of $47)
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Need Human Support Section */}
+      <section class="bg-gradient-to-br from-black via-gray-900 to-black py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+              Need <span class="text-yellow-400">Live Human Support?</span>
+            </h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+              While our AI coaches provide instant guidance 24/7, sometimes you need direct human interaction and community support
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* AI Coaches Card */}
+            <div class="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border-2 border-yellow-400/30">
+              <div class="text-center mb-6">
+                <div class="bg-yellow-400 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <i class="fas fa-robot text-black text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-3">Start with AI Coaches</h3>
+                <p class="text-gray-400">
+                  Get instant answers, strategies, and frameworks from Antonio's proven methodologies—available anytime, anywhere
+                </p>
+              </div>
+              <ul class="space-y-3 mb-6 text-gray-300">
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-yellow-400 mt-1"></i>
+                  <span>Instant responses 24/7</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-yellow-400 mt-1"></i>
+                  <span>Unlimited questions</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-yellow-400 mt-1"></i>
+                  <span>All 8 specialized coaches</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-yellow-400 mt-1"></i>
+                  <span>$47/month or $470/year</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Mogul Maker Academy Card */}
+            <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl p-8 shadow-2xl">
+              <div class="text-center mb-6">
+                <div class="bg-black w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <i class="fas fa-graduation-cap text-yellow-400 text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-black mb-3">Mogul Maker Academy</h3>
+                <p class="text-gray-900 font-semibold">
+                  Join our community for live coaching, weekly calls, and direct access to Antonio Cook & Tashia Anderson
+                </p>
+              </div>
+              <ul class="space-y-3 mb-6 text-black">
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-black mt-1"></i>
+                  <span class="font-semibold">Live coaching sessions</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-black mt-1"></i>
+                  <span class="font-semibold">Private community access</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-black mt-1"></i>
+                  <span class="font-semibold">Weekly Q&A calls</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-black mt-1"></i>
+                  <span class="font-semibold">Expert team support</span>
+                </li>
+              </ul>
+              <a href="https://mogulmakeracademy.com" target="_blank" class="block w-full bg-black text-yellow-400 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-900 transition transform hover:scale-105 text-center">
+                <i class="fas fa-graduation-cap mr-2"></i>
+                Visit Mogul Maker Academy
+              </a>
+            </div>
+          </div>
+
+          <div class="text-center mt-12">
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+              <strong class="text-white">Pro Tip:</strong> Many successful entrepreneurs start with AI coaches for immediate guidance, 
+              then join the Academy when they're ready for live community support and personalized attention.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer class="bg-black text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid md:grid-cols-4 gap-8 mb-8">
+            <div class="md:col-span-2">
+              <div class="flex items-center gap-3 mb-4">
+                <img src="/mr-mogul-maker-logo.png" alt="Mr Mogul Maker Logo" class="h-16 w-16" />
+                <h3 class="text-2xl font-bold text-yellow-400">Mr. Mogul Maker</h3>
+              </div>
+              <p class="text-gray-400 mb-4">
+                Empowering entrepreneurs with AI-powered coaching, financial literacy, and business credit strategies.
+              </p>
+              <div class="flex gap-4">
+                <a href="https://www.youtube.com/@mrmogulmaker" target="_blank" class="text-white hover:text-yellow-400 transition text-xl">
+                  <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.instagram.com/mrmogulmaker/" target="_blank" class="text-white hover:text-yellow-400 transition text-xl">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/mrmogulmakerceo" target="_blank" class="text-white hover:text-yellow-400 transition text-xl">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.tiktok.com/@mrmogulmaker" target="_blank" class="text-white hover:text-yellow-400 transition text-xl">
+                  <i class="fab fa-tiktok"></i>
+                </a>
+              </div>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+              <ul class="space-y-2">
+                <li><a href="/" class="text-gray-400 hover:text-yellow-400 transition">Home</a></li>
+                <li><a href="/programs" class="text-gray-400 hover:text-yellow-400 transition">AI Coaches</a></li>
+                <li><a href="/speaking" class="text-gray-400 hover:text-yellow-400 transition">Speaking</a></li>
+                <li><a href="/blog" class="text-gray-400 hover:text-yellow-400 transition">Blog</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-4">Resources</h4>
+              <ul class="space-y-2">
+                <li><a href="https://mogulmakeracademy.com" target="_blank" class="text-gray-400 hover:text-yellow-400 transition">Mogul Maker Academy</a></li>
+                <li><a href="/shop" class="text-gray-400 hover:text-yellow-400 transition">Shop</a></li>
+                <li><a href="https://www.youtube.com/@mrmogulmaker" target="_blank" class="text-gray-400 hover:text-yellow-400 transition">YouTube Channel</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+            <p>&copy; 2025 Mr. Mogul Maker (Antonio Cook). All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+
+      {/* Mobile Menu JavaScript */}
+      <script dangerouslySetInnerHTML={{
+        __html: `
+          document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn-programs');
+            const mobileMenu = document.getElementById('mobile-menu-programs');
+            
+            if (!mobileMenuBtn || !mobileMenu) return;
+            
+            const mobileMenuIcon = mobileMenuBtn.querySelector('i');
+            
+            function openMobileMenu() {
+              mobileMenu.classList.remove('hidden');
+              if (mobileMenuIcon) {
+                mobileMenuIcon.classList.remove('fa-bars');
+                mobileMenuIcon.classList.add('fa-times');
+              }
+              document.body.style.overflow = 'hidden';
+            }
+            
+            function closeMobileMenu() {
+              mobileMenu.classList.add('hidden');
+              if (mobileMenuIcon) {
+                mobileMenuIcon.classList.remove('fa-times');
+                mobileMenuIcon.classList.add('fa-bars');
+              }
+              document.body.style.overflow = '';
+            }
+            
+            mobileMenuBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              const isHidden = mobileMenu.classList.contains('hidden');
+              if (isHidden) {
+                openMobileMenu();
+              } else {
+                closeMobileMenu();
+              }
+            });
+            
+            mobileMenu.querySelectorAll('a').forEach(link => {
+              link.addEventListener('click', closeMobileMenu);
+            });
+            
+            mobileMenu.addEventListener('click', function(e) {
+              if (e.target === mobileMenu) {
+                closeMobileMenu();
+              }
+            });
+            
+            document.addEventListener('keydown', function(e) {
+              if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                closeMobileMenu();
+              }
+            });
+          });
+        `
+      }} />
+    </div>,
+    {
+      title: 'Programs - AI Business Coaches | Mr. Mogul Maker',
+      description: '8 specialized AI business coaches trained on proven frameworks by Antonio Cook. Get 24/7 expert guidance on business formation, funding, growth, credit building, and more. $47/month for unlimited access.'
     }
   )
 })
