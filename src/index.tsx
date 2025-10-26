@@ -38,7 +38,7 @@ app.get('/', (c) => {
       </nav>
 
       {/* Mobile Menu */}
-      <div id="mobile-menu" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-50 pt-20">
+      <div id="mobile-menu" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-[80] pt-20">
         <div class="flex flex-col items-center justify-center space-y-8 mt-12 h-full pb-32">
           <a href="/" class="text-white text-2xl hover:text-yellow-400 transition">Home</a>
           <a href="/speaking" class="text-white text-2xl hover:text-yellow-400 transition">Speaking</a>
@@ -1011,7 +1011,7 @@ app.get('/shop', (c) => {
       </nav>
 
       {/* Mobile Menu */}
-      <div id="mobile-menu-shop" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-50 pt-20">
+      <div id="mobile-menu-shop" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-[80] pt-20">
         <div class="flex flex-col items-center justify-center space-y-8 mt-12 h-full pb-32">
           <a href="/" class="text-white text-2xl hover:text-yellow-400 transition">Home</a>
           <a href="/speaking" class="text-white text-2xl hover:text-yellow-400 transition">Speaking</a>
@@ -1172,7 +1172,7 @@ app.get('/speaking', (c) => {
       </nav>
 
       {/* Mobile Menu */}
-      <div id="mobile-menu-speaking" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-50 pt-20">
+      <div id="mobile-menu-speaking" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-[80] pt-20">
         <div class="flex flex-col items-center justify-center space-y-8 mt-12 h-full pb-32">
           <a href="/" class="text-white text-2xl hover:text-yellow-400 transition">Home</a>
           <a href="/speaking" class="text-yellow-400 text-2xl font-semibold">Speaking</a>
@@ -2082,7 +2082,7 @@ app.get('/blog', (c) => {
       </nav>
 
       {/* Mobile Menu */}
-      <div id="mobile-menu-blog" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-50 pt-20">
+      <div id="mobile-menu-blog" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-[80] pt-20">
         <div class="flex flex-col items-center justify-center space-y-8 mt-12 h-full pb-32">
           <a href="/" class="text-white text-2xl hover:text-yellow-400 transition">Home</a>
           <a href="/speaking" class="text-white text-2xl hover:text-yellow-400 transition">Speaking</a>
@@ -2627,7 +2627,7 @@ app.get('/ai-coach', (c) => {
       </nav>
 
       {/* Mobile Menu */}
-      <div id="mobile-menu-aicoach" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-50 pt-20">
+      <div id="mobile-menu-aicoach" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-[80] pt-20">
         <div class="flex flex-col items-center justify-center space-y-8 mt-12 h-full pb-32">
           <a href="/" class="text-white text-2xl hover:text-yellow-400 transition">Home</a>
           <a href="/speaking" class="text-white text-2xl hover:text-yellow-400 transition">Speaking</a>
@@ -3281,7 +3281,7 @@ app.get('/products/capital-stacking-blueprint', (c) => {
       </nav>
 
       {/* Mobile Menu */}
-      <div id="mobile-menu-product" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-50 pt-20">
+      <div id="mobile-menu-product" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-[80] pt-20">
         <div class="flex flex-col items-center justify-center space-y-8 mt-12 h-full pb-32">
           <a href="/" class="text-white text-2xl hover:text-yellow-400 transition">Home</a>
           <a href="/shop" class="text-white text-2xl hover:text-yellow-400 transition">Shop</a>
@@ -3660,7 +3660,7 @@ app.get('/programs', (c) => {
       </nav>
 
       {/* Mobile Menu */}
-      <div id="mobile-menu-programs" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-50 pt-20">
+      <div id="mobile-menu-programs" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-[80] pt-20">
         <div class="flex flex-col items-center justify-center space-y-8 mt-12 h-full pb-32">
           <a href="/" class="text-white text-2xl hover:text-yellow-400 transition">Home</a>
           <a href="/speaking" class="text-white text-2xl hover:text-yellow-400 transition">Speaking</a>
@@ -4401,7 +4401,7 @@ app.get('/events', (c) => {
       </nav>
 
       {/* Mobile Menu */}
-      <div id="mobile-menu-events" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-50 pt-20">
+      <div id="mobile-menu-events" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-[80] pt-20">
         <div class="flex flex-col items-center justify-center space-y-8 mt-12 h-full pb-32">
           <a href="/" class="text-white text-2xl hover:text-yellow-400 transition">Home</a>
           <a href="/speaking" class="text-white text-2xl hover:text-yellow-400 transition">Speaking</a>
