@@ -277,7 +277,7 @@ app.get('/', (c) => {
                       <div class="relative aspect-video bg-black">
                         <iframe 
                           class="w-full h-full"
-                          src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1?rel=0&modestbranding=1" 
+                          src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1?autoplay=1&mute=1&rel=0&modestbranding=1" 
                           title="How to Become a Data Furnisher"
                           frameborder="0" 
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -308,7 +308,7 @@ app.get('/', (c) => {
                       <div class="relative aspect-video bg-black">
                         <iframe 
                           class="w-full h-full"
-                          src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2?rel=0&modestbranding=1" 
+                          src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2?autoplay=1&mute=1&rel=0&modestbranding=1" 
                           title="Structure Your Business Right"
                           frameborder="0" 
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -339,7 +339,7 @@ app.get('/', (c) => {
                       <div class="relative aspect-video bg-black">
                         <iframe 
                           class="w-full h-full"
-                          src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3?rel=0&modestbranding=1" 
+                          src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3?autoplay=1&mute=1&rel=0&modestbranding=1" 
                           title="Think Like a Bank"
                           frameborder="0" 
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
