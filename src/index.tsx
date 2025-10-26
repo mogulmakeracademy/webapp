@@ -1035,6 +1035,51 @@ app.get('/shop', (c) => {
         </div>
       </section>
 
+      {/* GHL Full Store Section */}
+      <section class="bg-gray-50 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Complete <span class="text-yellow-400">Product Catalog</span>
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+              Browse our full collection of digital products, courses, templates, and guides. 
+              Add multiple items to your cart and checkout securely.
+            </p>
+          </div>
+
+          {/* GHL Store Embed */}
+          <div class="bg-white rounded-3xl shadow-2xl overflow-hidden">
+            <iframe
+              src="https://mrmogulmaker.com/products-list-3123"
+              style="width:100%;min-height:2000px;border:none;"
+              id="ghl-store-iframe"
+              title="Mr. Mogul Maker Store"
+              scrolling="yes"
+            ></iframe>
+          </div>
+
+          {/* Store Features */}
+          <div class="grid md:grid-cols-3 gap-6 mt-12">
+            <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl p-6 text-center">
+              <i class="fas fa-shopping-cart text-black text-4xl mb-3"></i>
+              <h3 class="text-xl font-bold text-black mb-2">Full Shopping Cart</h3>
+              <p class="text-gray-900">Add multiple products and checkout together</p>
+            </div>
+            <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl p-6 text-center">
+              <i class="fas fa-tags text-black text-4xl mb-3"></i>
+              <h3 class="text-xl font-bold text-black mb-2">Coupon Codes</h3>
+              <p class="text-gray-900">Apply discount codes at checkout</p>
+            </div>
+            <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl p-6 text-center">
+              <i class="fas fa-lock text-black text-4xl mb-3"></i>
+              <h3 class="text-xl font-bold text-black mb-2">Secure Payment</h3>
+              <p class="text-gray-900">Protected checkout via Stripe</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Trust Section */}
       <section class="bg-gradient-to-br from-black to-gray-900 py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1623,6 +1668,25 @@ app.get('/shop', (c) => {
             document.getElementById('mobile-menu-shop').classList.add('hidden');
           });
         });
+        
+        // GHL Store iframe height adjustment
+        const ghlIframe = document.getElementById('ghl-store-iframe');
+        if (ghlIframe) {
+          // Listen for messages from iframe to adjust height dynamically
+          window.addEventListener('message', function(e) {
+            if (e.data.hasOwnProperty('frameHeight')) {
+              ghlIframe.style.height = e.data.frameHeight + 'px';
+            }
+          });
+          
+          // Set minimum height on load
+          ghlIframe.addEventListener('load', function() {
+            // Default height, will be adjusted by content
+            if (ghlIframe.style.minHeight === '') {
+              ghlIframe.style.minHeight = '2000px';
+            }
+          });
+        }
         
         // Close modals on outside click
         document.getElementById('cart-modal').addEventListener('click', (e) => {
