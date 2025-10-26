@@ -1,30 +1,36 @@
 # Mr. Mogul Maker - Personal Brand Website
 
-A professional personal brand website for Antonio Cook (Mr. Mogul Maker), Entrepreneur Coach & Financial Literacy Educator.
+A professional personal brand website for Antonio Cook (Mr. Mogul Maker), Entrepreneur Coach & Financial Literacy Educator, CEO & Co-Founder (with Tashia Anderson) of Mogul Maker Academy.
 
 ## 🌟 Project Overview
 
 **Name:** Mr. Mogul Maker Website  
 **Domain:** mrmogulmaker.com  
 **Owner:** Antonio Cook  
-**Purpose:** Showcase entrepreneurship coaching, financial literacy education, and Mogul Maker Academy programs  
+**Co-Founder:** Tashia Anderson (Mogul Maker Academy)  
+**Purpose:** Showcase entrepreneurship coaching, financial literacy education, AI coaching programs, and Mogul Maker Academy  
 
 **Key Features:**
 - Modern, responsive design with smooth animations
-- Hero section with 3M Framework (Make, Manage, Multiply)
-- **Speaking/Booking Page** with Calendly integration
+- Hero section highlighting personal brand and co-founder partnership
+- **Programs Page (NEW!)** - Dedicated page for 8 AI Business Coaches
+- **AI Coaches** - BUILD, LAUNCH, FUND, DRIVE, ACCEL, REPORT, SHIELD, ACQUIRE (Coming Soon)
+- **GHL Waitlist Form** - Embedded form for AI Coach early access
+- **Pricing Tiers** - Monthly ($47/month) and Annual ($470/year) plans
+- **Speaking/Booking Page** with GoHighLevel & Calendly integration (separate systems)
 - **Blog Page** with article layout and categories
 - **E-commerce Shop Page** for selling digital products
 - **Shopping Cart** with persistent storage (localStorage)
 - **Product Catalog** with 9 digital products (courses, templates, guides)
 - **Product Detail Modals** with full descriptions and features
 - **Category Filtering** (All, Courses, Templates, Guides)
-- **GoHighLevel Integration** ready for checkout
-- About section highlighting Antonio Cook's expertise
-- Programs showcase featuring 8 Mogul Maker Academy courses
+- **Google Reviews Section** - Testimonials and social proof on homepage
+- **Freedom Writers Story** - Personal background showcase with photo carousel
+- **Media Features** - Yahoo Finance "Top Business Professionals 2021" recognition
+- About section highlighting Antonio Cook's expertise and co-founder partnership
 - Podcasts section (Mind Your Money & 3M Podcast)
 - Social media integration (YouTube, Instagram, Facebook, TikTok)
-- Mobile-responsive navigation with cart badge
+- Mobile-responsive navigation (iOS Safari tested and working)
 - Contact/CTA sections
 
 ## 🔗 Live URLs
@@ -34,7 +40,8 @@ A professional personal brand website for Antonio Cook (Mr. Mogul Maker), Entrep
 - **Shop Page:** https://www.mrmogulmaker.com/shop
 - **Speaking Page:** https://www.mrmogulmaker.com/speaking
 - **Blog Page:** https://www.mrmogulmaker.com/blog
-- **Latest Deployment:** https://5d70f5ee.mrmogulmaker.pages.dev
+- **Programs Page:** https://www.mrmogulmaker.com/programs
+- **Latest Deployment:** https://404bba3b.mrmogulmaker.pages.dev
 - **Development Server:** https://3000-itqkd7r87dbcew1poox4l-dfc00ec5.sandbox.novita.ai
 
 ## 📊 Social Media Links
@@ -43,7 +50,7 @@ A professional personal brand website for Antonio Cook (Mr. Mogul Maker), Entrep
 - **Instagram:** https://www.instagram.com/mrmogulmaker/
 - **Facebook:** https://www.facebook.com/mrmogulmakerceo
 - **TikTok:** https://www.tiktok.com/@mrmogulmaker (325 followers)
-- **Academy:** https://skool.com/mogul-maker-academy/about
+- **Academy:** https://mogulmakeracademy.com
 
 ## 🎯 Brand Philosophy
 
@@ -136,7 +143,7 @@ npx wrangler pages deploy dist --project-name mrmogulmaker
 ```
 
 **Deployment Status:** ✅ Active  
-**Last Deployed:** 2025-01-26 (v2.9.5 - iOS Mobile Menu Fix)  
+**Last Deployed:** 2025-01-26 (v2.14.0 - Programs Page Launch)  
 **Project Name:** mrmogulmaker  
 **Account:** mrmogulmaker@gmail.com
 
@@ -193,7 +200,24 @@ npx wrangler pages deploy dist --project-name mrmogulmaker
 
 ## ✨ Features Completed
 
-### Version 2.5.0 (Latest) - Cleanup
+### Version 2.14.0 (Latest) - Programs Page Launch
+- ✅ **New Programs Page** - Dedicated page for AI Coaches at `/programs`
+- ✅ **8 AI Coach Cards** - Detailed descriptions for BUILD, LAUNCH, FUND, DRIVE, ACCEL, REPORT, SHIELD, ACQUIRE
+- ✅ **GHL Waitlist Form** - Embedded form for early access signups
+- ✅ **Pricing Section** - Monthly ($47) and Annual ($470) plans with "Best Value" badge
+- ✅ **Academy Transition** - "Need Human Support?" section linking to Mogul Maker Academy
+- ✅ **Homepage Updates** - Removed Programs section, now links to new `/programs` page
+- ✅ **Co-Founder Credit** - Updated all mentions to include Tashia Anderson as Co-Founder
+- ✅ **Personal Brand Focus** - Homepage emphasizes Antonio Cook's personal story
+- ✅ **Navigation Updates** - Programs menu item now goes to `/programs` instead of `#programs`
+- ✅ **Strategic Positioning** - Clear funnel: AI Coaches → Mogul Maker Academy for live support
+
+### Version 2.13.0 - Academy URL & Reviews
+- ✅ **Academy URL Update** - Changed all links to https://mogulmakeracademy.com (9 updates)
+- ✅ **GHL Waitlist Form** - Embedded real GoHighLevel form on AI Coach page
+- ✅ **Google Reviews Section** - Added testimonials with 4.9 rating, stats, and sample reviews
+
+### Version 2.5.0 - Cleanup
 - ✅ **Removed lead magnet popup** (ready for GHL form integration when available)
 - ✅ **Cleaner user experience** without popup interruptions
 - ✅ **Prepared for future GoHighLevel form** embed
@@ -285,10 +309,12 @@ npx wrangler pages deploy dist --project-name mrmogulmaker
 ## 📖 Content Highlights
 
 **Antonio Cook's Mission:**
-- CEO of Mogul Maker Academy
+- CEO & Co-Founder (with Tashia Anderson) of Mogul Maker Academy
+- Creator of 8 specialized AI Business Coaches (Coming Soon)
 - Host of Mind Your Money Podcast
 - Host of 3M Podcast: Make, Manage, Multiply
 - Teaching entrepreneurs about business credit, funding, and wealth building
+- Building AI-powered coaching platform for 24/7 business guidance
 
 **Academy Programs:**
 1. **BUILD** - Foundation & Structure
