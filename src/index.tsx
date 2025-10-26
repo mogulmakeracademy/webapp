@@ -552,10 +552,14 @@ app.get('/', (c) => {
             <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4 md:mb-6">
               Join Our Elite Community
             </h2>
-            <p class="text-base md:text-lg lg:text-xl text-black/80 mb-6 md:mb-8 max-w-2xl mx-auto">
-              Connect with thousands of successful entrepreneurs, investors, banking professionals, and industry leaders inside the Mogul Maker Academy community. 
+            <p class="text-base md:text-lg lg:text-xl text-black/80 mb-4 md:mb-6 max-w-2xl mx-auto">
+              Connect with 100+ successful entrepreneurs, investors, banking professionals, and industry leaders inside the Mogul Maker Academy community. 
               Get live coaching, weekly Q&A calls, and exclusive access to our Skool network where real connections turn into real opportunities.
             </p>
+            <div class="inline-block bg-black/10 rounded-2xl px-6 py-3 mb-6">
+              <div class="text-black font-bold text-2xl">Only $39/month</div>
+              <div class="text-black/70 text-sm">Full community access + live coaching</div>
+            </div>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="https://mogulmakeracademy.com" target="_blank" class="bg-black text-yellow-400 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-900 transition transform hover:scale-105 inline-flex items-center justify-center">
                 <i class="fas fa-graduation-cap mr-2"></i>
