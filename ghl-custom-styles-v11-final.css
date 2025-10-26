@@ -1,0 +1,55 @@
+/* ============================================
+   Mr. Mogul Maker - GHL Store CSS v11 FINAL
+   NO HEADER - For use with embedded shop page
+   ============================================ */
+
+/* Import Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
+/* ============================================
+   FONT
+   ============================================ */
+
+body,
+* {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* ============================================
+   BLACK BACKGROUND
+   ============================================ */
+
+body {
+  background-color: #000000 !important;
+}
+
+/* ============================================
+   NO TOP PADDING (header is on main site)
+   ============================================ */
+
+body {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* ============================================
+   PRICES - Yellow
+   ============================================ */
+
+.elPrice {
+  color: #FBBF24 !important;
+}
+
+/* ============================================
+   BUTTONS - Yellow
+   ============================================ */
+
+button {
+  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%) !important;
+  color: #000000 !important;
+  border-radius: 9999px !important;
+}
+
+/* ============================================
+   END
+   ============================================ */
