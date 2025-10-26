@@ -136,16 +136,17 @@ npx wrangler pages deploy dist --project-name mrmogulmaker
 ```
 
 **Deployment Status:** ✅ Active  
-**Last Deployed:** 2025-01-25 (v2.5.0 - Removed popup)  
+**Last Deployed:** 2025-01-26 (v2.8.0 - GHL Store CSS Complete)  
 **Project Name:** mrmogulmaker  
 **Account:** mrmogulmaker@gmail.com
 
 **Recent Deployments:**
+- v2.8.0: ✅ **GHL Store Custom CSS Complete** - Minimal branding with header and yellow accents
+- v2.7.1: Moved Shop button after Programs in navigation
+- v2.7.0: Added GHL e-commerce store integration
+- v2.5.2: Updated custom domain URLs in metadata
+- v2.5.1: Fixed mobile menu functionality
 - v2.5.0: Removed lead magnet popup (ready for GHL form integration)
-- v2.4.1: Replaced logo with professional photo in metadata
-- v2.4.0: Open Graph metadata and PWA enhancements
-- v2.3.0: Swipe gestures for mobile navigation
-- v2.2.0: Comprehensive mobile improvements
 
 ## 📝 Available Scripts
 
@@ -284,27 +285,41 @@ npx wrangler pages deploy dist --project-name mrmogulmaker
 - "Think Like a Bank & Build Wealth"
 - "Credit Repair & Financial Literacy"
 
-## 🔗 GoHighLevel (GHL) Integration
+## 🔗 GoHighLevel (GHL) Store Integration
 
-**Your shop now supports GoHighLevel integration!** Connect your existing GHL products for seamless checkout.
+**✅ COMPLETE:** Your GHL store is now fully integrated and branded!
 
-### Quick Setup:
+### What's Live:
+- **GHL Store URL:** https://mrmogulmaker.com/products-list-3123
+- **Custom CSS Applied:** Minimal black/yellow branding matching your main website
+- **Custom Header:** "Mr. Mogul Maker" with proper color gradient (Mr. = white, Mogul Maker = yellow)
+- **Navigation Order:** Home → Speaking → Blog → Programs → **Shop**
 
-1. **Get your GHL order form URLs** from your GoHighLevel account
-2. **Add URLs to products** in `/src/index.tsx`:
-   ```javascript
-   ghlCheckoutUrl: "https://your-ghl-domain.com/order-form/your-product"
-   ```
-3. **Build and deploy** - customers will be redirected to GHL for checkout
-4. **GHL handles payment and product delivery** automatically
+### GHL Store Styling:
+The store uses **ultra-minimal CSS** (`ghl-custom-styles-v9-minimal.css`) that adds:
+- ✅ Poppins font (matching homepage)
+- ✅ Black background
+- ✅ Custom header bar with "Mr. Mogul Maker" branding
+- ✅ Yellow prices (#FBBF24)
+- ✅ Yellow gradient buttons
+- ✅ All product images and descriptions visible
+- ✅ Pagination working correctly
+- ✅ Minimal interference - lets GHL handle layout and functionality
 
-📖 **Full Guide:** See `GHL_INTEGRATION_GUIDE.md` for detailed instructions
+### CSS Location:
+**Final CSS File:** `/home/user/webapp/ghl-custom-styles-v9-minimal.css`
+
+**To update GHL store styling:**
+1. Copy the CSS from `ghl-custom-styles-v9-minimal.css`
+2. Go to GHL → Sites → Your Store → Custom CSS
+3. Paste and save
 
 ### How It Works:
-- **Display Products:** Beautiful product cards on your custom shop page
-- **Buy Now Button:** Redirects directly to your GHL order form  
-- **GHL Checkout:** Customer completes payment in GoHighLevel
-- **Auto Delivery:** GHL automatically delivers products to customers
+- **Main Website:** www.mrmogulmaker.com (your custom Cloudflare Pages site)
+- **Shop Navigation:** Links to GHL store (opens in same tab)
+- **GHL Store:** Branded with your colors and fonts via Custom CSS
+- **Checkout:** GHL handles payment processing and product delivery
+- **Experience:** Seamless transition from your site to GHL store
 
 ---
 
