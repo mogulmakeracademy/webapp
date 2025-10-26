@@ -530,7 +530,7 @@ app.get('/', (c) => {
           {/* Call to Action */}
           <div class="text-center mt-12">
             <p class="text-gray-700 mb-6 text-lg">
-              <strong>Join thousands of successful entrepreneurs</strong> who have transformed their business credit
+              <strong>Join hundreds of successful entrepreneurs</strong> who have transformed their business and personal lives
             </p>
             <a 
               href="https://mogulmakeracademy.com" 
