@@ -4367,4 +4367,318 @@ app.get('/programs', (c) => {
   )
 })
 
+// Events Page
+app.get('/events', (c) => {
+  return c.render(
+    <div style="font-family: 'Poppins', sans-serif;">
+      {/* Navigation */}
+      <nav class="fixed w-full bg-black/95 backdrop-blur-sm z-[60] shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-20">
+            <div class="flex items-center">
+              <a href="/" class="flex items-center gap-3 group">
+                <img src="/mr-mogul-maker-logo.png" alt="Mr Mogul Maker Logo" class="h-12 w-12 transition-transform group-hover:scale-110" />
+                <span class="text-2xl font-bold">
+                  <span class="text-white">Mr.</span> <span class="text-yellow-400">Mogul Maker</span>
+                </span>
+              </a>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+              <a href="/" class="text-white hover:text-yellow-400 transition">Home</a>
+              <a href="/speaking" class="text-white hover:text-yellow-400 transition">Speaking</a>
+              <a href="/blog" class="text-white hover:text-yellow-400 transition">Blog</a>
+              <a href="/programs" class="text-white hover:text-yellow-400 transition">Programs</a>
+              <a href="/events" class="text-yellow-400 font-semibold">Events</a>
+              <a href="/shop" class="text-white hover:text-yellow-400 transition">
+                <i class="fas fa-shopping-bag mr-2"></i>Shop
+              </a>
+            </div>
+            <button id="mobile-menu-btn-events" class="md:hidden text-white z-[70] relative">
+              <i class="fas fa-bars text-2xl"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Menu */}
+      <div id="mobile-menu-events" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-50 pt-20">
+        <div class="flex flex-col items-center justify-center space-y-8 mt-12 h-full pb-32">
+          <a href="/" class="text-white text-2xl hover:text-yellow-400 transition">Home</a>
+          <a href="/speaking" class="text-white text-2xl hover:text-yellow-400 transition">Speaking</a>
+          <a href="/blog" class="text-white text-2xl hover:text-yellow-400 transition">Blog</a>
+          <a href="/programs" class="text-white text-2xl hover:text-yellow-400 transition">Programs</a>
+          <a href="/events" class="text-yellow-400 text-2xl font-semibold">Events</a>
+          <a href="/shop" class="text-white text-2xl hover:text-yellow-400 transition">
+            <i class="fas fa-shopping-bag mr-2"></i>Shop
+          </a>
+        </div>
+      </div>
+
+      {/* Hero Section */}
+      <section class="relative bg-gradient-to-br from-black via-gray-900 to-black pt-32 pb-20">
+        <div class="absolute inset-0 opacity-10">
+          <div class="absolute top-20 left-10 w-72 h-72 bg-yellow-400 rounded-full filter blur-3xl"></div>
+          <div class="absolute bottom-20 right-10 w-96 h-96 bg-yellow-400 rounded-full filter blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="text-center">
+            <div class="inline-block bg-yellow-400/20 text-yellow-400 px-6 py-3 rounded-full mb-6">
+              <i class="fas fa-calendar-alt mr-2"></i>
+              UPCOMING EVENTS
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">
+              Learn. Network. <span class="text-yellow-400">Grow.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto">
+              Join Antonio Cook (Mr. Mogul Maker) at exclusive seminars, workshops, and live events designed to transform your business and wealth-building journey
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Coming Soon Section */}
+      <section class="bg-white py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-12 md:p-16 shadow-xl">
+            <div class="inline-block bg-yellow-400/20 text-yellow-600 px-6 py-3 rounded-full mb-6">
+              <i class="fas fa-rocket mr-2"></i>
+              LAUNCHING SOON
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Events Coming Soon!
+            </h2>
+            <p class="text-xl text-gray-600 mb-8">
+              We're planning exciting seminars, workshops, and live events where you can learn directly from Antonio Cook 
+              and network with fellow entrepreneurs, investors, and industry leaders.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+              <div class="bg-white rounded-2xl p-6 shadow-lg">
+                <div class="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <i class="fas fa-chalkboard-teacher text-black text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Live Seminars</h3>
+                <p class="text-gray-600 text-sm">
+                  In-person workshops on business credit, funding strategies, and wealth building
+                </p>
+              </div>
+
+              <div class="bg-white rounded-2xl p-6 shadow-lg">
+                <div class="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <i class="fas fa-video text-black text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Virtual Webinars</h3>
+                <p class="text-gray-600 text-sm">
+                  Online training sessions accessible from anywhere in the world
+                </p>
+              </div>
+
+              <div class="bg-white rounded-2xl p-6 shadow-lg">
+                <div class="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <i class="fas fa-users text-black text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Networking Events</h3>
+                <p class="text-gray-600 text-sm">
+                  Connect with investors, funders, and successful entrepreneurs
+                </p>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl p-8 mb-8">
+              <h3 class="text-2xl font-bold text-black mb-4">Get Notified First</h3>
+              <p class="text-black/80 mb-6">
+                Be the first to know when we announce our upcoming events. Join the waitlist to receive exclusive early-bird pricing!
+              </p>
+              <a href="/programs#waitlist" class="inline-block bg-black text-yellow-400 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-900 transition transform hover:scale-105">
+                <i class="fas fa-bell mr-2"></i>
+                Join Event Waitlist
+              </a>
+            </div>
+
+            <div class="border-t border-gray-300 pt-8">
+              <p class="text-gray-600 mb-6">
+                In the meantime, check out these resources:
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/programs" class="bg-yellow-400 text-black px-6 py-3 rounded-full font-bold hover:bg-yellow-300 transition">
+                  <i class="fas fa-robot mr-2"></i>
+                  Explore AI Coaches
+                </a>
+                <a href="https://mogulmakeracademy.com" target="_blank" class="border-2 border-yellow-400 text-yellow-600 px-6 py-3 rounded-full font-bold hover:bg-yellow-50 transition">
+                  <i class="fas fa-graduation-cap mr-2"></i>
+                  Join the Academy
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Book Antonio Section */}
+      <section class="bg-gradient-to-br from-black via-gray-900 to-black py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+            Book Antonio for <span class="text-yellow-400">Your Event</span>
+          </h2>
+          <p class="text-xl text-gray-300 mb-8">
+            Looking for a dynamic speaker for your conference, seminar, or corporate event? 
+            Antonio Cook brings expertise in business credit, funding strategies, and entrepreneurship.
+          </p>
+          
+          <div class="grid md:grid-cols-2 gap-6 mb-12">
+            <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 text-left">
+              <h3 class="text-xl font-bold text-white mb-4">
+                <i class="fas fa-microphone text-yellow-400 mr-2"></i>
+                Speaking Topics
+              </h3>
+              <ul class="space-y-2 text-gray-300">
+                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Business Credit Mastery</li>
+                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Funding & Capital Strategies</li>
+                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Wealth Building Framework</li>
+                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Entrepreneurship & Mindset</li>
+                <li><i class="fas fa-check text-yellow-400 mr-2"></i>From Consumer to Creditor</li>
+              </ul>
+            </div>
+
+            <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 text-left">
+              <h3 class="text-xl font-bold text-white mb-4">
+                <i class="fas fa-star text-yellow-400 mr-2"></i>
+                Perfect For
+              </h3>
+              <ul class="space-y-2 text-gray-300">
+                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Corporate conferences</li>
+                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Entrepreneur summits</li>
+                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Business workshops</li>
+                <li><i class="fas fa-check text-yellow-400 mr-2"></i>University events</li>
+                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Industry associations</li>
+              </ul>
+            </div>
+          </div>
+
+          <a href="/speaking#book" class="inline-block bg-yellow-400 text-black px-10 py-5 rounded-full font-bold text-lg hover:bg-yellow-300 transition transform hover:scale-105">
+            <i class="fas fa-calendar-check mr-2"></i>
+            Book Antonio Now
+          </a>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer class="bg-black text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid md:grid-cols-4 gap-8 mb-8">
+            <div class="md:col-span-2">
+              <div class="flex items-center gap-3 mb-4">
+                <img src="/mr-mogul-maker-logo.png" alt="Mr Mogul Maker Logo" class="h-16 w-16" />
+                <h3 class="text-2xl font-bold text-yellow-400">Mr. Mogul Maker</h3>
+              </div>
+              <p class="text-gray-400 mb-4">
+                Empowering entrepreneurs with AI-powered coaching, live events, and business education.
+              </p>
+              <div class="flex gap-4">
+                <a href="https://www.youtube.com/@mrmogulmaker" target="_blank" class="text-white hover:text-yellow-400 transition text-xl">
+                  <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.instagram.com/mrmogulmaker/" target="_blank" class="text-white hover:text-yellow-400 transition text-xl">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/mrmogulmakerceo" target="_blank" class="text-white hover:text-yellow-400 transition text-xl">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.tiktok.com/@mrmogulmaker" target="_blank" class="text-white hover:text-yellow-400 transition text-xl">
+                  <i class="fab fa-tiktok"></i>
+                </a>
+              </div>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+              <ul class="space-y-2">
+                <li><a href="/" class="text-gray-400 hover:text-yellow-400 transition">Home</a></li>
+                <li><a href="/programs" class="text-gray-400 hover:text-yellow-400 transition">AI Coaches</a></li>
+                <li><a href="/events" class="text-gray-400 hover:text-yellow-400 transition">Events</a></li>
+                <li><a href="/speaking" class="text-gray-400 hover:text-yellow-400 transition">Speaking</a></li>
+                <li><a href="/blog" class="text-gray-400 hover:text-yellow-400 transition">Blog</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-4">Resources</h4>
+              <ul class="space-y-2">
+                <li><a href="https://mogulmakeracademy.com" target="_blank" class="text-gray-400 hover:text-yellow-400 transition">Mogul Maker Academy</a></li>
+                <li><a href="/shop" class="text-gray-400 hover:text-yellow-400 transition">Shop</a></li>
+                <li><a href="https://www.youtube.com/@mrmogulmaker" target="_blank" class="text-gray-400 hover:text-yellow-400 transition">YouTube Channel</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+            <p>&copy; 2025 Mr. Mogul Maker (Antonio Cook). All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+
+      {/* Mobile Menu JavaScript */}
+      <script dangerouslySetInnerHTML={{
+        __html: `
+          document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn-events');
+            const mobileMenu = document.getElementById('mobile-menu-events');
+            
+            if (!mobileMenuBtn || !mobileMenu) return;
+            
+            const mobileMenuIcon = mobileMenuBtn.querySelector('i');
+            
+            function openMobileMenu() {
+              mobileMenu.classList.remove('hidden');
+              if (mobileMenuIcon) {
+                mobileMenuIcon.classList.remove('fa-bars');
+                mobileMenuIcon.classList.add('fa-times');
+              }
+              document.body.style.overflow = 'hidden';
+            }
+            
+            function closeMobileMenu() {
+              mobileMenu.classList.add('hidden');
+              if (mobileMenuIcon) {
+                mobileMenuIcon.classList.remove('fa-times');
+                mobileMenuIcon.classList.add('fa-bars');
+              }
+              document.body.style.overflow = '';
+            }
+            
+            mobileMenuBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              const isHidden = mobileMenu.classList.contains('hidden');
+              if (isHidden) {
+                openMobileMenu();
+              } else {
+                closeMobileMenu();
+              }
+            });
+            
+            mobileMenu.querySelectorAll('a').forEach(link => {
+              link.addEventListener('click', closeMobileMenu);
+            });
+            
+            mobileMenu.addEventListener('click', function(e) {
+              if (e.target === mobileMenu) {
+                closeMobileMenu();
+              }
+            });
+            
+            document.addEventListener('keydown', function(e) {
+              if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                closeMobileMenu();
+              }
+            });
+          });
+        `
+      }} />
+    </div>,
+    {
+      title: 'Events - Seminars & Workshops | Mr. Mogul Maker',
+      description: 'Join Antonio Cook at exclusive live seminars, workshops, and networking events. Learn business credit strategies, funding tactics, and wealth-building frameworks directly from Mr. Mogul Maker.'
+    }
+  )
+})
+
 export default app
