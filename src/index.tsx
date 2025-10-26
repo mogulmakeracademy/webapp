@@ -978,13 +978,15 @@ app.get('/speaking', (c) => {
             </div>
             <div class="hidden md:flex items-center space-x-8">
               <a href="/" class="text-white hover:text-yellow-400 transition">Home</a>
-              <a href="/shop" class="text-white hover:text-yellow-400 transition">Shop</a>
               <a href="/speaking" class="text-yellow-400 font-semibold">Speaking</a>
               <a href="/blog" class="text-white hover:text-yellow-400 transition">Blog</a>
               <a href="/#programs" class="text-white hover:text-yellow-400 transition">Programs</a>
+              <a href="/shop" class="text-white hover:text-yellow-400 transition">
+                <i class="fas fa-shopping-bag mr-2"></i>Shop
+              </a>
               <a href="/#contact" class="bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition">Book Me</a>
             </div>
-            <button id="mobile-menu-btn-speaking" class="md:hidden text-white">
+            <button id="mobile-menu-btn-speaking" class="md:hidden text-white z-[70] relative">
               <i class="fas fa-bars text-2xl"></i>
             </button>
           </div>
@@ -992,13 +994,15 @@ app.get('/speaking', (c) => {
       </nav>
 
       {/* Mobile Menu */}
-      <div id="mobile-menu-speaking" class="hidden fixed inset-0 bg-black/95 z-40 pt-20">
-        <div class="flex flex-col items-center space-y-8 mt-12">
+      <div id="mobile-menu-speaking" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-50 pt-20">
+        <div class="flex flex-col items-center justify-center space-y-8 mt-12 h-full pb-32">
           <a href="/" class="text-white text-2xl hover:text-yellow-400 transition">Home</a>
-          <a href="/shop" class="text-white text-2xl hover:text-yellow-400 transition">Shop</a>
           <a href="/speaking" class="text-yellow-400 text-2xl font-semibold">Speaking</a>
           <a href="/blog" class="text-white text-2xl hover:text-yellow-400 transition">Blog</a>
           <a href="/#programs" class="text-white text-2xl hover:text-yellow-400 transition">Programs</a>
+          <a href="/shop" class="text-white text-2xl hover:text-yellow-400 transition">
+            <i class="fas fa-shopping-bag mr-2"></i>Shop
+          </a>
         </div>
       </div>
 
@@ -1291,15 +1295,28 @@ app.get('/speaking', (c) => {
 
       {/* JavaScript for mobile menu */}
       <script dangerouslySetInnerHTML={{__html: `
-        document.getElementById('mobile-menu-btn-speaking').addEventListener('click', function() {
-          document.getElementById('mobile-menu-speaking').classList.toggle('hidden');
-        });
+        const mobileMenuBtnSpeaking = document.getElementById('mobile-menu-btn-speaking');
+        const mobileMenuSpeaking = document.getElementById('mobile-menu-speaking');
         
-        document.querySelectorAll('#mobile-menu-speaking a').forEach(link => {
-          link.addEventListener('click', function() {
-            document.getElementById('mobile-menu-speaking').classList.add('hidden');
+        if (mobileMenuBtnSpeaking && mobileMenuSpeaking) {
+          mobileMenuBtnSpeaking.addEventListener('click', function() {
+            mobileMenuSpeaking.classList.toggle('hidden');
           });
-        });
+          
+          // Close menu when clicking links
+          mobileMenuSpeaking.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+              mobileMenuSpeaking.classList.add('hidden');
+            });
+          });
+          
+          // Close menu when clicking outside
+          mobileMenuSpeaking.addEventListener('click', function(e) {
+            if (e.target === mobileMenuSpeaking) {
+              mobileMenuSpeaking.classList.add('hidden');
+            }
+          });
+        }
       `}} />
     </div>,
     {
@@ -1414,7 +1431,7 @@ app.get('/blog', (c) => {
       </nav>
 
       {/* Mobile Menu */}
-      <div id="mobile-menu-blog" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-40 pt-20">
+      <div id="mobile-menu-blog" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-50 pt-20">
         <div class="flex flex-col items-center justify-center space-y-8 mt-12 h-full pb-32">
           <a href="/" class="text-white text-2xl hover:text-yellow-400 transition">Home</a>
           <a href="/speaking" class="text-white text-2xl hover:text-yellow-400 transition">Speaking</a>
@@ -1768,15 +1785,28 @@ app.get('/blog', (c) => {
 
       {/* JavaScript for mobile menu and filtering */}
       <script dangerouslySetInnerHTML={{__html: `
-        document.getElementById('mobile-menu-btn-blog').addEventListener('click', function() {
-          document.getElementById('mobile-menu-blog').classList.toggle('hidden');
-        });
+        const mobileMenuBtnBlog = document.getElementById('mobile-menu-btn-blog');
+        const mobileMenuBlog = document.getElementById('mobile-menu-blog');
         
-        document.querySelectorAll('#mobile-menu-blog a').forEach(link => {
-          link.addEventListener('click', function() {
-            document.getElementById('mobile-menu-blog').classList.add('hidden');
+        if (mobileMenuBtnBlog && mobileMenuBlog) {
+          mobileMenuBtnBlog.addEventListener('click', function() {
+            mobileMenuBlog.classList.toggle('hidden');
           });
-        });
+          
+          // Close menu when clicking links
+          mobileMenuBlog.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+              mobileMenuBlog.classList.add('hidden');
+            });
+          });
+          
+          // Close menu when clicking outside
+          mobileMenuBlog.addEventListener('click', function(e) {
+            if (e.target === mobileMenuBlog) {
+              mobileMenuBlog.classList.add('hidden');
+            }
+          });
+        }
 
         // Category filtering (placeholder - would filter actual articles)
         document.querySelectorAll('.category-filter').forEach(btn => {
