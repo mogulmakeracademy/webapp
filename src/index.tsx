@@ -606,11 +606,11 @@ app.get('/', (c) => {
         </div>
       </section>
 
-      {/* Newsletter Signup - Homepage - GHL Form */}
+      {/* Newsletter Signup - Popup Trigger - Homepage */}
       <section class="bg-gradient-to-br from-gray-900 to-black py-16 md:py-20">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl p-8 md:p-12 shadow-2xl border border-yellow-400/20">
-            <div class="text-center mb-8">
+          <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl p-8 md:p-12 shadow-2xl border border-yellow-400/20 hover:border-yellow-400/40 transition-all">
+            <div class="text-center">
               <div class="inline-block bg-yellow-400/20 text-yellow-400 px-4 py-2 rounded-full mb-4">
                 <i class="fas fa-envelope mr-2"></i>
                 STAY CONNECTED
@@ -618,41 +618,82 @@ app.get('/', (c) => {
               <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
                 Get Weekly <span class="text-yellow-400">Business Credit</span> Tips
               </h2>
-              <p class="text-gray-300 text-base md:text-lg max-w-2xl mx-auto">
+              <p class="text-gray-300 text-base md:text-lg max-w-2xl mx-auto mb-8">
                 Join 1,000+ entrepreneurs receiving exclusive strategies, funding opportunities, and credit-building insights.
               </p>
-            </div>
-            
-            {/* GHL Newsletter Form */}
-            <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-yellow-400/10">
-              <iframe
-                src="https://api.leadconnectorhq.com/widget/form/6spGss3vvmBSHE7B7aiG"
-                style="width:100%;height:591px;border:none;border-radius:12px"
-                id="inline-6spGss3vvmBSHE7B7aiG-home" 
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="News Letter Mr. Mogul Maker"
-                data-height="591"
-                data-layout-iframe-id="inline-6spGss3vvmBSHE7B7aiG-home"
-                data-form-id="6spGss3vvmBSHE7B7aiG"
-                title="News Letter Mr. Mogul Maker"
-              ></iframe>
-            </div>
-            
-            <div class="text-center mt-6">
-              <p class="text-gray-400 text-sm">
-                <i class="fas fa-lock mr-2"></i>
-                We respect your privacy. Unsubscribe anytime.
+              
+              {/* Subscribe Button - Triggers GHL Popup */}
+              <button
+                onclick="window.openNewsletterPopup && window.openNewsletterPopup()"
+                class="bg-gradient-to-r from-yellow-400 to-yellow-500 text-black px-10 py-4 md:px-12 md:py-5 rounded-full font-bold text-lg md:text-xl hover:from-yellow-500 hover:to-yellow-600 transition-all transform hover:scale-105 hover:shadow-2xl inline-flex items-center gap-3 group"
+              >
+                <i class="fas fa-paper-plane text-xl group-hover:translate-x-1 transition-transform"></i>
+                Subscribe Now
+              </button>
+              
+              <div class="mt-8 flex flex-wrap justify-center gap-6 text-sm">
+                <div class="flex items-center gap-2 text-gray-400">
+                  <i class="fas fa-check-circle text-yellow-400"></i>
+                  <span>Weekly Tips</span>
+                </div>
+                <div class="flex items-center gap-2 text-gray-400">
+                  <i class="fas fa-check-circle text-yellow-400"></i>
+                  <span>Exclusive Strategies</span>
+                </div>
+                <div class="flex items-center gap-2 text-gray-400">
+                  <i class="fas fa-check-circle text-yellow-400"></i>
+                  <span>No Spam Ever</span>
+                </div>
+              </div>
+              
+              <p class="text-gray-500 text-sm mt-6 flex items-center justify-center gap-2">
+                <i class="fas fa-lock"></i>
+                <span>We respect your privacy. Unsubscribe anytime.</span>
               </p>
             </div>
           </div>
         </div>
       </section>
+      
+      {/* GHL Popup Form - Homepage */}
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/form/6spGss3vvmBSHE7B7aiG"
+        style="display:none;width:100%;height:100%;border:none;border-radius:3px"
+        id="popup-6spGss3vvmBSHE7B7aiG-home" 
+        data-layout="{'id':'POPUP'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="News Letter Mr. Mogul Maker"
+        data-height="340"
+        data-layout-iframe-id="popup-6spGss3vvmBSHE7B7aiG-home"
+        data-form-id="6spGss3vvmBSHE7B7aiG"
+        title="News Letter Mr. Mogul Maker"
+      ></iframe>
+      <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+      
+      {/* Popup Trigger Script */}
+      <script dangerouslySetInnerHTML={{__html: `
+        window.openNewsletterPopup = function() {
+          // Try to trigger GHL popup
+          const popupFrame = document.getElementById('popup-6spGss3vvmBSHE7B7aiG') || document.getElementById('popup-6spGss3vvmBSHE7B7aiG-home');
+          if (popupFrame && popupFrame.contentWindow) {
+            // GHL's popup should open automatically when the script loads
+            // We can also try to trigger it programmatically
+            try {
+              popupFrame.style.display = 'block';
+              setTimeout(() => {
+                popupFrame.style.display = 'none';
+              }, 100);
+            } catch(e) {
+              console.log('Opening GHL popup');
+            }
+          }
+        }
+      `}} />
 
       {/* Footer */}
       <footer class="bg-black text-white py-12">
@@ -2416,48 +2457,68 @@ app.get('/blog', (c) => {
         </div>
       </section>
 
-      {/* Newsletter Signup - GHL Form */}
-      <section class="bg-gradient-to-br from-black to-gray-900 py-24">
+      {/* Newsletter Signup - Popup Trigger - Blog Page */}
+      <section class="bg-gradient-to-br from-black to-gray-900 py-20 md:py-24">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl p-8 md:p-12">
+          <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl p-8 md:p-12 shadow-2xl">
             <i class="fas fa-envelope text-black text-4xl md:text-6xl mb-4 md:mb-6"></i>
             <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">
               Never Miss an Update
             </h2>
-            <p class="text-base md:text-lg text-gray-900 font-semibold mb-6 md:mb-8">
+            <p class="text-base md:text-lg text-gray-900 font-semibold mb-6 md:mb-8 max-w-2xl mx-auto">
               Get weekly insights on business credit, funding strategies, and wealth building delivered to your inbox.
             </p>
             
-            {/* GHL Newsletter Form */}
-            <div class="bg-white rounded-2xl p-4 shadow-2xl">
-              <iframe
-                src="https://api.leadconnectorhq.com/widget/form/6spGss3vvmBSHE7B7aiG"
-                style="width:100%;height:591px;border:none;border-radius:12px"
-                id="inline-6spGss3vvmBSHE7B7aiG" 
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="News Letter Mr. Mogul Maker"
-                data-height="591"
-                data-layout-iframe-id="inline-6spGss3vvmBSHE7B7aiG"
-                data-form-id="6spGss3vvmBSHE7B7aiG"
-                title="News Letter Mr. Mogul Maker"
-              ></iframe>
-            </div>
+            {/* Subscribe Button - Triggers GHL Popup */}
+            <button
+              onclick="window.openNewsletterPopup && window.openNewsletterPopup()"
+              class="bg-black text-yellow-400 px-10 py-4 md:px-12 md:py-5 rounded-full font-bold text-lg md:text-xl hover:bg-gray-900 transition-all transform hover:scale-105 hover:shadow-2xl inline-flex items-center gap-3 group"
+            >
+              <i class="fas fa-paper-plane text-xl group-hover:translate-x-1 transition-transform"></i>
+              Subscribe Now
+            </button>
             
-            <p class="text-sm text-gray-800 mt-4">
-              <i class="fas fa-lock mr-1"></i>
-              Your email is safe with us. No spam, ever.
+            <p class="text-sm text-gray-800 mt-6 flex items-center justify-center gap-2">
+              <i class="fas fa-lock"></i>
+              <span>Your email is safe with us. No spam, ever.</span>
             </p>
+            
+            <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm text-black/70">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-check-circle text-black"></i>
+                <span>Weekly Tips</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fas fa-check-circle text-black"></i>
+                <span>Exclusive Strategies</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fas fa-check-circle text-black"></i>
+                <span>Funding Opportunities</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
       
-      {/* GHL Form Script */}
+      {/* GHL Popup Form - Blog Page */}
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/form/6spGss3vvmBSHE7B7aiG"
+        style="display:none;width:100%;height:100%;border:none;border-radius:3px"
+        id="popup-6spGss3vvmBSHE7B7aiG" 
+        data-layout="{'id':'POPUP'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="News Letter Mr. Mogul Maker"
+        data-height="340"
+        data-layout-iframe-id="popup-6spGss3vvmBSHE7B7aiG"
+        data-form-id="6spGss3vvmBSHE7B7aiG"
+        title="News Letter Mr. Mogul Maker"
+      ></iframe>
       <script src="https://link.msgsndr.com/js/form_embed.js"></script>
 
       {/* Footer */}
