@@ -3992,125 +3992,222 @@ app.get('/programs', (c) => {
       </section>
 
       {/* Waitlist Form Section */}
-      <section id="waitlist" class="bg-white py-24">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="waitlist" class="bg-gradient-to-br from-gray-50 via-white to-gray-50 py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-12">
-            <div class="inline-block bg-yellow-400/20 text-yellow-600 px-6 py-3 rounded-full mb-6">
+            <div class="inline-block bg-yellow-400/20 text-yellow-600 px-6 py-3 rounded-full mb-6 animate-pulse">
               <i class="fas fa-clock mr-2"></i>
               LAUNCHING SOON
             </div>
             <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Join the <span class="text-yellow-400">Waitlist</span>
             </h2>
-            <p class="text-xl text-gray-600">
+            <p class="text-xl text-gray-600 mb-6">
               Be the first to get access when our AI coaches launch. Early members get exclusive benefits!
             </p>
+            <div class="inline-flex items-center gap-2 bg-green-50 text-green-700 px-4 py-2 rounded-full text-sm font-semibold">
+              <i class="fas fa-fire text-green-600"></i>
+              <span>🎉 First 100 members get 50% off first month!</span>
+            </div>
           </div>
 
-          {/* GHL Waitlist Form Embed */}
-          <div class="bg-white rounded-3xl p-8 md:p-12 shadow-2xl">
-            <div style="min-height: 738px;">
-              <iframe
-                src="https://api.leadconnectorhq.com/widget/form/xIZi4NsdZtwX8YAPfp6Z"
-                style="width:100%;height:738px;border:none;border-radius:12px"
-                id="inline-xIZi4NsdZtwX8YAPfp6Z" 
-                data-form-name="Mogul Maker AI Coaching Waiting List Form"
-                data-height="738"
-                title="Mogul Maker AI Coaching Waiting List Form"
-              ></iframe>
-              <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+          {/* GHL Waitlist Form Embed - Enhanced Container */}
+          <div class="relative">
+            {/* Gradient border effect */}
+            <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-600 rounded-3xl blur-xl opacity-20"></div>
+            
+            {/* Form container */}
+            <div class="relative bg-white rounded-3xl p-6 md:p-10 shadow-2xl border-2 border-gray-100">
+              {/* Form header */}
+              <div class="text-center mb-6">
+                <div class="inline-flex items-center gap-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black px-6 py-3 rounded-full font-bold mb-4">
+                  <i class="fas fa-bolt"></i>
+                  <span>Reserve Your Spot Now</span>
+                </div>
+                <p class="text-gray-600 text-sm">
+                  Fill out the form below to get early access notifications and exclusive launch pricing
+                </p>
+              </div>
+
+              {/* GHL Form */}
+              <div style="min-height: 738px;">
+                <iframe
+                  src="https://api.leadconnectorhq.com/widget/form/xIZi4NsdZtwX8YAPfp6Z"
+                  style="width:100%;height:738px;border:none;border-radius:8px"
+                  id="inline-xIZi4NsdZtwX8YAPfp6Z" 
+                  data-form-name="Mogul Maker AI Coaching Waiting List Form"
+                  data-height="738"
+                  title="Mogul Maker AI Coaching Waiting List Form"
+                ></iframe>
+                <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+              </div>
+
+              {/* Trust badges */}
+              <div class="mt-6 pt-6 border-t border-gray-200">
+                <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-600">
+                  <div class="flex items-center gap-2">
+                    <i class="fas fa-lock text-green-600"></i>
+                    <span>100% Secure</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <i class="fas fa-envelope text-blue-600"></i>
+                    <span>No Spam Ever</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <i class="fas fa-gift text-yellow-600"></i>
+                    <span>Early Bird Pricing</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <p class="text-gray-500 text-sm mt-6 text-center">
-              🎉 <strong>Early Bird Bonus:</strong> First 100 members get 50% off first month ($23.50 instead of $47)
-            </p>
           </div>
         </div>
       </section>
 
-      {/* Need Human Support Section */}
+      {/* Your Complete Success Path Section */}
       <section class="bg-gradient-to-br from-black via-gray-900 to-black py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16">
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
-              Need <span class="text-yellow-400">Live Human Support?</span>
+              Your Complete <span class="text-yellow-400">Success Path</span>
             </h2>
             <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-              While our AI coaches provide instant guidance 24/7, sometimes you need direct human interaction and community support
+              From AI-powered coaching to live human support and elite networking—choose the level that fits your journey
             </p>
           </div>
 
-          <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* AI Coaches Card */}
-            <div class="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border-2 border-yellow-400/30">
-              <div class="text-center mb-6">
+          <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+            {/* Step 1: AI Coaches */}
+            <div class="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border-2 border-yellow-400/30 hover:border-yellow-400/60 transition relative">
+              <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <span class="bg-yellow-400 text-black px-4 py-1 rounded-full font-bold text-sm">STEP 1</span>
+              </div>
+              <div class="text-center mb-6 mt-4">
                 <div class="bg-yellow-400 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <i class="fas fa-robot text-black text-3xl"></i>
                 </div>
-                <h3 class="text-2xl font-bold text-white mb-3">Start with AI Coaches</h3>
-                <p class="text-gray-400">
-                  Get instant answers, strategies, and frameworks from Antonio's proven methodologies—available anytime, anywhere
+                <h3 class="text-2xl font-bold text-white mb-3">AI Coaches</h3>
+                <p class="text-gray-400 text-sm">
+                  Start here for instant, expert guidance on business fundamentals
                 </p>
               </div>
-              <ul class="space-y-3 mb-6 text-gray-300">
+              <ul class="space-y-3 mb-6 text-gray-300 text-sm">
                 <li class="flex items-start gap-3">
-                  <i class="fas fa-check text-yellow-400 mt-1"></i>
+                  <i class="fas fa-check text-yellow-400 mt-1 flex-shrink-0"></i>
                   <span>Instant responses 24/7</span>
                 </li>
                 <li class="flex items-start gap-3">
-                  <i class="fas fa-check text-yellow-400 mt-1"></i>
-                  <span>Unlimited questions</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <i class="fas fa-check text-yellow-400 mt-1"></i>
+                  <i class="fas fa-check text-yellow-400 mt-1 flex-shrink-0"></i>
                   <span>All 8 specialized coaches</span>
                 </li>
                 <li class="flex items-start gap-3">
-                  <i class="fas fa-check text-yellow-400 mt-1"></i>
-                  <span>$47/month or $470/year</span>
+                  <i class="fas fa-check text-yellow-400 mt-1 flex-shrink-0"></i>
+                  <span>Unlimited questions</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-yellow-400 mt-1 flex-shrink-0"></i>
+                  <span>Frameworks & templates</span>
                 </li>
               </ul>
+              <div class="bg-yellow-400/10 rounded-xl p-4 mb-4">
+                <div class="text-yellow-400 font-bold text-2xl mb-1">$47/mo</div>
+                <div class="text-gray-400 text-xs">or $470/year (save $94)</div>
+              </div>
+              <a href="#waitlist" class="block w-full bg-yellow-400 text-black px-6 py-3 rounded-full font-bold text-center hover:bg-yellow-300 transition">
+                Join Waitlist
+              </a>
             </div>
 
-            {/* Mogul Maker Academy Card */}
-            <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl p-8 shadow-2xl">
-              <div class="text-center mb-6">
+            {/* Step 2: Academy Live Coaching */}
+            <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl p-8 shadow-2xl relative">
+              <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <span class="bg-black text-yellow-400 px-4 py-1 rounded-full font-bold text-sm">STEP 2</span>
+              </div>
+              <div class="text-center mb-6 mt-4">
                 <div class="bg-black w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <i class="fas fa-graduation-cap text-yellow-400 text-3xl"></i>
                 </div>
-                <h3 class="text-2xl font-bold text-black mb-3">Mogul Maker Academy</h3>
-                <p class="text-gray-900 font-semibold">
-                  Join our community for live coaching, weekly calls, and direct access to Antonio Cook & Tashia Anderson
+                <h3 class="text-2xl font-bold text-black mb-3">Academy Coaching</h3>
+                <p class="text-black/70 text-sm font-semibold">
+                  Level up with live coaching from Antonio Cook & Tashia Anderson
                 </p>
               </div>
-              <ul class="space-y-3 mb-6 text-black">
+              <ul class="space-y-3 mb-6 text-black text-sm">
                 <li class="flex items-start gap-3">
-                  <i class="fas fa-check text-black mt-1"></i>
+                  <i class="fas fa-check text-black mt-1 flex-shrink-0"></i>
                   <span class="font-semibold">Live coaching sessions</span>
                 </li>
                 <li class="flex items-start gap-3">
-                  <i class="fas fa-check text-black mt-1"></i>
-                  <span class="font-semibold">Private community access</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <i class="fas fa-check text-black mt-1"></i>
+                  <i class="fas fa-check text-black mt-1 flex-shrink-0"></i>
                   <span class="font-semibold">Weekly Q&A calls</span>
                 </li>
                 <li class="flex items-start gap-3">
-                  <i class="fas fa-check text-black mt-1"></i>
+                  <i class="fas fa-check text-black mt-1 flex-shrink-0"></i>
+                  <span class="font-semibold">Personalized guidance</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-black mt-1 flex-shrink-0"></i>
                   <span class="font-semibold">Expert team support</span>
                 </li>
               </ul>
-              <a href="https://mogulmakeracademy.com" target="_blank" class="block w-full bg-black text-yellow-400 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-900 transition transform hover:scale-105 text-center">
+              <div class="bg-black/10 rounded-xl p-4 mb-4">
+                <div class="text-black font-bold text-lg mb-1">Custom Pricing</div>
+                <div class="text-black/60 text-xs">Multiple program tiers available</div>
+              </div>
+              <a href="https://mogulmakeracademy.com" target="_blank" class="block w-full bg-black text-yellow-400 px-6 py-3 rounded-full font-bold text-center hover:bg-gray-900 transition">
                 <i class="fas fa-graduation-cap mr-2"></i>
-                Visit Mogul Maker Academy
+                Explore Academy
+              </a>
+            </div>
+
+            {/* Step 3: Skool Community */}
+            <div class="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border-2 border-purple-400/30 hover:border-purple-400/60 transition relative">
+              <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <span class="bg-purple-500 text-white px-4 py-1 rounded-full font-bold text-sm">STEP 3</span>
+              </div>
+              <div class="text-center mb-6 mt-4">
+                <div class="bg-purple-500 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <i class="fas fa-users text-white text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-3">Skool Community</h3>
+                <p class="text-gray-400 text-sm">
+                  Network with elite entrepreneurs, investors, and industry leaders
+                </p>
+              </div>
+              <ul class="space-y-3 mb-6 text-gray-300 text-sm">
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-purple-400 mt-1 flex-shrink-0"></i>
+                  <span>Network with entrepreneurs</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-purple-400 mt-1 flex-shrink-0"></i>
+                  <span>Connect with investors & funders</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-purple-400 mt-1 flex-shrink-0"></i>
+                  <span>Banking professionals access</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-purple-400 mt-1 flex-shrink-0"></i>
+                  <span>Celebrity member network</span>
+                </li>
+              </ul>
+              <div class="bg-purple-500/10 rounded-xl p-4 mb-4">
+                <div class="text-purple-400 font-bold text-lg mb-1">Included</div>
+                <div class="text-gray-400 text-xs">with Academy membership</div>
+              </div>
+              <a href="https://mogulmakeracademy.com" target="_blank" class="block w-full bg-purple-500 text-white px-6 py-3 rounded-full font-bold text-center hover:bg-purple-600 transition">
+                <i class="fas fa-users mr-2"></i>
+                Join Network
               </a>
             </div>
           </div>
 
           <div class="text-center mt-12">
-            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-              <strong class="text-white">Pro Tip:</strong> Many successful entrepreneurs start with AI coaches for immediate guidance, 
-              then join the Academy when they're ready for live community support and personalized attention.
+            <p class="text-gray-400 text-lg max-w-3xl mx-auto">
+              <strong class="text-white">Recommended Path:</strong> Start with AI Coaches for immediate guidance ($47/mo) → 
+              Upgrade to Academy for live coaching when ready → Access Skool Community for elite networking and connections with investors, 
+              banking professionals, and celebrity entrepreneurs.
             </p>
           </div>
         </div>
