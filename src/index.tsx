@@ -436,7 +436,7 @@ app.get('/', (c) => {
               <div class="text-gray-600 text-sm">Funding Secured</div>
             </div>
             <div class="text-center">
-              <div class="text-4xl md:text-5xl font-bold text-yellow-600 mb-2">10K+</div>
+              <div class="text-4xl md:text-5xl font-bold text-yellow-600 mb-2">1K+</div>
               <div class="text-gray-600 text-sm">Entrepreneurs Helped</div>
             </div>
           </div>
