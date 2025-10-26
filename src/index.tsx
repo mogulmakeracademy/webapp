@@ -1071,6 +1071,148 @@ app.get('/speaking', (c) => {
         </div>
       </section>
 
+      {/* Freedom Writers Background Section */}
+      <section class="bg-gradient-to-br from-gray-900 via-black to-gray-900 py-20 border-t border-yellow-400/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            {/* Content */}
+            <div class="text-white">
+              <div class="inline-block bg-yellow-400/20 text-yellow-400 px-4 py-2 rounded-full mb-6 text-sm font-semibold">
+                <i class="fas fa-book-open mr-2"></i>
+                ORIGINAL FREEDOM WRITER - CLASSROOM 203
+              </div>
+              <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                From <span class="text-yellow-400">Freedom Writer</span> to Entrepreneur Educator
+              </h2>
+              <p class="text-xl text-gray-300 mb-6 leading-relaxed">
+                As one of the original students from <strong>Classroom 203</strong> with Erin Gruwell, 
+                I learned firsthand the transformative power of education, hope, and second chances.
+              </p>
+              <p class="text-lg text-gray-400 mb-6 leading-relaxed">
+                The Freedom Writers story—documented in the New York Times bestseller 
+                <em>"The Freedom Writers Diary"</em> and the 2007 film starring Hilary Swank—
+                taught me that your past doesn't define your future. Now, I bring that same message 
+                of transformation to entrepreneurs around the world.
+              </p>
+              
+              {/* Key Achievements */}
+              <div class="space-y-4 mb-8">
+                <div class="flex items-start gap-3">
+                  <div class="bg-yellow-400 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <i class="fas fa-check text-black text-sm"></i>
+                  </div>
+                  <div>
+                    <p class="text-white font-semibold">Original Freedom Writer Student</p>
+                    <p class="text-gray-400 text-sm">Classroom 203 with Erin Gruwell, Long Beach, CA</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="bg-yellow-400 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <i class="fas fa-check text-black text-sm"></i>
+                  </div>
+                  <div>
+                    <p class="text-white font-semibold">Met Miep Gies</p>
+                    <p class="text-gray-400 text-sm">Hero who sheltered Anne Frank during WWII</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="bg-yellow-400 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <i class="fas fa-check text-black text-sm"></i>
+                  </div>
+                  <div>
+                    <p class="text-white font-semibold">Featured in NYT Bestseller</p>
+                    <p class="text-gray-400 text-sm">"The Freedom Writers Diary" (1999)</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="bg-yellow-400 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <i class="fas fa-check text-black text-sm"></i>
+                  </div>
+                  <div>
+                    <p class="text-white font-semibold">Continuing the Legacy</p>
+                    <p class="text-gray-400 text-sm">Teaching tolerance, hope, and transformation through entrepreneurship</p>
+                  </div>
+                </div>
+              </div>
+
+              <a href="https://freedomwritersfoundation.org/" target="_blank" class="inline-flex items-center gap-2 bg-yellow-400 text-black px-6 py-3 rounded-full font-bold hover:bg-yellow-300 transition transform hover:scale-105">
+                <i class="fas fa-external-link-alt"></i>
+                Learn About Freedom Writers
+              </a>
+            </div>
+
+            {/* Image Carousel */}
+            <div class="relative">
+              <div class="freedom-writers-carousel relative overflow-hidden rounded-2xl shadow-2xl border-4 border-yellow-400/20">
+                <div class="carousel-images relative" style="height: 500px;">
+                  <div class="carousel-slide active absolute inset-0 transition-opacity duration-500">
+                    <img 
+                      src="https://page.gensparksite.com/v1/base64_upload/16037bab0b0477b1c1d28c3e133bf481" 
+                      alt="With Miep Gies - Hero who sheltered Anne Frank"
+                      class="w-full h-full object-cover"
+                    />
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                      <p class="text-white font-semibold text-lg">With Miep Gies</p>
+                      <p class="text-gray-300 text-sm">Hero who sheltered Anne Frank during WWII</p>
+                    </div>
+                  </div>
+                  <div class="carousel-slide absolute inset-0 transition-opacity duration-500 opacity-0">
+                    <img 
+                      src="https://page.gensparksite.com/v1/base64_upload/10806dcfc4998778b8709348a99c797b" 
+                      alt="Freedom Writers - Classroom 203 memories"
+                      class="w-full h-full object-cover"
+                    />
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                      <p class="text-white font-semibold text-lg">Freedom Writers Legacy</p>
+                      <p class="text-gray-300 text-sm">Memories from Classroom 203 and media coverage</p>
+                    </div>
+                  </div>
+                  <div class="carousel-slide absolute inset-0 transition-opacity duration-500 opacity-0">
+                    <img 
+                      src="https://page.gensparksite.com/v1/base64_upload/07bb5f777df77eddc234b0fbc2f0e80f" 
+                      alt="With Erin Gruwell - Freedom Writers Teacher"
+                      class="w-full h-full object-cover"
+                    />
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                      <p class="text-white font-semibold text-lg">With Erin Gruwell</p>
+                      <p class="text-gray-300 text-sm">Teacher who changed our lives through the power of writing</p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Carousel Controls */}
+                <button class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 bg-yellow-400/90 hover:bg-yellow-400 text-black w-12 h-12 rounded-full flex items-center justify-center transition z-10">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-next absolute right-4 top-1/2 -translate-y-1/2 bg-yellow-400/90 hover:bg-yellow-400 text-black w-12 h-12 rounded-full flex items-center justify-center transition z-10">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                {/* Carousel Indicators */}
+                <div class="absolute bottom-20 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                  <button class="carousel-indicator active w-3 h-3 rounded-full bg-yellow-400" data-slide="0"></button>
+                  <button class="carousel-indicator w-3 h-3 rounded-full bg-white/50" data-slide="1"></button>
+                  <button class="carousel-indicator w-3 h-3 rounded-full bg-white/50" data-slide="2"></button>
+                </div>
+              </div>
+
+              {/* Book Reference */}
+              <div class="mt-6 bg-white/5 backdrop-blur-sm border border-yellow-400/20 rounded-xl p-4">
+                <div class="flex items-center gap-3">
+                  <div class="bg-yellow-400 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-book text-black text-xl"></i>
+                  </div>
+                  <div>
+                    <p class="text-white font-bold text-sm">The Freedom Writers Diary</p>
+                    <p class="text-gray-400 text-xs">New York Times Bestseller (1999)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Breadcrumb Navigation */}
       <nav class="bg-white py-4 border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1389,6 +1531,83 @@ app.get('/speaking', (c) => {
               closeMobileMenu();
             }
           });
+
+          // Freedom Writers Carousel
+          const carousel = document.querySelector('.freedom-writers-carousel');
+          if (carousel) {
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            const prevBtn = carousel.querySelector('.carousel-prev');
+            const nextBtn = carousel.querySelector('.carousel-next');
+            const indicators = carousel.querySelectorAll('.carousel-indicator');
+            let currentSlide = 0;
+            let autoplayInterval;
+
+            function showSlide(index) {
+              // Remove active class from all slides and indicators
+              slides.forEach(slide => {
+                slide.classList.remove('active');
+                slide.style.opacity = '0';
+              });
+              indicators.forEach(indicator => {
+                indicator.classList.remove('active');
+                indicator.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
+              });
+
+              // Add active class to current slide and indicator
+              slides[index].classList.add('active');
+              slides[index].style.opacity = '1';
+              indicators[index].classList.add('active');
+              indicators[index].style.backgroundColor = '#FBBF24';
+              
+              currentSlide = index;
+            }
+
+            function nextSlide() {
+              const next = (currentSlide + 1) % slides.length;
+              showSlide(next);
+            }
+
+            function prevSlide() {
+              const prev = (currentSlide - 1 + slides.length) % slides.length;
+              showSlide(prev);
+            }
+
+            // Event listeners
+            if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+            if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+
+            // Indicator clicks
+            indicators.forEach((indicator, index) => {
+              indicator.addEventListener('click', () => showSlide(index));
+            });
+
+            // Auto-play carousel
+            function startAutoplay() {
+              autoplayInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+            }
+
+            function stopAutoplay() {
+              if (autoplayInterval) {
+                clearInterval(autoplayInterval);
+              }
+            }
+
+            // Start autoplay
+            startAutoplay();
+
+            // Pause on hover
+            carousel.addEventListener('mouseenter', stopAutoplay);
+            carousel.addEventListener('mouseleave', startAutoplay);
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+              if (e.key === 'ArrowLeft') prevSlide();
+              if (e.key === 'ArrowRight') nextSlide();
+            });
+
+            // Initialize first slide
+            showSlide(0);
+          }
         });
       `}} />
     </div>,
