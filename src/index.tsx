@@ -1515,7 +1515,7 @@ app.get('/speaking', (c) => {
                 </div>
 
                 <a 
-                  href="YOUR_SPEAKING_CALENDAR_LINK_HERE" 
+                  href="https://api.leadconnectorhq.com/widget/booking/Z7QykcQNZ9feGnb8HaVq" 
                   target="_blank"
                   class="block w-full bg-yellow-400 text-black text-center px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition transform hover:scale-105"
                 >
@@ -1575,7 +1575,7 @@ app.get('/speaking', (c) => {
                 </div>
 
                 <a 
-                  href="https://calendly.com/coachcook" 
+                  href="https://calendly.com/mrmogulmaker-44" 
                   target="_blank"
                   class="block w-full bg-black text-yellow-400 text-center px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-900 transition transform hover:scale-105"
                 >
