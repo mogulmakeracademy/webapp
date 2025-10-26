@@ -1361,22 +1361,239 @@ app.get('/speaking', (c) => {
         </div>
       </section>
 
-      {/* Calendly Booking Section */}
-      <section id="booking" class="bg-white py-24">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Featured In Media - Yahoo Finance */}
+      <section class="bg-white py-20 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-12">
-            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Book Antonio for Your <span class="text-yellow-400">Event</span>
+            <div class="inline-block bg-yellow-400/20 text-yellow-400 px-4 py-2 rounded-full mb-4 text-sm font-semibold">
+              <i class="fas fa-newspaper mr-2"></i>
+              AS FEATURED IN
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Recognized by <span class="text-yellow-400">Major Media</span>
             </h2>
-            <p class="text-xl text-gray-600">
-              Schedule a call to discuss your event, audience, and how we can create maximum impact together.
+          </div>
+
+          <div class="max-w-4xl mx-auto">
+            <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl overflow-hidden shadow-2xl border border-gray-200">
+              <div class="grid md:grid-cols-2 gap-0">
+                {/* Image */}
+                <div class="relative h-64 md:h-auto">
+                  <img 
+                    src="https://page.gensparksite.com/v1/base64_upload/cd60053dc8442f7743d17e9435f874a2" 
+                    alt="Antonio Cook - Yahoo Finance Top Business Professionals 2021"
+                    class="w-full h-full object-cover"
+                  />
+                  <div class="absolute top-4 left-4 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                    YAHOO FINANCE
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div class="p-8 flex flex-col justify-center">
+                  <div class="mb-4">
+                    <svg class="h-8 w-auto mb-4" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+                      <text x="0" y="35" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#5F01D1">yahoo!</text>
+                      <text x="105" y="35" font-family="Arial, sans-serif" font-size="16" fill="#000">finance</text>
+                    </svg>
+                  </div>
+                  <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                    Top Business Professionals to Follow in 2021
+                  </h3>
+                  <p class="text-gray-600 mb-4 leading-relaxed">
+                    Featured alongside industry leaders as a top business professional making waves in entrepreneurship, 
+                    financial education, and business credit mastery.
+                  </p>
+                  <div class="flex items-center gap-2 text-sm text-gray-500 mb-6">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>December 30, 2020</span>
+                    <span class="mx-2">•</span>
+                    <span>37-min read</span>
+                  </div>
+                  <a 
+                    href="https://finance.yahoo.com/news/top-business-professionals-follow-2021-160500406.html" 
+                    target="_blank" 
+                    class="inline-flex items-center gap-2 bg-yellow-400 text-black px-6 py-3 rounded-full font-bold hover:bg-yellow-300 transition transform hover:scale-105 w-fit"
+                  >
+                    <i class="fas fa-external-link-alt"></i>
+                    Read Full Article
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Additional Media Badges */}
+          <div class="mt-12 text-center">
+            <p class="text-gray-500 text-sm mb-4">TRUSTED BY ENTREPRENEURS WORLDWIDE</p>
+            <div class="flex flex-wrap justify-center items-center gap-8">
+              <div class="text-gray-400">
+                <i class="fas fa-users text-3xl mb-2"></i>
+                <p class="text-sm font-semibold text-gray-900">10,000+</p>
+                <p class="text-xs">Entrepreneurs Helped</p>
+              </div>
+              <div class="text-gray-400">
+                <i class="fas fa-dollar-sign text-3xl mb-2"></i>
+                <p class="text-sm font-semibold text-gray-900">$10M+</p>
+                <p class="text-xs">Funding Secured</p>
+              </div>
+              <div class="text-gray-400">
+                <i class="fas fa-chart-line text-3xl mb-2"></i>
+                <p class="text-sm font-semibold text-gray-900">500+</p>
+                <p class="text-xs">Success Stories</p>
+              </div>
+              <div class="text-gray-400">
+                <i class="fas fa-star text-3xl mb-2"></i>
+                <p class="text-sm font-semibold text-gray-900">4.9/5</p>
+                <p class="text-xs">Client Rating</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Dual Booking Options Section */}
+      <section id="booking" class="bg-gradient-to-br from-gray-50 to-gray-100 py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Let's Work <span class="text-yellow-400">Together</span>
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+              Choose the option that best fits your needs
             </p>
           </div>
 
-          {/* Calendly Embed */}
-          <div class="bg-gray-50 rounded-3xl p-8 shadow-xl">
-            <div class="calendly-inline-widget" data-url="https://calendly.com/mrmogulmaker-44?hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
-            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+          <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {/* Speaking Event Booking */}
+            <div class="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition border-2 border-yellow-400/20 hover:border-yellow-400">
+              <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 p-8 text-black">
+                <div class="bg-black w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                  <i class="fas fa-microphone-alt text-yellow-400 text-2xl"></i>
+                </div>
+                <h3 class="text-3xl font-bold mb-2">Book Me to Speak</h3>
+                <p class="text-black/80 font-semibold">Corporate Events, Conferences & Workshops</p>
+              </div>
+              
+              <div class="p-8">
+                <ul class="space-y-4 mb-8">
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-yellow-400 text-xl mt-1"></i>
+                    <div>
+                      <p class="font-semibold text-gray-900">Keynote Speaking</p>
+                      <p class="text-sm text-gray-600">Dynamic presentations for your event</p>
+                    </div>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-yellow-400 text-xl mt-1"></i>
+                    <div>
+                      <p class="font-semibold text-gray-900">Workshop Facilitation</p>
+                      <p class="text-sm text-gray-600">Interactive training sessions</p>
+                    </div>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-yellow-400 text-xl mt-1"></i>
+                    <div>
+                      <p class="font-semibold text-gray-900">Panel Discussions</p>
+                      <p class="text-sm text-gray-600">Expert commentary and insights</p>
+                    </div>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-yellow-400 text-xl mt-1"></i>
+                    <div>
+                      <p class="font-semibold text-gray-900">Custom Programs</p>
+                      <p class="text-sm text-gray-600">Tailored to your audience needs</p>
+                    </div>
+                  </li>
+                </ul>
+
+                <div class="bg-yellow-50 rounded-2xl p-6 mb-6">
+                  <p class="text-sm text-gray-700 mb-4">
+                    <i class="fas fa-info-circle text-yellow-600 mr-2"></i>
+                    <strong>Perfect for:</strong> Conferences, corporate events, association meetings, workshops, and entrepreneurial gatherings.
+                  </p>
+                </div>
+
+                <a 
+                  href="YOUR_SPEAKING_CALENDAR_LINK_HERE" 
+                  target="_blank"
+                  class="block w-full bg-yellow-400 text-black text-center px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition transform hover:scale-105"
+                >
+                  <i class="fas fa-calendar-check mr-2"></i>
+                  Book Speaking Engagement
+                </a>
+              </div>
+            </div>
+
+            {/* Strategy Session Booking */}
+            <div class="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition border-2 border-gray-200 hover:border-yellow-400">
+              <div class="bg-gradient-to-br from-black to-gray-900 p-8 text-white">
+                <div class="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                  <i class="fas fa-user-tie text-black text-2xl"></i>
+                </div>
+                <h3 class="text-3xl font-bold mb-2">Strategy Session</h3>
+                <p class="text-gray-300">One-on-One Consultation & Coaching</p>
+              </div>
+              
+              <div class="p-8">
+                <ul class="space-y-4 mb-8">
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-yellow-400 text-xl mt-1"></i>
+                    <div>
+                      <p class="font-semibold text-gray-900">Business Credit Strategy</p>
+                      <p class="text-sm text-gray-600">Personalized credit building plan</p>
+                    </div>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-yellow-400 text-xl mt-1"></i>
+                    <div>
+                      <p class="font-semibold text-gray-900">Funding Roadmap</p>
+                      <p class="text-sm text-gray-600">Capital raising strategy session</p>
+                    </div>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-yellow-400 text-xl mt-1"></i>
+                    <div>
+                      <p class="font-semibold text-gray-900">Business Structuring</p>
+                      <p class="text-sm text-gray-600">Entity setup and optimization</p>
+                    </div>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-yellow-400 text-xl mt-1"></i>
+                    <div>
+                      <p class="font-semibold text-gray-900">Growth Coaching</p>
+                      <p class="text-sm text-gray-600">Scale your business effectively</p>
+                    </div>
+                  </li>
+                </ul>
+
+                <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+                  <p class="text-sm text-gray-700 mb-4">
+                    <i class="fas fa-info-circle text-gray-600 mr-2"></i>
+                    <strong>Perfect for:</strong> Entrepreneurs seeking personalized guidance, business credit coaching, or funding strategy consultation.
+                  </p>
+                </div>
+
+                <a 
+                  href="https://calendly.com/coachcook" 
+                  target="_blank"
+                  class="block w-full bg-black text-yellow-400 text-center px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-900 transition transform hover:scale-105"
+                >
+                  <i class="fas fa-calendar-alt mr-2"></i>
+                  Schedule Consultation
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Additional Info */}
+          <div class="mt-12 text-center max-w-3xl mx-auto">
+            <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
+              <p class="text-gray-700">
+                <i class="fas fa-question-circle text-yellow-400 mr-2"></i>
+                <strong>Not sure which option is right for you?</strong> Book a strategy session first, and we can discuss speaking opportunities during our call.
+              </p>
+            </div>
           </div>
         </div>
       </section>
