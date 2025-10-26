@@ -25,7 +25,7 @@ app.get('/', (c) => {
               <a href="/speaking" class="text-white hover:text-yellow-400 transition">Speaking</a>
               <a href="/blog" class="text-white hover:text-yellow-400 transition">Blog</a>
               <a href="/#programs" class="text-white hover:text-yellow-400 transition">Programs</a>
-              <a href="/shop" class="text-white hover:text-yellow-400 transition">
+              <a href="https://shop.mrmogulmaker.com/shop" class="text-white hover:text-yellow-400 transition">
                 <i class="fas fa-shopping-bag mr-2"></i>Shop
               </a>
             </div>
@@ -43,7 +43,7 @@ app.get('/', (c) => {
           <a href="/speaking" class="text-white text-2xl hover:text-yellow-400 transition">Speaking</a>
           <a href="/blog" class="text-white text-2xl hover:text-yellow-400 transition">Blog</a>
           <a href="/#programs" class="text-white text-2xl hover:text-yellow-400 transition">Programs</a>
-          <a href="/shop" class="text-white text-2xl hover:text-yellow-400 transition">
+          <a href="https://shop.mrmogulmaker.com/shop" class="text-white text-2xl hover:text-yellow-400 transition">
             <i class="fas fa-shopping-bag mr-2"></i>Shop
           </a>
         </div>
@@ -959,6 +959,1004 @@ app.get('/shop', (c) => {
 // - GHL handles all shop functionality (cart, checkout, products)
 
 
+
+// Speaking/Booking Page Route
+app.get('/speaking', (c) => {
+        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+          <div class="p-8">
+            <div class="flex justify-between items-center mb-6">
+              <h2 class="text-3xl font-bold text-gray-900">
+                <i class="fas fa-shopping-cart text-yellow-400 mr-2"></i>
+                Your Cart
+              </h2>
+              <button id="close-cart" class="text-gray-500 hover:text-gray-900 text-2xl">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+            
+            <div id="cart-items" class="space-y-4 mb-6">
+              {/* Cart items will be inserted here by JavaScript */}
+            </div>
+            
+            <div id="empty-cart" class="text-center py-12">
+              <i class="fas fa-shopping-cart text-gray-300 text-6xl mb-4"></i>
+              <p class="text-gray-500 text-xl">Your cart is empty</p>
+            </div>
+            
+            <div id="cart-summary" class="hidden border-t pt-6">
+              <div class="flex justify-between items-center mb-6">
+                <span class="text-2xl font-bold text-gray-900">Total:</span>
+                <span id="cart-total" class="text-3xl font-bold text-yellow-400">$0.00</span>
+              </div>
+              <button id="checkout-btn" class="w-full bg-yellow-400 text-black py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition transform hover:scale-105">
+                <i class="fas fa-lock mr-2"></i>
+                Proceed to Checkout
+              </button>
+              <p class="text-center text-sm text-gray-500 mt-4">
+                <i class="fas fa-shield-alt mr-1"></i>
+                Secure payment powered by Stripe
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Product Detail Modal */}
+      <div id="product-modal" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+          <div class="p-8">
+            <div class="flex justify-between items-start mb-6">
+              <h2 id="modal-title" class="text-3xl font-bold text-gray-900"></h2>
+              <button id="close-modal" class="text-gray-500 hover:text-gray-900 text-2xl">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+              <div>
+                <div id="modal-image" class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl aspect-square flex items-center justify-center mb-4">
+                  <i class="fas fa-file-pdf text-white text-8xl"></i>
+                </div>
+                <div id="modal-features" class="space-y-2">
+                  {/* Features will be inserted here */}
+                </div>
+              </div>
+              
+              <div>
+                <div class="mb-6">
+                  <span id="modal-price" class="text-4xl font-bold text-yellow-400"></span>
+                </div>
+                <p id="modal-description" class="text-gray-600 mb-6"></p>
+                <div id="modal-includes" class="bg-gray-50 rounded-2xl p-6 mb-6">
+                  <h4 class="font-bold text-lg mb-3">What's Included:</h4>
+                  <ul id="modal-includes-list" class="space-y-2">
+                    {/* Includes will be inserted here */}
+                  </ul>
+                </div>
+                <button id="modal-add-to-cart" class="w-full bg-yellow-400 text-black py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition transform hover:scale-105 mb-3">
+                  <i class="fas fa-shopping-cart mr-2"></i>
+                  Add to Cart
+                </button>
+                <button id="modal-buy-now" class="w-full border-2 border-yellow-400 text-yellow-400 py-4 rounded-full font-bold text-lg hover:bg-yellow-400 hover:text-black transition">
+                  <i class="fas fa-bolt mr-2"></i>
+                  Buy Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Hero Section */}
+      <section class="relative bg-gradient-to-br from-black via-gray-900 to-black pt-32 pb-16">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmRiNGQiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLjktMiAyLTJoNGMxLjEgMCAyIC45IDIgMnY0YzAgMS4xLS45IDItMiAyaC00Yy0xLjEgMC0yLS45LTItMnYtNHptMCAxOGMwLTEuMS45LTIgMi0yaDRjMS4xIDAgMiAuOSAyIDJ2NGMwIDEuMS0uOSAyLTIgMmgtNGMtMS4xIDAtMi0uOS0yLTJ2LTR6bTE4IDBjMC0xLjEuOS0yIDItMmg0YzEuMSAwIDIgLjkgMiAydjRjMCAxLjEtLjkgMi0yIDJoLTRjLTEuMSAwLTItLjktMi0ydi00eiIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <div class="inline-block bg-yellow-400/20 text-yellow-400 px-6 py-3 rounded-full mb-6">
+            <i class="fas fa-store mr-2"></i>
+            Digital Products Store
+          </div>
+          <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+            Business Credit <span class="text-yellow-400">Courses & Templates</span>
+          </h1>
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+            Premium digital products designed to help you build business credit, secure funding, and multiply your wealth.
+          </p>
+        </div>
+      </section>
+
+      {/* Breadcrumb Navigation */}
+      <nav class="bg-white py-4 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ol class="flex items-center space-x-2 text-sm">
+            <li>
+              <a href="/" class="text-gray-600 hover:text-yellow-400 transition">
+                <i class="fas fa-home mr-1"></i>
+                Home
+              </a>
+            </li>
+            <li class="text-gray-400">
+              <i class="fas fa-chevron-right text-xs"></i>
+            </li>
+            <li class="text-gray-900 font-semibold">
+              Shop
+            </li>
+          </ol>
+        </div>
+      </nav>
+
+      {/* Filter Section */}
+      <section class="bg-gray-100 py-8 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-wrap gap-4 justify-center">
+            <button class="filter-btn active bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-300 transition" data-filter="all">
+              All Products
+            </button>
+            <button class="filter-btn bg-white text-gray-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition border-2 border-gray-200" data-filter="courses">
+              Courses
+            </button>
+            <button class="filter-btn bg-white text-gray-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition border-2 border-gray-200" data-filter="templates">
+              Templates
+            </button>
+            <button class="filter-btn bg-white text-gray-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition border-2 border-gray-200" data-filter="guides">
+              Guides
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Products Grid */}
+      <section class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div id="products-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Products will be inserted here by JavaScript */}
+          </div>
+        </div>
+      </section>
+
+      {/* GHL Full Store Section */}
+      <section class="bg-gray-50 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Complete <span class="text-yellow-400">Product Catalog</span>
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+              Browse our full collection of digital products, courses, templates, and guides. 
+              Add multiple items to your cart and checkout securely.
+            </p>
+          </div>
+
+          {/* GHL Store Embed */}
+          <div class="bg-white rounded-3xl shadow-2xl overflow-hidden">
+            <iframe
+              src="https://mrmogulmaker.com/products-list-3123"
+              style="width:100%;min-height:2000px;border:none;"
+              id="ghl-store-iframe"
+              title="Mr. Mogul Maker Store"
+              scrolling="yes"
+            ></iframe>
+          </div>
+
+          {/* Store Features */}
+          <div class="grid md:grid-cols-3 gap-6 mt-12">
+            <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl p-6 text-center">
+              <i class="fas fa-shopping-cart text-black text-4xl mb-3"></i>
+              <h3 class="text-xl font-bold text-black mb-2">Full Shopping Cart</h3>
+              <p class="text-gray-900">Add multiple products and checkout together</p>
+            </div>
+            <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl p-6 text-center">
+              <i class="fas fa-tags text-black text-4xl mb-3"></i>
+              <h3 class="text-xl font-bold text-black mb-2">Coupon Codes</h3>
+              <p class="text-gray-900">Apply discount codes at checkout</p>
+            </div>
+            <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl p-6 text-center">
+              <i class="fas fa-lock text-black text-4xl mb-3"></i>
+              <h3 class="text-xl font-bold text-black mb-2">Secure Payment</h3>
+              <p class="text-gray-900">Protected checkout via Stripe</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Section */}
+      <section class="bg-gradient-to-br from-black to-gray-900 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid md:grid-cols-3 gap-8 text-center text-white">
+            <div>
+              <i class="fas fa-shield-alt text-yellow-400 text-4xl mb-4"></i>
+              <h3 class="text-xl font-bold mb-2">Secure Payment</h3>
+              <p class="text-gray-400">Protected by Stripe encryption</p>
+            </div>
+            <div>
+              <i class="fas fa-download text-yellow-400 text-4xl mb-4"></i>
+              <h3 class="text-xl font-bold mb-2">Instant Access</h3>
+              <p class="text-gray-400">Download immediately after purchase</p>
+            </div>
+            <div>
+              <i class="fas fa-headset text-yellow-400 text-4xl mb-4"></i>
+              <h3 class="text-xl font-bold mb-2">Expert Support</h3>
+              <p class="text-gray-400">Get help from Mr. Mogul Maker</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer class="bg-black text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid md:grid-cols-4 gap-8 mb-8">
+            <div class="md:col-span-2">
+              <div class="flex items-center gap-3 mb-4">
+                <img src="/mr-mogul-maker-logo.png" alt="Mr Mogul Maker Logo" class="h-16 w-16" />
+                <h3 class="text-2xl font-bold text-yellow-400">Mr. Mogul Maker</h3>
+              </div>
+              <p class="text-gray-400 mb-4">
+                Empowering entrepreneurs with financial literacy, business credit strategies, and wealth-building education.
+              </p>
+              <div class="flex gap-4">
+                <a href="https://www.youtube.com/@mrmogulmaker" target="_blank" class="text-white hover:text-yellow-400 transition text-xl">
+                  <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.instagram.com/mrmogulmaker/" target="_blank" class="text-white hover:text-yellow-400 transition text-xl">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/mrmogulmakerceo" target="_blank" class="text-white hover:text-yellow-400 transition text-xl">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.tiktok.com/@mrmogulmaker" target="_blank" class="text-white hover:text-yellow-400 transition text-xl">
+                  <i class="fab fa-tiktok"></i>
+                </a>
+              </div>
+            </div>
+            
+            <div>
+              <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+              <ul class="space-y-2 text-gray-400">
+                <li><a href="/" class="hover:text-yellow-400 transition">Home</a></li>
+                <li><a href="/shop" class="hover:text-yellow-400 transition">Shop</a></li>
+                <li><a href="/#programs" class="hover:text-yellow-400 transition">Programs</a></li>
+                <li><a href="/#podcasts" class="hover:text-yellow-400 transition">Podcasts</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 class="font-bold text-lg mb-4">Support</h4>
+              <ul class="space-y-2 text-gray-400">
+                <li><a href="#" class="hover:text-yellow-400 transition">Refund Policy</a></li>
+                <li><a href="#" class="hover:text-yellow-400 transition">Terms of Service</a></li>
+                <li><a href="#" class="hover:text-yellow-400 transition">Privacy Policy</a></li>
+                <li><a href="#" class="hover:text-yellow-400 transition">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+            <p>&copy; 2025 Mr. Mogul Maker | Antonio Cook. All rights reserved.</p>
+            <p class="mt-2 text-yellow-400 font-semibold">Money Follows Management™</p>
+          </div>
+        </div>
+      </footer>
+
+      {/* JavaScript for Shop Functionality */}
+      <script dangerouslySetInnerHTML={{__html: `
+        // Product Data
+        // GHL INTEGRATION: Add your GoHighLevel order form URLs to the 'ghlCheckoutUrl' field
+        // Example: ghlCheckoutUrl: "https://your-ghl-domain.com/order-form/your-product-id"
+        const products = [
+          {
+            id: 1,
+            name: "Business Credit Blueprint",
+            price: 297,
+            category: "courses",
+            description: "Complete step-by-step course on building business credit from scratch. Learn the exact strategies used by successful entrepreneurs.",
+            image: "file-pdf",
+            features: ["10+ Video Lessons", "Downloadable Templates", "Lifetime Access"],
+            includes: [
+              "Step-by-step video training",
+              "Business credit checklist",
+              "Vendor list (Net-30 accounts)",
+              "Credit monitoring tools",
+              "Email support"
+            ],
+            ghlCheckoutUrl: "" // Add your GHL order form URL here
+          },
+          {
+            id: 2,
+            name: "Funding Success System",
+            price: 497,
+            category: "courses",
+            description: "Master the art of securing business funding. Get access to funding sources, application strategies, and insider tips.",
+            image: "chart-line",
+            features: ["15+ Video Modules", "Funding Templates", "Private Community"],
+            includes: [
+              "Comprehensive video course",
+              "Funding application templates",
+              "List of 50+ funding sources",
+              "Pitch deck template",
+              "1-on-1 consultation call"
+            ],
+            ghlCheckoutUrl: "" // Add your GHL order form URL here
+          },
+          {
+            id: 3,
+            name: "LLC Formation Guide",
+            price: 97,
+            category: "guides",
+            description: "Everything you need to properly form and structure your LLC. Includes state-specific guidance and templates.",
+            image: "building",
+            features: ["PDF Guide", "Forms & Templates", "State Requirements"],
+            includes: [
+              "50-page comprehensive guide",
+              "LLC operating agreement template",
+              "EIN application walkthrough",
+              "State filing checklists",
+              "Business structure comparison"
+            ],
+            ghlCheckoutUrl: "" // Add your GHL order form URL here
+          },
+          {
+            id: 4,
+            name: "Credit Repair Templates",
+            price: 147,
+            category: "templates",
+            description: "Professional dispute letters and credit repair templates. Remove negative items and boost your credit score.",
+            image: "file-alt",
+            features: ["20+ Templates", "Letter Library", "Instructions"],
+            includes: [
+              "Dispute letter templates",
+              "Goodwill adjustment letters",
+              "Verification request forms",
+              "Credit bureau contact info",
+              "Usage instructions"
+            ],
+            ghlCheckoutUrl: "" // Add your GHL order form URL here
+          },
+          {
+            id: 5,
+            name: "Business Plan Template",
+            price: 127,
+            category: "templates",
+            description: "Professional business plan template used by funded businesses. Includes financial projections and market analysis.",
+            image: "file-invoice",
+            features: ["Editable Template", "Financial Models", "Examples"],
+            includes: [
+              "Complete business plan template",
+              "Financial projection spreadsheet",
+              "Market analysis template",
+              "Sample business plans",
+              "Video tutorial"
+            ],
+            ghlCheckoutUrl: "" // Add your GHL order form URL here
+          },
+          {
+            id: 6,
+            name: "Wealth Multiplication Masterclass",
+            price: 697,
+            category: "courses",
+            description: "Advanced strategies for multiplying wealth through investments, acquisitions, and passive income streams.",
+            image: "coins",
+            features: ["20+ Hours Content", "Investment Tools", "Private Coaching"],
+            includes: [
+              "Complete video masterclass",
+              "Investment calculator tools",
+              "Passive income playbook",
+              "Acquisition checklist",
+              "Monthly group coaching",
+              "Lifetime updates"
+            ],
+            ghlCheckoutUrl: "" // Add your GHL order form URL here
+          },
+          {
+            id: 7,
+            name: "Credit Score Optimization",
+            price: 197,
+            category: "guides",
+            description: "Learn how to optimize your credit score to 750+. Understand credit algorithms and scoring factors.",
+            image: "chart-bar",
+            features: ["Video + PDF", "Score Simulator", "Action Plan"],
+            includes: [
+              "Credit optimization course",
+              "Score improvement action plan",
+              "Credit utilization calculator",
+              "Payment history tracker",
+              "Monthly credit tips newsletter"
+            ],
+            ghlCheckoutUrl: "" // Add your GHL order form URL here
+          },
+          {
+            id: 8,
+            name: "Funding Application Bundle",
+            price: 247,
+            category: "templates",
+            description: "Complete collection of funding applications, forms, and supporting documents ready to use.",
+            image: "folder-open",
+            features: ["30+ Templates", "Bank Applications", "SBA Forms"],
+            includes: [
+              "Bank loan applications",
+              "SBA loan forms",
+              "Business financial statements",
+              "Personal financial statement",
+              "Supporting documents checklist",
+              "Application tips guide"
+            ],
+            ghlCheckoutUrl: "" // Add your GHL order form URL here
+          },
+          {
+            id: 9,
+            name: "3M Framework Guide",
+            price: 77,
+            category: "guides",
+            description: "Deep dive into the Make, Manage, Multiply framework. The foundation of wealth building.",
+            image: "book",
+            features: ["100-Page Guide", "Worksheets", "Audio Version"],
+            includes: [
+              "Complete 3M framework guide",
+              "Implementation worksheets",
+              "Goal-setting templates",
+              "Progress tracker",
+              "Audio version (MP3)",
+              "Bonus case studies"
+            ],
+            ghlCheckoutUrl: "" // Add your GHL order form URL here
+          },
+          {
+            id: 10,
+            name: "Capital Stacking Blueprint",
+            price: 37,
+            category: "templates",
+            description: "Printable workbook for mapping out a $500K capital stack across personal PG, business EIN, and fintech sources. Derived from FUND and ACQUIRE frameworks.",
+            image: "layer-group",
+            features: ["Printable Workbook", "Capital Mapping Tools", "Framework Integration"],
+            includes: [
+              "Complete capital stacking workbook",
+              "Personal PG strategy section",
+              "Business EIN funding roadmap",
+              "Fintech sources breakdown",
+              "FUND framework integration",
+              "ACQUIRE framework tools"
+            ],
+            ghlCheckoutUrl: "https://link.fastpaydirect.com/payment-link/68fc51252197096625e30088",
+            productPageUrl: "/products/capital-stacking-blueprint" // Link to dedicated product page
+          }
+        ];
+
+        // Shopping Cart
+        let cart = JSON.parse(localStorage.getItem('mogulmaker_cart') || '[]');
+        
+        function updateCartUI() {
+          const cartCount = document.getElementById('cart-count');
+          const cartItems = document.getElementById('cart-items');
+          const emptyCart = document.getElementById('empty-cart');
+          const cartSummary = document.getElementById('cart-summary');
+          const cartTotal = document.getElementById('cart-total');
+          
+          if (cart.length === 0) {
+            cartCount.classList.add('hidden');
+            emptyCart.classList.remove('hidden');
+            cartSummary.classList.add('hidden');
+            cartItems.innerHTML = '';
+            return;
+          }
+          
+          cartCount.textContent = cart.length;
+          cartCount.classList.remove('hidden');
+          emptyCart.classList.add('hidden');
+          cartSummary.classList.remove('hidden');
+          
+          let total = 0;
+          cartItems.innerHTML = cart.map(item => {
+            total += item.price;
+            return \`
+              <div class="flex gap-4 border-b pb-4">
+                <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg w-20 h-20 flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-\${item.image} text-white text-2xl"></i>
+                </div>
+                <div class="flex-1">
+                  <h3 class="font-bold text-lg">\${item.name}</h3>
+                  <p class="text-yellow-400 font-semibold">$\${item.price}</p>
+                </div>
+                <button onclick="removeFromCart(\${item.id})" class="text-red-500 hover:text-red-700">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            \`;
+          }).join('');
+          
+          cartTotal.textContent = '$' + total.toFixed(2);
+        }
+        
+        window.addToCart = function(productId, event) {
+          const product = products.find(p => p.id === productId);
+          
+          // Check if product already in cart
+          if (cart.find(item => item.id === productId)) {
+            showToast('This product is already in your cart.', 'info', product.name);
+            return;
+          }
+          
+          // Add to cart
+          cart.push(product);
+          localStorage.setItem('mogulmaker_cart', JSON.stringify(cart));
+          updateCartUI();
+          
+          // Get button position for animation
+          const button = event?.target.closest('button');
+          if (button) {
+            createFlyingProductAnimation(button, product);
+          }
+          
+          // Animate cart icon
+          animateCartIcon();
+          
+          // Show success toast
+          showToast('Added to cart!', 'success', product.name);
+        };
+        
+        // Create flying product animation
+        function createFlyingProductAnimation(button, product) {
+          const buttonRect = button.getBoundingClientRect();
+          const cartIcon = document.getElementById('cart-count') || document.querySelector('.fa-shopping-cart');
+          if (!cartIcon) return;
+          
+          const cartRect = cartIcon.getBoundingClientRect();
+          
+          // Create flying element
+          const flyingProduct = document.createElement('div');
+          flyingProduct.className = 'flying-product bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg p-4 flex items-center justify-center';
+          flyingProduct.innerHTML = \`<i class="fas fa-\${product.image} text-white text-2xl"></i>\`;
+          flyingProduct.style.left = buttonRect.left + 'px';
+          flyingProduct.style.top = buttonRect.top + 'px';
+          flyingProduct.style.width = '60px';
+          flyingProduct.style.height = '60px';
+          
+          // Calculate translation distance
+          const tx = cartRect.left - buttonRect.left;
+          const ty = cartRect.top - buttonRect.top;
+          flyingProduct.style.setProperty('--tx', tx + 'px');
+          flyingProduct.style.setProperty('--ty', ty + 'px');
+          
+          document.body.appendChild(flyingProduct);
+          
+          // Remove after animation
+          setTimeout(() => {
+            flyingProduct.remove();
+          }, 800);
+        }
+        
+        // Animate cart icon
+        function animateCartIcon() {
+          const cartIcon = document.querySelector('.fa-shopping-cart')?.closest('a');
+          const cartBadge = document.getElementById('cart-count');
+          
+          if (cartIcon) {
+            cartIcon.classList.add('cart-icon-shake', 'cart-glow');
+            setTimeout(() => {
+              cartIcon.classList.remove('cart-icon-shake', 'cart-glow');
+            }, 1000);
+          }
+          
+          if (cartBadge) {
+            cartBadge.classList.add('cart-badge-bounce');
+            setTimeout(() => {
+              cartBadge.classList.remove('cart-badge-bounce');
+            }, 600);
+          }
+        }
+        
+        // Show toast notification
+        function showToast(message, type = 'success', productName = '') {
+          // Remove any existing toasts
+          const existingToast = document.querySelector('.toast-notification');
+          if (existingToast) {
+            existingToast.remove();
+          }
+          
+          const toast = document.createElement('div');
+          toast.className = \`toast-notification \${type}\`;
+          
+          const icon = type === 'success' ? 'check-circle' : 'info-circle';
+          const iconColor = type === 'success' ? 'text-green-500' : 'text-blue-500';
+          
+          toast.innerHTML = \`
+            <div class="flex items-start gap-3">
+              <i class="fas fa-\${icon} \${iconColor} text-2xl"></i>
+              <div class="flex-1">
+                <h4 class="font-bold text-gray-900 mb-1">\${message}</h4>
+                \${productName ? \`<p class="text-sm text-gray-600">\${productName}</p>\` : ''}
+                <div class="flex gap-2 mt-3">
+                  <button onclick="document.getElementById('cart-btn').click(); this.closest('.toast-notification').remove();" class="bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-semibold hover:bg-yellow-300 transition">
+                    View Cart
+                  </button>
+                  <button onclick="this.closest('.toast-notification').remove();" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-300 transition">
+                    Continue Shopping
+                  </button>
+                </div>
+              </div>
+              <button onclick="this.closest('.toast-notification').remove();" class="text-gray-400 hover:text-gray-600">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          \`;
+          
+          document.body.appendChild(toast);
+          
+          // Auto-hide after 5 seconds
+          setTimeout(() => {
+            toast.classList.add('hiding');
+            setTimeout(() => {
+              toast.remove();
+            }, 400);
+          }, 5000);
+        }
+        
+        window.removeFromCart = function(productId) {
+          cart = cart.filter(item => item.id !== productId);
+          localStorage.setItem('mogulmaker_cart', JSON.stringify(cart));
+          updateCartUI();
+        };
+        
+        // Render Products
+        function renderProducts(filter = 'all') {
+          const grid = document.getElementById('products-grid');
+          const filteredProducts = filter === 'all' 
+            ? products 
+            : products.filter(p => p.category === filter);
+          
+          grid.innerHTML = filteredProducts.map(product => \`
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:scale-105 cursor-pointer product-card" data-product-id="\${product.id}">
+              <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 h-64 flex items-center justify-center">
+                <i class="fas fa-\${product.image} text-white text-8xl"></i>
+              </div>
+              <div class="p-6">
+                <div class="flex items-start justify-between mb-3">
+                  <h3 class="text-xl font-bold text-gray-900">\${product.name}</h3>
+                  <span class="text-2xl font-bold text-yellow-400">$\${product.price}</span>
+                </div>
+                <p class="text-gray-600 mb-4">\${product.description}</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  \${product.features.map(f => \`
+                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
+                      <i class="fas fa-check text-yellow-400 mr-1"></i>\${f}
+                    </span>
+                  \`).join('')}
+                </div>
+                <div class="flex gap-3">
+                  <button onclick="event.stopPropagation(); addToCart(\${product.id}, event)" class="flex-1 bg-yellow-400 text-black py-3 rounded-full font-semibold hover:bg-yellow-300 transition transform hover:scale-105">
+                    <i class="fas fa-shopping-cart mr-2"></i>Add to Cart
+                  </button>
+                  <button onclick="event.stopPropagation(); showProductDetails(\${product.id})" class="bg-gray-200 text-gray-700 px-4 py-3 rounded-full font-semibold hover:bg-gray-300 transition">
+                    <i class="fas fa-info-circle"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          \`).join('');
+          
+          // Add click handlers to product cards
+          document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+              if (!e.target.closest('button')) {
+                showProductDetails(parseInt(card.dataset.productId));
+              }
+            });
+          });
+        }
+        
+        // Show Product Details
+        window.showProductDetails = function(productId) {
+          const product = products.find(p => p.id === productId);
+          const modal = document.getElementById('product-modal');
+          
+          document.getElementById('modal-title').textContent = product.name;
+          document.getElementById('modal-price').textContent = '$' + product.price;
+          document.getElementById('modal-description').textContent = product.description;
+          
+          const imageContainer = document.getElementById('modal-image');
+          imageContainer.innerHTML = \`<i class="fas fa-\${product.image} text-white text-8xl"></i>\`;
+          
+          const featuresList = document.getElementById('modal-features');
+          featuresList.innerHTML = product.features.map(f => \`
+            <div class="flex items-center gap-2 text-gray-700">
+              <i class="fas fa-check-circle text-yellow-400"></i>
+              <span>\${f}</span>
+            </div>
+          \`).join('');
+          
+          const includesList = document.getElementById('modal-includes-list');
+          includesList.innerHTML = product.includes.map(i => \`
+            <li class="flex items-start gap-2">
+              <i class="fas fa-check text-yellow-400 mt-1"></i>
+              <span class="text-gray-700">\${i}</span>
+            </li>
+          \`).join('');
+          
+          document.getElementById('modal-add-to-cart').onclick = (e) => {
+            addToCart(productId, e);
+            modal.classList.add('hidden');
+          };
+          
+          document.getElementById('modal-buy-now').onclick = () => {
+            // Buy Now - Check for product page first, then GHL checkout
+            if (product.productPageUrl && product.productPageUrl.trim() !== '') {
+              window.location.href = product.productPageUrl;
+            } else if (product.ghlCheckoutUrl && product.ghlCheckoutUrl.trim() !== '') {
+              window.location.href = product.ghlCheckoutUrl;
+            } else {
+              addToCart(productId);
+              modal.classList.add('hidden');
+              document.getElementById('cart-modal').classList.remove('hidden');
+            }
+          };
+          
+          modal.classList.remove('hidden');
+        };
+        
+        // Filter Products
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => {
+              b.classList.remove('active', 'bg-yellow-400', 'text-black');
+              b.classList.add('bg-white', 'text-gray-700');
+            });
+            btn.classList.add('active', 'bg-yellow-400', 'text-black');
+            btn.classList.remove('bg-white', 'text-gray-700');
+            renderProducts(btn.dataset.filter);
+          });
+        });
+        
+        // Cart Modal
+        document.getElementById('cart-btn').addEventListener('click', () => {
+          document.getElementById('cart-modal').classList.remove('hidden');
+        });
+        
+        document.getElementById('close-cart').addEventListener('click', () => {
+          document.getElementById('cart-modal').classList.add('hidden');
+        });
+        
+        // Product Modal
+        document.getElementById('close-modal').addEventListener('click', () => {
+          document.getElementById('product-modal').classList.add('hidden');
+        });
+        
+        // Checkout - GHL Integration
+        document.getElementById('checkout-btn').addEventListener('click', () => {
+          // Check if all products have GHL checkout URLs
+          const hasGhlUrls = cart.every(item => item.ghlCheckoutUrl && item.ghlCheckoutUrl.trim() !== '');
+          
+          if (hasGhlUrls && cart.length === 1) {
+            // Single product - redirect directly to GHL order form
+            window.location.href = cart[0].ghlCheckoutUrl;
+          } else if (hasGhlUrls && cart.length > 1) {
+            // Multiple products - show options
+            alert('You have multiple products. You will be redirected to complete each purchase separately.\\n\\nProduct 1: ' + cart[0].name);
+            window.location.href = cart[0].ghlCheckoutUrl;
+          } else {
+            // No GHL URLs configured - show coming soon message
+            alert('🚀 To enable checkout:\\n\\n1. Add your GoHighLevel order form URLs to each product\\n2. Or integrate Stripe payment processing\\n\\nContact support for help setting this up.');
+          }
+        });
+        
+        // Mobile Menu
+        document.getElementById('mobile-menu-btn-shop').addEventListener('click', () => {
+          document.getElementById('mobile-menu-shop').classList.toggle('hidden');
+        });
+        
+        document.querySelectorAll('#mobile-menu-shop a').forEach(link => {
+          link.addEventListener('click', () => {
+            document.getElementById('mobile-menu-shop').classList.add('hidden');
+          });
+        });
+        
+        // GHL Store iframe height adjustment
+        const ghlIframe = document.getElementById('ghl-store-iframe');
+        if (ghlIframe) {
+          // Listen for messages from iframe to adjust height dynamically
+          window.addEventListener('message', function(e) {
+            if (e.data.hasOwnProperty('frameHeight')) {
+              ghlIframe.style.height = e.data.frameHeight + 'px';
+            }
+          });
+          
+          // Set minimum height on load
+          ghlIframe.addEventListener('load', function() {
+            // Default height, will be adjusted by content
+            if (ghlIframe.style.minHeight === '') {
+              ghlIframe.style.minHeight = '2000px';
+            }
+          });
+        }
+        
+        // Close modals on outside click
+        document.getElementById('cart-modal').addEventListener('click', (e) => {
+          if (e.target.id === 'cart-modal') {
+            document.getElementById('cart-modal').classList.add('hidden');
+          }
+        });
+        
+        document.getElementById('product-modal').addEventListener('click', (e) => {
+          if (e.target.id === 'product-modal') {
+            document.getElementById('product-modal').classList.add('hidden');
+          }
+        });
+        
+        // Initialize
+        renderProducts();
+        updateCartUI();
+      `}} />
+    </div>,
+    {
+      title: 'Digital Products - Business Credit Courses & Templates | Mr. Mogul Maker',
+      description: 'Download business credit blueprints, funding templates, and wealth-building courses from Mr. Mogul Maker. Proven systems to build business credit and secure funding.',
+      schema: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://mrmogulmaker.com/'
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Shop',
+                item: 'https://mrmogulmaker.com/shop'
+              }
+            ]
+          },
+          {
+            '@type': 'Product',
+            name: 'Business Credit Blueprint',
+            description: 'Complete step-by-step course on building business credit from scratch. Learn the exact strategies used by successful entrepreneurs.',
+            offers: {
+              '@type': 'Offer',
+              price: '297',
+              priceCurrency: 'USD',
+              availability: 'https://schema.org/InStock',
+              url: 'https://mrmogulmaker.com/shop'
+            },
+            brand: {
+              '@type': 'Brand',
+              name: 'Mr. Mogul Maker'
+            }
+          },
+          {
+            '@type': 'Product',
+            name: 'Funding Success System',
+            description: 'Master the art of securing business funding. Get access to funding sources, application strategies, and insider tips.',
+            offers: {
+              '@type': 'Offer',
+              price: '497',
+              priceCurrency: 'USD',
+              availability: 'https://schema.org/InStock',
+              url: 'https://mrmogulmaker.com/shop'
+            },
+            brand: {
+              '@type': 'Brand',
+              name: 'Mr. Mogul Maker'
+            }
+          },
+          {
+            '@type': 'Product',
+            name: 'LLC Formation Guide',
+            description: 'Everything you need to properly form and structure your LLC. Includes state-specific guidance and templates.',
+            offers: {
+              '@type': 'Offer',
+              price: '97',
+              priceCurrency: 'USD',
+              availability: 'https://schema.org/InStock',
+              url: 'https://mrmogulmaker.com/shop'
+            },
+            brand: {
+              '@type': 'Brand',
+              name: 'Mr. Mogul Maker'
+            }
+          },
+          {
+            '@type': 'Product',
+            name: 'Credit Repair Templates',
+            description: 'Professional dispute letters and credit repair templates. Remove negative items and boost your credit score.',
+            offers: {
+              '@type': 'Offer',
+              price: '147',
+              priceCurrency: 'USD',
+              availability: 'https://schema.org/InStock',
+              url: 'https://mrmogulmaker.com/shop'
+            },
+            brand: {
+              '@type': 'Brand',
+              name: 'Mr. Mogul Maker'
+            }
+          },
+          {
+            '@type': 'Product',
+            name: 'Business Plan Template',
+            description: 'Professional business plan template used by funded businesses. Includes financial projections and market analysis.',
+            offers: {
+              '@type': 'Offer',
+              price: '127',
+              priceCurrency: 'USD',
+              availability: 'https://schema.org/InStock',
+              url: 'https://mrmogulmaker.com/shop'
+            },
+            brand: {
+              '@type': 'Brand',
+              name: 'Mr. Mogul Maker'
+            }
+          },
+          {
+            '@type': 'Product',
+            name: 'Wealth Multiplication Masterclass',
+            description: 'Advanced strategies for multiplying wealth through investments, acquisitions, and passive income streams.',
+            offers: {
+              '@type': 'Offer',
+              price: '697',
+              priceCurrency: 'USD',
+              availability: 'https://schema.org/InStock',
+              url: 'https://mrmogulmaker.com/shop'
+            },
+            brand: {
+              '@type': 'Brand',
+              name: 'Mr. Mogul Maker'
+            }
+          },
+          {
+            '@type': 'Product',
+            name: 'Credit Score Optimization',
+            description: 'Learn how to optimize your credit score to 750+. Understand credit algorithms and scoring factors.',
+            offers: {
+              '@type': 'Offer',
+              price: '197',
+              priceCurrency: 'USD',
+              availability: 'https://schema.org/InStock',
+              url: 'https://mrmogulmaker.com/shop'
+            },
+            brand: {
+              '@type': 'Brand',
+              name: 'Mr. Mogul Maker'
+            }
+          },
+          {
+            '@type': 'Product',
+            name: 'Funding Application Bundle',
+            description: 'Complete collection of funding applications, forms, and supporting documents ready to use.',
+            offers: {
+              '@type': 'Offer',
+              price: '247',
+              priceCurrency: 'USD',
+              availability: 'https://schema.org/InStock',
+              url: 'https://mrmogulmaker.com/shop'
+            },
+            brand: {
+              '@type': 'Brand',
+              name: 'Mr. Mogul Maker'
+            }
+          },
+          {
+            '@type': 'Product',
+            name: '3M Framework Guide',
+            description: 'Deep dive into the Make, Manage, Multiply framework. The foundation of wealth building.',
+            offers: {
+              '@type': 'Offer',
+              price: '77',
+              priceCurrency: 'USD',
+              availability: 'https://schema.org/InStock',
+              url: 'https://mrmogulmaker.com/shop'
+            },
+            brand: {
+              '@type': 'Brand',
+              name: 'Mr. Mogul Maker'
+            }
+          }
+        ]
+      }
+    }
+  )
+})
 
 // Speaking/Booking Page Route
 app.get('/speaking', (c) => {
