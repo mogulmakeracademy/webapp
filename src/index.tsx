@@ -1184,14 +1184,14 @@ app.get('/speaking', (c) => {
       </nav>
 
       {/* Mobile Menu */}
-      <div id="mobile-menu-speaking" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-[80] pt-20">
-        <div class="flex flex-col items-center justify-center space-y-8 mt-12 h-full pb-32">
-          <a href="/" class="text-white text-2xl hover:text-yellow-400 transition">Home</a>
-          <a href="/speaking" class="text-yellow-400 text-2xl font-semibold">Speaking</a>
-          <a href="/blog" class="text-white text-2xl hover:text-yellow-400 transition">Blog</a>
-          <a href="/programs" class="text-white text-2xl hover:text-yellow-400 transition">Programs</a>
-          <a href="/events" class="text-white text-2xl hover:text-yellow-400 transition">Events</a>
-          <a href="/shop" class="text-white text-2xl hover:text-yellow-400 transition">Shop</a>
+      <div id="mobile-menu-speaking" class="hidden" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.95); backdrop-filter: blur(8px); z-index: 9999; padding-top: 5rem;">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; padding-bottom: 8rem;">
+          <a href="/" style="color: white; font-size: 1.5rem; margin: 1rem 0; text-decoration: none;">Home</a>
+          <a href="/speaking" style="color: #FBBF24; font-size: 1.5rem; margin: 1rem 0; text-decoration: none; font-weight: 600;">Speaking</a>
+          <a href="/blog" style="color: white; font-size: 1.5rem; margin: 1rem 0; text-decoration: none;">Blog</a>
+          <a href="/programs" style="color: white; font-size: 1.5rem; margin: 1rem 0; text-decoration: none;">Programs</a>
+          <a href="/events" style="color: white; font-size: 1.5rem; margin: 1rem 0; text-decoration: none;">Events</a>
+          <a href="/shop" style="color: white; font-size: 1.5rem; margin: 1rem 0; text-decoration: none;">Shop</a>
         </div>
       </div>
 
@@ -1844,26 +1844,36 @@ app.get('/speaking', (c) => {
       {/* JavaScript for mobile menu */}
       <script dangerouslySetInnerHTML={{__html: `
         document.addEventListener('DOMContentLoaded', function() {
+          console.log('Speaking page - JavaScript loaded');
           const mobileMenuBtn = document.getElementById('mobile-menu-btn-speaking');
           const mobileMenu = document.getElementById('mobile-menu-speaking');
           
+          console.log('Mobile menu button:', mobileMenuBtn);
+          console.log('Mobile menu div:', mobileMenu);
+          
           if (!mobileMenuBtn || !mobileMenu) {
+            console.error('Mobile menu elements not found!');
             return;
           }
           
           const mobileMenuIcon = mobileMenuBtn.querySelector('i');
           
           function openMobileMenu() {
+            console.log('Opening mobile menu...');
             mobileMenu.classList.remove('hidden');
+            mobileMenu.style.display = 'block';
             if (mobileMenuIcon) {
               mobileMenuIcon.classList.remove('fa-bars');
               mobileMenuIcon.classList.add('fa-times');
             }
             document.body.style.overflow = 'hidden';
+            console.log('Mobile menu should be visible now');
           }
           
           function closeMobileMenu() {
+            console.log('Closing mobile menu...');
             mobileMenu.classList.add('hidden');
+            mobileMenu.style.display = 'none';
             if (mobileMenuIcon) {
               mobileMenuIcon.classList.remove('fa-times');
               mobileMenuIcon.classList.add('fa-bars');
@@ -1873,9 +1883,11 @@ app.get('/speaking', (c) => {
           
           // Button click handler
           mobileMenuBtn.addEventListener('click', function(e) {
+            console.log('Menu button clicked!');
             e.preventDefault();
             e.stopPropagation();
             const isHidden = mobileMenu.classList.contains('hidden');
+            console.log('Menu is currently hidden:', isHidden);
             if (isHidden) {
               openMobileMenu();
             } else {
@@ -3678,9 +3690,8 @@ app.get('/programs', (c) => {
           <a href="/speaking" class="text-white text-2xl hover:text-yellow-400 transition">Speaking</a>
           <a href="/blog" class="text-white text-2xl hover:text-yellow-400 transition">Blog</a>
           <a href="/programs" class="text-yellow-400 text-2xl font-semibold">Programs</a>
-          <a href="/shop" class="text-white text-2xl hover:text-yellow-400 transition">
-            <i class="fas fa-shopping-bag mr-2"></i>Shop
-          </a>
+          <a href="/events" class="text-white text-2xl hover:text-yellow-400 transition">Events</a>
+          <a href="/shop" class="text-white text-2xl hover:text-yellow-400 transition">Shop</a>
         </div>
       </div>
 
