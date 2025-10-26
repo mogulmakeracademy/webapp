@@ -3804,6 +3804,7 @@ app.get('/programs', (c) => {
               <a href="/speaking" class="text-white hover:text-yellow-400 transition">Speaking</a>
               <a href="/blog" class="text-white hover:text-yellow-400 transition">Blog</a>
               <a href="/programs" class="text-yellow-400 font-semibold">Programs</a>
+              <a href="/events" class="text-white hover:text-yellow-400 transition">Events</a>
               <a href="/shop" class="text-white hover:text-yellow-400 transition">
                 <i class="fas fa-shopping-bag mr-2"></i>Shop
               </a>
