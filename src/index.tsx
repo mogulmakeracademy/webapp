@@ -75,7 +75,7 @@ app.get('/', (c) => {
                 Build <span class="text-yellow-400">Buying Power</span> & Multiply Wealth
               </h1>
               <p class="text-base sm:text-lg md:text-xl text-gray-300 mb-6 md:mb-8">
-                I'm Antonio Cook, aka Mr. Mogul Maker — CEO of <a href="https://skool.com/mogul-maker-academy/about" target="_blank" class="text-yellow-400 hover:underline font-semibold">Mogul Maker Academy</a>. 
+                I'm Antonio Cook, aka Mr. Mogul Maker — CEO of <a href="https://mogulmakeracademy.com" target="_blank" class="text-yellow-400 hover:underline font-semibold">Mogul Maker Academy</a>. 
                 Learn how to secure funding, build business credit, and create generational wealth.
               </p>
               <div class="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 mb-8 md:mb-0">
@@ -213,7 +213,7 @@ app.get('/', (c) => {
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-12 md:mb-16">
             <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-              <a href="https://skool.com/mogul-maker-academy/about" target="_blank" class="hover:text-yellow-400 transition">Mogul Maker Academy</a> <span class="text-yellow-400">Programs</span>
+              <a href="https://mogulmakeracademy.com" target="_blank" class="hover:text-yellow-400 transition">Mogul Maker Academy</a> <span class="text-yellow-400">Programs</span>
             </h2>
             <p class="text-base md:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto px-4">
               Comprehensive programs designed to take you from startup to funded, structured, and protected business owner.
@@ -244,7 +244,7 @@ app.get('/', (c) => {
           </div>
           
           <div class="text-center mt-8 md:mt-12">
-            <a href="https://skool.com/mogul-maker-academy/about" target="_blank" class="inline-block bg-yellow-400 text-black px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-yellow-300 transition transform hover:scale-105">
+            <a href="https://mogulmakeracademy.com" target="_blank" class="inline-block bg-yellow-400 text-black px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-yellow-300 transition transform hover:scale-105">
               <i class="fas fa-graduation-cap mr-2"></i>
               Visit Mogul Maker Academy
             </a>
@@ -440,6 +440,152 @@ app.get('/', (c) => {
         </div>
       </section>
 
+      {/* Google Reviews / Testimonials Section */}
+      <section class="bg-gray-100 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <div class="inline-block bg-yellow-400/20 text-yellow-600 px-4 py-2 rounded-full mb-4 text-sm font-semibold">
+              <i class="fas fa-star mr-2"></i>
+              TRUSTED BY ENTREPRENEURS
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              What Our <span class="text-yellow-400">Clients Say</span>
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+              See why entrepreneurs trust Mr. Mogul Maker to transform their business credit and funding journey
+            </p>
+          </div>
+
+          {/* Google Reviews Stats */}
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12">
+            <div class="text-center">
+              <div class="text-4xl md:text-5xl font-bold text-yellow-600 mb-2">4.9</div>
+              <div class="flex justify-center gap-1 mb-2">
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+              </div>
+              <div class="text-gray-600 text-sm">Google Rating</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl md:text-5xl font-bold text-yellow-600 mb-2">500+</div>
+              <div class="text-gray-600 text-sm">Success Stories</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl md:text-5xl font-bold text-yellow-600 mb-2">$10M+</div>
+              <div class="text-gray-600 text-sm">Funding Secured</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl md:text-5xl font-bold text-yellow-600 mb-2">10K+</div>
+              <div class="text-gray-600 text-sm">Entrepreneurs Helped</div>
+            </div>
+          </div>
+
+          {/* Sample Reviews Grid */}
+          <div class="bg-white rounded-3xl p-8 shadow-xl max-w-5xl mx-auto">
+            <div class="text-center mb-8">
+              <a 
+                href="https://www.google.com/search?q=mr+mogul+maker+antonio+cook+reviews" 
+                target="_blank" 
+                class="inline-flex items-center gap-3 text-2xl font-bold text-gray-900 hover:text-yellow-600 transition"
+              >
+                <i class="fab fa-google text-4xl text-blue-600"></i>
+                <span>See All Google Reviews</span>
+                <i class="fas fa-external-link-alt text-lg"></i>
+              </a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+              <div class="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition">
+                <div class="flex gap-1 mb-3">
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                </div>
+                <p class="text-gray-700 mb-4 italic leading-relaxed">
+                  "Antonio's strategies helped me build my business credit from scratch. 
+                  Within 6 months, I secured $150K in funding!"
+                </p>
+                <div class="flex items-center gap-3">
+                  <div class="bg-yellow-400 w-10 h-10 rounded-full flex items-center justify-center text-black font-bold">
+                    M
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Marcus J.</p>
+                    <p class="text-sm text-gray-600">E-commerce Owner</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition">
+                <div class="flex gap-1 mb-3">
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                </div>
+                <p class="text-gray-700 mb-4 italic leading-relaxed">
+                  "The Mogul Maker Academy changed my life. I went from no credit to 
+                  accessing capital I never thought possible."
+                </p>
+                <div class="flex items-center gap-3">
+                  <div class="bg-yellow-400 w-10 h-10 rounded-full flex items-center justify-center text-black font-bold">
+                    S
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Sarah K.</p>
+                    <p class="text-sm text-gray-600">Restaurant Owner</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition">
+                <div class="flex gap-1 mb-3">
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                </div>
+                <p class="text-gray-700 mb-4 italic leading-relaxed">
+                  "Best investment I've made in my business education. Antonio's 
+                  frameworks are practical and actually work!"
+                </p>
+                <div class="flex items-center gap-3">
+                  <div class="bg-yellow-400 w-10 h-10 rounded-full flex items-center justify-center text-black font-bold">
+                    D
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">David R.</p>
+                    <p class="text-sm text-gray-600">Tech Startup Founder</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Call to Action */}
+          <div class="text-center mt-12">
+            <p class="text-gray-700 mb-6 text-lg">
+              <strong>Join thousands of successful entrepreneurs</strong> who have transformed their business credit
+            </p>
+            <a 
+              href="https://mogulmakeracademy.com" 
+              target="_blank" 
+              class="inline-block bg-yellow-400 text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition transform hover:scale-105"
+            >
+              <i class="fas fa-graduation-cap mr-2"></i>
+              Start Your Journey Today
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section id="contact" class="bg-gradient-to-br from-black via-gray-900 to-black py-12 md:py-24">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -452,7 +598,7 @@ app.get('/', (c) => {
               Join Mogul Maker Academy and learn the proven strategies to build business credit, secure funding, and multiply your wealth.
             </p>
             <div class="flex flex-wrap gap-4 justify-center">
-              <a href="https://skool.com/mogul-maker-academy/about" target="_blank" class="bg-black text-yellow-400 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-900 transition transform hover:scale-105">
+              <a href="https://mogulmakeracademy.com" target="_blank" class="bg-black text-yellow-400 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-900 transition transform hover:scale-105">
                 <i class="fas fa-graduation-cap mr-2"></i>
                 Join Academy
               </a>
@@ -499,7 +645,7 @@ app.get('/', (c) => {
                 <li><a href="#about" class="hover:text-yellow-400 transition">About</a></li>
                 <li><a href="#programs" class="hover:text-yellow-400 transition">Programs</a></li>
                 <li><a href="#podcasts" class="hover:text-yellow-400 transition">Podcasts</a></li>
-                <li><a href="https://skool.com/mogul-maker-academy/about" target="_blank" class="hover:text-yellow-400 transition">Academy</a></li>
+                <li><a href="https://mogulmakeracademy.com" target="_blank" class="hover:text-yellow-400 transition">Academy</a></li>
               </ul>
             </div>
             
@@ -2512,7 +2658,7 @@ app.get('/ai-coach', (c) => {
             Your Personal <span class="text-yellow-400">AI Business Coaches</span>
           </h1>
           <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-8">
-            Get 24/7 access to 8 specialized AI coaches trained on the complete <a href="https://skool.com/mogul-maker-academy/about" target="_blank" class="text-yellow-400 hover:underline font-semibold">Mogul Maker Academy</a> curriculum. 
+            Get 24/7 access to 8 specialized AI coaches trained on the complete <a href="https://mogulmakeracademy.com" target="_blank" class="text-yellow-400 hover:underline font-semibold">Mogul Maker Academy</a> curriculum. 
             From business structure to acquisition strategy, your AI coach team is always ready to help.
           </p>
           
@@ -2557,7 +2703,7 @@ app.get('/ai-coach', (c) => {
               Meet Your <span class="text-yellow-400">AI Coach Team</span>
             </h2>
             <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-              Each coach is specialized in one of the 8 core pillars from <a href="https://skool.com/mogul-maker-academy/about" target="_blank" class="text-yellow-400 hover:underline font-semibold">Mogul Maker Academy</a>
+              Each coach is specialized in one of the 8 core pillars from <a href="https://mogulmakeracademy.com" target="_blank" class="text-yellow-400 hover:underline font-semibold">Mogul Maker Academy</a>
             </p>
           </div>
 
@@ -2748,7 +2894,7 @@ app.get('/ai-coach', (c) => {
               These AI coaches are trained on content from Mogul Maker Academy. 
               Get access to the complete curriculum, live coaching, and community.
             </p>
-            <a href="https://skool.com/mogul-maker-academy/about" target="_blank" class="inline-block bg-yellow-400 text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition transform hover:scale-105">
+            <a href="https://mogulmakeracademy.com" target="_blank" class="inline-block bg-yellow-400 text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition transform hover:scale-105">
               <i class="fas fa-graduation-cap mr-2"></i>
               Visit Mogul Maker Academy
             </a>
@@ -2861,73 +3007,30 @@ app.get('/ai-coach', (c) => {
             <strong class="text-yellow-400">Early birds get 50% off first month!</strong>
           </p>
 
-          {/* Waitlist Form */}
+          {/* GHL Waitlist Form Embed */}
           <div class="bg-white rounded-3xl p-8 md:p-12 shadow-2xl">
-            <form class="space-y-6">
-              <div class="grid md:grid-cols-2 gap-6">
-                <input 
-                  type="text" 
-                  placeholder="First Name" 
-                  class="w-full px-6 py-4 rounded-xl border-2 border-gray-300 focus:border-yellow-400 focus:outline-none text-lg"
-                  required
-                />
-                <input 
-                  type="text" 
-                  placeholder="Last Name" 
-                  class="w-full px-6 py-4 rounded-xl border-2 border-gray-300 focus:border-yellow-400 focus:outline-none text-lg"
-                  required
-                />
-              </div>
-              <input 
-                type="email" 
-                placeholder="Email Address" 
-                class="w-full px-6 py-4 rounded-xl border-2 border-gray-300 focus:border-yellow-400 focus:outline-none text-lg"
-                required
-              />
-              <div class="space-y-3">
-                <label class="text-left block text-gray-700 font-semibold mb-2">Which coaches are you most interested in?</label>
-                <div class="grid md:grid-cols-2 gap-3 text-left">
-                  <label class="flex items-center gap-3 cursor-pointer">
-                    <input type="checkbox" class="w-5 h-5 text-yellow-400" />
-                    <span class="text-gray-700">BUILD - Foundation</span>
-                  </label>
-                  <label class="flex items-center gap-3 cursor-pointer">
-                    <input type="checkbox" class="w-5 h-5 text-yellow-400" />
-                    <span class="text-gray-700">LAUNCH - Market Entry</span>
-                  </label>
-                  <label class="flex items-center gap-3 cursor-pointer">
-                    <input type="checkbox" class="w-5 h-5 text-yellow-400" />
-                    <span class="text-gray-700">FUND - Capital & Financing</span>
-                  </label>
-                  <label class="flex items-center gap-3 cursor-pointer">
-                    <input type="checkbox" class="w-5 h-5 text-yellow-400" />
-                    <span class="text-gray-700">DRIVE - Growth & Momentum</span>
-                  </label>
-                  <label class="flex items-center gap-3 cursor-pointer">
-                    <input type="checkbox" class="w-5 h-5 text-yellow-400" />
-                    <span class="text-gray-700">ACCEL - Scale & Expansion</span>
-                  </label>
-                  <label class="flex items-center gap-3 cursor-pointer">
-                    <input type="checkbox" class="w-5 h-5 text-yellow-400" />
-                    <span class="text-gray-700">REPORT - Credit Reporting</span>
-                  </label>
-                  <label class="flex items-center gap-3 cursor-pointer">
-                    <input type="checkbox" class="w-5 h-5 text-yellow-400" />
-                    <span class="text-gray-700">SHIELD - Asset Protection</span>
-                  </label>
-                  <label class="flex items-center gap-3 cursor-pointer">
-                    <input type="checkbox" class="w-5 h-5 text-yellow-400" />
-                    <span class="text-gray-700">ACQUIRE - Business Acquisition</span>
-                  </label>
-                </div>
-              </div>
-              <button type="submit" class="w-full bg-yellow-400 text-black px-10 py-5 rounded-full font-bold text-lg hover:bg-yellow-300 transition transform hover:scale-105">
-                <i class="fas fa-bell mr-2"></i>
-                Join Waitlist & Get 50% Off
-              </button>
-            </form>
+            <div style="min-height: 738px;">
+              <iframe
+                src="https://api.leadconnectorhq.com/widget/form/xIZi4NsdZtwX8YAPfp6Z"
+                style="width:100%;height:738px;border:none;border-radius:12px"
+                id="inline-xIZi4NsdZtwX8YAPfp6Z" 
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="Mogul Maker AI Coaching Waiting List Form"
+                data-height="738"
+                data-layout-iframe-id="inline-xIZi4NsdZtwX8YAPfp6Z"
+                data-form-id="xIZi4NsdZtwX8YAPfp6Z"
+                title="Mogul Maker AI Coaching Waiting List Form"
+              ></iframe>
+              <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+            </div>
 
-            <p class="text-gray-500 text-sm mt-6">
+            <p class="text-gray-500 text-sm mt-6 text-center">
               🎉 <strong>Early Bird Bonus:</strong> First 100 members get 50% off their first month ($23.50 instead of $47)
             </p>
           </div>
@@ -3049,7 +3152,7 @@ app.get('/ai-coach', (c) => {
               <h4 class="font-bold text-lg mb-4">Academy</h4>
               <ul class="space-y-2 text-gray-400">
                 <li>
-                  <a href="https://skool.com/mogul-maker-academy/about" target="_blank" class="hover:text-yellow-400 transition">
+                  <a href="https://mogulmakeracademy.com" target="_blank" class="hover:text-yellow-400 transition">
                     Mogul Maker Academy
                   </a>
                 </li>
