@@ -1399,12 +1399,14 @@ app.get('/blog', (c) => {
             </div>
             <div class="hidden md:flex items-center space-x-8">
               <a href="/" class="text-white hover:text-yellow-400 transition">Home</a>
-              <a href="/shop" class="text-white hover:text-yellow-400 transition">Shop</a>
               <a href="/speaking" class="text-white hover:text-yellow-400 transition">Speaking</a>
               <a href="/blog" class="text-yellow-400 font-semibold">Blog</a>
               <a href="/#programs" class="text-white hover:text-yellow-400 transition">Programs</a>
+              <a href="/shop" class="text-white hover:text-yellow-400 transition">
+                <i class="fas fa-shopping-bag mr-2"></i>Shop
+              </a>
             </div>
-            <button id="mobile-menu-btn-blog" class="md:hidden text-white">
+            <button id="mobile-menu-btn-blog" class="md:hidden text-white z-[70] relative">
               <i class="fas fa-bars text-2xl"></i>
             </button>
           </div>
@@ -1412,13 +1414,15 @@ app.get('/blog', (c) => {
       </nav>
 
       {/* Mobile Menu */}
-      <div id="mobile-menu-blog" class="hidden fixed inset-0 bg-black/95 z-40 pt-20">
-        <div class="flex flex-col items-center space-y-8 mt-12">
+      <div id="mobile-menu-blog" class="hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-40 pt-20">
+        <div class="flex flex-col items-center justify-center space-y-8 mt-12 h-full pb-32">
           <a href="/" class="text-white text-2xl hover:text-yellow-400 transition">Home</a>
-          <a href="/shop" class="text-white text-2xl hover:text-yellow-400 transition">Shop</a>
           <a href="/speaking" class="text-white text-2xl hover:text-yellow-400 transition">Speaking</a>
           <a href="/blog" class="text-yellow-400 text-2xl font-semibold">Blog</a>
           <a href="/#programs" class="text-white text-2xl hover:text-yellow-400 transition">Programs</a>
+          <a href="/shop" class="text-white text-2xl hover:text-yellow-400 transition">
+            <i class="fas fa-shopping-bag mr-2"></i>Shop
+          </a>
         </div>
       </div>
 
