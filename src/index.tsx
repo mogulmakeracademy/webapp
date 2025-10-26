@@ -277,7 +277,7 @@ app.get('/', (c) => {
                       <div class="relative aspect-video bg-black">
                         <iframe 
                           class="w-full h-full"
-                          src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1?autoplay=1&mute=1&rel=0&modestbranding=1" 
+                          src="https://www.youtube.com/embed/KLL94WRxz0g?autoplay=1&mute=1&rel=0&modestbranding=1" 
                           title="How to Become a Data Furnisher"
                           frameborder="0" 
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -308,7 +308,7 @@ app.get('/', (c) => {
                       <div class="relative aspect-video bg-black">
                         <iframe 
                           class="w-full h-full"
-                          src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2?autoplay=1&mute=1&rel=0&modestbranding=1" 
+                          src="https://www.youtube.com/embed/WI4LynPk-Co?autoplay=1&mute=1&rel=0&modestbranding=1" 
                           title="Structure Your Business Right"
                           frameborder="0" 
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -339,7 +339,7 @@ app.get('/', (c) => {
                       <div class="relative aspect-video bg-black">
                         <iframe 
                           class="w-full h-full"
-                          src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3?autoplay=1&mute=1&rel=0&modestbranding=1" 
+                          src="https://www.youtube.com/embed/CMFMctu9gCo?autoplay=1&mute=1&rel=0&modestbranding=1" 
                           title="Think Like a Bank"
                           frameborder="0" 
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -353,6 +353,37 @@ app.get('/', (c) => {
                         <div class="flex items-center justify-between text-xs text-gray-500 mb-2">
                           <span><i class="fas fa-eye mr-1"></i> 323 views</span>
                           <span><i class="fas fa-clock mr-1"></i> 5 months ago</span>
+                        </div>
+                        <a href="https://www.youtube.com/@mrmogulmaker" target="_blank" class="inline-flex items-center text-yellow-400 hover:text-yellow-500 font-semibold text-sm">
+                          <i class="fab fa-youtube mr-1"></i>
+                          Watch on YouTube
+                          <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Video 4: New Video */}
+                  <div class="min-w-full px-2">
+                    <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-2xl">
+                      {/* YouTube Embed */}
+                      <div class="relative aspect-video bg-black">
+                        <iframe 
+                          class="w-full h-full"
+                          src="https://www.youtube.com/embed/6MsYpvEXj7w?autoplay=1&mute=1&rel=0&modestbranding=1" 
+                          title="Mr. Mogul Maker Featured Video"
+                          frameborder="0" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                          allowfullscreen>
+                        </iframe>
+                      </div>
+                      {/* Video Info - Compact */}
+                      <div class="p-4 bg-white">
+                        <h4 class="font-bold text-lg mb-1 text-gray-900">Featured Business Strategy</h4>
+                        <p class="text-gray-600 text-sm mb-3">Essential tips for business success and wealth building.</p>
+                        <div class="flex items-center justify-between text-xs text-gray-500 mb-2">
+                          <span><i class="fas fa-eye mr-1"></i> Watch now</span>
+                          <span><i class="fas fa-clock mr-1"></i> Latest video</span>
                         </div>
                         <a href="https://www.youtube.com/@mrmogulmaker" target="_blank" class="inline-flex items-center text-yellow-400 hover:text-yellow-500 font-semibold text-sm">
                           <i class="fab fa-youtube mr-1"></i>
@@ -383,6 +414,7 @@ app.get('/', (c) => {
                 <button class="video-indicator w-3 h-3 md:w-2.5 md:h-2.5 rounded-full bg-yellow-400 transition-all touch-manipulation" data-slide="0"></button>
                 <button class="video-indicator w-3 h-3 md:w-2.5 md:h-2.5 rounded-full bg-gray-300 active:bg-yellow-300 hover:bg-yellow-200 transition-all touch-manipulation" data-slide="1"></button>
                 <button class="video-indicator w-3 h-3 md:w-2.5 md:h-2.5 rounded-full bg-gray-300 active:bg-yellow-300 hover:bg-yellow-200 transition-all touch-manipulation" data-slide="2"></button>
+                <button class="video-indicator w-3 h-3 md:w-2.5 md:h-2.5 rounded-full bg-gray-300 active:bg-yellow-300 hover:bg-yellow-200 transition-all touch-manipulation" data-slide="3"></button>
               </div>
             </div>
             
