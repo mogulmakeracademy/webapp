@@ -1,8 +1,8 @@
 import { jsxRenderer } from 'hono/jsx-renderer'
 
 export const renderer = jsxRenderer(({ children, title, description, schema }) => {
-  const pageTitle = title || 'Mr. Mogul Maker | Antonio Cook - Business Credit Expert & Entrepreneur Coach'
-  const pageDescription = description || 'Learn business credit, secure funding, and build wealth with Antonio Cook (Mr. Mogul Maker). 10,000+ entrepreneurs funded. Speaker, coach, financial educator.'
+  const pageTitle = title || 'Mr. Mogul Maker | Antonio Cook - Build Buying Power & Multiply Wealth'
+  const pageDescription = description || 'Build buying power and multiply wealth with Antonio Cook (Mr. Mogul Maker). Learn to secure funding, establish business credit, and create generational wealth. 10,000+ entrepreneurs funded.'
   
   // Cache-busting version for static assets
   const version = '2.1.1'
@@ -35,7 +35,7 @@ export const renderer = jsxRenderer(({ children, title, description, schema }) =
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:alt" content="Antonio Cook (Mr. Mogul Maker) - Business Credit Expert & Entrepreneur Coach" />
+        <meta property="og:image:alt" content="Antonio Cook (Mr. Mogul Maker) - Build Buying Power & Multiply Wealth" />
         <meta property="og:site_name" content="Mr. Mogul Maker" />
         
         {/* Twitter */}
@@ -44,7 +44,7 @@ export const renderer = jsxRenderer(({ children, title, description, schema }) =
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={pageDescription} />
         <meta name="twitter:image" content="https://page.gensparksite.com/v1/base64_upload/43709174c94bba6436f918bc2ab31311" />
-        <meta name="twitter:image:alt" content="Antonio Cook (Mr. Mogul Maker) - Business Credit Expert" />
+        <meta name="twitter:image:alt" content="Antonio Cook (Mr. Mogul Maker) - Build Buying Power & Multiply Wealth" />
         
         {/* Canonical URL */}
         <link rel="canonical" href="https://www.mrmogulmaker.com/" />

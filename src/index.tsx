@@ -72,7 +72,7 @@ app.get('/', (c) => {
                 Entrepreneur Coach & Financial Educator
               </div>
               <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight">
-                Build <span class="text-yellow-400">Business Credit</span> & Multiply Wealth
+                Build <span class="text-yellow-400">Buying Power</span> & Multiply Wealth
               </h1>
               <p class="text-base sm:text-lg md:text-xl text-gray-300 mb-6 md:mb-8">
                 I'm Antonio Cook, aka Mr. Mogul Maker — CEO of Mogul Maker Academy. 
