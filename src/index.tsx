@@ -861,7 +861,7 @@ app.get('/shop', (c) => {
                 <i class="fas fa-shopping-bag mr-2"></i>Shop
               </a>
             </div>
-            <button id="mobile-menu-btn-shop" class="md:hidden text-white z-[70] relative">
+            <button id="mobile-menu-btn-shop" class="md:hidden text-white z-[70] relative cursor-pointer touch-manipulation" style="-webkit-tap-highlight-color: transparent;">
               <i class="fas fa-bars text-2xl"></i>
             </button>
           </div>
@@ -899,11 +899,18 @@ app.get('/shop', (c) => {
           const mobileMenu = document.getElementById('mobile-menu-shop');
           
           if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', function(e) {
-              e.preventDefault();
-              e.stopPropagation();
+            // Function to toggle menu
+            function toggleMenu(e) {
+              if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+              }
               mobileMenu.classList.toggle('hidden');
-            });
+            }
+            
+            // Add both click and touchstart for iOS
+            mobileMenuBtn.addEventListener('click', toggleMenu);
+            mobileMenuBtn.addEventListener('touchstart', toggleMenu, { passive: false });
             
             // Close mobile menu when clicking on links
             mobileMenu.querySelectorAll('a').forEach(link => {
@@ -989,7 +996,7 @@ app.get('/speaking', (c) => {
               </a>
               <a href="/#contact" class="bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition">Book Me</a>
             </div>
-            <button id="mobile-menu-btn-speaking" class="md:hidden text-white z-[70] relative">
+            <button id="mobile-menu-btn-speaking" class="md:hidden text-white z-[70] relative cursor-pointer touch-manipulation" style="-webkit-tap-highlight-color: transparent;">
               <i class="fas fa-bars text-2xl"></i>
             </button>
           </div>
@@ -1303,11 +1310,18 @@ app.get('/speaking', (c) => {
           const mobileMenuSpeaking = document.getElementById('mobile-menu-speaking');
           
           if (mobileMenuBtnSpeaking && mobileMenuSpeaking) {
-            mobileMenuBtnSpeaking.addEventListener('click', function(e) {
-              e.preventDefault();
-              e.stopPropagation();
+            // Function to toggle menu
+            function toggleMenu(e) {
+              if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+              }
               mobileMenuSpeaking.classList.toggle('hidden');
-            });
+            }
+            
+            // Add both click and touchstart for iOS
+            mobileMenuBtnSpeaking.addEventListener('click', toggleMenu);
+            mobileMenuBtnSpeaking.addEventListener('touchstart', toggleMenu, { passive: false });
             
             // Close menu when clicking links
             mobileMenuSpeaking.querySelectorAll('a').forEach(link => {
@@ -1430,7 +1444,7 @@ app.get('/blog', (c) => {
                 <i class="fas fa-shopping-bag mr-2"></i>Shop
               </a>
             </div>
-            <button id="mobile-menu-btn-blog" class="md:hidden text-white z-[70] relative">
+            <button id="mobile-menu-btn-blog" class="md:hidden text-white z-[70] relative cursor-pointer touch-manipulation" style="-webkit-tap-highlight-color: transparent;">
               <i class="fas fa-bars text-2xl"></i>
             </button>
           </div>
@@ -1797,11 +1811,18 @@ app.get('/blog', (c) => {
           const mobileMenuBlog = document.getElementById('mobile-menu-blog');
           
           if (mobileMenuBtnBlog && mobileMenuBlog) {
-            mobileMenuBtnBlog.addEventListener('click', function(e) {
-              e.preventDefault();
-              e.stopPropagation();
+            // Function to toggle menu
+            function toggleMenu(e) {
+              if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+              }
               mobileMenuBlog.classList.toggle('hidden');
-            });
+            }
+            
+            // Add both click and touchstart for iOS
+            mobileMenuBtnBlog.addEventListener('click', toggleMenu);
+            mobileMenuBtnBlog.addEventListener('touchstart', toggleMenu, { passive: false });
             
             // Close menu when clicking links
             mobileMenuBlog.querySelectorAll('a').forEach(link => {
