@@ -677,109 +677,32 @@ app.get('/', (c) => {
       
       {/* Custom JavaScript to enable button click trigger */}
       <script dangerouslySetInnerHTML={{__html: `
-        // Store reference to GHL popup when it appears - Homepage
+        // Simple approach: Force GHL to re-trigger popup - Homepage
         (function() {
-          window.ghlPopupOverlayHome = null;
-          
-          // Function to find visible GHL popup
-          function findGHLPopup() {
-            const popups = document.querySelectorAll('div');
-            for (let div of popups) {
-              const style = window.getComputedStyle(div);
-              // Must be: fixed position, high z-index, has our iframe, AND has background color
-              if (style.position === 'fixed' && 
-                  parseInt(style.zIndex) > 5000 &&
-                  style.backgroundColor !== 'rgba(0, 0, 0, 0)' && // Must have background
-                  style.backgroundColor !== 'transparent') {
-                const iframe = div.querySelector('iframe[id*="popup-6spGss3vvmBSHE7B7aiG"]');
-                if (iframe) {
-                  console.log('Found popup with:', {
-                    zIndex: style.zIndex,
-                    background: style.backgroundColor,
-                    display: style.display,
-                    width: style.width,
-                    height: style.height
-                  });
-                  return div;
-                }
-              }
-            }
-            return null;
-          }
-          
-          // Monitor DOM for GHL popup creation
-          const observer = new MutationObserver(function(mutations) {
-            if (window.ghlPopupOverlayHome) return; // Already found
-            window.ghlPopupOverlayHome = findGHLPopup();
-            if (window.ghlPopupOverlayHome) {
-              console.log('✅ GHL popup overlay captured for Homepage');
-              observer.disconnect();
-            }
-          });
-          
-          // Start observing
-          observer.observe(document.body, { childList: true, subtree: true });
-          
-          // Also check after 2 seconds in case auto-popup shows
-          setTimeout(function() {
-            if (!window.ghlPopupOverlayHome) {
-              window.ghlPopupOverlayHome = findGHLPopup();
-              if (window.ghlPopupOverlayHome) {
-                console.log('✅ GHL popup overlay captured (delayed check)');
-              }
-            }
-            observer.disconnect();
-          }, 2000);
-          
-          // Button click handler
           setTimeout(function() {
             const button = document.getElementById('newsletter-button-home');
-            if (button) {
+            const iframe = document.getElementById('popup-6spGss3vvmBSHE7B7aiG');
+            
+            if (button && iframe) {
               button.addEventListener('click', function(e) {
                 e.preventDefault();
+                console.log('🔘 Newsletter button clicked - Homepage');
                 
-                // Try to find popup if not already captured
-                if (!window.ghlPopupOverlayHome) {
-                  window.ghlPopupOverlayHome = findGHLPopup();
-                }
+                // Method: Re-trigger GHL popup by changing trigger attribute
+                iframe.setAttribute('data-trigger-type', 'alwaysShow');
                 
-                if (window.ghlPopupOverlayHome) {
-                  // Show the captured popup
-                  window.ghlPopupOverlayHome.style.display = 'flex';
-                  window.ghlPopupOverlayHome.style.visibility = 'visible';
-                  window.ghlPopupOverlayHome.style.opacity = '1';
-                  document.body.style.overflow = 'hidden';
-                  console.log('✅ Homepage popup opened via button click');
-                  
-                  // Safety: unfreeze page after 1 second if popup didn't show
-                  setTimeout(function() {
-                    if (window.ghlPopupOverlayHome && 
-                        window.getComputedStyle(window.ghlPopupOverlayHome).display === 'none') {
-                      document.body.style.overflow = '';
-                      console.warn('⚠️ Unfreezing page - popup did not show');
-                    }
-                  }, 1000);
-                } else {
-                  console.error('❌ GHL popup reference not found.');
-                  document.body.style.overflow = ''; // Unfreeze page
-                  
-                  // Debug: show all fixed position divs
-                  const allFixed = Array.from(document.querySelectorAll('div')).filter(d => 
-                    window.getComputedStyle(d).position === 'fixed'
-                  );
-                  console.log('Fixed position divs found:', allFixed.length);
-                  allFixed.forEach((d, i) => {
-                    const s = window.getComputedStyle(d);
-                    console.log(\`Fixed div \${i}:\`, {
-                      zIndex: s.zIndex,
-                      bg: s.backgroundColor,
-                      display: s.display,
-                      hasIframe: d.querySelector('iframe') ? 'YES' : 'NO'
-                    });
-                  });
+                // Force GHL to re-initialize by removing and re-adding script
+                const oldScript = document.querySelector('script[src*="form_embed.js"]');
+                if (oldScript) {
+                  const newScript = document.createElement('script');
+                  newScript.src = 'https://link.msgsndr.com/js/form_embed.js';
+                  oldScript.parentNode.insertBefore(newScript, oldScript.nextSibling);
+                  console.log('✅ GHL script re-triggered');
                 }
               });
-              console.log('✅ Homepage newsletter button handler ready');
+              console.log('✅ Homepage newsletter button ready');
+            } else {
+              console.error('❌ Button or iframe not found', {button: !!button, iframe: !!iframe});
             }
           }, 1000);
         })();
@@ -2613,109 +2536,32 @@ app.get('/blog', (c) => {
       
       {/* Custom JavaScript to enable button click trigger */}
       <script dangerouslySetInnerHTML={{__html: `
-        // Store reference to GHL popup when it appears - Blog Page
+        // Simple approach: Force GHL to re-trigger popup - Blog Page
         (function() {
-          window.ghlPopupOverlayBlog = null;
-          
-          // Function to find visible GHL popup
-          function findGHLPopup() {
-            const popups = document.querySelectorAll('div');
-            for (let div of popups) {
-              const style = window.getComputedStyle(div);
-              // Must be: fixed position, high z-index, has our iframe, AND has background color
-              if (style.position === 'fixed' && 
-                  parseInt(style.zIndex) > 5000 &&
-                  style.backgroundColor !== 'rgba(0, 0, 0, 0)' && // Must have background
-                  style.backgroundColor !== 'transparent') {
-                const iframe = div.querySelector('iframe[id*="popup-6spGss3vvmBSHE7B7aiG"]');
-                if (iframe) {
-                  console.log('Found popup with:', {
-                    zIndex: style.zIndex,
-                    background: style.backgroundColor,
-                    display: style.display,
-                    width: style.width,
-                    height: style.height
-                  });
-                  return div;
-                }
-              }
-            }
-            return null;
-          }
-          
-          // Monitor DOM for GHL popup creation
-          const observer = new MutationObserver(function(mutations) {
-            if (window.ghlPopupOverlayBlog) return; // Already found
-            window.ghlPopupOverlayBlog = findGHLPopup();
-            if (window.ghlPopupOverlayBlog) {
-              console.log('✅ GHL popup overlay captured for Blog page');
-              observer.disconnect();
-            }
-          });
-          
-          // Start observing
-          observer.observe(document.body, { childList: true, subtree: true });
-          
-          // Also check after 2 seconds in case auto-popup shows
-          setTimeout(function() {
-            if (!window.ghlPopupOverlayBlog) {
-              window.ghlPopupOverlayBlog = findGHLPopup();
-              if (window.ghlPopupOverlayBlog) {
-                console.log('✅ GHL popup overlay captured (delayed check)');
-              }
-            }
-            observer.disconnect();
-          }, 2000);
-          
-          // Button click handler
           setTimeout(function() {
             const button = document.getElementById('newsletter-button-blog');
-            if (button) {
+            const iframe = document.getElementById('popup-6spGss3vvmBSHE7B7aiG');
+            
+            if (button && iframe) {
               button.addEventListener('click', function(e) {
                 e.preventDefault();
+                console.log('🔘 Newsletter button clicked - Blog Page');
                 
-                // Try to find popup if not already captured
-                if (!window.ghlPopupOverlayBlog) {
-                  window.ghlPopupOverlayBlog = findGHLPopup();
-                }
+                // Method: Re-trigger GHL popup by changing trigger attribute
+                iframe.setAttribute('data-trigger-type', 'alwaysShow');
                 
-                if (window.ghlPopupOverlayBlog) {
-                  // Show the captured popup
-                  window.ghlPopupOverlayBlog.style.display = 'flex';
-                  window.ghlPopupOverlayBlog.style.visibility = 'visible';
-                  window.ghlPopupOverlayBlog.style.opacity = '1';
-                  document.body.style.overflow = 'hidden';
-                  console.log('✅ Blog popup opened via button click');
-                  
-                  // Safety: unfreeze page after 1 second if popup didn't show
-                  setTimeout(function() {
-                    if (window.ghlPopupOverlayBlog && 
-                        window.getComputedStyle(window.ghlPopupOverlayBlog).display === 'none') {
-                      document.body.style.overflow = '';
-                      console.warn('⚠️ Unfreezing page - popup did not show');
-                    }
-                  }, 1000);
-                } else {
-                  console.error('❌ GHL popup reference not found.');
-                  document.body.style.overflow = ''; // Unfreeze page
-                  
-                  // Debug: show all fixed position divs
-                  const allFixed = Array.from(document.querySelectorAll('div')).filter(d => 
-                    window.getComputedStyle(d).position === 'fixed'
-                  );
-                  console.log('Fixed position divs found:', allFixed.length);
-                  allFixed.forEach((d, i) => {
-                    const s = window.getComputedStyle(d);
-                    console.log(\`Fixed div \${i}:\`, {
-                      zIndex: s.zIndex,
-                      bg: s.backgroundColor,
-                      display: s.display,
-                      hasIframe: d.querySelector('iframe') ? 'YES' : 'NO'
-                    });
-                  });
+                // Force GHL to re-initialize by removing and re-adding script
+                const oldScript = document.querySelector('script[src*="form_embed.js"]');
+                if (oldScript) {
+                  const newScript = document.createElement('script');
+                  newScript.src = 'https://link.msgsndr.com/js/form_embed.js';
+                  oldScript.parentNode.insertBefore(newScript, oldScript.nextSibling);
+                  console.log('✅ GHL script re-triggered');
                 }
               });
-              console.log('✅ Blog newsletter button handler ready');
+              console.log('✅ Blog newsletter button ready');
+            } else {
+              console.error('❌ Button or iframe not found', {button: !!button, iframe: !!iframe});
             }
           }, 1000);
         })();
