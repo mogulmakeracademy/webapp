@@ -655,25 +655,53 @@ app.get('/', (c) => {
         </div>
       </section>
       
-      {/* GHL Popup Form - Homepage - Auto-show after 30 seconds */}
+      {/* GHL Popup Form - Homepage - Auto-show + Manual trigger */}
       <iframe
         src="https://api.leadconnectorhq.com/widget/form/6spGss3vvmBSHE7B7aiG"
-        style="display:none;width:100%;height:100%;border:none;border-radius:4px"
+        style="display:none;width:100%;height:100%;border:none;border-radius:2px"
         id="popup-6spGss3vvmBSHE7B7aiG-home" 
         data-layout="{'id':'POPUP'}"
-        data-trigger-type="showAfter"
-        data-trigger-value="30"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
         data-activation-type="alwaysActivated"
         data-activation-value=""
         data-deactivation-type="leadCollected"
         data-deactivation-value=""
         data-form-name="News Letter Mr. Mogul Maker"
-        data-height="340"
+        data-height="438"
         data-layout-iframe-id="popup-6spGss3vvmBSHE7B7aiG-home"
         data-form-id="6spGss3vvmBSHE7B7aiG"
         title="News Letter Mr. Mogul Maker"
       ></iframe>
       <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+      
+      {/* Custom JavaScript to enable button click trigger */}
+      <script dangerouslySetInnerHTML={{__html: `
+        // Enable Subscribe Now button to manually trigger GHL popup - Homepage
+        (function() {
+          const button = document.getElementById('newsletter-button-home');
+          
+          if (button) {
+            button.addEventListener('click', function(e) {
+              e.preventDefault();
+              
+              // Find GHL popup overlay and show it manually
+              const popupOverlay = document.querySelector('.ghl-popup-overlay, .popup-overlay, [class*="popup"]');
+              if (popupOverlay) {
+                popupOverlay.style.display = 'flex';
+                popupOverlay.style.visibility = 'visible';
+                popupOverlay.style.opacity = '1';
+                document.body.style.overflow = 'hidden';
+                console.log('Home newsletter popup opened via button click');
+              } else {
+                console.warn('GHL popup overlay not found');
+              }
+            });
+            
+            console.log('Home newsletter button click handler initialized');
+          }
+        })();
+      `}}/>
 
       {/* Footer */}
       <footer class="bg-black text-white py-12">
@@ -2481,25 +2509,53 @@ app.get('/blog', (c) => {
         </div>
       </section>
       
-      {/* GHL Popup Form - Blog Page - Auto-show after 30 seconds */}
+      {/* GHL Popup Form - Blog Page - Auto-show + Manual trigger */}
       <iframe
         src="https://api.leadconnectorhq.com/widget/form/6spGss3vvmBSHE7B7aiG"
-        style="display:none;width:100%;height:100%;border:none;border-radius:4px"
+        style="display:none;width:100%;height:100%;border:none;border-radius:2px"
         id="popup-6spGss3vvmBSHE7B7aiG" 
         data-layout="{'id':'POPUP'}"
-        data-trigger-type="showAfter"
-        data-trigger-value="30"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
         data-activation-type="alwaysActivated"
         data-activation-value=""
         data-deactivation-type="leadCollected"
         data-deactivation-value=""
         data-form-name="News Letter Mr. Mogul Maker"
-        data-height="340"
+        data-height="438"
         data-layout-iframe-id="popup-6spGss3vvmBSHE7B7aiG"
         data-form-id="6spGss3vvmBSHE7B7aiG"
         title="News Letter Mr. Mogul Maker"
       ></iframe>
       <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+      
+      {/* Custom JavaScript to enable button click trigger */}
+      <script dangerouslySetInnerHTML={{__html: `
+        // Enable Subscribe Now button to manually trigger GHL popup - Blog Page
+        (function() {
+          const button = document.getElementById('newsletter-button-blog');
+          
+          if (button) {
+            button.addEventListener('click', function(e) {
+              e.preventDefault();
+              
+              // Find GHL popup overlay and show it manually
+              const popupOverlay = document.querySelector('.ghl-popup-overlay, .popup-overlay, [class*="popup"]');
+              if (popupOverlay) {
+                popupOverlay.style.display = 'flex';
+                popupOverlay.style.visibility = 'visible';
+                popupOverlay.style.opacity = '1';
+                document.body.style.overflow = 'hidden';
+                console.log('Blog newsletter popup opened via button click');
+              } else {
+                console.warn('GHL popup overlay not found');
+              }
+            });
+            
+            console.log('Blog newsletter button click handler initialized');
+          }
+        })();
+      `}}/>
 
       {/* Footer */}
       <footer class="bg-black text-white py-12">
