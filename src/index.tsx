@@ -681,24 +681,39 @@ app.get('/', (c) => {
         (function() {
           window.ghlPopupOverlayHome = null;
           
-          // Monitor DOM for GHL popup creation
-          const observer = new MutationObserver(function(mutations) {
-            if (window.ghlPopupOverlayHome) return; // Already found
-            
-            // Look for the popup overlay that GHL creates
+          // Function to find visible GHL popup
+          function findGHLPopup() {
             const popups = document.querySelectorAll('div');
             for (let div of popups) {
               const style = window.getComputedStyle(div);
-              // GHL popup: fixed position, high z-index, contains our iframe
-              if (style.position === 'fixed' && parseInt(style.zIndex) > 5000) {
+              // Must be: fixed position, high z-index, has our iframe, AND has background color
+              if (style.position === 'fixed' && 
+                  parseInt(style.zIndex) > 5000 &&
+                  style.backgroundColor !== 'rgba(0, 0, 0, 0)' && // Must have background
+                  style.backgroundColor !== 'transparent') {
                 const iframe = div.querySelector('iframe[id*="popup-6spGss3vvmBSHE7B7aiG"]');
                 if (iframe) {
-                  window.ghlPopupOverlayHome = div;
-                  console.log('✅ GHL popup overlay captured for Homepage');
-                  observer.disconnect();
-                  break;
+                  console.log('Found popup with:', {
+                    zIndex: style.zIndex,
+                    background: style.backgroundColor,
+                    display: style.display,
+                    width: style.width,
+                    height: style.height
+                  });
+                  return div;
                 }
               }
+            }
+            return null;
+          }
+          
+          // Monitor DOM for GHL popup creation
+          const observer = new MutationObserver(function(mutations) {
+            if (window.ghlPopupOverlayHome) return; // Already found
+            window.ghlPopupOverlayHome = findGHLPopup();
+            if (window.ghlPopupOverlayHome) {
+              console.log('✅ GHL popup overlay captured for Homepage');
+              observer.disconnect();
             }
           });
           
@@ -708,17 +723,9 @@ app.get('/', (c) => {
           // Also check after 2 seconds in case auto-popup shows
           setTimeout(function() {
             if (!window.ghlPopupOverlayHome) {
-              const popups = document.querySelectorAll('div');
-              for (let div of popups) {
-                const style = window.getComputedStyle(div);
-                if (style.position === 'fixed' && parseInt(style.zIndex) > 5000) {
-                  const iframe = div.querySelector('iframe[id*="popup-6spGss3vvmBSHE7B7aiG"]');
-                  if (iframe) {
-                    window.ghlPopupOverlayHome = div;
-                    console.log('✅ GHL popup overlay captured (delayed check)');
-                    break;
-                  }
-                }
+              window.ghlPopupOverlayHome = findGHLPopup();
+              if (window.ghlPopupOverlayHome) {
+                console.log('✅ GHL popup overlay captured (delayed check)');
               }
             }
             observer.disconnect();
@@ -731,6 +738,11 @@ app.get('/', (c) => {
               button.addEventListener('click', function(e) {
                 e.preventDefault();
                 
+                // Try to find popup if not already captured
+                if (!window.ghlPopupOverlayHome) {
+                  window.ghlPopupOverlayHome = findGHLPopup();
+                }
+                
                 if (window.ghlPopupOverlayHome) {
                   // Show the captured popup
                   window.ghlPopupOverlayHome.style.display = 'flex';
@@ -738,9 +750,33 @@ app.get('/', (c) => {
                   window.ghlPopupOverlayHome.style.opacity = '1';
                   document.body.style.overflow = 'hidden';
                   console.log('✅ Homepage popup opened via button click');
+                  
+                  // Safety: unfreeze page after 1 second if popup didn't show
+                  setTimeout(function() {
+                    if (window.ghlPopupOverlayHome && 
+                        window.getComputedStyle(window.ghlPopupOverlayHome).display === 'none') {
+                      document.body.style.overflow = '';
+                      console.warn('⚠️ Unfreezing page - popup did not show');
+                    }
+                  }, 1000);
                 } else {
-                  console.error('❌ GHL popup reference not found. Please wait for auto-popup first.');
-                  alert('Please wait a moment for the page to fully load, then try again.');
+                  console.error('❌ GHL popup reference not found.');
+                  document.body.style.overflow = ''; // Unfreeze page
+                  
+                  // Debug: show all fixed position divs
+                  const allFixed = Array.from(document.querySelectorAll('div')).filter(d => 
+                    window.getComputedStyle(d).position === 'fixed'
+                  );
+                  console.log('Fixed position divs found:', allFixed.length);
+                  allFixed.forEach((d, i) => {
+                    const s = window.getComputedStyle(d);
+                    console.log(\`Fixed div \${i}:\`, {
+                      zIndex: s.zIndex,
+                      bg: s.backgroundColor,
+                      display: s.display,
+                      hasIframe: d.querySelector('iframe') ? 'YES' : 'NO'
+                    });
+                  });
                 }
               });
               console.log('✅ Homepage newsletter button handler ready');
@@ -2581,24 +2617,39 @@ app.get('/blog', (c) => {
         (function() {
           window.ghlPopupOverlayBlog = null;
           
-          // Monitor DOM for GHL popup creation
-          const observer = new MutationObserver(function(mutations) {
-            if (window.ghlPopupOverlayBlog) return; // Already found
-            
-            // Look for the popup overlay that GHL creates
+          // Function to find visible GHL popup
+          function findGHLPopup() {
             const popups = document.querySelectorAll('div');
             for (let div of popups) {
               const style = window.getComputedStyle(div);
-              // GHL popup: fixed position, high z-index, contains our iframe
-              if (style.position === 'fixed' && parseInt(style.zIndex) > 5000) {
+              // Must be: fixed position, high z-index, has our iframe, AND has background color
+              if (style.position === 'fixed' && 
+                  parseInt(style.zIndex) > 5000 &&
+                  style.backgroundColor !== 'rgba(0, 0, 0, 0)' && // Must have background
+                  style.backgroundColor !== 'transparent') {
                 const iframe = div.querySelector('iframe[id*="popup-6spGss3vvmBSHE7B7aiG"]');
                 if (iframe) {
-                  window.ghlPopupOverlayBlog = div;
-                  console.log('✅ GHL popup overlay captured for Blog page');
-                  observer.disconnect();
-                  break;
+                  console.log('Found popup with:', {
+                    zIndex: style.zIndex,
+                    background: style.backgroundColor,
+                    display: style.display,
+                    width: style.width,
+                    height: style.height
+                  });
+                  return div;
                 }
               }
+            }
+            return null;
+          }
+          
+          // Monitor DOM for GHL popup creation
+          const observer = new MutationObserver(function(mutations) {
+            if (window.ghlPopupOverlayBlog) return; // Already found
+            window.ghlPopupOverlayBlog = findGHLPopup();
+            if (window.ghlPopupOverlayBlog) {
+              console.log('✅ GHL popup overlay captured for Blog page');
+              observer.disconnect();
             }
           });
           
@@ -2608,17 +2659,9 @@ app.get('/blog', (c) => {
           // Also check after 2 seconds in case auto-popup shows
           setTimeout(function() {
             if (!window.ghlPopupOverlayBlog) {
-              const popups = document.querySelectorAll('div');
-              for (let div of popups) {
-                const style = window.getComputedStyle(div);
-                if (style.position === 'fixed' && parseInt(style.zIndex) > 5000) {
-                  const iframe = div.querySelector('iframe[id*="popup-6spGss3vvmBSHE7B7aiG"]');
-                  if (iframe) {
-                    window.ghlPopupOverlayBlog = div;
-                    console.log('✅ GHL popup overlay captured (delayed check)');
-                    break;
-                  }
-                }
+              window.ghlPopupOverlayBlog = findGHLPopup();
+              if (window.ghlPopupOverlayBlog) {
+                console.log('✅ GHL popup overlay captured (delayed check)');
               }
             }
             observer.disconnect();
@@ -2631,6 +2674,11 @@ app.get('/blog', (c) => {
               button.addEventListener('click', function(e) {
                 e.preventDefault();
                 
+                // Try to find popup if not already captured
+                if (!window.ghlPopupOverlayBlog) {
+                  window.ghlPopupOverlayBlog = findGHLPopup();
+                }
+                
                 if (window.ghlPopupOverlayBlog) {
                   // Show the captured popup
                   window.ghlPopupOverlayBlog.style.display = 'flex';
@@ -2638,9 +2686,33 @@ app.get('/blog', (c) => {
                   window.ghlPopupOverlayBlog.style.opacity = '1';
                   document.body.style.overflow = 'hidden';
                   console.log('✅ Blog popup opened via button click');
+                  
+                  // Safety: unfreeze page after 1 second if popup didn't show
+                  setTimeout(function() {
+                    if (window.ghlPopupOverlayBlog && 
+                        window.getComputedStyle(window.ghlPopupOverlayBlog).display === 'none') {
+                      document.body.style.overflow = '';
+                      console.warn('⚠️ Unfreezing page - popup did not show');
+                    }
+                  }, 1000);
                 } else {
-                  console.error('❌ GHL popup reference not found. Please wait for auto-popup first.');
-                  alert('Please wait a moment for the page to fully load, then try again.');
+                  console.error('❌ GHL popup reference not found.');
+                  document.body.style.overflow = ''; // Unfreeze page
+                  
+                  // Debug: show all fixed position divs
+                  const allFixed = Array.from(document.querySelectorAll('div')).filter(d => 
+                    window.getComputedStyle(d).position === 'fixed'
+                  );
+                  console.log('Fixed position divs found:', allFixed.length);
+                  allFixed.forEach((d, i) => {
+                    const s = window.getComputedStyle(d);
+                    console.log(\`Fixed div \${i}:\`, {
+                      zIndex: s.zIndex,
+                      bg: s.backgroundColor,
+                      display: s.display,
+                      hasIframe: d.querySelector('iframe') ? 'YES' : 'NO'
+                    });
+                  });
                 }
               });
               console.log('✅ Blog newsletter button handler ready');
