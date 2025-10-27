@@ -655,25 +655,74 @@ app.get('/', (c) => {
         </div>
       </section>
       
-      {/* GHL Popup Form - Homepage */}
-      <iframe
-        src="https://api.leadconnectorhq.com/widget/form/6spGss3vvmBSHE7B7aiG"
-        style="display:none;width:100%;height:100%;border:none;border-radius:3px"
-        id="popup-6spGss3vvmBSHE7B7aiG-home" 
-        data-layout="{'id':'POPUP'}"
-        data-trigger-type="onClick"
-        data-trigger-value="#newsletter-button-home"
-        data-activation-type="alwaysActivated"
-        data-activation-value=""
-        data-deactivation-type="neverDeactivate"
-        data-deactivation-value=""
-        data-form-name="News Letter Mr. Mogul Maker"
-        data-height="458"
-        data-layout-iframe-id="popup-6spGss3vvmBSHE7B7aiG-home"
-        data-form-id="6spGss3vvmBSHE7B7aiG"
-        title="News Letter Mr. Mogul Maker"
-      ></iframe>
+      {/* GHL Popup Form - Homepage - MANUAL CONTROL */}
+      {/* Wrapper to completely control popup visibility */}
+      <div id="ghl-popup-wrapper-home" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);z-index:9999;align-items:center;justify-content:center;">
+        <div style="position:relative;width:90%;max-width:500px;background:white;border-radius:12px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+          {/* Close button */}
+          <button 
+            id="close-popup-home" 
+            style="position:absolute;top:15px;right:15px;background:transparent;border:none;font-size:28px;cursor:pointer;color:#666;line-height:1;padding:0;width:32px;height:32px;display:flex;align-items:center;justify-content:center;"
+            onclick="document.getElementById('ghl-popup-wrapper-home').style.display='none';document.body.style.overflow='';"
+          >
+            &times;
+          </button>
+          
+          {/* GHL Form Iframe - NO AUTO-TRIGGER */}
+          <iframe
+            src="https://api.leadconnectorhq.com/widget/form/6spGss3vvmBSHE7B7aiG"
+            style="width:100%;height:458px;border:none;border-radius:8px;"
+            id="popup-6spGss3vvmBSHE7B7aiG-home" 
+            data-layout="{'id':'INLINE'}"
+            data-form-name="News Letter Mr. Mogul Maker"
+            data-height="458"
+            data-form-id="6spGss3vvmBSHE7B7aiG"
+            title="News Letter Mr. Mogul Maker"
+          ></iframe>
+        </div>
+      </div>
+      
       <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+      
+      {/* Custom JavaScript to manually control popup */}
+      <script dangerouslySetInnerHTML={{__html: `
+        // CRITICAL: Manual popup control - Homepage
+        (function() {
+          const button = document.getElementById('newsletter-button-home');
+          const wrapper = document.getElementById('ghl-popup-wrapper-home');
+          
+          if (button && wrapper) {
+            // Ensure popup is hidden on load
+            wrapper.style.display = 'none';
+            
+            // Button click handler
+            button.addEventListener('click', function(e) {
+              e.preventDefault();
+              wrapper.style.display = 'flex';
+              document.body.style.overflow = 'hidden';
+              console.log('Home newsletter popup opened manually');
+            });
+            
+            // Close on wrapper click (outside form)
+            wrapper.addEventListener('click', function(e) {
+              if (e.target === wrapper) {
+                wrapper.style.display = 'none';
+                document.body.style.overflow = '';
+              }
+            });
+            
+            // Close on Escape key
+            document.addEventListener('keydown', function(e) {
+              if (e.key === 'Escape' && wrapper.style.display === 'flex') {
+                wrapper.style.display = 'none';
+                document.body.style.overflow = '';
+              }
+            });
+            
+            console.log('Home newsletter popup manual control initialized');
+          }
+        })();
+      `}}/>
 
       {/* Footer */}
       <footer class="bg-black text-white py-12">
@@ -2481,25 +2530,74 @@ app.get('/blog', (c) => {
         </div>
       </section>
       
-      {/* GHL Popup Form - Blog Page */}
-      <iframe
-        src="https://api.leadconnectorhq.com/widget/form/6spGss3vvmBSHE7B7aiG"
-        style="display:none;width:100%;height:100%;border:none;border-radius:3px"
-        id="popup-6spGss3vvmBSHE7B7aiG" 
-        data-layout="{'id':'POPUP'}"
-        data-trigger-type="onClick"
-        data-trigger-value="#newsletter-button-blog"
-        data-activation-type="alwaysActivated"
-        data-activation-value=""
-        data-deactivation-type="neverDeactivate"
-        data-deactivation-value=""
-        data-form-name="News Letter Mr. Mogul Maker"
-        data-height="458"
-        data-layout-iframe-id="popup-6spGss3vvmBSHE7B7aiG"
-        data-form-id="6spGss3vvmBSHE7B7aiG"
-        title="News Letter Mr. Mogul Maker"
-      ></iframe>
+      {/* GHL Popup Form - Blog Page - MANUAL CONTROL */}
+      {/* Wrapper to completely control popup visibility */}
+      <div id="ghl-popup-wrapper-blog" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);z-index:9999;align-items:center;justify-content:center;">
+        <div style="position:relative;width:90%;max-width:500px;background:white;border-radius:12px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+          {/* Close button */}
+          <button 
+            id="close-popup-blog" 
+            style="position:absolute;top:15px;right:15px;background:transparent;border:none;font-size:28px;cursor:pointer;color:#666;line-height:1;padding:0;width:32px;height:32px;display:flex;align-items:center;justify-content:center;"
+            onclick="document.getElementById('ghl-popup-wrapper-blog').style.display='none';document.body.style.overflow='';"
+          >
+            &times;
+          </button>
+          
+          {/* GHL Form Iframe - NO AUTO-TRIGGER */}
+          <iframe
+            src="https://api.leadconnectorhq.com/widget/form/6spGss3vvmBSHE7B7aiG"
+            style="width:100%;height:458px;border:none;border-radius:8px;"
+            id="popup-6spGss3vvmBSHE7B7aiG" 
+            data-layout="{'id':'INLINE'}"
+            data-form-name="News Letter Mr. Mogul Maker"
+            data-height="458"
+            data-form-id="6spGss3vvmBSHE7B7aiG"
+            title="News Letter Mr. Mogul Maker"
+          ></iframe>
+        </div>
+      </div>
+      
       <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+      
+      {/* Custom JavaScript to manually control popup */}
+      <script dangerouslySetInnerHTML={{__html: `
+        // CRITICAL: Manual popup control - Blog Page
+        (function() {
+          const button = document.getElementById('newsletter-button-blog');
+          const wrapper = document.getElementById('ghl-popup-wrapper-blog');
+          
+          if (button && wrapper) {
+            // Ensure popup is hidden on load
+            wrapper.style.display = 'none';
+            
+            // Button click handler
+            button.addEventListener('click', function(e) {
+              e.preventDefault();
+              wrapper.style.display = 'flex';
+              document.body.style.overflow = 'hidden';
+              console.log('Blog newsletter popup opened manually');
+            });
+            
+            // Close on wrapper click (outside form)
+            wrapper.addEventListener('click', function(e) {
+              if (e.target === wrapper) {
+                wrapper.style.display = 'none';
+                document.body.style.overflow = '';
+              }
+            });
+            
+            // Close on Escape key
+            document.addEventListener('keydown', function(e) {
+              if (e.key === 'Escape' && wrapper.style.display === 'flex') {
+                wrapper.style.display = 'none';
+                document.body.style.overflow = '';
+              }
+            });
+            
+            console.log('Blog newsletter popup manual control initialized');
+          }
+        })();
+      `}}/>
 
       {/* Footer */}
       <footer class="bg-black text-white py-12">
