@@ -674,39 +674,6 @@ app.get('/', (c) => {
         title="News Letter Mr. Mogul Maker"
       ></iframe>
       <script src="https://link.msgsndr.com/js/form_embed.js"></script>
-      
-      {/* Custom JavaScript to enable button click trigger */}
-      <script dangerouslySetInnerHTML={{__html: `
-        // Simple approach: Force GHL to re-trigger popup - Homepage
-        (function() {
-          setTimeout(function() {
-            const button = document.getElementById('newsletter-button-home');
-            const iframe = document.getElementById('popup-6spGss3vvmBSHE7B7aiG');
-            
-            if (button && iframe) {
-              button.addEventListener('click', function(e) {
-                e.preventDefault();
-                console.log('🔘 Newsletter button clicked - Homepage');
-                
-                // Method: Re-trigger GHL popup by changing trigger attribute
-                iframe.setAttribute('data-trigger-type', 'alwaysShow');
-                
-                // Force GHL to re-initialize by removing and re-adding script
-                const oldScript = document.querySelector('script[src*="form_embed.js"]');
-                if (oldScript) {
-                  const newScript = document.createElement('script');
-                  newScript.src = 'https://link.msgsndr.com/js/form_embed.js';
-                  oldScript.parentNode.insertBefore(newScript, oldScript.nextSibling);
-                  console.log('✅ GHL script re-triggered');
-                }
-              });
-              console.log('✅ Homepage newsletter button ready');
-            } else {
-              console.error('❌ Button or iframe not found', {button: !!button, iframe: !!iframe});
-            }
-          }, 1000);
-        })();
-      `}}/>
 
       {/* Footer */}
       <footer class="bg-black text-white py-12">
@@ -994,6 +961,31 @@ app.get('/', (c) => {
           // Update on window resize
           window.addEventListener('resize', updateVideoCarousel);
         }
+        
+        // Newsletter button handler - Homepage
+        setTimeout(function() {
+          const button = document.getElementById('newsletter-button-home');
+          const iframe = document.getElementById('popup-6spGss3vvmBSHE7B7aiG');
+          
+          if (button && iframe) {
+            button.addEventListener('click', function(e) {
+              e.preventDefault();
+              console.log('🔘 Newsletter button clicked - Homepage');
+              
+              // Method: Re-trigger GHL popup by reloading the script
+              const oldScript = document.querySelector('script[src*="form_embed.js"]');
+              if (oldScript) {
+                const newScript = document.createElement('script');
+                newScript.src = 'https://link.msgsndr.com/js/form_embed.js';
+                oldScript.parentNode.insertBefore(newScript, oldScript.nextSibling);
+                console.log('✅ GHL script re-triggered');
+              }
+            });
+            console.log('✅ Homepage newsletter button ready');
+          } else {
+            console.error('❌ Button or iframe not found', {button: !!button, iframe: !!iframe});
+          }
+        }, 2000);
       `}} />
     </div>,
     {
