@@ -677,52 +677,75 @@ app.get('/', (c) => {
       
       {/* Custom JavaScript to enable button click trigger */}
       <script dangerouslySetInnerHTML={{__html: `
-        // Enable Subscribe Now button to manually trigger GHL popup - Homepage
+        // Store reference to GHL popup when it appears - Homepage
         (function() {
-          // Wait for GHL script to initialize
+          window.ghlPopupOverlayHome = null;
+          
+          // Monitor DOM for GHL popup creation
+          const observer = new MutationObserver(function(mutations) {
+            if (window.ghlPopupOverlayHome) return; // Already found
+            
+            // Look for the popup overlay that GHL creates
+            const popups = document.querySelectorAll('div');
+            for (let div of popups) {
+              const style = window.getComputedStyle(div);
+              // GHL popup: fixed position, high z-index, contains our iframe
+              if (style.position === 'fixed' && parseInt(style.zIndex) > 5000) {
+                const iframe = div.querySelector('iframe[id*="popup-6spGss3vvmBSHE7B7aiG"]');
+                if (iframe) {
+                  window.ghlPopupOverlayHome = div;
+                  console.log('✅ GHL popup overlay captured for Homepage');
+                  observer.disconnect();
+                  break;
+                }
+              }
+            }
+          });
+          
+          // Start observing
+          observer.observe(document.body, { childList: true, subtree: true });
+          
+          // Also check after 2 seconds in case auto-popup shows
+          setTimeout(function() {
+            if (!window.ghlPopupOverlayHome) {
+              const popups = document.querySelectorAll('div');
+              for (let div of popups) {
+                const style = window.getComputedStyle(div);
+                if (style.position === 'fixed' && parseInt(style.zIndex) > 5000) {
+                  const iframe = div.querySelector('iframe[id*="popup-6spGss3vvmBSHE7B7aiG"]');
+                  if (iframe) {
+                    window.ghlPopupOverlayHome = div;
+                    console.log('✅ GHL popup overlay captured (delayed check)');
+                    break;
+                  }
+                }
+              }
+            }
+            observer.disconnect();
+          }, 2000);
+          
+          // Button click handler
           setTimeout(function() {
             const button = document.getElementById('newsletter-button-home');
-            
             if (button) {
               button.addEventListener('click', function(e) {
                 e.preventDefault();
                 
-                // Try multiple methods to find and show the popup
-                
-                // Method 1: Search for common GHL popup classes
-                let popupOverlay = document.querySelector('[class*="popup-overlay"], [class*="ghl-popup"], div[style*="position: fixed"][style*="z-index"]');
-                
-                // Method 2: Find all fixed position divs with high z-index
-                if (!popupOverlay) {
-                  const allDivs = document.querySelectorAll('div');
-                  for (let div of allDivs) {
-                    const style = window.getComputedStyle(div);
-                    if (style.position === 'fixed' && parseInt(style.zIndex) > 1000) {
-                      const hasIframe = div.querySelector('iframe[id*="popup-6spGss3vvmBSHE7B7aiG"]');
-                      if (hasIframe) {
-                        popupOverlay = div;
-                        break;
-                      }
-                    }
-                  }
-                }
-                
-                if (popupOverlay) {
-                  popupOverlay.style.display = 'flex';
-                  popupOverlay.style.visibility = 'visible';
-                  popupOverlay.style.opacity = '1';
+                if (window.ghlPopupOverlayHome) {
+                  // Show the captured popup
+                  window.ghlPopupOverlayHome.style.display = 'flex';
+                  window.ghlPopupOverlayHome.style.visibility = 'visible';
+                  window.ghlPopupOverlayHome.style.opacity = '1';
                   document.body.style.overflow = 'hidden';
-                  console.log('Home newsletter popup opened via button click');
+                  console.log('✅ Homepage popup opened via button click');
                 } else {
-                  console.warn('GHL popup overlay not found. Available elements:', document.body.innerHTML.substring(0, 500));
+                  console.error('❌ GHL popup reference not found. Please wait for auto-popup first.');
+                  alert('Please wait a moment for the page to fully load, then try again.');
                 }
               });
-              
-              console.log('Home newsletter button click handler initialized');
-            } else {
-              console.warn('Newsletter button not found');
+              console.log('✅ Homepage newsletter button handler ready');
             }
-          }, 1000); // Wait 1 second for GHL script to load
+          }, 1000);
         })();
       `}}/>
 
@@ -2554,52 +2577,75 @@ app.get('/blog', (c) => {
       
       {/* Custom JavaScript to enable button click trigger */}
       <script dangerouslySetInnerHTML={{__html: `
-        // Enable Subscribe Now button to manually trigger GHL popup - Blog Page
+        // Store reference to GHL popup when it appears - Blog Page
         (function() {
-          // Wait for GHL script to initialize
+          window.ghlPopupOverlayBlog = null;
+          
+          // Monitor DOM for GHL popup creation
+          const observer = new MutationObserver(function(mutations) {
+            if (window.ghlPopupOverlayBlog) return; // Already found
+            
+            // Look for the popup overlay that GHL creates
+            const popups = document.querySelectorAll('div');
+            for (let div of popups) {
+              const style = window.getComputedStyle(div);
+              // GHL popup: fixed position, high z-index, contains our iframe
+              if (style.position === 'fixed' && parseInt(style.zIndex) > 5000) {
+                const iframe = div.querySelector('iframe[id*="popup-6spGss3vvmBSHE7B7aiG"]');
+                if (iframe) {
+                  window.ghlPopupOverlayBlog = div;
+                  console.log('✅ GHL popup overlay captured for Blog page');
+                  observer.disconnect();
+                  break;
+                }
+              }
+            }
+          });
+          
+          // Start observing
+          observer.observe(document.body, { childList: true, subtree: true });
+          
+          // Also check after 2 seconds in case auto-popup shows
+          setTimeout(function() {
+            if (!window.ghlPopupOverlayBlog) {
+              const popups = document.querySelectorAll('div');
+              for (let div of popups) {
+                const style = window.getComputedStyle(div);
+                if (style.position === 'fixed' && parseInt(style.zIndex) > 5000) {
+                  const iframe = div.querySelector('iframe[id*="popup-6spGss3vvmBSHE7B7aiG"]');
+                  if (iframe) {
+                    window.ghlPopupOverlayBlog = div;
+                    console.log('✅ GHL popup overlay captured (delayed check)');
+                    break;
+                  }
+                }
+              }
+            }
+            observer.disconnect();
+          }, 2000);
+          
+          // Button click handler
           setTimeout(function() {
             const button = document.getElementById('newsletter-button-blog');
-            
             if (button) {
               button.addEventListener('click', function(e) {
                 e.preventDefault();
                 
-                // Try multiple methods to find and show the popup
-                
-                // Method 1: Search for common GHL popup classes
-                let popupOverlay = document.querySelector('[class*="popup-overlay"], [class*="ghl-popup"], div[style*="position: fixed"][style*="z-index"]');
-                
-                // Method 2: Find all fixed position divs with high z-index
-                if (!popupOverlay) {
-                  const allDivs = document.querySelectorAll('div');
-                  for (let div of allDivs) {
-                    const style = window.getComputedStyle(div);
-                    if (style.position === 'fixed' && parseInt(style.zIndex) > 1000) {
-                      const hasIframe = div.querySelector('iframe[id*="popup-6spGss3vvmBSHE7B7aiG"]');
-                      if (hasIframe) {
-                        popupOverlay = div;
-                        break;
-                      }
-                    }
-                  }
-                }
-                
-                if (popupOverlay) {
-                  popupOverlay.style.display = 'flex';
-                  popupOverlay.style.visibility = 'visible';
-                  popupOverlay.style.opacity = '1';
+                if (window.ghlPopupOverlayBlog) {
+                  // Show the captured popup
+                  window.ghlPopupOverlayBlog.style.display = 'flex';
+                  window.ghlPopupOverlayBlog.style.visibility = 'visible';
+                  window.ghlPopupOverlayBlog.style.opacity = '1';
                   document.body.style.overflow = 'hidden';
-                  console.log('Blog newsletter popup opened via button click');
+                  console.log('✅ Blog popup opened via button click');
                 } else {
-                  console.warn('GHL popup overlay not found. Available elements:', document.body.innerHTML.substring(0, 500));
+                  console.error('❌ GHL popup reference not found. Please wait for auto-popup first.');
+                  alert('Please wait a moment for the page to fully load, then try again.');
                 }
               });
-              
-              console.log('Blog newsletter button click handler initialized');
-            } else {
-              console.warn('Newsletter button not found');
+              console.log('✅ Blog newsletter button handler ready');
             }
-          }, 1000); // Wait 1 second for GHL script to load
+          }, 1000);
         })();
       `}}/>
 
