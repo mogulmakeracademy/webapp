@@ -679,27 +679,50 @@ app.get('/', (c) => {
       <script dangerouslySetInnerHTML={{__html: `
         // Enable Subscribe Now button to manually trigger GHL popup - Homepage
         (function() {
-          const button = document.getElementById('newsletter-button-home');
-          
-          if (button) {
-            button.addEventListener('click', function(e) {
-              e.preventDefault();
-              
-              // Find GHL popup overlay and show it manually
-              const popupOverlay = document.querySelector('.ghl-popup-overlay, .popup-overlay, [class*="popup"]');
-              if (popupOverlay) {
-                popupOverlay.style.display = 'flex';
-                popupOverlay.style.visibility = 'visible';
-                popupOverlay.style.opacity = '1';
-                document.body.style.overflow = 'hidden';
-                console.log('Home newsletter popup opened via button click');
-              } else {
-                console.warn('GHL popup overlay not found');
-              }
-            });
+          // Wait for GHL script to initialize
+          setTimeout(function() {
+            const button = document.getElementById('newsletter-button-home');
             
-            console.log('Home newsletter button click handler initialized');
-          }
+            if (button) {
+              button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Try multiple methods to find and show the popup
+                
+                // Method 1: Search for common GHL popup classes
+                let popupOverlay = document.querySelector('[class*="popup-overlay"], [class*="ghl-popup"], div[style*="position: fixed"][style*="z-index"]');
+                
+                // Method 2: Find all fixed position divs with high z-index
+                if (!popupOverlay) {
+                  const allDivs = document.querySelectorAll('div');
+                  for (let div of allDivs) {
+                    const style = window.getComputedStyle(div);
+                    if (style.position === 'fixed' && parseInt(style.zIndex) > 1000) {
+                      const hasIframe = div.querySelector('iframe[id*="popup-6spGss3vvmBSHE7B7aiG"]');
+                      if (hasIframe) {
+                        popupOverlay = div;
+                        break;
+                      }
+                    }
+                  }
+                }
+                
+                if (popupOverlay) {
+                  popupOverlay.style.display = 'flex';
+                  popupOverlay.style.visibility = 'visible';
+                  popupOverlay.style.opacity = '1';
+                  document.body.style.overflow = 'hidden';
+                  console.log('Home newsletter popup opened via button click');
+                } else {
+                  console.warn('GHL popup overlay not found. Available elements:', document.body.innerHTML.substring(0, 500));
+                }
+              });
+              
+              console.log('Home newsletter button click handler initialized');
+            } else {
+              console.warn('Newsletter button not found');
+            }
+          }, 1000); // Wait 1 second for GHL script to load
         })();
       `}}/>
 
@@ -2533,27 +2556,50 @@ app.get('/blog', (c) => {
       <script dangerouslySetInnerHTML={{__html: `
         // Enable Subscribe Now button to manually trigger GHL popup - Blog Page
         (function() {
-          const button = document.getElementById('newsletter-button-blog');
-          
-          if (button) {
-            button.addEventListener('click', function(e) {
-              e.preventDefault();
-              
-              // Find GHL popup overlay and show it manually
-              const popupOverlay = document.querySelector('.ghl-popup-overlay, .popup-overlay, [class*="popup"]');
-              if (popupOverlay) {
-                popupOverlay.style.display = 'flex';
-                popupOverlay.style.visibility = 'visible';
-                popupOverlay.style.opacity = '1';
-                document.body.style.overflow = 'hidden';
-                console.log('Blog newsletter popup opened via button click');
-              } else {
-                console.warn('GHL popup overlay not found');
-              }
-            });
+          // Wait for GHL script to initialize
+          setTimeout(function() {
+            const button = document.getElementById('newsletter-button-blog');
             
-            console.log('Blog newsletter button click handler initialized');
-          }
+            if (button) {
+              button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Try multiple methods to find and show the popup
+                
+                // Method 1: Search for common GHL popup classes
+                let popupOverlay = document.querySelector('[class*="popup-overlay"], [class*="ghl-popup"], div[style*="position: fixed"][style*="z-index"]');
+                
+                // Method 2: Find all fixed position divs with high z-index
+                if (!popupOverlay) {
+                  const allDivs = document.querySelectorAll('div');
+                  for (let div of allDivs) {
+                    const style = window.getComputedStyle(div);
+                    if (style.position === 'fixed' && parseInt(style.zIndex) > 1000) {
+                      const hasIframe = div.querySelector('iframe[id*="popup-6spGss3vvmBSHE7B7aiG"]');
+                      if (hasIframe) {
+                        popupOverlay = div;
+                        break;
+                      }
+                    }
+                  }
+                }
+                
+                if (popupOverlay) {
+                  popupOverlay.style.display = 'flex';
+                  popupOverlay.style.visibility = 'visible';
+                  popupOverlay.style.opacity = '1';
+                  document.body.style.overflow = 'hidden';
+                  console.log('Blog newsletter popup opened via button click');
+                } else {
+                  console.warn('GHL popup overlay not found. Available elements:', document.body.innerHTML.substring(0, 500));
+                }
+              });
+              
+              console.log('Blog newsletter button click handler initialized');
+            } else {
+              console.warn('Newsletter button not found');
+            }
+          }, 1000); // Wait 1 second for GHL script to load
         })();
       `}}/>
 
