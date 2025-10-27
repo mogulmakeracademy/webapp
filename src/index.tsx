@@ -624,7 +624,7 @@ app.get('/', (c) => {
               
               {/* Subscribe Button - Triggers GHL Popup */}
               <button
-                onclick="window.openNewsletterPopup && window.openNewsletterPopup()"
+                id="newsletter-button-home"
                 class="bg-gradient-to-r from-yellow-400 to-yellow-500 text-black px-10 py-4 md:px-12 md:py-5 rounded-full font-bold text-lg md:text-xl hover:from-yellow-500 hover:to-yellow-600 transition-all transform hover:scale-105 hover:shadow-2xl inline-flex items-center gap-3 group"
               >
                 <i class="fas fa-paper-plane text-xl group-hover:translate-x-1 transition-transform"></i>
@@ -661,8 +661,8 @@ app.get('/', (c) => {
         style="display:none;width:100%;height:100%;border:none;border-radius:3px"
         id="popup-6spGss3vvmBSHE7B7aiG-home" 
         data-layout="{'id':'POPUP'}"
-        data-trigger-type="alwaysShow"
-        data-trigger-value=""
+        data-trigger-type="onClick"
+        data-trigger-value="#newsletter-button-home"
         data-activation-type="alwaysActivated"
         data-activation-value=""
         data-deactivation-type="neverDeactivate"
@@ -674,26 +674,6 @@ app.get('/', (c) => {
         title="News Letter Mr. Mogul Maker"
       ></iframe>
       <script src="https://link.msgsndr.com/js/form_embed.js"></script>
-      
-      {/* Popup Trigger Script */}
-      <script dangerouslySetInnerHTML={{__html: `
-        window.openNewsletterPopup = function() {
-          // Try to trigger GHL popup
-          const popupFrame = document.getElementById('popup-6spGss3vvmBSHE7B7aiG') || document.getElementById('popup-6spGss3vvmBSHE7B7aiG-home');
-          if (popupFrame && popupFrame.contentWindow) {
-            // GHL's popup should open automatically when the script loads
-            // We can also try to trigger it programmatically
-            try {
-              popupFrame.style.display = 'block';
-              setTimeout(() => {
-                popupFrame.style.display = 'none';
-              }, 100);
-            } catch(e) {
-              console.log('Opening GHL popup');
-            }
-          }
-        }
-      `}} />
 
       {/* Footer */}
       <footer class="bg-black text-white py-12">
@@ -2471,7 +2451,7 @@ app.get('/blog', (c) => {
             
             {/* Subscribe Button - Triggers GHL Popup */}
             <button
-              onclick="window.openNewsletterPopup && window.openNewsletterPopup()"
+              id="newsletter-button-blog"
               class="bg-black text-yellow-400 px-10 py-4 md:px-12 md:py-5 rounded-full font-bold text-lg md:text-xl hover:bg-gray-900 transition-all transform hover:scale-105 hover:shadow-2xl inline-flex items-center gap-3 group"
             >
               <i class="fas fa-paper-plane text-xl group-hover:translate-x-1 transition-transform"></i>
@@ -2507,8 +2487,8 @@ app.get('/blog', (c) => {
         style="display:none;width:100%;height:100%;border:none;border-radius:3px"
         id="popup-6spGss3vvmBSHE7B7aiG" 
         data-layout="{'id':'POPUP'}"
-        data-trigger-type="alwaysShow"
-        data-trigger-value=""
+        data-trigger-type="onClick"
+        data-trigger-value="#newsletter-button-blog"
         data-activation-type="alwaysActivated"
         data-activation-value=""
         data-deactivation-type="neverDeactivate"
