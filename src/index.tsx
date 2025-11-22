@@ -638,14 +638,16 @@ app.get('/', (c) => {
                 Join 1,000+ entrepreneurs receiving exclusive strategies, funding opportunities, and credit-building insights.
               </p>
               
-              {/* Subscribe Button - Triggers GHL Popup */}
-              <button
-                id="newsletter-button-home"
+              {/* Subscribe Button - Opens Newsletter Form */}
+              <a
+                href="https://api.leadconnectorhq.com/widget/form/6spGss3vvmBSHE7B7aiG"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="bg-gradient-to-r from-yellow-400 to-yellow-500 text-black px-10 py-4 md:px-12 md:py-5 rounded-full font-bold text-lg md:text-xl hover:from-yellow-500 hover:to-yellow-600 transition-all transform hover:scale-105 hover:shadow-2xl inline-flex items-center gap-3 group"
               >
                 <i class="fas fa-paper-plane text-xl group-hover:translate-x-1 transition-transform"></i>
                 Subscribe Now
-              </button>
+              </a>
               
               <div class="mt-8 flex flex-wrap justify-center gap-6 text-sm">
                 <div class="flex items-center gap-2 text-gray-400">
@@ -671,25 +673,7 @@ app.get('/', (c) => {
         </div>
       </section>
       
-      {/* GHL Popup Form - Homepage - Auto-show + Manual trigger */}
-      <iframe
-        src="https://api.leadconnectorhq.com/widget/form/6spGss3vvmBSHE7B7aiG"
-        style="display:none;width:100%;height:100%;border:none;border-radius:2px"
-        id="popup-6spGss3vvmBSHE7B7aiG" 
-        data-layout="{'id':'POPUP'}"
-        data-trigger-type="alwaysShow"
-        data-trigger-value=""
-        data-activation-type="alwaysActivated"
-        data-activation-value=""
-        data-deactivation-type="neverDeactivate"
-        data-deactivation-value=""
-        data-form-name="News Letter Mr. Mogul Maker"
-        data-height="414"
-        data-layout-iframe-id="popup-6spGss3vvmBSHE7B7aiG"
-        data-form-id="6spGss3vvmBSHE7B7aiG"
-        title="News Letter Mr. Mogul Maker"
-      ></iframe>
-      <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+      {/* GHL Popup Form Removed from Homepage - Only on Blog page */}
 
       {/* Footer */}
       <footer class="bg-black text-white py-12">
@@ -978,30 +962,7 @@ app.get('/', (c) => {
           window.addEventListener('resize', updateVideoCarousel);
         }
         
-        // Newsletter button handler - Homepage
-        setTimeout(function() {
-          const button = document.getElementById('newsletter-button-home');
-          const iframe = document.getElementById('popup-6spGss3vvmBSHE7B7aiG');
-          
-          if (button && iframe) {
-            button.addEventListener('click', function(e) {
-              e.preventDefault();
-              console.log('🔘 Newsletter button clicked - Homepage');
-              
-              // Method: Re-trigger GHL popup by reloading the script
-              const oldScript = document.querySelector('script[src*="form_embed.js"]');
-              if (oldScript) {
-                const newScript = document.createElement('script');
-                newScript.src = 'https://link.msgsndr.com/js/form_embed.js';
-                oldScript.parentNode.insertBefore(newScript, oldScript.nextSibling);
-                console.log('✅ GHL script re-triggered');
-              }
-            });
-            console.log('✅ Homepage newsletter button ready');
-          } else {
-            console.error('❌ Button or iframe not found', {button: !!button, iframe: !!iframe});
-          }
-        }, 2000);
+        // Newsletter button handler removed - Homepage button now links directly to form
       `}} />
     </div>,
     {
