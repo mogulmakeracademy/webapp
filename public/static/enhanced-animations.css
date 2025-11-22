@@ -1,0 +1,590 @@
+/* Enhanced Animations & Effects for Mr. Mogul Maker */
+
+/* ============================================
+   1. PAGE LOAD ANIMATIONS
+   ============================================ */
+
+body {
+  animation: fadeInPage 0.6s ease-in;
+}
+
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   2. SCROLL FADE-IN EFFECTS
+   ============================================ */
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delay animations for staggered effect */
+.fade-in-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.fade-in-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.fade-in-delay-3 {
+  transition-delay: 0.3s;
+}
+
+.fade-in-delay-4 {
+  transition-delay: 0.4s;
+}
+
+/* ============================================
+   3. HERO VIDEO STYLES
+   ============================================ */
+
+.hero-video-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Smooth video loading transition */
+.hero-video {
+  opacity: 0;
+  animation: fadeInVideo 1s ease-in forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInVideo {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Video overlay gradients */
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.85) 30%,
+    rgba(0, 0, 0, 0.6) 60%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+}
+
+/* Mobile overlay adjustment */
+@media (max-width: 768px) {
+  .hero-video-overlay {
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0.85) 50%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+  }
+}
+
+/* ============================================
+   4. ENHANCED BUTTON EFFECTS
+   ============================================ */
+
+.btn-enhanced {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateZ(0);
+}
+
+/* Ripple effect on click */
+.btn-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-enhanced:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Lift effect */
+.btn-enhanced:hover {
+  transform: translateY(-3px) translateZ(0);
+  box-shadow: 0 12px 36px rgba(245, 158, 11, 0.4);
+}
+
+.btn-enhanced:active {
+  transform: translateY(-1px) translateZ(0);
+}
+
+/* Secondary button enhancement */
+.btn-secondary-enhanced {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary-enhanced:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 1);
+  color: #000;
+}
+
+/* ============================================
+   5. CARD HOVER EFFECTS
+   ============================================ */
+
+.card-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateZ(0);
+}
+
+.card-lift:hover {
+  transform: translateY(-8px) translateZ(0);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-lift-subtle {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateZ(0);
+}
+
+.card-lift-subtle:hover {
+  transform: translateY(-4px) translateZ(0);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* ============================================
+   6. STAT COUNTER ANIMATIONS
+   ============================================ */
+
+.stat-number {
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.stat-card-enhanced {
+  background: rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  transform: translateZ(0);
+}
+
+.stat-card-enhanced:hover {
+  background: rgba(0, 0, 0, 0.12);
+  transform: scale(1.05) translateZ(0);
+  box-shadow: 0 8px 32px rgba(245, 158, 11, 0.25);
+}
+
+/* ============================================
+   7. TEXT GRADIENT EFFECTS
+   ============================================ */
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+.text-gradient-animated {
+  background: linear-gradient(
+    90deg,
+    #FCD34D 0%,
+    #F59E0B 25%,
+    #D97706 50%,
+    #F59E0B 75%,
+    #FCD34D 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+}
+
+/* ============================================
+   8. IMAGE HOVER EFFECTS
+   ============================================ */
+
+.image-zoom-container {
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.image-zoom {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateZ(0);
+}
+
+.image-zoom-container:hover .image-zoom {
+  transform: scale(1.1) translateZ(0);
+}
+
+/* Image overlay effect */
+.image-overlay-effect {
+  position: relative;
+}
+
+.image-overlay-effect::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.image-overlay-effect:hover::after {
+  opacity: 1;
+}
+
+/* ============================================
+   9. ENHANCED SHADOWS
+   ============================================ */
+
+.shadow-soft {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.shadow-medium {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.shadow-strong {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.16);
+}
+
+.shadow-yellow-glow {
+  box-shadow: 0 8px 32px rgba(245, 158, 11, 0.3);
+}
+
+.shadow-yellow-glow-strong {
+  box-shadow: 0 12px 48px rgba(245, 158, 11, 0.4);
+}
+
+/* ============================================
+   10. NAVIGATION ENHANCEMENTS
+   ============================================ */
+
+.nav-enhanced {
+  transition: all 0.3s ease;
+}
+
+.nav-scrolled {
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Nav link underline effect */
+.nav-link-enhanced {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link-enhanced::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #F59E0B;
+  transition: width 0.3s ease;
+}
+
+.nav-link-enhanced:hover::after {
+  width: 100%;
+}
+
+/* ============================================
+   11. SMOOTH SCROLLING
+   ============================================ */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+/* ============================================
+   12. BACKGROUND GRADIENTS
+   ============================================ */
+
+.bg-gradient-dark {
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+}
+
+.bg-gradient-yellow {
+  background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 50%, #D97706 100%);
+}
+
+.bg-subtle-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f59e0b' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ============================================
+   13. MOBILE OPTIMIZATIONS
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* Better touch targets */
+  button, a {
+    min-height: 44px;
+  }
+  
+  /* Reduce animation intensity on mobile */
+  .fade-in-section {
+    transform: translateY(15px);
+  }
+  
+  /* Faster animations on mobile */
+  .btn-enhanced:hover,
+  .card-lift:hover {
+    transition-duration: 0.2s;
+  }
+}
+
+/* ============================================
+   14. ACCESSIBILITY
+   ============================================ */
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .fade-in-section {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============================================
+   15. LOADING STATES
+   ============================================ */
+
+.skeleton-loading {
+  background: linear-gradient(
+    90deg,
+    rgba(245, 158, 11, 0.1) 0%,
+    rgba(245, 158, 11, 0.2) 50%,
+    rgba(245, 158, 11, 0.1) 100%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s ease-in-out infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ============================================
+   16. ICON ANIMATIONS
+   ============================================ */
+
+.icon-bounce {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.icon-bounce:hover {
+  transform: translateY(-4px);
+}
+
+.icon-spin-hover:hover {
+  animation: spin 0.6s ease-in-out;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
+   17. QUOTE SECTION ENHANCEMENT
+   ============================================ */
+
+.quote-enhanced {
+  position: relative;
+  padding-left: 2rem;
+  border-left: 4px solid #F59E0B;
+}
+
+.quote-enhanced::before {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 0;
+  width: 4px;
+  height: 0;
+  background: #FCD34D;
+  transition: height 0.6s ease;
+}
+
+.quote-enhanced:hover::before {
+  height: 100%;
+}
+
+/* ============================================
+   18. PULSE ANIMATIONS
+   ============================================ */
+
+.pulse-subtle {
+  animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* ============================================
+   19. GRID ENHANCEMENTS
+   ============================================ */
+
+.grid-enhanced > * {
+  transition: all 0.3s ease;
+}
+
+.grid-enhanced > *:hover {
+  z-index: 10;
+}
+
+/* ============================================
+   20. FORM ENHANCEMENTS
+   ============================================ */
+
+.input-enhanced {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.input-enhanced:focus {
+  border-color: #F59E0B;
+  box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.1);
+  outline: none;
+}
+
+/* ============================================
+   21. UTILITY ANIMATIONS
+   ============================================ */
+
+.fade-in {
+  animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ============================================
+   22. PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+
+/* GPU acceleration for transforms */
+.gpu-accelerated {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Smooth font rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

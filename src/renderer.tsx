@@ -5,7 +5,7 @@ export const renderer = jsxRenderer(({ children, title, description, schema }) =
   const pageDescription = description || 'Build buying power and multiply wealth with Antonio Cook (Mr. Mogul Maker). Learn to secure funding, establish business credit, and create generational wealth. 10,000+ entrepreneurs funded.'
   
   // Cache-busting version for static assets
-  const version = '2.1.1'
+  const version = '2.2.0'
   
   return (
     <html lang="en">
@@ -72,6 +72,8 @@ export const renderer = jsxRenderer(({ children, title, description, schema }) =
         <link href={`/static/style.css?v=${version}`} rel="stylesheet" />
         {/* Simple, safe animations */}
         <link href={`/static/simple-animations.css?v=${version}`} rel="stylesheet" />
+        {/* Enhanced animations and effects */}
+        <link href={`/static/enhanced-animations.css?v=${version}`} rel="stylesheet" />
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
@@ -92,6 +94,9 @@ export const renderer = jsxRenderer(({ children, title, description, schema }) =
         
         {/* Simple, safe animations */}
         <script src={`/static/simple-animations.js?v=${version}`}></script>
+        
+        {/* Enhanced animations and interactive effects */}
+        <script src={`/static/js/animations.js?v=${version}`}></script>
         
         {/* Video carousel */}
         <script src={`/static/video-carousel.js?v=${version}`}></script>

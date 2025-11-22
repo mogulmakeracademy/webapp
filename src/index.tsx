@@ -9,7 +9,7 @@ app.get('/', (c) => {
   return c.render(
     <div style="font-family: 'Poppins', sans-serif;">
       {/* Navigation */}
-      <nav class="fixed w-full bg-black/95 backdrop-blur-sm z-[60] shadow-lg">
+      <nav class="fixed w-full bg-black/95 backdrop-blur-sm z-[60] shadow-lg nav-enhanced">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between items-center h-20">
             <div class="flex items-center">
@@ -21,12 +21,12 @@ app.get('/', (c) => {
               </a>
             </div>
             <div class="hidden md:flex items-center space-x-8">
-              <a href="/" class="text-white hover:text-yellow-400 transition">Home</a>
-              <a href="/speaking" class="text-white hover:text-yellow-400 transition">Speaking</a>
-              <a href="/blog" class="text-white hover:text-yellow-400 transition">Blog</a>
-              <a href="/programs" class="text-white hover:text-yellow-400 transition">Programs</a>
-              <a href="/events" class="text-white hover:text-yellow-400 transition">Events</a>
-              <a href="/shop" class="text-white hover:text-yellow-400 transition">
+              <a href="/" class="text-white hover:text-yellow-400 transition nav-link-enhanced">Home</a>
+              <a href="/speaking" class="text-white hover:text-yellow-400 transition nav-link-enhanced">Speaking</a>
+              <a href="/blog" class="text-white hover:text-yellow-400 transition nav-link-enhanced">Blog</a>
+              <a href="/programs" class="text-white hover:text-yellow-400 transition nav-link-enhanced">Programs</a>
+              <a href="/events" class="text-white hover:text-yellow-400 transition nav-link-enhanced">Events</a>
+              <a href="/shop" class="text-white hover:text-yellow-400 transition nav-link-enhanced">
                 <i class="fas fa-shopping-bag mr-2"></i>Shop
               </a>
             </div>
@@ -51,8 +51,23 @@ app.get('/', (c) => {
 
       {/* Hero Section */}
       <section class="relative min-h-screen flex items-center pt-20 md:pt-24 pb-12 md:pb-0 overflow-hidden">
-        {/* Background Image with Overlay */}
-        <div class="absolute inset-0">
+        {/* Hero Video/Image Background */}
+        <div class="hero-video-container">
+          {/* Video element - will show when you add video file */}
+          <video 
+            class="hero-video"
+            autoplay 
+            loop 
+            muted 
+            playsinline
+            poster="/antonio-cook-professional.jpg"
+          >
+            {/* Add your video sources here when ready */}
+            {/* <source src="/hero-video.mp4" type="video/mp4" /> */}
+            {/* <source src="/hero-video.webm" type="video/webm" /> */}
+          </video>
+          
+          {/* Fallback image (shows until video is added) */}
           <img 
             src="/antonio-cook-professional.jpg" 
             alt="Antonio Cook - Mr. Mogul Maker" 
@@ -60,8 +75,9 @@ app.get('/', (c) => {
             style="object-position: center top;"
             loading="eager"
           />
-          {/* Dark gradient overlay - stronger on mobile for better readability */}
-          <div class="absolute inset-0 bg-gradient-to-r from-black via-black/90 md:via-black/70 to-black/50 md:to-transparent"></div>
+          
+          {/* Enhanced gradient overlay */}
+          <div class="hero-video-overlay"></div>
         </div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -72,18 +88,18 @@ app.get('/', (c) => {
                 Entrepreneur Coach & Financial Educator
               </div>
               <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight">
-                Build <span class="text-yellow-400">Buying Power</span> & Multiply Wealth
+                Build <span class="text-gradient-gold">Buying Power</span> & Multiply Wealth
               </h1>
               <p class="text-base sm:text-lg md:text-xl text-gray-300 mb-6 md:mb-8">
                 I'm Antonio Cook, aka Mr. Mogul Maker — CEO & Co-Founder (with <span class="text-yellow-400 font-semibold">Tashia Anderson</span>) of <a href="https://mogulmakeracademy.com" target="_blank" class="text-yellow-400 hover:underline font-semibold">Mogul Maker Academy</a>. 
                 Learn how to secure funding, build business credit, and create generational wealth.
               </p>
               <div class="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 mb-8 md:mb-0">
-                <a href="/programs" class="bg-yellow-400 text-black px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-yellow-300 transition transform hover:scale-105 text-center">
+                <a href="/programs" class="bg-yellow-400 text-black px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-yellow-300 transition transform hover:scale-105 text-center btn-enhanced shadow-yellow-glow">
                   <i class="fas fa-robot mr-2"></i>
                   Explore AI Coaches
                 </a>
-                <a href="#contact" class="border-2 border-white text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-white hover:text-black transition transform hover:scale-105 text-center">
+                <a href="#contact" class="border-2 border-white text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-white hover:text-black transition transform hover:scale-105 text-center btn-secondary-enhanced">
                   <i class="fas fa-phone mr-2"></i>
                   Get In Touch
                 </a>
@@ -110,23 +126,23 @@ app.get('/', (c) => {
       </section>
 
       {/* Stats Section */}
-      <section class="bg-yellow-400 py-12 md:py-16">
+      <section class="bg-gradient-yellow py-12 md:py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center stats-grid">
-            <div class="bg-black/5 rounded-2xl p-4 md:p-6">
-              <div class="text-3xl md:text-4xl font-bold text-black mb-2">737+</div>
+            <div class="stat-card-enhanced rounded-2xl p-4 md:p-6">
+              <div class="text-3xl md:text-4xl font-bold text-black mb-2 stat-number" data-value="737+">737+</div>
               <div class="text-black/70 font-semibold text-sm md:text-base">YouTube Subscribers</div>
             </div>
-            <div class="bg-black/5 rounded-2xl p-4 md:p-6">
-              <div class="text-3xl md:text-4xl font-bold text-black mb-2">325+</div>
+            <div class="stat-card-enhanced rounded-2xl p-4 md:p-6">
+              <div class="text-3xl md:text-4xl font-bold text-black mb-2 stat-number" data-value="325+">325+</div>
               <div class="text-black/70 font-semibold text-sm md:text-base">TikTok Followers</div>
             </div>
-            <div class="bg-black/5 rounded-2xl p-4 md:p-6">
-              <div class="text-3xl md:text-4xl font-bold text-black mb-2">80+</div>
+            <div class="stat-card-enhanced rounded-2xl p-4 md:p-6">
+              <div class="text-3xl md:text-4xl font-bold text-black mb-2 stat-number" data-value="80+">80+</div>
               <div class="text-black/70 font-semibold text-sm md:text-base">Educational Videos</div>
             </div>
-            <div class="bg-black/5 rounded-2xl p-4 md:p-6">
-              <div class="text-3xl md:text-4xl font-bold text-black mb-2">8</div>
+            <div class="stat-card-enhanced rounded-2xl p-4 md:p-6">
+              <div class="text-3xl md:text-4xl font-bold text-black mb-2 stat-number" data-value="8">8</div>
               <div class="text-black/70 font-semibold text-sm md:text-base">Academy Programs</div>
             </div>
           </div>
