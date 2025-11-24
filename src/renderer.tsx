@@ -110,6 +110,9 @@ export const renderer = jsxRenderer(({ children, title, description, schema }) =
             document.getElementById('scroll-progress').style.width = scrolled + '%';
           }, { passive: true });
         `}} />
+        
+        {/* Cloudflare Web Analytics */}
+        <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e97e3cda60de4556b7c4908cb96fd1a9"}'></script>
       </body>
     </html>
   )
