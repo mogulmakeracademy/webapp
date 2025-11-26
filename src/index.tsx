@@ -2451,11 +2451,9 @@ app.get('/blog', (c) => {
               Get weekly insights on business credit, funding strategies, and wealth building delivered to your inbox.
             </p>
             
-            {/* Subscribe Button - Opens JotForm */}
+            {/* Subscribe Button - Opens JotForm Popup */}
             <a
-              href="https://form.jotform.com/253286829588073"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="javascript:void(window.open('https://form.jotform.com/253286829588073','blank','scrollbars=yes,toolbar=no,width=700,height=500'))"
               class="bg-black text-yellow-400 px-10 py-4 md:px-12 md:py-5 rounded-full font-bold text-lg md:text-xl hover:bg-gray-900 transition-all transform hover:scale-105 hover:shadow-2xl inline-flex items-center gap-3 group"
             >
               <i class="fas fa-paper-plane text-xl group-hover:translate-x-1 transition-transform"></i>
