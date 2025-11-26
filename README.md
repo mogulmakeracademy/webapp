@@ -143,15 +143,15 @@ npx wrangler pages deploy dist --project-name mrmogulmaker
 ```
 
 **Deployment Status:** ✅ Active  
-**Last Deployed:** 2025-01-26 (v2.14.0 - Programs Page Launch)  
+**Last Deployed:** 2025-01-26 (v2.16.0 - Newsletter Integration)  
 **Project Name:** mrmogulmaker  
 **Account:** mrmogulmaker@gmail.com
 
 **Recent Deployments:**
+- v2.16.0: ✅ **Newsletter Integration Updates** - Homepage uses GHL form link, Blog uses JotForm popup
+- v2.15.0: ✅ **Cloudflare Web Analytics** - Added privacy-friendly tracking
+- v2.14.0: ✅ **Programs Page Launch** - Dedicated AI Coaches page with GHL waitlist
 - v2.9.5: ✅ **iOS Mobile Menu Fix** - Copied working homepage pattern to all pages (Speaking, Blog, Shop)
-- v2.9.4: iOS touchstart events added (didn't fully resolve issue)
-- v2.9.3: DOMContentLoaded wrapper and preventDefault added
-- v2.9.2: Z-index and menu styling improvements
 - v2.8.0: GHL Store Custom CSS Complete - Minimal branding with header and yellow accents
 - v2.7.1: Moved Shop button after Programs in navigation
 - v2.7.0: Added GHL e-commerce store integration
@@ -200,7 +200,19 @@ npx wrangler pages deploy dist --project-name mrmogulmaker
 
 ## ✨ Features Completed
 
-### Version 2.14.0 (Latest) - Programs Page Launch
+### Version 2.16.0 (Latest) - Newsletter Integration Updates
+- ✅ **Homepage Newsletter** - "Subscribe Now" button opens GHL form in new tab
+- ✅ **Blog Newsletter** - "Subscribe Now" button opens JotForm in 700x500 popup window
+- ✅ **Removed Auto-Popups** - Cleaner UX without intrusive newsletter popups
+- ✅ **Dual Form Strategy** - GHL for main site, JotForm for blog-specific signups
+- ✅ **Proper Popup Parameters** - Centered window with scrollbars, optimal dimensions
+
+### Version 2.15.0 - Analytics Integration
+- ✅ **Cloudflare Web Analytics** - Privacy-friendly tracking with token: e97e3cda60de4556b7c4908cb96fd1a9
+- ✅ **No Cookies Required** - GDPR-friendly analytics solution
+- ✅ **Real-Time Insights** - Page views, visits, and performance metrics
+
+### Version 2.14.0 - Programs Page Launch
 - ✅ **New Programs Page** - Dedicated page for AI Coaches at `/programs`
 - ✅ **8 AI Coach Cards** - Detailed descriptions for BUILD, LAUNCH, FUND, DRIVE, ACCEL, REPORT, SHIELD, ACQUIRE
 - ✅ **GHL Waitlist Form** - Embedded form for early access signups
@@ -287,21 +299,20 @@ npx wrangler pages deploy dist --project-name mrmogulmaker
 
 ## 🎯 Future Enhancements
 
-- [ ] **Verify iOS mobile menu fix works** on actual iPhone devices
-- [ ] **Test Programs page navigation** (/#programs hash link)
-- [ ] **Add GoHighLevel (GHL) embedded form** for lead capture when ready
+- [ ] **Deploy latest newsletter changes to production** (Cloudflare Pages)
+- [ ] **Activate custom domain** mrmogulmaker.com (DNS setup in progress)
+- [ ] **Add hero video loop** (structure ready, awaiting 10-20 sec video file)
+- [ ] **Test JotForm popup** on various devices and browsers
 - [ ] **Complete Stripe integration** for live payment processing
 - [ ] **Add digital product delivery system** (download links after purchase)
 - [ ] **Order confirmation emails** using SendGrid or similar
 - [ ] **Customer dashboard** for purchased products
 - [ ] **Discount codes and promotions**
-- [ ] Add blog/articles section for financial literacy content
+- [ ] Add live blog articles with actual financial literacy content
 - [ ] Integrate video player for YouTube content
 - [ ] Add testimonials slider from academy students
 - [ ] Create contact form for consultation requests
-- [ ] Add newsletter subscription
 - [ ] Implement dark/light mode toggle
-- [ ] Add analytics tracking (Google Analytics)
 - [ ] SEO optimization with meta tags
 - [ ] Add structured data (JSON-LD) for better search visibility
 - [ ] Integrate Mogul Maker Academy login/signup
@@ -331,6 +342,31 @@ npx wrangler pages deploy dist --project-name mrmogulmaker
 - "Structure Your Business Right" (LLC, Corp, Sole Proprietor)
 - "Think Like a Bank & Build Wealth"
 - "Credit Repair & Financial Literacy"
+
+## 📧 Newsletter Integration
+
+**Current Setup:**
+
+### Homepage Newsletter (GHL Form)
+- **Form URL:** https://api.leadconnectorhq.com/widget/form/6spGss3vvmBSHE7B7aiG
+- **Action:** "Subscribe Now" button opens GHL form in new tab
+- **Location:** Hero section CTA
+- **Target:** _blank (new tab)
+
+### Blog Page Newsletter (JotForm Popup)
+- **Form URL:** https://form.jotform.com/253286829588073
+- **Action:** "Subscribe Now" button opens JotForm in popup window
+- **Popup Dimensions:** 700x500 pixels
+- **Popup Features:** Scrollbars enabled, toolbar hidden, centered window
+- **Location:** Newsletter signup section at bottom of Blog page
+
+### Implementation Notes
+- **No Auto-Popups:** Both forms are user-triggered (click button) for better UX
+- **Dual Strategy:** GHL for main site, JotForm for blog-specific audience
+- **Git Tracked:** All changes committed with descriptive messages
+- **JavaScript:** Simple `window.open()` for JotForm popup with proper parameters
+
+---
 
 ## 🔗 GoHighLevel (GHL) Store Integration
 
