@@ -638,11 +638,9 @@ app.get('/', (c) => {
                 Join 1,000+ entrepreneurs receiving exclusive strategies, funding opportunities, and credit-building insights.
               </p>
               
-              {/* Subscribe Button - Opens Newsletter Form */}
+              {/* Subscribe Button - Opens JotForm Popup */}
               <a
-                href="https://api.leadconnectorhq.com/widget/form/6spGss3vvmBSHE7B7aiG"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="javascript:void(window.open('https://form.jotform.com/253286829588073','blank','scrollbars=yes,toolbar=no,width=700,height=500'))"
                 class="bg-gradient-to-r from-yellow-400 to-yellow-500 text-black px-10 py-4 md:px-12 md:py-5 rounded-full font-bold text-lg md:text-xl hover:from-yellow-500 hover:to-yellow-600 transition-all transform hover:scale-105 hover:shadow-2xl inline-flex items-center gap-3 group"
               >
                 <i class="fas fa-paper-plane text-xl group-hover:translate-x-1 transition-transform"></i>
