@@ -2451,14 +2451,16 @@ app.get('/blog', (c) => {
               Get weekly insights on business credit, funding strategies, and wealth building delivered to your inbox.
             </p>
             
-            {/* Subscribe Button - Triggers GHL Popup */}
-            <button
-              id="newsletter-button-blog"
+            {/* Subscribe Button - Opens JotForm */}
+            <a
+              href="https://form.jotform.com/253286829588073"
+              target="_blank"
+              rel="noopener noreferrer"
               class="bg-black text-yellow-400 px-10 py-4 md:px-12 md:py-5 rounded-full font-bold text-lg md:text-xl hover:bg-gray-900 transition-all transform hover:scale-105 hover:shadow-2xl inline-flex items-center gap-3 group"
             >
               <i class="fas fa-paper-plane text-xl group-hover:translate-x-1 transition-transform"></i>
               Subscribe Now
-            </button>
+            </a>
             
             <p class="text-sm text-gray-800 mt-6 flex items-center justify-center gap-2">
               <i class="fas fa-lock"></i>
@@ -2483,58 +2485,7 @@ app.get('/blog', (c) => {
         </div>
       </section>
       
-      {/* GHL Popup Form - Blog Page - Auto-show + Manual trigger */}
-      <iframe
-        src="https://api.leadconnectorhq.com/widget/form/6spGss3vvmBSHE7B7aiG"
-        style="display:none;width:100%;height:100%;border:none;border-radius:2px"
-        id="popup-6spGss3vvmBSHE7B7aiG" 
-        data-layout="{'id':'POPUP'}"
-        data-trigger-type="alwaysShow"
-        data-trigger-value=""
-        data-activation-type="alwaysActivated"
-        data-activation-value=""
-        data-deactivation-type="neverDeactivate"
-        data-deactivation-value=""
-        data-form-name="News Letter Mr. Mogul Maker"
-        data-height="414"
-        data-layout-iframe-id="popup-6spGss3vvmBSHE7B7aiG"
-        data-form-id="6spGss3vvmBSHE7B7aiG"
-        title="News Letter Mr. Mogul Maker"
-      ></iframe>
-      <script src="https://link.msgsndr.com/js/form_embed.js"></script>
-      
-      {/* Custom JavaScript to enable button click trigger */}
-      <script dangerouslySetInnerHTML={{__html: `
-        // Simple approach: Force GHL to re-trigger popup - Blog Page
-        (function() {
-          setTimeout(function() {
-            const button = document.getElementById('newsletter-button-blog');
-            const iframe = document.getElementById('popup-6spGss3vvmBSHE7B7aiG');
-            
-            if (button && iframe) {
-              button.addEventListener('click', function(e) {
-                e.preventDefault();
-                console.log('🔘 Newsletter button clicked - Blog Page');
-                
-                // Method: Re-trigger GHL popup by changing trigger attribute
-                iframe.setAttribute('data-trigger-type', 'alwaysShow');
-                
-                // Force GHL to re-initialize by removing and re-adding script
-                const oldScript = document.querySelector('script[src*="form_embed.js"]');
-                if (oldScript) {
-                  const newScript = document.createElement('script');
-                  newScript.src = 'https://link.msgsndr.com/js/form_embed.js';
-                  oldScript.parentNode.insertBefore(newScript, oldScript.nextSibling);
-                  console.log('✅ GHL script re-triggered');
-                }
-              });
-              console.log('✅ Blog newsletter button ready');
-            } else {
-              console.error('❌ Button or iframe not found', {button: !!button, iframe: !!iframe});
-            }
-          }, 1000);
-        })();
-      `}}/>
+      {/* JotForm replaced GHL popup - Blog page now uses JotForm link */}
 
       {/* Footer */}
       <footer class="bg-black text-white py-12">
