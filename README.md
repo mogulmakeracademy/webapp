@@ -200,11 +200,12 @@ npx wrangler pages deploy dist --project-name mrmogulmaker
 
 ## ✨ Features Completed
 
-### Version 2.16.0 (Latest) - Newsletter Integration Updates
-- ✅ **Homepage Newsletter** - "Subscribe Now" button opens GHL form in new tab
-- ✅ **Blog Newsletter** - "Subscribe Now" button opens JotForm in 700x500 popup window
+### Version 2.16.0 (Latest) - Unified JotForm Newsletter Integration
+- ✅ **Unified JotForm** - All newsletter signups now use JotForm popup across entire site
+- ✅ **Homepage Newsletter** - "Subscribe Now" button opens JotForm in 700x500 popup
+- ✅ **Blog Newsletter** - "Subscribe Now" button opens JotForm in 700x500 popup
 - ✅ **Removed Auto-Popups** - Cleaner UX without intrusive newsletter popups
-- ✅ **Dual Form Strategy** - GHL for main site, JotForm for blog-specific signups
+- ✅ **Removed GHL Forms** - Simplified to single form provider (JotForm)
 - ✅ **Proper Popup Parameters** - Centered window with scrollbars, optimal dimensions
 
 ### Version 2.15.0 - Analytics Integration
@@ -345,26 +346,29 @@ npx wrangler pages deploy dist --project-name mrmogulmaker
 
 ## 📧 Newsletter Integration
 
-**Current Setup:**
+**Current Setup:** All newsletter signups now use **JotForm popup** across the entire site.
 
-### Homepage Newsletter (GHL Form)
-- **Form URL:** https://api.leadconnectorhq.com/widget/form/6spGss3vvmBSHE7B7aiG
-- **Action:** "Subscribe Now" button opens GHL form in new tab
-- **Location:** Hero section CTA
-- **Target:** _blank (new tab)
-
-### Blog Page Newsletter (JotForm Popup)
+### Unified JotForm Integration
 - **Form URL:** https://form.jotform.com/253286829588073
 - **Action:** "Subscribe Now" button opens JotForm in popup window
 - **Popup Dimensions:** 700x500 pixels
 - **Popup Features:** Scrollbars enabled, toolbar hidden, centered window
-- **Location:** Newsletter signup section at bottom of Blog page
+
+### Implementation Locations
+1. **Homepage Newsletter:**
+   - Location: "Get Weekly Business Credit Tips" section
+   - Button Style: Yellow gradient (brand colors)
+   
+2. **Blog Page Newsletter:**
+   - Location: "Never Miss an Update" section at bottom
+   - Button Style: Black with yellow text
 
 ### Implementation Notes
-- **No Auto-Popups:** Both forms are user-triggered (click button) for better UX
-- **Dual Strategy:** GHL for main site, JotForm for blog-specific audience
+- **No Auto-Popups:** User-triggered only (click button) for better UX
+- **Consistent Experience:** Same popup behavior across all pages
 - **Git Tracked:** All changes committed with descriptive messages
-- **JavaScript:** Simple `window.open()` for JotForm popup with proper parameters
+- **JavaScript:** Simple `window.open()` for popup with proper parameters
+- **Mobile-Friendly:** Automatically opens as new tab on mobile devices
 
 ---
 
