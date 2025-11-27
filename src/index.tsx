@@ -5,6 +5,66 @@ const app = new Hono()
 
 app.use(renderer)
 
+// Blog API Routes
+app.get('/api/blog/posts', async (c) => {
+  try {
+    const response = await fetch('https://api.github.com/repos/mogulmakeracademy/webapp/contents/blog-posts', {
+      headers: {
+        'Accept': 'application/vnd.github.v3+json',
+        'User-Agent': 'Cloudflare-Worker'
+      }
+    });
+
+    if (!response.ok) {
+      return c.json({ error: 'Failed to fetch blog posts' }, 500);
+    }
+
+    const files = await response.json();
+    const jsonFiles = files.filter((file: any) => file.name.endsWith('.json') && file.name !== 'README.json');
+
+    const posts = await Promise.all(
+      jsonFiles.map(async (file: any) => {
+        const contentResponse = await fetch(file.download_url);
+        const post = await contentResponse.json();
+        return post;
+      })
+    );
+
+    // Sort by publishDate (newest first)
+    posts.sort((a: any, b: any) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
+
+    return c.json(posts);
+  } catch (error) {
+    console.error('Error fetching blog posts:', error);
+    return c.json({ error: 'Internal server error' }, 500);
+  }
+});
+
+app.get('/api/blog/post/:slug', async (c) => {
+  try {
+    const slug = c.req.param('slug');
+    const response = await fetch(`https://api.github.com/repos/mogulmakeracademy/webapp/contents/blog-posts/${slug}.json`, {
+      headers: {
+        'Accept': 'application/vnd.github.v3+json',
+        'User-Agent': 'Cloudflare-Worker'
+      }
+    });
+
+    if (!response.ok) {
+      return c.json({ error: 'Blog post not found' }, 404);
+    }
+
+    const file = await response.json();
+    const contentResponse = await fetch(file.download_url);
+    const post = await contentResponse.json();
+
+    return c.json(post);
+  } catch (error) {
+    console.error('Error fetching blog post:', error);
+    return c.json({ error: 'Internal server error' }, 500);
+  }
+});
+
 app.get('/', (c) => {
   return c.render(
     <div style="font-family: 'Poppins', sans-serif;">
@@ -2275,7 +2335,23 @@ app.get('/blog', (c) => {
             </div>
           </div>
 
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Loading state */}
+          <div id="blog-loading" class="text-center py-12">
+            <i class="fas fa-spinner fa-spin text-4xl text-yellow-400 mb-4"></i>
+            <p class="text-gray-600">Loading articles...</p>
+          </div>
+          
+          {/* Blog posts container */}
+          <div id="blog-posts-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 hidden"></div>
+          
+          {/* Error state */}
+          <div id="blog-error" class="text-center py-12 hidden">
+            <i class="fas fa-exclamation-circle text-4xl text-red-500 mb-4"></i>
+            <p class="text-gray-600">Failed to load articles. Please try again later.</p>
+          </div>
+          
+          {/* Fallback articles (in case JavaScript fails) */}
+          <div id="blog-fallback" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 hidden">
             {/* Sample Blog Articles */}
             <article class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:scale-105">
               <div class="bg-gradient-to-br from-black to-gray-900 h-48 flex items-center justify-center">
@@ -2426,7 +2502,7 @@ app.get('/blog', (c) => {
                 </div>
               </div>
             </article>
-          </div>
+          </div> {/* End fallback articles */}
 
           {/* Load More Button */}
           <div class="text-center mt-12">
@@ -2613,17 +2689,93 @@ app.get('/blog', (c) => {
           });
         });
 
-        // Category filtering (placeholder - would filter actual articles)
+        // Load blog posts dynamically
+        let allPosts = [];
+        
+        async function loadBlogPosts(category = 'all') {
+          try {
+            const response = await fetch('/api/blog/posts');
+            if (!response.ok) throw new Error('Failed to fetch posts');
+            
+            allPosts = await response.json();
+            renderBlogPosts(category);
+            
+            document.getElementById('blog-loading').classList.add('hidden');
+            document.getElementById('blog-posts-container').classList.remove('hidden');
+          } catch (error) {
+            console.error('Error loading blog posts:', error);
+            document.getElementById('blog-loading').classList.add('hidden');
+            document.getElementById('blog-error').classList.remove('hidden');
+          }
+        }
+        
+        function renderBlogPosts(category = 'all') {
+          const container = document.getElementById('blog-posts-container');
+          const filteredPosts = category === 'all' ? allPosts : allPosts.filter(p => p.category.toLowerCase() === category.toLowerCase());
+          
+          container.innerHTML = filteredPosts.map(post => {
+            const publishDate = new Date(post.publishDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+            
+            const categoryColors = {
+              'credit': 'bg-yellow-100 text-yellow-800',
+              'funding': 'bg-green-100 text-green-800',
+              'business': 'bg-blue-100 text-blue-800'
+            };
+            
+            const categoryColor = categoryColors[post.category.toLowerCase()] || 'bg-gray-100 text-gray-800';
+            const categoryDisplay = post.category.charAt(0).toUpperCase() + post.category.slice(1);
+            
+            const imageHtml = post.image && !post.image.startsWith('fa-')
+              ? \`<img src="\${post.image}" alt="\${post.title}" class="w-full h-48 object-cover" />\`
+              : \`<div class="bg-gradient-to-br from-black to-gray-900 h-48 flex items-center justify-center">
+                   <i class="fas \${post.image || 'fa-book'} text-yellow-400 text-6xl"></i>
+                 </div>\`;
+            
+            return \`
+              <article class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:scale-105">
+                \${imageHtml}
+                <div class="p-6">
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="\${categoryColor} px-3 py-1 rounded-full text-sm font-semibold">\${categoryDisplay}</span>
+                    <span class="text-gray-500 text-sm">\${post.readTime} min read</span>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 mb-3 hover:text-yellow-400 transition cursor-pointer">
+                    \${post.title}
+                  </h3>
+                  <p class="text-gray-600 mb-4">
+                    \${post.excerpt}
+                  </p>
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2 text-sm text-gray-500">
+                      <i class="fas fa-calendar"></i>
+                      <span>\${publishDate}</span>
+                    </div>
+                    <a href="/blog/\${post.slug}" class="text-yellow-400 font-semibold hover:underline">Read More →</a>
+                  </div>
+                </div>
+              </article>
+            \`;
+          }).join('');
+        }
+        
+        // Category filtering with dynamic blog posts
         document.querySelectorAll('.category-filter').forEach(btn => {
           btn.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+            
             document.querySelectorAll('.category-filter').forEach(b => {
               b.classList.remove('active', 'bg-yellow-400', 'text-black');
               b.classList.add('bg-white', 'text-gray-700');
             });
             this.classList.add('active', 'bg-yellow-400', 'text-black');
             this.classList.remove('bg-white', 'text-gray-700');
+            
+            renderBlogPosts(category);
           });
         });
+        
+        // Load posts when page loads
+        loadBlogPosts();
       `}} />
     </div>,
     {
@@ -2712,6 +2864,200 @@ app.get('/blog', (c) => {
 })
 
 // AI Coach Page Route
+// Individual Blog Post Route
+app.get('/blog/:slug', async (c) => {
+  const slug = c.req.param('slug');
+  
+  return c.html(`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Loading... | Mr. Mogul Maker</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    </head>
+    <body class="bg-gray-50" style="font-family: 'Poppins', sans-serif;">
+      <!-- Post content -->
+      <article id="post-container" class="hidden"></article>
+      
+      <!-- Loading state -->
+      <div id="post-loading" class="flex items-center justify-center min-h-screen">
+        <div class="text-center">
+          <i class="fas fa-spinner fa-spin text-4xl text-yellow-400 mb-4"></i>
+          <p class="text-gray-600">Loading article...</p>
+        </div>
+      </div>
+      
+      <script>
+        const slug = '${slug}';
+        
+        async function loadBlogPost() {
+          try {
+            const response = await fetch(\`/api/blog/post/\${slug}\`);
+            if (!response.ok) {
+              throw new Error('Post not found');
+            }
+            
+            const post = response.json();
+            renderBlogPost(post);
+          } catch (error) {
+            console.error('Error loading blog post:', error);
+            document.getElementById('post-loading').innerHTML = \`
+              <div class="text-center">
+                <i class="fas fa-exclamation-circle text-4xl text-red-500 mb-4"></i>
+                <p class="text-gray-600">Article not found</p>
+                <a href="/blog" class="text-yellow-400 hover:text-yellow-500 mt-4 inline-block">
+                  <i class="fas fa-arrow-left mr-2"></i>Back to Blog
+                </a>
+              </div>
+            \`;
+          }
+        }
+        
+        function renderBlogPost(post) {
+          const publishDate = new Date(post.publishDate).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          });
+          
+          const categoryColors = {
+            'credit': 'bg-yellow-100 text-yellow-800',
+            'funding': 'bg-green-100 text-green-800',
+            'business': 'bg-blue-100 text-blue-800'
+          };
+          
+          const categoryColor = categoryColors[post.category.toLowerCase()] || 'bg-gray-100 text-gray-800';
+          const categoryDisplay = post.category.charAt(0).toUpperCase() + post.category.slice(1);
+          
+          const html = \`
+            <div class="min-h-screen bg-gray-50">
+              <!-- Navigation -->
+              <nav class="fixed w-full bg-black/95 backdrop-blur-sm z-50 shadow-lg">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                  <div class="flex justify-between items-center h-20">
+                    <div class="flex items-center">
+                      <a href="/" class="flex items-center gap-3 group">
+                        <img src="/mr-mogul-maker-logo.png" alt="Mr Mogul Maker Logo" class="h-12 w-12" />
+                        <span class="text-2xl font-bold">
+                          <span class="text-white">Mr.</span> <span class="text-yellow-400">Mogul Maker</span>
+                        </span>
+                      </a>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-8">
+                      <a href="/" class="text-white hover:text-yellow-400 transition">Home</a>
+                      <a href="/blog" class="text-yellow-400 font-semibold">Blog</a>
+                      <a href="/programs" class="text-white hover:text-yellow-400 transition">Programs</a>
+                      <a href="/shop" class="text-white hover:text-yellow-400 transition">Shop</a>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+              
+              <!-- Post Content -->
+              <div class="pt-32 pb-16">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                  <!-- Breadcrumb -->
+                  <div class="mb-6">
+                    <a href="/blog" class="text-gray-600 hover:text-yellow-400 transition">
+                      <i class="fas fa-arrow-left mr-2"></i>Back to Blog
+                    </a>
+                  </div>
+                  
+                  <!-- Post Header -->
+                  <div class="mb-8">
+                    <span class="inline-block \${categoryColor} px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                      \${categoryDisplay}
+                    </span>
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">\${post.title}</h1>
+                    <p class="text-xl text-gray-600 mb-6">\${post.excerpt}</p>
+                    <div class="flex items-center gap-6 text-gray-600">
+                      <div class="flex items-center gap-2">
+                        <i class="fas fa-user-circle text-yellow-400"></i>
+                        <span>\${post.author}</span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <i class="fas fa-calendar text-yellow-400"></i>
+                        <span>\${publishDate}</span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <i class="fas fa-clock text-yellow-400"></i>
+                        <span>\${post.readTime} min read</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Featured Image -->
+                  \${post.image && !post.image.startsWith('fa-') ? \`
+                    <div class="mb-8 rounded-2xl overflow-hidden shadow-xl">
+                      <img src="\${post.image}" alt="\${post.title}" class="w-full h-auto" />
+                    </div>
+                  \` : ''}
+                  
+                  <!-- Post Content -->
+                  <div class="prose prose-lg max-w-none">
+                    <style>
+                      .prose h2 { font-size: 2rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; color: #111827; }
+                      .prose h3 { font-size: 1.5rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #374151; }
+                      .prose p { margin-bottom: 1rem; line-height: 1.75; color: #4B5563; }
+                      .prose ul, .prose ol { margin-bottom: 1rem; padding-left: 1.5rem; }
+                      .prose li { margin-bottom: 0.5rem; color: #4B5563; }
+                      .prose a { color: #FBBF24; text-decoration: underline; }
+                      .prose a:hover { color: #F59E0B; }
+                      .prose strong { font-weight: 700; color: #111827; }
+                    </style>
+                    \${post.content}
+                  </div>
+                  
+                  <!-- Author Bio -->
+                  <div class="mt-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl p-8">
+                    <div class="flex items-center gap-6">
+                      <img src="/antonio-cook-professional.jpg" alt="Antonio Cook" class="w-24 h-24 rounded-full border-4 border-white shadow-lg" />
+                      <div>
+                        <h3 class="text-2xl font-bold text-black mb-2">Antonio Cook</h3>
+                        <p class="text-gray-900 font-semibold">
+                          Business Credit & Funding Expert | Helping entrepreneurs access capital and build wealth through proven strategies.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- CTA -->
+                  <div class="mt-12 text-center bg-black rounded-2xl p-12">
+                    <h3 class="text-3xl font-bold text-white mb-4">Ready to Build Your Business Credit?</h3>
+                    <p class="text-gray-300 mb-8">Join thousands of entrepreneurs who have transformed their businesses with our proven strategies.</p>
+                    <a href="/programs" class="inline-block bg-yellow-400 text-black px-8 py-4 rounded-full font-bold hover:bg-yellow-500 transition">
+                      Explore Our Programs <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                  </div>
+                  
+                  <!-- Back to Blog -->
+                  <div class="mt-12 text-center">
+                    <a href="/blog" class="text-yellow-400 hover:text-yellow-500 font-semibold">
+                      <i class="fas fa-arrow-left mr-2"></i>Back to All Articles
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          \`;
+          
+          document.getElementById('post-container').innerHTML = html;
+          document.getElementById('post-container').classList.remove('hidden');
+          document.getElementById('post-loading').classList.add('hidden');
+          document.title = \`\${post.title} | Mr. Mogul Maker\`;
+        }
+        
+        loadBlogPost();
+      </script>
+    </body>
+    </html>
+  `);
+});
+
 app.get('/ai-coach', (c) => {
   return c.render(
     <div style="font-family: 'Poppins', sans-serif;">
