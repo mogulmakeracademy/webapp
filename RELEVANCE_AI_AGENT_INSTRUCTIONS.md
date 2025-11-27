@@ -55,7 +55,7 @@ Create blog posts as JSON files with this exact structure:
 | `publishDate` | string | ✅ Yes | ISO date format (YYYY-MM-DD) | `"2025-01-26"` |
 | `readTime` | number | ✅ Yes | Estimated minutes to read | `8` |
 | `featured` | boolean | ❌ No | Show in featured section? | `true` or `false` |
-| `image` | string | ❌ No | Font Awesome icon class | `"fa-credit-card"` |
+| `image` | string | ⭐ Recommended | Image URL or Font Awesome icon | `"https://i.imgur.com/abc.jpg"` or `"fa-credit-card"` |
 
 ### Category Options
 
@@ -64,9 +64,51 @@ Use one of these three categories:
 - **`funding`** - SBA loans, funding strategies, capital access
 - **`business`** - Business structure, operations, entrepreneurship
 
-### Icon Options (Font Awesome)
+### Image Options
 
-Choose appropriate icons for your post category:
+You have **TWO OPTIONS** for blog post images:
+
+#### **Option 1: Real Images (RECOMMENDED)** ⭐
+
+Use real images for better visual appeal and engagement. Provide a direct image URL:
+
+```json
+{
+  "image": "https://images.unsplash.com/photo-1554224311-beee4ece3c5d?w=1200&q=80"
+}
+```
+
+**Where to Get Images:**
+
+1. **AI-Generated Images** (Best for custom visuals)
+   - Generate using DALL·E, Midjourney, or Stable Diffusion
+   - Upload to free hosting: Imgur, Cloudinary, or GitHub
+   - See "Image Generation Guide" section below for prompts
+
+2. **Stock Photos** (Quick and professional)
+   - Unsplash: https://unsplash.com
+   - Pexels: https://www.pexels.com
+   - Pixabay: https://pixabay.com
+   - All free, high-quality, commercial use allowed
+
+**Image Requirements:**
+- **Format**: JPG, PNG, or WebP
+- **Aspect Ratio**: 16:9 (recommended) or 4:3
+- **Minimum Size**: 1200x675px (width x height)
+- **File Size**: Under 500KB for fast loading
+- **Direct URL**: Must end in .jpg, .png, or .webp
+
+#### **Option 2: Font Awesome Icons** (Fallback)
+
+Use Font Awesome icons if no image is available:
+
+```json
+{
+  "image": "fa-credit-card"
+}
+```
+
+**Available Icons:**
 - `fa-credit-card` - Credit posts
 - `fa-money-bill-wave` - Funding posts
 - `fa-building` - Business structure
@@ -76,6 +118,107 @@ Choose appropriate icons for your post category:
 - `fa-chart-pie` - Finance/accounting
 - `fa-lightbulb` - Tips/ideas
 - `fa-rocket` - Launch/startup
+- `fa-handshake` - Partnerships
+- `fa-briefcase` - Professional services
+
+---
+
+## 🎨 Image Generation Guide
+
+### AI Image Generation Prompts by Category
+
+**For CREDIT Category Posts:**
+
+```
+Prompt Examples:
+- "Professional business credit card on modern desk with financial documents, clean office setting, natural lighting, corporate photography style, high quality"
+- "Close-up of credit score report showing excellent rating, professional office desk, calculator and pen nearby, business photography, sharp focus"
+- "Entrepreneur reviewing business credit documents, modern office interior, professional attire, confident expression, commercial photography style"
+- "Multiple business credit cards arranged on dark wood desk, financial charts in background, premium business aesthetic, 4K quality"
+```
+
+**For FUNDING Category Posts:**
+
+```
+Prompt Examples:
+- "Business owner shaking hands with bank loan officer, professional office setting, documents on desk, corporate photography, natural lighting"
+- "Stack of cash and financial documents on executive desk, professional business environment, high-end photography, sharp details"
+- "Modern office meeting room, funding presentation on screen, diverse business team discussing, professional corporate setting"
+- "SBA loan application documents with approved stamp, office desk with pen and calculator, professional business photography"
+```
+
+**For BUSINESS Category Posts:**
+
+```
+Prompt Examples:
+- "LLC company formation documents and business license on desk, professional office setting, corporate photography style"
+- "Entrepreneur working on business plan, modern laptop and coffee, minimalist office aesthetic, professional photography"
+- "Business growth chart showing upward trend, modern office background, professional corporate photography, clean aesthetic"
+- "Corporate office building exterior, professional business district, blue sky, modern architecture, commercial photography"
+```
+
+### Image Generation Best Practices
+
+1. **Style Consistency**: Use "professional business photography" or "corporate photography style" in all prompts
+2. **Lighting**: Specify "natural lighting" or "professional lighting" for realistic results
+3. **Composition**: Request "clean background" or "modern office setting" for professional look
+4. **Quality**: Add "high quality", "4K", or "sharp focus" for better results
+5. **Avoid Text**: Don't request text overlays (they often look unprofessional in AI generation)
+6. **Color Palette**: Use "professional blue tones" or "warm business aesthetic" for brand consistency
+
+### Where to Upload Generated Images
+
+**Option A: Imgur (Easiest - No Account Required)**
+
+```bash
+# Upload to Imgur API (anonymous)
+curl -X POST \
+  -H "Authorization: Client-ID YOUR_IMGUR_CLIENT_ID" \
+  -F "image=@/path/to/image.jpg" \
+  https://api.imgur.com/3/image
+
+# Response includes direct link:
+# "link": "https://i.imgur.com/abc123.jpg"
+```
+
+**Option B: GitHub (Version Controlled)**
+
+```bash
+# Upload to your repository's /public/blog-images/ folder
+# Then use: "image": "https://www.mrmogulmaker.com/blog-images/credit-cards.jpg"
+```
+
+**Option C: Cloudinary (Professional CDN)**
+
+1. Create free account: https://cloudinary.com
+2. Upload via dashboard or API
+3. Get direct URL with automatic optimization
+
+### Complete Workflow with AI Image Generation
+
+```
+STEP-BY-STEP PROCESS:
+
+1. Write your blog post content (HTML)
+
+2. Generate a professional header image:
+   - Use category-specific prompt (see examples above)
+   - Ensure 1200x675px minimum size
+   - Save as high-quality JPG
+
+3. Upload image to hosting service:
+   - Imgur (easiest): https://imgur.com/upload
+   - Get direct image URL ending in .jpg
+
+4. Create blog post JSON with image URL:
+   {
+     "title": "How to Build Business Credit in 90 Days",
+     "image": "https://i.imgur.com/abc123.jpg",
+     "content": "..."
+   }
+
+5. Publish to GitHub using existing workflow
+```
 
 ---
 
@@ -275,12 +418,13 @@ Before publishing, verify:
 
 ### Content Guidelines
 
-1. **Length**: Aim for 800-2000 words
+1. **Length**: Aim for 1,500-5,000+ words for comprehensive, detailed content
 2. **Formatting**: Use HTML headings (h2, h3), paragraphs, lists
 3. **SEO**: Include keywords naturally in title and content
-4. **Value**: Provide actionable advice and practical tips
-5. **Tone**: Professional but conversational
-6. **Call-to-Action**: End with invitation to Mogul Maker Academy
+4. **Value**: Provide actionable advice, specific details, and practical steps
+5. **Tone**: Professional but conversational (Antonio Cook's expert voice)
+6. **Images**: Always use real images (AI-generated or stock photos) for better engagement
+7. **Call-to-Action**: End with invitation to Mogul Maker Academy
 
 ### HTML Content Tips
 
